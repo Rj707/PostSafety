@@ -15,6 +15,7 @@
 		A1F156AF20AABFF60049DB21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F156AD20AABFF60049DB21 /* LaunchScreen.storyboard */; };
 		A1F156BA20AABFF60049DB21 /* PostSafetyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F156B920AABFF60049DB21 /* PostSafetyTests.swift */; };
 		A1F156C520AABFF60049DB21 /* PostSafetyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F156C420AABFF60049DB21 /* PostSafetyUITests.swift */; };
+		A1F156D320AB13420049DB21 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F156D220AB13420049DB21 /* Dashboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		A1F156C020AABFF60049DB21 /* PostSafetyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PostSafetyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F156C420AABFF60049DB21 /* PostSafetyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSafetyUITests.swift; sourceTree = "<group>"; };
 		A1F156C620AABFF60049DB21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1F156D220AB13420049DB21 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				A1F156A420AABFF50049DB21 /* AppDelegate.swift */,
 				A1F156A620AABFF50049DB21 /* ViewController.swift */,
 				A1F156A820AABFF50049DB21 /* Authentication.storyboard */,
+				A1F156D220AB13420049DB21 /* Dashboard.storyboard */,
 				A1F156AB20AABFF60049DB21 /* Assets.xcassets */,
 				A1F156AD20AABFF60049DB21 /* LaunchScreen.storyboard */,
 				A1F156B020AABFF60049DB21 /* Info.plist */,
@@ -259,6 +262,7 @@
 				A1F156AF20AABFF60049DB21 /* LaunchScreen.storyboard in Resources */,
 				A1F156AC20AABFF60049DB21 /* Assets.xcassets in Resources */,
 				A1F156AA20AABFF50049DB21 /* Authentication.storyboard in Resources */,
+				A1F156D320AB13420049DB21 /* Dashboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

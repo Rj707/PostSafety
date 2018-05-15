@@ -220,6 +220,9 @@
                                                                                 <integer key="value" value="22"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <segue destination="SzT-ZZ-ulS" kind="push" id="qdL-OP-rcM"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQx-Fk-p1r">
                                                                         <rect key="frame" x="53.666666666666664" y="138.66666666666663" width="122.66666666666669" height="17.666666666666657"/>
@@ -298,6 +301,16 @@
                 <tapGestureRecognizer id="my2-Pw-DTB"/>
             </objects>
             <point key="canvasLocation" x="1855.2" y="34.729064039408868"/>
+        </scene>
+        <!--Dashboard-->
+        <scene sceneID="NZJ-Zy-5P4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Dashboard" id="SzT-ZZ-ulS" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="PlZ-na-NQC"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n32-de-p3D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1854" y="437"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tGK-7h-4dw">
