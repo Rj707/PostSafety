@@ -1,15 +1,12 @@
 PODS:
   - IQKeyboardManagerSwift (5.0.0)
-  - TPKeyboardAvoidingSwift (1.0)
 
 DEPENDENCIES:
   - IQKeyboardManagerSwift (= 5.0.0)
-  - TPKeyboardAvoidingSwift
 
 SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 3f340202ebe1a7076279b9b9b3c817243ddb3aab
-  TPKeyboardAvoidingSwift: 1a5823ef8bf6d97d140c89b38ff4377276eaeb8f
 
-PODFILE CHECKSUM: 4eb2284a6917e4f4538801907cd79f877139e985
+PODFILE CHECKSUM: 1666efa31e14fc7710fcb1362d26b573a8d8b4c1
 
 COCOAPODS: 1.4.0
