@@ -8,8 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		2C5F40C35FA6E8D5F17D9D1A /* Pods_PostSafety.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462E62552B0A0080C9267F99 /* Pods_PostSafety.framework */; };
+		A16142CE20AC108E00421414 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142CD20AC108E00421414 /* LogInViewController.swift */; };
+		A16142D020AC10C400421414 /* SendVerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142CF20AC10C400421414 /* SendVerificationCodeViewController.swift */; };
+		A16142D220AC10D300421414 /* VerifyCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D120AC10D300421414 /* VerifyCodeViewController.swift */; };
+		A16142D420AC10FC00421414 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D320AC10FC00421414 /* SignUpViewController.swift */; };
+		A16142D620AC110A00421414 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D520AC110A00421414 /* DashboardViewController.swift */; };
+		A16142D820AC11BD00421414 /* UpdatesAnnouncementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D720AC11BD00421414 /* UpdatesAnnouncementsViewController.swift */; };
+		A16142DA20AC11CD00421414 /* AnnouncementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D920AC11CD00421414 /* AnnouncementDetailViewController.swift */; };
+		A16142DC20AC11E600421414 /* SelectReportTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142DB20AC11E600421414 /* SelectReportTypeViewController.swift */; };
+		A16142DE20AC121400421414 /* TakePhotoVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142DD20AC121400421414 /* TakePhotoVideoViewController.swift */; };
+		A16142E020AC122700421414 /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142DF20AC122700421414 /* SelectLocationViewController.swift */; };
 		A1F156A520AABFF50049DB21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F156A420AABFF50049DB21 /* AppDelegate.swift */; };
-		A1F156A720AABFF50049DB21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F156A620AABFF50049DB21 /* ViewController.swift */; };
 		A1F156AA20AABFF50049DB21 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F156A820AABFF50049DB21 /* Authentication.storyboard */; };
 		A1F156AC20AABFF60049DB21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1F156AB20AABFF60049DB21 /* Assets.xcassets */; };
 		A1F156AF20AABFF60049DB21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F156AD20AABFF60049DB21 /* LaunchScreen.storyboard */; };
@@ -39,9 +48,18 @@
 		1A842FAE2CD79A6058C5732A /* Pods-PostSafety.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostSafety.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PostSafety/Pods-PostSafety.debug.xcconfig"; sourceTree = "<group>"; };
 		462E62552B0A0080C9267F99 /* Pods_PostSafety.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PostSafety.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6654D11319022298AEDDCE /* Pods-PostSafety.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostSafety.release.xcconfig"; path = "Pods/Target Support Files/Pods-PostSafety/Pods-PostSafety.release.xcconfig"; sourceTree = "<group>"; };
+		A16142CD20AC108E00421414 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		A16142CF20AC10C400421414 /* SendVerificationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendVerificationCodeViewController.swift; sourceTree = "<group>"; };
+		A16142D120AC10D300421414 /* VerifyCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyCodeViewController.swift; sourceTree = "<group>"; };
+		A16142D320AC10FC00421414 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		A16142D520AC110A00421414 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		A16142D720AC11BD00421414 /* UpdatesAnnouncementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesAnnouncementsViewController.swift; sourceTree = "<group>"; };
+		A16142D920AC11CD00421414 /* AnnouncementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementDetailViewController.swift; sourceTree = "<group>"; };
+		A16142DB20AC11E600421414 /* SelectReportTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectReportTypeViewController.swift; sourceTree = "<group>"; };
+		A16142DD20AC121400421414 /* TakePhotoVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhotoVideoViewController.swift; sourceTree = "<group>"; };
+		A16142DF20AC122700421414 /* SelectLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
 		A1F156A120AABFF50049DB21 /* PostSafety.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostSafety.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F156A420AABFF50049DB21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A1F156A620AABFF50049DB21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A1F156A920AABFF50049DB21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication.storyboard; sourceTree = "<group>"; };
 		A1F156AB20AABFF60049DB21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1F156AE20AABFF60049DB21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -90,6 +108,32 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A16142CB20AC103B00421414 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A1F156A820AABFF50049DB21 /* Authentication.storyboard */,
+				A1F156D220AB13420049DB21 /* Dashboard.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		A16142CC20AC105100421414 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A16142CD20AC108E00421414 /* LogInViewController.swift */,
+				A16142CF20AC10C400421414 /* SendVerificationCodeViewController.swift */,
+				A16142D120AC10D300421414 /* VerifyCodeViewController.swift */,
+				A16142D320AC10FC00421414 /* SignUpViewController.swift */,
+				A16142D520AC110A00421414 /* DashboardViewController.swift */,
+				A16142D720AC11BD00421414 /* UpdatesAnnouncementsViewController.swift */,
+				A16142D920AC11CD00421414 /* AnnouncementDetailViewController.swift */,
+				A16142DB20AC11E600421414 /* SelectReportTypeViewController.swift */,
+				A16142DD20AC121400421414 /* TakePhotoVideoViewController.swift */,
+				A16142DF20AC122700421414 /* SelectLocationViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		A1F1569820AABFF50049DB21 = {
 			isa = PBXGroup;
 			children = (
@@ -116,9 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				A1F156A420AABFF50049DB21 /* AppDelegate.swift */,
-				A1F156A620AABFF50049DB21 /* ViewController.swift */,
-				A1F156A820AABFF50049DB21 /* Authentication.storyboard */,
-				A1F156D220AB13420049DB21 /* Dashboard.storyboard */,
+				A16142CC20AC105100421414 /* ViewControllers */,
+				A16142CB20AC103B00421414 /* Storyboards */,
 				A1F156AB20AABFF60049DB21 /* Assets.xcassets */,
 				A1F156AD20AABFF60049DB21 /* LaunchScreen.storyboard */,
 				A1F156B020AABFF60049DB21 /* Info.plist */,
@@ -341,8 +384,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1F156A720AABFF50049DB21 /* ViewController.swift in Sources */,
+				A16142D420AC10FC00421414 /* SignUpViewController.swift in Sources */,
+				A16142D620AC110A00421414 /* DashboardViewController.swift in Sources */,
+				A16142DC20AC11E600421414 /* SelectReportTypeViewController.swift in Sources */,
+				A16142D220AC10D300421414 /* VerifyCodeViewController.swift in Sources */,
+				A16142E020AC122700421414 /* SelectLocationViewController.swift in Sources */,
+				A16142DA20AC11CD00421414 /* AnnouncementDetailViewController.swift in Sources */,
 				A1F156A520AABFF50049DB21 /* AppDelegate.swift in Sources */,
+				A16142D020AC10C400421414 /* SendVerificationCodeViewController.swift in Sources */,
+				A16142DE20AC121400421414 /* TakePhotoVideoViewController.swift in Sources */,
+				A16142D820AC11BD00421414 /* UpdatesAnnouncementsViewController.swift in Sources */,
+				A16142CE20AC108E00421414 /* LogInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
