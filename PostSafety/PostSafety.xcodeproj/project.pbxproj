@@ -18,6 +18,8 @@
 		A16142DC20AC11E600421414 /* SelectReportTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142DB20AC11E600421414 /* SelectReportTypeViewController.swift */; };
 		A16142DE20AC121400421414 /* TakePhotoVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142DD20AC121400421414 /* TakePhotoVideoViewController.swift */; };
 		A16142E020AC122700421414 /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142DF20AC122700421414 /* SelectLocationViewController.swift */; };
+		A16142E220AC219B00421414 /* ReportConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142E120AC219B00421414 /* ReportConfirmationViewController.swift */; };
+		A16142E420AC335500421414 /* PersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142E320AC335500421414 /* PersonalInformationViewController.swift */; };
 		A1F156A520AABFF50049DB21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F156A420AABFF50049DB21 /* AppDelegate.swift */; };
 		A1F156AA20AABFF50049DB21 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F156A820AABFF50049DB21 /* Authentication.storyboard */; };
 		A1F156AC20AABFF60049DB21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1F156AB20AABFF60049DB21 /* Assets.xcassets */; };
@@ -58,6 +60,8 @@
 		A16142DB20AC11E600421414 /* SelectReportTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectReportTypeViewController.swift; sourceTree = "<group>"; };
 		A16142DD20AC121400421414 /* TakePhotoVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhotoVideoViewController.swift; sourceTree = "<group>"; };
 		A16142DF20AC122700421414 /* SelectLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
+		A16142E120AC219B00421414 /* ReportConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportConfirmationViewController.swift; sourceTree = "<group>"; };
+		A16142E320AC335500421414 /* PersonalInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewController.swift; sourceTree = "<group>"; };
 		A1F156A120AABFF50049DB21 /* PostSafety.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostSafety.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F156A420AABFF50049DB21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1F156A920AABFF50049DB21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication.storyboard; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 				A16142DB20AC11E600421414 /* SelectReportTypeViewController.swift */,
 				A16142DD20AC121400421414 /* TakePhotoVideoViewController.swift */,
 				A16142DF20AC122700421414 /* SelectLocationViewController.swift */,
+				A16142E120AC219B00421414 /* ReportConfirmationViewController.swift */,
+				A16142E320AC335500421414 /* PersonalInformationViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -387,12 +393,14 @@
 				A16142D420AC10FC00421414 /* SignUpViewController.swift in Sources */,
 				A16142D620AC110A00421414 /* DashboardViewController.swift in Sources */,
 				A16142DC20AC11E600421414 /* SelectReportTypeViewController.swift in Sources */,
+				A16142E420AC335500421414 /* PersonalInformationViewController.swift in Sources */,
 				A16142D220AC10D300421414 /* VerifyCodeViewController.swift in Sources */,
 				A16142E020AC122700421414 /* SelectLocationViewController.swift in Sources */,
 				A16142DA20AC11CD00421414 /* AnnouncementDetailViewController.swift in Sources */,
 				A1F156A520AABFF50049DB21 /* AppDelegate.swift in Sources */,
 				A16142D020AC10C400421414 /* SendVerificationCodeViewController.swift in Sources */,
 				A16142DE20AC121400421414 /* TakePhotoVideoViewController.swift in Sources */,
+				A16142E220AC219B00421414 /* ReportConfirmationViewController.swift in Sources */,
 				A16142D820AC11BD00421414 /* UpdatesAnnouncementsViewController.swift in Sources */,
 				A16142CE20AC108E00421414 /* LogInViewController.swift in Sources */,
 			);
