@@ -411,7 +411,7 @@
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="AE9-1y-Azl">
                     <connections>
-                        <segue destination="mrN-dc-1hC" kind="push" id="db3-bR-rja"/>
+                        <segue destination="Kp2-je-YB3" kind="push" id="fck-Yl-iB7"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -1148,7 +1148,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XxZ-9G-Ubj" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="r7r-Xm-TGT"/>
             </objects>
-            <point key="canvasLocation" x="1854" y="-670"/>
+            <point key="canvasLocation" x="1855" y="-959"/>
         </scene>
         <!--Personal Information View Controller-->
         <scene sceneID="W5g-xY-Blu">
@@ -1474,7 +1474,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EcW-AN-lii" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="sha-9h-nqf"/>
             </objects>
-            <point key="canvasLocation" x="2689" y="-670"/>
+            <point key="canvasLocation" x="2689" y="-959"/>
         </scene>
     </scenes>
     <resources>
