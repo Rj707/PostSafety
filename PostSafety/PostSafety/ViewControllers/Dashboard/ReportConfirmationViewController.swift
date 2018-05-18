@@ -21,7 +21,13 @@ class ReportConfirmationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    // MARK: - IBActions
+    
+    @IBAction func backButtonTouched(_ sender: UIButton)
+    {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

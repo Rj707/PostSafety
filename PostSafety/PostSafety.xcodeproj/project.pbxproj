@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18E6912020AE00D3000094EF /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18E6911F20AE00D3000094EF /* Camera.storyboard */; };
-		18E6912220AE015E000094EF /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E6912120AE015E000094EF /* CameraViewController.swift */; };
-		18E6912520AE01FF000094EF /* CameraOverLay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E6912420AE01FF000094EF /* CameraOverLay.xib */; };
 		2C5F40C35FA6E8D5F17D9D1A /* Pods_PostSafety.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462E62552B0A0080C9267F99 /* Pods_PostSafety.framework */; };
 		A16142CE20AC108E00421414 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142CD20AC108E00421414 /* LogInViewController.swift */; };
 		A16142D020AC10C400421414 /* SendVerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142CF20AC10C400421414 /* SendVerificationCodeViewController.swift */; };
@@ -30,6 +27,11 @@
 		A1F156BA20AABFF60049DB21 /* PostSafetyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F156B920AABFF60049DB21 /* PostSafetyTests.swift */; };
 		A1F156C520AABFF60049DB21 /* PostSafetyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F156C420AABFF60049DB21 /* PostSafetyUITests.swift */; };
 		A1F156D320AB13420049DB21 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F156D220AB13420049DB21 /* Dashboard.storyboard */; };
+		C4E5A56220AE55960060898B /* SelectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56120AE55950060898B /* SelectCategoryViewController.swift */; };
+		C4E5A56420AE55E90060898B /* QuickSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56320AE55E90060898B /* QuickSummaryViewController.swift */; };
+		C4E5A56620AE56050060898B /* ReportSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56520AE56050060898B /* ReportSummaryViewController.swift */; };
+		C4E5A56820AE56200060898B /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56720AE56200060898B /* ReportDetailViewController.swift */; };
+		C4E5A56B20AE5BD50060898B /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56A20AE5BD50060898B /* CategoryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,9 +52,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		18E6911F20AE00D3000094EF /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
-		18E6912120AE015E000094EF /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		18E6912420AE01FF000094EF /* CameraOverLay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraOverLay.xib; sourceTree = "<group>"; };
 		1A842FAE2CD79A6058C5732A /* Pods-PostSafety.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostSafety.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PostSafety/Pods-PostSafety.debug.xcconfig"; sourceTree = "<group>"; };
 		462E62552B0A0080C9267F99 /* Pods_PostSafety.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PostSafety.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6654D11319022298AEDDCE /* Pods-PostSafety.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostSafety.release.xcconfig"; path = "Pods/Target Support Files/Pods-PostSafety/Pods-PostSafety.release.xcconfig"; sourceTree = "<group>"; };
@@ -81,6 +80,11 @@
 		A1F156C420AABFF60049DB21 /* PostSafetyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSafetyUITests.swift; sourceTree = "<group>"; };
 		A1F156C620AABFF60049DB21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1F156D220AB13420049DB21 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		C4E5A56120AE55950060898B /* SelectCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryViewController.swift; sourceTree = "<group>"; };
+		C4E5A56320AE55E90060898B /* QuickSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSummaryViewController.swift; sourceTree = "<group>"; };
+		C4E5A56520AE56050060898B /* ReportSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSummaryViewController.swift; sourceTree = "<group>"; };
+		C4E5A56720AE56200060898B /* ReportDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
+		C4E5A56A20AE5BD50060898B /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,14 +113,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		18E6912320AE01EF000094EF /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				18E6912420AE01FF000094EF /* CameraOverLay.xib */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		24898A3A87D90F1EC65B8F78 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,23 +122,20 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		A16142CB20AC103B00421414 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				A1F156A820AABFF50049DB21 /* Authentication.storyboard */,
-				A1F156D220AB13420049DB21 /* Dashboard.storyboard */,
-				18E6911F20AE00D3000094EF /* Camera.storyboard */,
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		A16142CC20AC105100421414 /* ViewControllers */ = {
+		A15BECDF20AEB9D80081BC25 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
 				A16142CD20AC108E00421414 /* LogInViewController.swift */,
 				A16142CF20AC10C400421414 /* SendVerificationCodeViewController.swift */,
 				A16142D120AC10D300421414 /* VerifyCodeViewController.swift */,
 				A16142D320AC10FC00421414 /* SignUpViewController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		A15BECE020AEB9F50081BC25 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
 				A16142D520AC110A00421414 /* DashboardViewController.swift */,
 				A16142D720AC11BD00421414 /* UpdatesAnnouncementsViewController.swift */,
 				A16142D920AC11CD00421414 /* AnnouncementDetailViewController.swift */,
@@ -151,7 +144,28 @@
 				A16142DF20AC122700421414 /* SelectLocationViewController.swift */,
 				A16142E120AC219B00421414 /* ReportConfirmationViewController.swift */,
 				A16142E320AC335500421414 /* PersonalInformationViewController.swift */,
-				18E6912120AE015E000094EF /* CameraViewController.swift */,
+				C4E5A56120AE55950060898B /* SelectCategoryViewController.swift */,
+				C4E5A56320AE55E90060898B /* QuickSummaryViewController.swift */,
+				C4E5A56520AE56050060898B /* ReportSummaryViewController.swift */,
+				C4E5A56720AE56200060898B /* ReportDetailViewController.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		A16142CB20AC103B00421414 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A1F156A820AABFF50049DB21 /* Authentication.storyboard */,
+				A1F156D220AB13420049DB21 /* Dashboard.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		A16142CC20AC105100421414 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A15BECDF20AEB9D80081BC25 /* Authentication */,
+				A15BECE020AEB9F50081BC25 /* Dashboard */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -182,7 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				A1F156A420AABFF50049DB21 /* AppDelegate.swift */,
-				18E6912320AE01EF000094EF /* Views */,
+				C4E5A56920AE5BBC0060898B /* CustomCells */,
 				A16142CC20AC105100421414 /* ViewControllers */,
 				A16142CB20AC103B00421414 /* Storyboards */,
 				A1F156AB20AABFF60049DB21 /* Assets.xcassets */,
@@ -208,6 +222,14 @@
 				A1F156C620AABFF60049DB21 /* Info.plist */,
 			);
 			path = PostSafetyUITests;
+			sourceTree = "<group>";
+		};
+		C4E5A56920AE5BBC0060898B /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				C4E5A56A20AE5BD50060898B /* CategoryTableViewCell.swift */,
+			);
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 		D4893846E3A3E1AF908A2924 /* Frameworks */ = {
@@ -329,8 +351,6 @@
 				A1F156AC20AABFF60049DB21 /* Assets.xcassets in Resources */,
 				A1F156AA20AABFF50049DB21 /* Authentication.storyboard in Resources */,
 				A1F156D320AB13420049DB21 /* Dashboard.storyboard in Resources */,
-				18E6912020AE00D3000094EF /* Camera.storyboard in Resources */,
-				18E6912520AE01FF000094EF /* CameraOverLay.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,18 +431,22 @@
 			files = (
 				A16142D420AC10FC00421414 /* SignUpViewController.swift in Sources */,
 				A16142D620AC110A00421414 /* DashboardViewController.swift in Sources */,
+				C4E5A56220AE55960060898B /* SelectCategoryViewController.swift in Sources */,
 				A16142DC20AC11E600421414 /* SelectReportTypeViewController.swift in Sources */,
 				A16142E420AC335500421414 /* PersonalInformationViewController.swift in Sources */,
 				A16142D220AC10D300421414 /* VerifyCodeViewController.swift in Sources */,
+				C4E5A56420AE55E90060898B /* QuickSummaryViewController.swift in Sources */,
+				C4E5A56820AE56200060898B /* ReportDetailViewController.swift in Sources */,
 				A16142E020AC122700421414 /* SelectLocationViewController.swift in Sources */,
 				A16142DA20AC11CD00421414 /* AnnouncementDetailViewController.swift in Sources */,
 				A1F156A520AABFF50049DB21 /* AppDelegate.swift in Sources */,
 				A16142D020AC10C400421414 /* SendVerificationCodeViewController.swift in Sources */,
 				A16142DE20AC121400421414 /* TakePhotoVideoViewController.swift in Sources */,
 				A16142E220AC219B00421414 /* ReportConfirmationViewController.swift in Sources */,
-				18E6912220AE015E000094EF /* CameraViewController.swift in Sources */,
 				A16142D820AC11BD00421414 /* UpdatesAnnouncementsViewController.swift in Sources */,
 				A16142CE20AC108E00421414 /* LogInViewController.swift in Sources */,
+				C4E5A56620AE56050060898B /* ReportSummaryViewController.swift in Sources */,
+				C4E5A56B20AE5BD50060898B /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,8 +621,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8FA6H2MXX5;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 9C7SE2E79C;
 				INFOPLIST_FILE = PostSafety/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -607,8 +631,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.distribution.talkhomeapps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "1ae29555-86d7-4500-a397-129fc91280e4";
+				PROVISIONING_PROFILE_SPECIFIER = "iOS Development com.distribution.talkhomeapps";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -620,8 +644,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8FA6H2MXX5;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = PostSafety/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

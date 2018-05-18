@@ -6,17 +6,24 @@
 //  Copyright © 2018 Now Tel. All rights reserved.
 //
 
+enum FeedType :Int
+{
+    case Announcement
+    case SharedReports
+}
+
 import UIKit
 
 class UpdatesAnnouncementsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 {
-    
+
     @IBOutlet weak var updatesAnnouncementsTableView : UITableView!
+    var type : FeedType!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        self.type = FeedType.init(rawValue: 0)
         self.updatesAnnouncementsTableView.dataSource = self
         self.updatesAnnouncementsTableView.delegate = self
         
@@ -38,7 +45,15 @@ class UpdatesAnnouncementsViewController: UIViewController,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         var cell:UITableViewCell
-        cell = tableView.dequeueReusableCell(withIdentifier: "AnnouncementCell", for: indexPath)
+        if self.type.rawValue == 0
+        {
+            cell = tableView.dequeueReusableCell(withIdentifier: "AnnouncementCell", for: indexPath)
+        }
+        else
+        {
+            cell = tableView.dequeueReusableCell(withIdentifier: "SharedReportsCell", for: indexPath)
+        }
+        
         return cell
     }
     
@@ -47,6 +62,18 @@ class UpdatesAnnouncementsViewController: UIViewController,UITableViewDataSource
     @IBAction func backButtonTouched(_ sender: UIButton)
     {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func announcementsViewTouched(_ sender: UITapGestureRecognizer)
+    {
+        self.type = FeedType(rawValue: 0)
+        self.updatesAnnouncementsTableView.reloadData()
+    }
+    
+    @IBAction func sharedReportsViewTouched(_ sender: UITapGestureRecognizer)
+    {
+        self.type = FeedType(rawValue: 1)
+        self.updatesAnnouncementsTableView.reloadData()
     }
 
     /*
