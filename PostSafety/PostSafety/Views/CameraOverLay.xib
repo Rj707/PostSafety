@@ -13,7 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CameraViewController" customModule="PostSafety" customModuleProvider="target">
             <connections>
-                <outlet property="camerOverLay" destination="iN0-l3-epB" id="aLr-7S-8C4"/>
+                <outlet property="camerOverLay" destination="iN0-l3-epB" id="BGF-4B-Beq"/>
                 <outlet property="cameraCollectionView" destination="ppe-QP-7aM" id="sc4-Dl-3Ti"/>
                 <outlet property="galleryButton" destination="iIH-zb-6yJ" id="SDU-bK-8Vr"/>
             </connections>
@@ -120,7 +120,7 @@
         </view>
         <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="p2u-wJ-pFN">
             <connections>
-                <action selector="tooglePhotoVideoCamera" destination="-1" id="Hh3-zV-wgS"/>
+                <action selector="tooglePhotoVideoCameraWithSender:" destination="-1" id="1gv-89-i2W"/>
             </connections>
         </pongPressGestureRecognizer>
     </objects>

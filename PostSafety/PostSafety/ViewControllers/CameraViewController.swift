@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import MobileCoreServices
 
 public enum AssetPickerType : Int
 {
@@ -44,7 +45,8 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         // Do any additional setup after loading the view.
 //        self.fetchCameraRollAssets()
 //        imageManager = PHCachingImageManager()
-        perform(#selector(CameraViewController.showImagePicker(forCamera:)), with: nil, afterDelay: 0.1)
+        self.showImagePicker(for: .camera)
+//        perform(#selector(CameraViewController.showImagePicker(forCamera:)), with: nil, afterDelay: 0.1)
     }
 
     override func didReceiveMemoryWarning()
@@ -93,6 +95,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     func showImagePicker(for sourceType: UIImagePickerControllerSourceType)
     {
         let imagePickerController = UIImagePickerController()
+        imagePickerController.mediaTypes = [kUTTypeMovie as String, kUTTypeImage as String]
         imagePickerController.modalPresentationStyle = .currentContext
         imagePickerController.sourceType = sourceType
         imagePickerController.delegate = self
@@ -176,9 +179,10 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
 
     // MARK: - CameraOverlay Action Methods
     
-    @IBAction func tooglePhotoVideoCamera()
+    @IBAction func tooglePhotoVideoCamera(sender: UILongPressGestureRecognizer)
     {
         // Dismiss the camera.
+        
         if (self.picker?.cameraCaptureMode)!.rawValue == 0
         {
             self.picker?.cameraCaptureMode = UIImagePickerControllerCameraCaptureMode(rawValue: 1)!
