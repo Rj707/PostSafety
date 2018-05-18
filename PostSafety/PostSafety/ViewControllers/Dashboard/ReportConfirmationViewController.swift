@@ -25,9 +25,36 @@ class ReportConfirmationViewController: UIViewController {
     
     @IBAction func backButtonTouched(_ sender: UIButton)
     {
+        if let viewControllers = self.navigationController?.viewControllers
+        {
+            for viewController in viewControllers
+            {
+                // some process
+                if viewController is DashboardViewController
+                {
+                    self.navigationController?.popToViewController(viewController, animated: true)
+                    break
+                }
+            }
+        }
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func returnToDashboardButtonTouched(_ sender: UIButton)
+    {
+        if let viewControllers = self.navigationController?.viewControllers
+        {
+            for viewController in viewControllers
+            {
+                // some process
+                if viewController is DashboardViewController
+                {
+                    self.navigationController?.popToViewController(viewController, animated: true)
+                    break
+                }
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 

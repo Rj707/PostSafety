@@ -22,12 +22,34 @@ class ReportSummaryViewController: UIViewController {
         let myColor = UIColor.black;
         self.decriptionTextView.layer.borderColor=myColor.cgColor
         self.decriptionTextView.layer.borderWidth=2
+        
+        self.setDateTimeForReport()
+        
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setDateTimeForReport()
+    {
+        let date = Date()
+        let formatter = DateFormatter()
+//        Give the format you want to the formatter:
+        
+        formatter.dateFormat = "dd.MM.yyyy"
+//        Get the result string:
+        
+        var result = formatter.string(from: date)
+//        Set your label:
+        
+        self.dateTextField.text = result
+        
+        formatter.dateFormat = "hh:mm a"
+        result = formatter.string(from: date)
+        self.timeTextField.text = result
     }
     
     // MARK: - IBActions

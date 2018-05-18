@@ -23,6 +23,8 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
 {
 
     @IBOutlet var cameraCollectionView : UICollectionView!
+    @IBOutlet var reportImageView : UIImageView!
+    @IBOutlet var sendButton : UIButton!
     @IBOutlet var camerOverLay : UIView?
     @IBOutlet var galleryButton : UIButton?
     
@@ -41,7 +43,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        self.sendButton.isHidden = true
         // Do any additional setup after loading the view.
 //        self.fetchCameraRollAssets()
 //        imageManager = PHCachingImageManager()
@@ -174,7 +176,9 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
 //                self.openGallery()
 //            }
 //        }
-
+        self.reportImageView.image = tempImage
+        self.dismissCamera()
+         self.sendButton.isHidden = false
     }
 
     // MARK: - CameraOverlay Action Methods
@@ -235,7 +239,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     {
         // Dismiss the image picker.
         self.picker = nil;
-        self.presentingViewController?.dismiss(animated: true, completion:
+        self.dismiss(animated: true, completion:
         {
             () -> Void in
             //.. done dismissing
