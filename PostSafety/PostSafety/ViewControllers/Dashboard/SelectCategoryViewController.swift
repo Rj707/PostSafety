@@ -27,8 +27,17 @@ class SelectCategoryViewController: UIViewController,UITableViewDelegate,UITable
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - IBActions
+    
+    @IBAction func backButtonTouched(_ sender: UIButton)
+    {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func nextButtonTouched(_ sender: Any) {
     }
+    
+    // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
