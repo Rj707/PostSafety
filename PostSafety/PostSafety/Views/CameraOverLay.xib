@@ -58,7 +58,6 @@
                             <state key="normal" image="circle"/>
                             <connections>
                                 <action selector="captureImage" destination="-1" eventType="touchUpInside" id="bnL-Zd-dk7"/>
-                                <outletCollection property="gestureRecognizers" destination="p2u-wJ-pFN" appends="YES" id="S4Y-cx-nIw"/>
                             </connections>
                         </button>
                         <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOr-Nu-Q0q">
@@ -118,11 +117,6 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="-18" y="77"/>
         </view>
-        <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="p2u-wJ-pFN">
-            <connections>
-                <action selector="tooglePhotoVideoCameraWithSender:" destination="-1" id="1gv-89-i2W"/>
-            </connections>
-        </pongPressGestureRecognizer>
     </objects>
     <resources>
         <image name="camera-delete" width="21" height="21"/>

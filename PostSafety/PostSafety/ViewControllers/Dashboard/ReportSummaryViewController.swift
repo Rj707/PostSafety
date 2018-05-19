@@ -24,7 +24,10 @@ class ReportSummaryViewController: UIViewController {
         self.decriptionTextView.layer.borderWidth=2
         
         self.setDateTimeForReport()
-        
+        var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
+      reportTypeTextField.text=result["reporttype"]
+        siteLocationTextField.text=result["location"]
+        categoryTextField.text=result["category"]
         // Do any additional setup after loading the view.
     }
 
@@ -59,7 +62,9 @@ class ReportSummaryViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func sendReportButtonTouched(_ sender: Any) {
+    @IBAction func sendReportButtonTouched(_ sender: Any)
+    {
+       
     }
     
     /*

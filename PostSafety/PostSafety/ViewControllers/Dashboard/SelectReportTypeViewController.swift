@@ -28,6 +28,36 @@ class SelectReportTypeViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 
+    @IBAction func emergencyGestureTapped(_ sender: Any)
+    {
+        let dict:[String:String] = ["reporttype":"Emergency"]
+        UserDefaults.standard.set(dict, forKey: "dict")
+        let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "CameraViewController") as! CameraViewController
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
+        
+    }
+    @IBAction func incidentGestureTapped(_ sender: Any)
+    {
+        let dict:[String:String] = ["reporttype":"Incident"]
+        UserDefaults.standard.set(dict, forKey: "dict")
+        let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "CameraViewController") as! CameraViewController
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
+ 
+    }
+    @IBAction func hazardGestureTapped(_ sender: Any)
+    {
+        
+        let dict:[String:String] = ["reporttype":"Hazard"]
+        UserDefaults.standard.set(dict, forKey: "dict")
+        let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "CameraViewController") as! CameraViewController
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
+    }
     /*
     // MARK: - Navigation
 

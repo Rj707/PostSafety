@@ -246,7 +246,27 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         })
     }
     
-//    // MARK: - UICollectionViewDelegate
+    @IBAction func sendButtonTouched(_ sender: Any)
+    {
+        var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
+       if result["reporttype"] != "Emergency"
+       {
+        let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SelectCategoryViewController") as! SelectCategoryViewController
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
+        }
+       else
+       {
+        
+        let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "QuickSummaryViewController") as! QuickSummaryViewController
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
+        }
+        
+    }
+    //    // MARK: - UICollectionViewDelegate
 //
 //    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
 //    {

@@ -34,7 +34,21 @@ class SelectCategoryViewController: UIViewController,UITableViewDelegate,UITable
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func nextButtonTouched(_ sender: Any) {
+    @IBAction func nextButtonTouched(_ sender: Any)
+    {
+        if selectedCategoryArray.count>0
+        {
+            
+            var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
+            result["category"] = categorynames[Int(selectedCategoryArray[0])!]
+                UserDefaults.standard.set(result, forKey: "dict")
+        }
+        else
+        {
+            let alert = UIAlertController(title: "Alert", message: "Please Select Category", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     // MARK: - UITableViewDataSource
@@ -49,7 +63,15 @@ class SelectCategoryViewController: UIViewController,UITableViewDelegate,UITable
     {
         let cell : CategoryTableViewCell = self.catergoryTableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as! CategoryTableViewCell
         cell.selectionStyle = .none
-        if cell.isSelected
+        let myString : String
+        if selectedCategoryArray.count>0 {
+              myString = selectedCategoryArray[0]
+        }
+        else
+        {
+              myString = "7"
+        }
+        if indexPath.row ==  Int(myString)
         {
         cell.configureCell(isselected: true, category: categorynames[indexPath.row])
         }
@@ -70,17 +92,23 @@ class SelectCategoryViewController: UIViewController,UITableViewDelegate,UITable
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        selectedCategoryArray.append(categorynames[indexPath.row])
+//        let selectedItems = catergoryTableView.indexPathsForSelectedRows
+//
+//        for index in selectedItems!
+//        {
+//            if index != indexPath
+//            {
+//            catergoryTableView.deselectRow(at: indexPath, animated: false)
+//
+//            }
+//
+//        }
+        
+        selectedCategoryArray.removeAll()
+        selectedCategoryArray.append(String(indexPath.row))
         self.catergoryTableView.reloadData()
     }
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath)
-    {
-        if let index = selectedCategoryArray.index(of: categorynames[indexPath.row])
-        {
-            selectedCategoryArray.remove(at: index)
-                  self.catergoryTableView.reloadData()
-        }
-    }
+ 
     /*
     // MARK: - Navigation
 

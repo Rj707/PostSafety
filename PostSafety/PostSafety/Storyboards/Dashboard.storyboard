@@ -765,17 +765,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cri-wj-pwL" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Zq1-dM-9uc">
                     <connections>
-                        <segue destination="eGV-m7-KcD" kind="push" id="Enq-Zx-aV1"/>
+                        <action selector="hazardGestureTapped:" destination="hxe-Df-Uhg" id="36B-Jb-5Yb"/>
+                        <outlet property="delegate" destination="hxe-Df-Uhg" id="P7W-k7-dYt"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="okK-NJ-3Cc">
                     <connections>
-                        <segue destination="eGV-m7-KcD" kind="push" id="bWX-EM-J7C"/>
+                        <action selector="incidentGestureTapped:" destination="hxe-Df-Uhg" id="h7y-E5-3kE"/>
+                        <outlet property="delegate" destination="hxe-Df-Uhg" id="uGw-3Y-cEr"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="Mag-JL-905">
                     <connections>
-                        <segue destination="eGV-m7-KcD" kind="push" id="fFT-4t-fxm"/>
+                        <action selector="emergencyGestureTapped:" destination="hxe-Df-Uhg" id="AxD-D7-cxb"/>
+                        <outlet property="delegate" destination="hxe-Df-Uhg" id="7pB-qE-xER"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -922,6 +925,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="2"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="nextButtonTouched:" destination="DJn-pQ-wan" eventType="touchUpInside" id="zj9-m0-R1l"/>
                                     <segue destination="3Hy-7l-zcv" kind="push" id="C5y-05-dZo"/>
                                 </connections>
                             </button>
@@ -985,10 +989,26 @@
                     <navigationItem key="navigationItem" id="K1I-17-Ner"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zgY-Gn-4ur" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="E0c-Yt-u0F"/>
-                <tapGestureRecognizer id="03g-Zz-RB8"/>
-                <tapGestureRecognizer id="2bn-ZW-FE0"/>
-                <tapGestureRecognizer id="tM2-Ez-Be7"/>
+                <tapGestureRecognizer id="E0c-Yt-u0F">
+                    <connections>
+                        <action selector="AgestureTapped:" destination="DJn-pQ-wan" id="rZT-wm-wjr"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="03g-Zz-RB8">
+                    <connections>
+                        <action selector="BgestureTapped:" destination="DJn-pQ-wan" id="AAg-SN-30E"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="2bn-ZW-FE0">
+                    <connections>
+                        <action selector="CgestureTapped:" destination="DJn-pQ-wan" id="Mhf-Xm-fxD"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="tM2-Ez-Be7">
+                    <connections>
+                        <action selector="DgestureTapped:" destination="DJn-pQ-wan" id="G1h-5Y-IFR"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3569" y="959"/>
         </scene>
@@ -1598,7 +1618,7 @@
         <!--Select Category View Controller-->
         <scene sceneID="epv-il-PRT">
             <objects>
-                <viewController id="RtV-qp-Jse" customClass="SelectCategoryViewController" customModule="PostSafety" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectCategoryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RtV-qp-Jse" customClass="SelectCategoryViewController" customModule="PostSafety" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gZO-sD-tfv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1752,7 +1772,7 @@
         <!--Quick Summary View Controller-->
         <scene sceneID="8GL-rV-Cob">
             <objects>
-                <viewController id="cIL-yE-0pF" customClass="QuickSummaryViewController" customModule="PostSafety" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuickSummaryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cIL-yE-0pF" customClass="QuickSummaryViewController" customModule="PostSafety" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8jd-Ba-h4Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2204,7 +2224,7 @@
                                 </constraints>
                                 <state key="normal" image="send"/>
                                 <connections>
-                                    <segue destination="RtV-qp-Jse" kind="push" id="4J4-Yv-EMU"/>
+                                    <action selector="sendButtonTouched:" destination="eGV-m7-KcD" eventType="touchUpInside" id="hwR-dh-q07"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -2236,7 +2256,4 @@
         <image name="ok-mark" width="85" height="85"/>
         <image name="send" width="42" height="42"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Enq-Zx-aV1"/>
-    </inferredMetricsTieBreakers>
 </document>

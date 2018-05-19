@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PostSafety.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>armv7</string>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>FA915B7DC5A47B26A3A4F101082768F14314F369</string>
+				<key>dateExpires</key>
+				<string>10/02/2019</string>
+				<key>type</key>
+				<string>iOS Distribution</string>
+			</dict>
+			<key>embeddedBinaries</key>
+			<array>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>armv7</string>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>FA915B7DC5A47B26A3A4F101082768F14314F369</string>
+						<key>dateExpires</key>
+						<string>10/02/2019</string>
+						<key>type</key>
+						<string>iOS Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>IQKeyboardManagerSwift.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>THAAVDZLRL</string>
+						<key>name</key>
+						<string>Tayyab Ali Shah</string>
+					</dict>
+				</dict>
+			</array>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>THAAVDZLRL.com.postsafety</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>THAAVDZLRL</string>
+				<key>get-task-allow</key>
+				<false/>
+				<key>keychain-access-groups</key>
+				<array>
+					<string>THAAVDZLRL.com.postsafety</string>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>PostSafety.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>58310963-1146-47a8-82ce-7ebcdf667d0d</string>
+				<key>name</key>
+				<string>iOS Team Ad Hoc Provisioning Profile: *</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>THAAVDZLRL</string>
+				<key>name</key>
+				<string>Tayyab Ali Shah</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
