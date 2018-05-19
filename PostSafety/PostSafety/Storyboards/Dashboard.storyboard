@@ -2249,11 +2249,73 @@
             </objects>
             <point key="canvasLocation" x="2689" y="1927"/>
         </scene>
+        <!--Take Photo Video View Controller-->
+        <scene sceneID="9GQ-Nf-6pa">
+            <objects>
+                <viewController storyboardIdentifier="TakePhotoVideoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JXk-sm-ukh" customClass="TakePhotoVideoViewController" customModule="PostSafety" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mb2-mC-PJz"/>
+                        <viewControllerLayoutGuide type="bottom" id="42j-Xg-TnD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BVZ-R3-fzy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4sD-44-2QB" customClass="SwiftyRecordButton" customModule="DemoSwiftyCam" customModuleProvider="target">
+                                <rect key="frame" x="150" y="717" width="75" height="75"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="Czb-MZ-OQJ"/>
+                                    <constraint firstAttribute="width" constant="75" id="EPK-J0-Fs4"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3uG-BI-bgp">
+                                <rect key="frame" x="70" y="743.66666666666663" width="30" height="22"/>
+                                <state key="normal" image="flipCamera"/>
+                                <connections>
+                                    <action selector="cameraSwitchTapped:" destination="JXk-sm-ukh" eventType="touchUpInside" id="AVG-ib-2pb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEn-Tg-E18">
+                                <rect key="frame" x="275" y="739" width="18" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="18" id="srw-m3-XIH"/>
+                                    <constraint firstAttribute="height" constant="30" id="z9M-Uy-iaK"/>
+                                </constraints>
+                                <state key="normal" image="flashOutline"/>
+                                <connections>
+                                    <action selector="toggleFlashTapped:" destination="JXk-sm-ukh" eventType="touchUpInside" id="UId-7r-x6c"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="HEn-Tg-E18" firstAttribute="leading" secondItem="4sD-44-2QB" secondAttribute="trailing" constant="50" id="ByV-iU-REY"/>
+                            <constraint firstItem="HEn-Tg-E18" firstAttribute="centerY" secondItem="4sD-44-2QB" secondAttribute="centerY" id="G7h-fv-Tbx"/>
+                            <constraint firstItem="4sD-44-2QB" firstAttribute="leading" secondItem="3uG-BI-bgp" secondAttribute="trailing" constant="50" id="NJx-5e-itE"/>
+                            <constraint firstAttribute="bottom" secondItem="4sD-44-2QB" secondAttribute="bottom" constant="20" symbolic="YES" id="Xfk-Kc-Zsz"/>
+                            <constraint firstItem="4sD-44-2QB" firstAttribute="centerX" secondItem="BVZ-R3-fzy" secondAttribute="centerX" id="fsy-D5-heg"/>
+                            <constraint firstItem="3uG-BI-bgp" firstAttribute="centerY" secondItem="4sD-44-2QB" secondAttribute="centerY" id="p6g-fQ-PnW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Mu4-lS-1BV"/>
+                    </view>
+                    <connections>
+                        <outlet property="captureButton" destination="4sD-44-2QB" id="wIz-NC-ow8"/>
+                        <outlet property="flashButton" destination="HEn-Tg-E18" id="jgh-RZ-pdM"/>
+                        <outlet property="flipCameraButton" destination="3uG-BI-bgp" id="ffc-dg-1v3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zny-5j-ezP" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3591" y="1926"/>
+        </scene>
     </scenes>
     <resources>
         <image name="back" width="16" height="16"/>
+        <image name="flashOutline" width="17" height="30"/>
+        <image name="flipCamera" width="30" height="22"/>
         <image name="logo" width="85" height="85"/>
         <image name="ok-mark" width="85" height="85"/>
-        <image name="send" width="42" height="42"/>
+        <image name="send" width="21" height="21"/>
     </resources>
 </document>

@@ -33,7 +33,7 @@ class SelectReportTypeViewController: UIViewController {
         let dict:[String:String] = ["reporttype":"Emergency"]
         UserDefaults.standard.set(dict, forKey: "dict")
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "CameraViewController") as! CameraViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
         navigationController?.pushViewController(vc,
                                                  animated: true)
         
@@ -43,7 +43,7 @@ class SelectReportTypeViewController: UIViewController {
         let dict:[String:String] = ["reporttype":"Incident"]
         UserDefaults.standard.set(dict, forKey: "dict")
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "CameraViewController") as! CameraViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
         navigationController?.pushViewController(vc,
                                                  animated: true)
  
@@ -54,7 +54,7 @@ class SelectReportTypeViewController: UIViewController {
         let dict:[String:String] = ["reporttype":"Hazard"]
         UserDefaults.standard.set(dict, forKey: "dict")
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "CameraViewController") as! CameraViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
         navigationController?.pushViewController(vc,
                                                  animated: true)
     }
