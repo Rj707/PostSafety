@@ -1,5 +1,5 @@
 //
-//  AnnouncementDetailViewController.swift
+//  LogInViewController.swift
 //  PostSafety
 //
 //  Created by Hafiz Saad on 16/05/2018.
@@ -8,12 +8,19 @@
 
 import UIKit
 
-class AnnouncementDetailViewController: UIViewController {
+class PSLogInViewController: UIViewController
+{
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        PSAPIManager.sharedInstance.authenticateUserWith(email: "4038709552", password: "123454", success:
+            { (dic:Dictionary) in
+            
+            }, failure:
+            { (error:NSError) in
+            
+            }, errorPopup: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,13 +28,7 @@ class AnnouncementDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - IBActions
-    
-    @IBAction func backButtonTouched(_ sender: UIButton)
-    {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
+
     /*
     // MARK: - Navigation
 

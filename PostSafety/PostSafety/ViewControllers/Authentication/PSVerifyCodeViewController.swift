@@ -1,5 +1,5 @@
 //
-//  DashboardViewController.swift
+//  VerifyCodeViewController.swift
 //  PostSafety
 //
 //  Created by Hafiz Saad on 16/05/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DashboardViewController: UIViewController {
+class PSVerifyCodeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class DashboardViewController: UIViewController {
     {
         self.navigationController?.popViewController(animated: true)
     }
-    
+
     /*
     // MARK: - Navigation
 

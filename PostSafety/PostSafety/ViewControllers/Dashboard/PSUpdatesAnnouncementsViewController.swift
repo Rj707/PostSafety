@@ -14,7 +14,7 @@ enum FeedType :Int
 
 import UIKit
 
-class UpdatesAnnouncementsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
+class PSUpdatesAnnouncementsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 {
 
     @IBOutlet weak var updatesAnnouncementsTableView : UITableView!

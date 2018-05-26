@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectCategoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
+class PSSelectCategoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 {
 
     @IBOutlet weak var catergoryTableView: UITableView!

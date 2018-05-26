@@ -5,7 +5,7 @@ import AVFoundation
 
 import Alamofire
 
-class Utility {
+class PSUtility {
     
     func roundAndFormatFloat(floatToReturn : Float, numDecimalPlaces: Int) -> String{
         
@@ -41,7 +41,7 @@ class Utility {
     static func showAlert(title:String?, message:String?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default) { _ in })
-        Utility().topViewController()!.present(alert, animated: true){}
+        PSUtility().topViewController()!.present(alert, animated: true){}
     }
     
     

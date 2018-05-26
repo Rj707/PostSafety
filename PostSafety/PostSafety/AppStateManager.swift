@@ -4,7 +4,7 @@ class AppStateManager: NSObject
 {
     static let sharedInstance = AppStateManager()
     
-    var loggedInUser: User!
+    var loggedInUser: PSUser!
     
     override init()
     {

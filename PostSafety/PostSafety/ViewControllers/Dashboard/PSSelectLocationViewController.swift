@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectLocationViewController: UIViewController {
+class PSSelectLocationViewController: UIViewController {
     
     var locationselected:Bool=false
     override func viewDidLoad() {

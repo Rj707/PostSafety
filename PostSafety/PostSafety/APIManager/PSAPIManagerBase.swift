@@ -3,7 +3,7 @@ import Alamofire
 import SwiftyJSON
 
 
-class APIManagerBase: NSObject
+class PSAPIManagerBase: NSObject
 {
     var alamoFireManager : SessionManager!
     let baseURL = Constants.BaseURL
@@ -23,7 +23,7 @@ class APIManagerBase: NSObject
         
         if(AppStateManager.sharedInstance.isUserLoggedIn())
         {
-            if let token = APIManager.sharedInstance.serverToken
+            if let token = PSAPIManager.sharedInstance.serverToken
             {
                 var str = "bearer "
                 str.append(token)
@@ -38,7 +38,7 @@ class APIManagerBase: NSObject
         
         if(AppStateManager.sharedInstance.isUserLoggedIn())
         {
-            if let token = APIManager.sharedInstance.serverToken
+            if let token = PSAPIManager.sharedInstance.serverToken
             {
                 var str = "bearer "
                 str.append(token)

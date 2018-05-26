@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1812E68A20B8A32100E484C6 /* APIManager+Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68820B8A32100E484C6 /* APIManager+Authentication.swift */; };
-		1812E68B20B8A32100E484C6 /* AuthenticationAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68920B8A32100E484C6 /* AuthenticationAPIManager.swift */; };
-		1812E68D20B8A37600E484C6 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68C20B8A37600E484C6 /* APIManager.swift */; };
-		1812E68F20B8A3EB00E484C6 /* APIManagerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68E20B8A3EB00E484C6 /* APIManagerBase.swift */; };
-		1812E69120B8A4C000E484C6 /* RouteUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69020B8A4C000E484C6 /* RouteUrls.swift */; };
-		1812E69420B8A4D800E484C6 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69220B8A4D800E484C6 /* Utility.swift */; };
-		1812E69520B8A4D800E484C6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69320B8A4D800E484C6 /* Constants.swift */; };
+		1812E68A20B8A32100E484C6 /* PSAPIManager+Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68820B8A32100E484C6 /* PSAPIManager+Authentication.swift */; };
+		1812E68B20B8A32100E484C6 /* PSAuthenticationAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68920B8A32100E484C6 /* PSAuthenticationAPIManager.swift */; };
+		1812E68D20B8A37600E484C6 /* PSAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68C20B8A37600E484C6 /* PSAPIManager.swift */; };
+		1812E68F20B8A3EB00E484C6 /* PSAPIManagerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68E20B8A3EB00E484C6 /* PSAPIManagerBase.swift */; };
+		1812E69120B8A4C000E484C6 /* PSRouteUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69020B8A4C000E484C6 /* PSRouteUrls.swift */; };
+		1812E69420B8A4D800E484C6 /* PSUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69220B8A4D800E484C6 /* PSUtility.swift */; };
+		1812E69520B8A4D800E484C6 /* PSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69320B8A4D800E484C6 /* PSConstants.swift */; };
 		1812E69720B8A4F800E484C6 /* AppStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69620B8A4F700E484C6 /* AppStateManager.swift */; };
-		1812E69920B8A50C00E484C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69820B8A50C00E484C6 /* User.swift */; };
+		1812E69920B8A50C00E484C6 /* PSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69820B8A50C00E484C6 /* PSUser.swift */; };
 		18FDED3A20B04F2A009CBA0B /* SwiftyCamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3620B04F2A009CBA0B /* SwiftyCamViewController.swift */; };
 		18FDED3B20B04F2A009CBA0B /* SwiftyCamButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3720B04F2A009CBA0B /* SwiftyCamButton.swift */; };
 		18FDED3C20B04F2A009CBA0B /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3820B04F2A009CBA0B /* PreviewView.swift */; };
@@ -26,18 +26,18 @@
 		2C5F40C35FA6E8D5F17D9D1A /* Pods_PostSafety.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462E62552B0A0080C9267F99 /* Pods_PostSafety.framework */; };
 		A15BECE520AEEB560081BC25 /* CameraOverLay.xib in Resources */ = {isa = PBXBuildFile; fileRef = A15BECE420AEEB550081BC25 /* CameraOverLay.xib */; };
 		A15BECE720AEEB6B0081BC25 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BECE620AEEB6A0081BC25 /* CameraViewController.swift */; };
-		A16142CE20AC108E00421414 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142CD20AC108E00421414 /* LogInViewController.swift */; };
-		A16142D020AC10C400421414 /* SendVerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142CF20AC10C400421414 /* SendVerificationCodeViewController.swift */; };
-		A16142D220AC10D300421414 /* VerifyCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D120AC10D300421414 /* VerifyCodeViewController.swift */; };
-		A16142D420AC10FC00421414 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D320AC10FC00421414 /* SignUpViewController.swift */; };
-		A16142D620AC110A00421414 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D520AC110A00421414 /* DashboardViewController.swift */; };
-		A16142D820AC11BD00421414 /* UpdatesAnnouncementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D720AC11BD00421414 /* UpdatesAnnouncementsViewController.swift */; };
-		A16142DA20AC11CD00421414 /* AnnouncementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D920AC11CD00421414 /* AnnouncementDetailViewController.swift */; };
-		A16142DC20AC11E600421414 /* SelectReportTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142DB20AC11E600421414 /* SelectReportTypeViewController.swift */; };
+		A16142CE20AC108E00421414 /* PSLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142CD20AC108E00421414 /* PSLogInViewController.swift */; };
+		A16142D020AC10C400421414 /* PSSendVerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142CF20AC10C400421414 /* PSSendVerificationCodeViewController.swift */; };
+		A16142D220AC10D300421414 /* PSVerifyCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D120AC10D300421414 /* PSVerifyCodeViewController.swift */; };
+		A16142D420AC10FC00421414 /* PSSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D320AC10FC00421414 /* PSSignUpViewController.swift */; };
+		A16142D620AC110A00421414 /* PSDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D520AC110A00421414 /* PSDashboardViewController.swift */; };
+		A16142D820AC11BD00421414 /* PSUpdatesAnnouncementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D720AC11BD00421414 /* PSUpdatesAnnouncementsViewController.swift */; };
+		A16142DA20AC11CD00421414 /* PSAnnouncementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D920AC11CD00421414 /* PSAnnouncementDetailViewController.swift */; };
+		A16142DC20AC11E600421414 /* PSSelectReportTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142DB20AC11E600421414 /* PSSelectReportTypeViewController.swift */; };
 		A16142DE20AC121400421414 /* TakePhotoVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142DD20AC121400421414 /* TakePhotoVideoViewController.swift */; };
-		A16142E020AC122700421414 /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142DF20AC122700421414 /* SelectLocationViewController.swift */; };
-		A16142E220AC219B00421414 /* ReportConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142E120AC219B00421414 /* ReportConfirmationViewController.swift */; };
-		A16142E420AC335500421414 /* PersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142E320AC335500421414 /* PersonalInformationViewController.swift */; };
+		A16142E020AC122700421414 /* PSSelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142DF20AC122700421414 /* PSSelectLocationViewController.swift */; };
+		A16142E220AC219B00421414 /* PSReportConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142E120AC219B00421414 /* PSReportConfirmationViewController.swift */; };
+		A16142E420AC335500421414 /* PSPersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142E320AC335500421414 /* PSPersonalInformationViewController.swift */; };
 		A1F156A520AABFF50049DB21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F156A420AABFF50049DB21 /* AppDelegate.swift */; };
 		A1F156AA20AABFF50049DB21 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F156A820AABFF50049DB21 /* Authentication.storyboard */; };
 		A1F156AC20AABFF60049DB21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1F156AB20AABFF60049DB21 /* Assets.xcassets */; };
@@ -45,10 +45,10 @@
 		A1F156BA20AABFF60049DB21 /* PostSafetyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F156B920AABFF60049DB21 /* PostSafetyTests.swift */; };
 		A1F156C520AABFF60049DB21 /* PostSafetyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F156C420AABFF60049DB21 /* PostSafetyUITests.swift */; };
 		A1F156D320AB13420049DB21 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F156D220AB13420049DB21 /* Dashboard.storyboard */; };
-		C4E5A56220AE55960060898B /* SelectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56120AE55950060898B /* SelectCategoryViewController.swift */; };
-		C4E5A56420AE55E90060898B /* QuickSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56320AE55E90060898B /* QuickSummaryViewController.swift */; };
-		C4E5A56620AE56050060898B /* ReportSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56520AE56050060898B /* ReportSummaryViewController.swift */; };
-		C4E5A56820AE56200060898B /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56720AE56200060898B /* ReportDetailViewController.swift */; };
+		C4E5A56220AE55960060898B /* PSSelectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56120AE55950060898B /* PSSelectCategoryViewController.swift */; };
+		C4E5A56420AE55E90060898B /* PSQuickSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56320AE55E90060898B /* PSQuickSummaryViewController.swift */; };
+		C4E5A56620AE56050060898B /* PSReportSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56520AE56050060898B /* PSReportSummaryViewController.swift */; };
+		C4E5A56820AE56200060898B /* PSReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56720AE56200060898B /* PSReportDetailViewController.swift */; };
 		C4E5A56B20AE5BD50060898B /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56A20AE5BD50060898B /* CategoryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,15 +70,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1812E68820B8A32100E484C6 /* APIManager+Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+Authentication.swift"; sourceTree = "<group>"; };
-		1812E68920B8A32100E484C6 /* AuthenticationAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationAPIManager.swift; sourceTree = "<group>"; };
-		1812E68C20B8A37600E484C6 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		1812E68E20B8A3EB00E484C6 /* APIManagerBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManagerBase.swift; sourceTree = "<group>"; };
-		1812E69020B8A4C000E484C6 /* RouteUrls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteUrls.swift; sourceTree = "<group>"; };
-		1812E69220B8A4D800E484C6 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
-		1812E69320B8A4D800E484C6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1812E68820B8A32100E484C6 /* PSAPIManager+Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PSAPIManager+Authentication.swift"; sourceTree = "<group>"; };
+		1812E68920B8A32100E484C6 /* PSAuthenticationAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSAuthenticationAPIManager.swift; sourceTree = "<group>"; };
+		1812E68C20B8A37600E484C6 /* PSAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSAPIManager.swift; sourceTree = "<group>"; };
+		1812E68E20B8A3EB00E484C6 /* PSAPIManagerBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSAPIManagerBase.swift; sourceTree = "<group>"; };
+		1812E69020B8A4C000E484C6 /* PSRouteUrls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSRouteUrls.swift; sourceTree = "<group>"; };
+		1812E69220B8A4D800E484C6 /* PSUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSUtility.swift; sourceTree = "<group>"; };
+		1812E69320B8A4D800E484C6 /* PSConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSConstants.swift; sourceTree = "<group>"; };
 		1812E69620B8A4F700E484C6 /* AppStateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateManager.swift; sourceTree = "<group>"; };
-		1812E69820B8A50C00E484C6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1812E69820B8A50C00E484C6 /* PSUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSUser.swift; sourceTree = "<group>"; };
 		18FDED3620B04F2A009CBA0B /* SwiftyCamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamViewController.swift; sourceTree = "<group>"; };
 		18FDED3720B04F2A009CBA0B /* SwiftyCamButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamButton.swift; sourceTree = "<group>"; };
 		18FDED3820B04F2A009CBA0B /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
@@ -91,18 +91,18 @@
 		4A6654D11319022298AEDDCE /* Pods-PostSafety.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostSafety.release.xcconfig"; path = "Pods/Target Support Files/Pods-PostSafety/Pods-PostSafety.release.xcconfig"; sourceTree = "<group>"; };
 		A15BECE420AEEB550081BC25 /* CameraOverLay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraOverLay.xib; sourceTree = "<group>"; };
 		A15BECE620AEEB6A0081BC25 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		A16142CD20AC108E00421414 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		A16142CF20AC10C400421414 /* SendVerificationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendVerificationCodeViewController.swift; sourceTree = "<group>"; };
-		A16142D120AC10D300421414 /* VerifyCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyCodeViewController.swift; sourceTree = "<group>"; };
-		A16142D320AC10FC00421414 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		A16142D520AC110A00421414 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
-		A16142D720AC11BD00421414 /* UpdatesAnnouncementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesAnnouncementsViewController.swift; sourceTree = "<group>"; };
-		A16142D920AC11CD00421414 /* AnnouncementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementDetailViewController.swift; sourceTree = "<group>"; };
-		A16142DB20AC11E600421414 /* SelectReportTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectReportTypeViewController.swift; sourceTree = "<group>"; };
+		A16142CD20AC108E00421414 /* PSLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSLogInViewController.swift; sourceTree = "<group>"; };
+		A16142CF20AC10C400421414 /* PSSendVerificationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSendVerificationCodeViewController.swift; sourceTree = "<group>"; };
+		A16142D120AC10D300421414 /* PSVerifyCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSVerifyCodeViewController.swift; sourceTree = "<group>"; };
+		A16142D320AC10FC00421414 /* PSSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSignUpViewController.swift; sourceTree = "<group>"; };
+		A16142D520AC110A00421414 /* PSDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSDashboardViewController.swift; sourceTree = "<group>"; };
+		A16142D720AC11BD00421414 /* PSUpdatesAnnouncementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSUpdatesAnnouncementsViewController.swift; sourceTree = "<group>"; };
+		A16142D920AC11CD00421414 /* PSAnnouncementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSAnnouncementDetailViewController.swift; sourceTree = "<group>"; };
+		A16142DB20AC11E600421414 /* PSSelectReportTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSelectReportTypeViewController.swift; sourceTree = "<group>"; };
 		A16142DD20AC121400421414 /* TakePhotoVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhotoVideoViewController.swift; sourceTree = "<group>"; };
-		A16142DF20AC122700421414 /* SelectLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
-		A16142E120AC219B00421414 /* ReportConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportConfirmationViewController.swift; sourceTree = "<group>"; };
-		A16142E320AC335500421414 /* PersonalInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewController.swift; sourceTree = "<group>"; };
+		A16142DF20AC122700421414 /* PSSelectLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSelectLocationViewController.swift; sourceTree = "<group>"; };
+		A16142E120AC219B00421414 /* PSReportConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReportConfirmationViewController.swift; sourceTree = "<group>"; };
+		A16142E320AC335500421414 /* PSPersonalInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSPersonalInformationViewController.swift; sourceTree = "<group>"; };
 		A1F156A120AABFF50049DB21 /* PostSafety.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostSafety.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F156A420AABFF50049DB21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1F156A920AABFF50049DB21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication.storyboard; sourceTree = "<group>"; };
@@ -116,10 +116,10 @@
 		A1F156C420AABFF60049DB21 /* PostSafetyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSafetyUITests.swift; sourceTree = "<group>"; };
 		A1F156C620AABFF60049DB21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1F156D220AB13420049DB21 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
-		C4E5A56120AE55950060898B /* SelectCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryViewController.swift; sourceTree = "<group>"; };
-		C4E5A56320AE55E90060898B /* QuickSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSummaryViewController.swift; sourceTree = "<group>"; };
-		C4E5A56520AE56050060898B /* ReportSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSummaryViewController.swift; sourceTree = "<group>"; };
-		C4E5A56720AE56200060898B /* ReportDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
+		C4E5A56120AE55950060898B /* PSSelectCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSelectCategoryViewController.swift; sourceTree = "<group>"; };
+		C4E5A56320AE55E90060898B /* PSQuickSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSQuickSummaryViewController.swift; sourceTree = "<group>"; };
+		C4E5A56520AE56050060898B /* PSReportSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReportSummaryViewController.swift; sourceTree = "<group>"; };
+		C4E5A56720AE56200060898B /* PSReportDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReportDetailViewController.swift; sourceTree = "<group>"; };
 		C4E5A56A20AE5BD50060898B /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,7 +152,7 @@
 		180F040520B943FF00AC17E5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1812E69820B8A50C00E484C6 /* User.swift */,
+				1812E69820B8A50C00E484C6 /* PSUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -160,8 +160,8 @@
 		180F040620B944D300AC17E5 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				1812E68820B8A32100E484C6 /* APIManager+Authentication.swift */,
-				1812E68920B8A32100E484C6 /* AuthenticationAPIManager.swift */,
+				1812E68820B8A32100E484C6 /* PSAPIManager+Authentication.swift */,
+				1812E68920B8A32100E484C6 /* PSAuthenticationAPIManager.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -169,10 +169,10 @@
 		1812E69A20B8B8D000E484C6 /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
-				1812E68C20B8A37600E484C6 /* APIManager.swift */,
-				1812E68E20B8A3EB00E484C6 /* APIManagerBase.swift */,
+				1812E68C20B8A37600E484C6 /* PSAPIManager.swift */,
+				1812E68E20B8A3EB00E484C6 /* PSAPIManagerBase.swift */,
 				180F040620B944D300AC17E5 /* Authentication */,
-				1812E69020B8A4C000E484C6 /* RouteUrls.swift */,
+				1812E69020B8A4C000E484C6 /* PSRouteUrls.swift */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -219,10 +219,10 @@
 		A15BECDF20AEB9D80081BC25 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				A16142CD20AC108E00421414 /* LogInViewController.swift */,
-				A16142CF20AC10C400421414 /* SendVerificationCodeViewController.swift */,
-				A16142D120AC10D300421414 /* VerifyCodeViewController.swift */,
-				A16142D320AC10FC00421414 /* SignUpViewController.swift */,
+				A16142CD20AC108E00421414 /* PSLogInViewController.swift */,
+				A16142CF20AC10C400421414 /* PSSendVerificationCodeViewController.swift */,
+				A16142D120AC10D300421414 /* PSVerifyCodeViewController.swift */,
+				A16142D320AC10FC00421414 /* PSSignUpViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -231,18 +231,18 @@
 			isa = PBXGroup;
 			children = (
 				A15BECE620AEEB6A0081BC25 /* CameraViewController.swift */,
-				A16142D520AC110A00421414 /* DashboardViewController.swift */,
-				A16142D720AC11BD00421414 /* UpdatesAnnouncementsViewController.swift */,
-				A16142D920AC11CD00421414 /* AnnouncementDetailViewController.swift */,
-				A16142DB20AC11E600421414 /* SelectReportTypeViewController.swift */,
+				A16142D520AC110A00421414 /* PSDashboardViewController.swift */,
+				A16142D720AC11BD00421414 /* PSUpdatesAnnouncementsViewController.swift */,
+				A16142D920AC11CD00421414 /* PSAnnouncementDetailViewController.swift */,
+				A16142DB20AC11E600421414 /* PSSelectReportTypeViewController.swift */,
 				18FDED3E20B04F51009CBA0B /* CustomCamera */,
-				A16142DF20AC122700421414 /* SelectLocationViewController.swift */,
-				A16142E120AC219B00421414 /* ReportConfirmationViewController.swift */,
-				A16142E320AC335500421414 /* PersonalInformationViewController.swift */,
-				C4E5A56120AE55950060898B /* SelectCategoryViewController.swift */,
-				C4E5A56320AE55E90060898B /* QuickSummaryViewController.swift */,
-				C4E5A56520AE56050060898B /* ReportSummaryViewController.swift */,
-				C4E5A56720AE56200060898B /* ReportDetailViewController.swift */,
+				A16142DF20AC122700421414 /* PSSelectLocationViewController.swift */,
+				A16142E120AC219B00421414 /* PSReportConfirmationViewController.swift */,
+				A16142E320AC335500421414 /* PSPersonalInformationViewController.swift */,
+				C4E5A56120AE55950060898B /* PSSelectCategoryViewController.swift */,
+				C4E5A56320AE55E90060898B /* PSQuickSummaryViewController.swift */,
+				C4E5A56520AE56050060898B /* PSReportSummaryViewController.swift */,
+				C4E5A56720AE56200060898B /* PSReportDetailViewController.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -300,8 +300,8 @@
 			children = (
 				A1F156A420AABFF50049DB21 /* AppDelegate.swift */,
 				1812E69620B8A4F700E484C6 /* AppStateManager.swift */,
-				1812E69320B8A4D800E484C6 /* Constants.swift */,
-				1812E69220B8A4D800E484C6 /* Utility.swift */,
+				1812E69320B8A4D800E484C6 /* PSConstants.swift */,
+				1812E69220B8A4D800E484C6 /* PSUtility.swift */,
 				180F040520B943FF00AC17E5 /* Models */,
 				1812E69A20B8B8D000E484C6 /* APIManager */,
 				18FDED3420B04EE0009CBA0B /* ThirdPartyLibs */,
@@ -528,41 +528,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1812E69120B8A4C000E484C6 /* RouteUrls.swift in Sources */,
-				A16142D420AC10FC00421414 /* SignUpViewController.swift in Sources */,
-				A16142D620AC110A00421414 /* DashboardViewController.swift in Sources */,
+				1812E69120B8A4C000E484C6 /* PSRouteUrls.swift in Sources */,
+				A16142D420AC10FC00421414 /* PSSignUpViewController.swift in Sources */,
+				A16142D620AC110A00421414 /* PSDashboardViewController.swift in Sources */,
 				18FDED4120B04F82009CBA0B /* VideoViewController.swift in Sources */,
 				18FDED3A20B04F2A009CBA0B /* SwiftyCamViewController.swift in Sources */,
 				18FDED3C20B04F2A009CBA0B /* PreviewView.swift in Sources */,
-				1812E68D20B8A37600E484C6 /* APIManager.swift in Sources */,
-				C4E5A56220AE55960060898B /* SelectCategoryViewController.swift in Sources */,
-				1812E68F20B8A3EB00E484C6 /* APIManagerBase.swift in Sources */,
-				A16142DC20AC11E600421414 /* SelectReportTypeViewController.swift in Sources */,
-				A16142E420AC335500421414 /* PersonalInformationViewController.swift in Sources */,
-				A16142D220AC10D300421414 /* VerifyCodeViewController.swift in Sources */,
+				1812E68D20B8A37600E484C6 /* PSAPIManager.swift in Sources */,
+				C4E5A56220AE55960060898B /* PSSelectCategoryViewController.swift in Sources */,
+				1812E68F20B8A3EB00E484C6 /* PSAPIManagerBase.swift in Sources */,
+				A16142DC20AC11E600421414 /* PSSelectReportTypeViewController.swift in Sources */,
+				A16142E420AC335500421414 /* PSPersonalInformationViewController.swift in Sources */,
+				A16142D220AC10D300421414 /* PSVerifyCodeViewController.swift in Sources */,
 				18FDED3D20B04F2A009CBA0B /* SwiftyCamViewControllerDelegate.swift in Sources */,
-				1812E69920B8A50C00E484C6 /* User.swift in Sources */,
-				C4E5A56420AE55E90060898B /* QuickSummaryViewController.swift in Sources */,
-				C4E5A56820AE56200060898B /* ReportDetailViewController.swift in Sources */,
-				A16142E020AC122700421414 /* SelectLocationViewController.swift in Sources */,
-				A16142DA20AC11CD00421414 /* AnnouncementDetailViewController.swift in Sources */,
+				1812E69920B8A50C00E484C6 /* PSUser.swift in Sources */,
+				C4E5A56420AE55E90060898B /* PSQuickSummaryViewController.swift in Sources */,
+				C4E5A56820AE56200060898B /* PSReportDetailViewController.swift in Sources */,
+				A16142E020AC122700421414 /* PSSelectLocationViewController.swift in Sources */,
+				A16142DA20AC11CD00421414 /* PSAnnouncementDetailViewController.swift in Sources */,
 				A1F156A520AABFF50049DB21 /* AppDelegate.swift in Sources */,
-				A16142D020AC10C400421414 /* SendVerificationCodeViewController.swift in Sources */,
+				A16142D020AC10C400421414 /* PSSendVerificationCodeViewController.swift in Sources */,
 				1812E69720B8A4F800E484C6 /* AppStateManager.swift in Sources */,
 				A16142DE20AC121400421414 /* TakePhotoVideoViewController.swift in Sources */,
-				A16142E220AC219B00421414 /* ReportConfirmationViewController.swift in Sources */,
+				A16142E220AC219B00421414 /* PSReportConfirmationViewController.swift in Sources */,
 				18FDED4420B05077009CBA0B /* SwiftyRecordButton.swift in Sources */,
-				A16142D820AC11BD00421414 /* UpdatesAnnouncementsViewController.swift in Sources */,
-				1812E69520B8A4D800E484C6 /* Constants.swift in Sources */,
-				A16142CE20AC108E00421414 /* LogInViewController.swift in Sources */,
+				A16142D820AC11BD00421414 /* PSUpdatesAnnouncementsViewController.swift in Sources */,
+				1812E69520B8A4D800E484C6 /* PSConstants.swift in Sources */,
+				A16142CE20AC108E00421414 /* PSLogInViewController.swift in Sources */,
 				A15BECE720AEEB6B0081BC25 /* CameraViewController.swift in Sources */,
 				18FDED3B20B04F2A009CBA0B /* SwiftyCamButton.swift in Sources */,
-				C4E5A56620AE56050060898B /* ReportSummaryViewController.swift in Sources */,
+				C4E5A56620AE56050060898B /* PSReportSummaryViewController.swift in Sources */,
 				C4E5A56B20AE5BD50060898B /* CategoryTableViewCell.swift in Sources */,
-				1812E69420B8A4D800E484C6 /* Utility.swift in Sources */,
+				1812E69420B8A4D800E484C6 /* PSUtility.swift in Sources */,
 				18FDED4220B04F82009CBA0B /* PhotoViewController.swift in Sources */,
-				1812E68B20B8A32100E484C6 /* AuthenticationAPIManager.swift in Sources */,
-				1812E68A20B8A32100E484C6 /* APIManager+Authentication.swift in Sources */,
+				1812E68B20B8A32100E484C6 /* PSAuthenticationAPIManager.swift in Sources */,
+				1812E68A20B8A32100E484C6 /* PSAPIManager+Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,9 +13,9 @@ protocol APIErrorHandler
 }
 
 
-class APIManager: NSObject
+class PSAPIManager: NSObject
 {
-    static let sharedInstance = APIManager()
+    static let sharedInstance = PSAPIManager()
     
     let authenticationManagerAPI = AuthenticationAPIManager()
     

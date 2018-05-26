@@ -1,6 +1,6 @@
 import UIKit
 
-class User
+class PSUser
 {
     @objc dynamic var employeeId = 0
     @objc dynamic var employeeSystemId : String?

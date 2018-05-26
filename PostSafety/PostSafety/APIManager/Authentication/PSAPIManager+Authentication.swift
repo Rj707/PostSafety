@@ -1,9 +1,8 @@
-
 import UIKit
 import Alamofire
 import SwiftyJSON
 
-extension APIManager
+extension PSAPIManager
 {
     func authenticateUserWith(email: String,password: String,
                           success:@escaping DefaultArrayResultAPISuccessClosure,

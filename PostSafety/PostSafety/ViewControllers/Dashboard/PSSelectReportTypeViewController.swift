@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectReportTypeViewController: UIViewController {
+class PSSelectReportTypeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

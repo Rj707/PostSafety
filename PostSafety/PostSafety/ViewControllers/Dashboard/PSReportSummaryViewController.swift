@@ -9,7 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 
-class ReportSummaryViewController: UIViewController {
+class PSReportSummaryViewController: UIViewController {
 
     @IBOutlet weak var decriptionTextView: IQTextView!
     @IBOutlet weak var categoryTextField: UITextField!

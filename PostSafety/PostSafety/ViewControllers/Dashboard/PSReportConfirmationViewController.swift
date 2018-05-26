@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReportConfirmationViewController: UIViewController {
+class PSReportConfirmationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class ReportConfirmationViewController: UIViewController {
             for viewController in viewControllers
             {
                 // some process
-                if viewController is DashboardViewController
+                if viewController is PSDashboardViewController
                 {
                     self.navigationController?.popToViewController(viewController, animated: true)
                     break
@@ -47,7 +47,7 @@ class ReportConfirmationViewController: UIViewController {
             for viewController in viewControllers
             {
                 // some process
-                if viewController is DashboardViewController
+                if viewController is PSDashboardViewController
                 {
                     self.navigationController?.popToViewController(viewController, animated: true)
                     break

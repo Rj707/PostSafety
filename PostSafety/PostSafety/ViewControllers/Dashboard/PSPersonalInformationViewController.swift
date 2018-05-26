@@ -1,5 +1,5 @@
 //
-//  LogInViewController.swift
+//  PersonalInformationViewController.swift
 //  PostSafety
 //
 //  Created by Hafiz Saad on 16/05/2018.
@@ -8,19 +8,12 @@
 
 import UIKit
 
-class LogInViewController: UIViewController
-{
+class PSPersonalInformationViewController: UIViewController {
 
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
-        APIManager.sharedInstance.authenticateUserWith(email: "4038709552", password: "123454", success:
-            { (dic:Dictionary) in
-            
-            }, failure:
-            { (error:NSError) in
-            
-            }, errorPopup: true)
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,7 +21,13 @@ class LogInViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
-
+    // MARK: - IBActions
+    
+    @IBAction func backButtonTouched(_ sender: UIButton)
+    {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -8,7 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
-class QuickSummaryViewController: UIViewController {
+class PSQuickSummaryViewController: UIViewController {
 
     @IBOutlet weak var descriptionTextView: IQTextView!
     override func viewDidLoad() {

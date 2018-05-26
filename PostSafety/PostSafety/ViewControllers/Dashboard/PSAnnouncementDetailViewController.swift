@@ -1,5 +1,5 @@
 //
-//  SignUpViewController.swift
+//  AnnouncementDetailViewController.swift
 //  PostSafety
 //
 //  Created by Hafiz Saad on 16/05/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class PSAnnouncementDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

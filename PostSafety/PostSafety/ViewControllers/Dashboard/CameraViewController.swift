@@ -252,7 +252,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
        if result["reporttype"] != "Emergency"
        {
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "SelectCategoryViewController") as! SelectCategoryViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "SelectCategoryViewController") as! PSSelectCategoryViewController
         navigationController?.pushViewController(vc,
                                                  animated: true)
         }
@@ -260,7 +260,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
        {
         
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "QuickSummaryViewController") as! QuickSummaryViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "QuickSummaryViewController") as! PSQuickSummaryViewController
         navigationController?.pushViewController(vc,
                                                  animated: true)
         }
