@@ -8,12 +8,19 @@
 
 import UIKit
 
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController
+{
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        APIManager.sharedInstance.authenticateUserWith(email: "4038709552", password: "123454", success:
+            { (dic:Dictionary) in
+            
+            }, failure:
+            { (error:NSError) in
+            
+            }, errorPopup: true)
     }
 
     override func didReceiveMemoryWarning() {

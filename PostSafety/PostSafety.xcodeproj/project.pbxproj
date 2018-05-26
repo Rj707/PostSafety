@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1812E68A20B8A32100E484C6 /* APIManager_Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68820B8A32100E484C6 /* APIManager_Authentication.swift */; };
+		1812E68B20B8A32100E484C6 /* AuthenticationAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68920B8A32100E484C6 /* AuthenticationAPIManager.swift */; };
+		1812E68D20B8A37600E484C6 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68C20B8A37600E484C6 /* APIManager.swift */; };
+		1812E68F20B8A3EB00E484C6 /* APIManagerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68E20B8A3EB00E484C6 /* APIManagerBase.swift */; };
+		1812E69120B8A4C000E484C6 /* RouteUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69020B8A4C000E484C6 /* RouteUrls.swift */; };
+		1812E69420B8A4D800E484C6 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69220B8A4D800E484C6 /* Utility.swift */; };
+		1812E69520B8A4D800E484C6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69320B8A4D800E484C6 /* Constants.swift */; };
+		1812E69720B8A4F800E484C6 /* AppStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69620B8A4F700E484C6 /* AppStateManager.swift */; };
+		1812E69920B8A50C00E484C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69820B8A50C00E484C6 /* User.swift */; };
 		18FDED3A20B04F2A009CBA0B /* SwiftyCamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3620B04F2A009CBA0B /* SwiftyCamViewController.swift */; };
 		18FDED3B20B04F2A009CBA0B /* SwiftyCamButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3720B04F2A009CBA0B /* SwiftyCamButton.swift */; };
 		18FDED3C20B04F2A009CBA0B /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3820B04F2A009CBA0B /* PreviewView.swift */; };
@@ -61,6 +70,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1812E68820B8A32100E484C6 /* APIManager_Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager_Authentication.swift; sourceTree = "<group>"; };
+		1812E68920B8A32100E484C6 /* AuthenticationAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationAPIManager.swift; sourceTree = "<group>"; };
+		1812E68C20B8A37600E484C6 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		1812E68E20B8A3EB00E484C6 /* APIManagerBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManagerBase.swift; sourceTree = "<group>"; };
+		1812E69020B8A4C000E484C6 /* RouteUrls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteUrls.swift; sourceTree = "<group>"; };
+		1812E69220B8A4D800E484C6 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		1812E69320B8A4D800E484C6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1812E69620B8A4F700E484C6 /* AppStateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateManager.swift; sourceTree = "<group>"; };
+		1812E69820B8A50C00E484C6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		18FDED3620B04F2A009CBA0B /* SwiftyCamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamViewController.swift; sourceTree = "<group>"; };
 		18FDED3720B04F2A009CBA0B /* SwiftyCamButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamButton.swift; sourceTree = "<group>"; };
 		18FDED3820B04F2A009CBA0B /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
@@ -131,6 +149,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1812E69A20B8B8D000E484C6 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				1812E68820B8A32100E484C6 /* APIManager_Authentication.swift */,
+				1812E68C20B8A37600E484C6 /* APIManager.swift */,
+				1812E68E20B8A3EB00E484C6 /* APIManagerBase.swift */,
+				1812E68920B8A32100E484C6 /* AuthenticationAPIManager.swift */,
+				1812E69020B8A4C000E484C6 /* RouteUrls.swift */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
 		18FDED3420B04EE0009CBA0B /* ThirdPartyLibs */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +282,11 @@
 		A1F156A320AABFF50049DB21 /* PostSafety */ = {
 			isa = PBXGroup;
 			children = (
+				1812E69A20B8B8D000E484C6 /* APIManager */,
+				1812E69620B8A4F700E484C6 /* AppStateManager.swift */,
+				1812E69820B8A50C00E484C6 /* User.swift */,
+				1812E69320B8A4D800E484C6 /* Constants.swift */,
+				1812E69220B8A4D800E484C6 /* Utility.swift */,
 				A1F156A420AABFF50049DB21 /* AppDelegate.swift */,
 				18FDED3420B04EE0009CBA0B /* ThirdPartyLibs */,
 				A15BECE320AEEB550081BC25 /* Views */,
@@ -311,7 +346,6 @@
 				A1F1569E20AABFF50049DB21 /* Frameworks */,
 				A1F1569F20AABFF50049DB21 /* Resources */,
 				3569D9CA8D52A9C5E6D65370 /* [CP] Embed Pods Frameworks */,
-				EB8F81E57B02AA809032E800 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -438,11 +472,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PostSafety/Pods-PostSafety-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -467,21 +505,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EB8F81E57B02AA809032E800 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PostSafety/Pods-PostSafety-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -489,32 +512,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1812E69120B8A4C000E484C6 /* RouteUrls.swift in Sources */,
 				A16142D420AC10FC00421414 /* SignUpViewController.swift in Sources */,
 				A16142D620AC110A00421414 /* DashboardViewController.swift in Sources */,
 				18FDED4120B04F82009CBA0B /* VideoViewController.swift in Sources */,
 				18FDED3A20B04F2A009CBA0B /* SwiftyCamViewController.swift in Sources */,
 				18FDED3C20B04F2A009CBA0B /* PreviewView.swift in Sources */,
+				1812E68D20B8A37600E484C6 /* APIManager.swift in Sources */,
 				C4E5A56220AE55960060898B /* SelectCategoryViewController.swift in Sources */,
+				1812E68F20B8A3EB00E484C6 /* APIManagerBase.swift in Sources */,
 				A16142DC20AC11E600421414 /* SelectReportTypeViewController.swift in Sources */,
 				A16142E420AC335500421414 /* PersonalInformationViewController.swift in Sources */,
 				A16142D220AC10D300421414 /* VerifyCodeViewController.swift in Sources */,
 				18FDED3D20B04F2A009CBA0B /* SwiftyCamViewControllerDelegate.swift in Sources */,
+				1812E69920B8A50C00E484C6 /* User.swift in Sources */,
 				C4E5A56420AE55E90060898B /* QuickSummaryViewController.swift in Sources */,
 				C4E5A56820AE56200060898B /* ReportDetailViewController.swift in Sources */,
 				A16142E020AC122700421414 /* SelectLocationViewController.swift in Sources */,
 				A16142DA20AC11CD00421414 /* AnnouncementDetailViewController.swift in Sources */,
 				A1F156A520AABFF50049DB21 /* AppDelegate.swift in Sources */,
 				A16142D020AC10C400421414 /* SendVerificationCodeViewController.swift in Sources */,
+				1812E69720B8A4F800E484C6 /* AppStateManager.swift in Sources */,
 				A16142DE20AC121400421414 /* TakePhotoVideoViewController.swift in Sources */,
 				A16142E220AC219B00421414 /* ReportConfirmationViewController.swift in Sources */,
 				18FDED4420B05077009CBA0B /* SwiftyRecordButton.swift in Sources */,
 				A16142D820AC11BD00421414 /* UpdatesAnnouncementsViewController.swift in Sources */,
+				1812E69520B8A4D800E484C6 /* Constants.swift in Sources */,
 				A16142CE20AC108E00421414 /* LogInViewController.swift in Sources */,
 				A15BECE720AEEB6B0081BC25 /* CameraViewController.swift in Sources */,
 				18FDED3B20B04F2A009CBA0B /* SwiftyCamButton.swift in Sources */,
 				C4E5A56620AE56050060898B /* ReportSummaryViewController.swift in Sources */,
 				C4E5A56B20AE5BD50060898B /* CategoryTableViewCell.swift in Sources */,
+				1812E69420B8A4D800E484C6 /* Utility.swift in Sources */,
 				18FDED4220B04F82009CBA0B /* PhotoViewController.swift in Sources */,
+				1812E68B20B8A32100E484C6 /* AuthenticationAPIManager.swift in Sources */,
+				1812E68A20B8A32100E484C6 /* APIManager_Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
