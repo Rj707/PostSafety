@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1812E68A20B8A32100E484C6 /* APIManager_Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68820B8A32100E484C6 /* APIManager_Authentication.swift */; };
+		1812E68A20B8A32100E484C6 /* APIManager+Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68820B8A32100E484C6 /* APIManager+Authentication.swift */; };
 		1812E68B20B8A32100E484C6 /* AuthenticationAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68920B8A32100E484C6 /* AuthenticationAPIManager.swift */; };
 		1812E68D20B8A37600E484C6 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68C20B8A37600E484C6 /* APIManager.swift */; };
 		1812E68F20B8A3EB00E484C6 /* APIManagerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68E20B8A3EB00E484C6 /* APIManagerBase.swift */; };
@@ -70,7 +70,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1812E68820B8A32100E484C6 /* APIManager_Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager_Authentication.swift; sourceTree = "<group>"; };
+		1812E68820B8A32100E484C6 /* APIManager+Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+Authentication.swift"; sourceTree = "<group>"; };
 		1812E68920B8A32100E484C6 /* AuthenticationAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationAPIManager.swift; sourceTree = "<group>"; };
 		1812E68C20B8A37600E484C6 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		1812E68E20B8A3EB00E484C6 /* APIManagerBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManagerBase.swift; sourceTree = "<group>"; };
@@ -149,13 +149,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		180F040520B943FF00AC17E5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1812E69820B8A50C00E484C6 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		180F040620B944D300AC17E5 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				1812E68820B8A32100E484C6 /* APIManager+Authentication.swift */,
+				1812E68920B8A32100E484C6 /* AuthenticationAPIManager.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 		1812E69A20B8B8D000E484C6 /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
-				1812E68820B8A32100E484C6 /* APIManager_Authentication.swift */,
 				1812E68C20B8A37600E484C6 /* APIManager.swift */,
 				1812E68E20B8A3EB00E484C6 /* APIManagerBase.swift */,
-				1812E68920B8A32100E484C6 /* AuthenticationAPIManager.swift */,
+				180F040620B944D300AC17E5 /* Authentication */,
 				1812E69020B8A4C000E484C6 /* RouteUrls.swift */,
 			);
 			path = APIManager;
@@ -282,12 +298,12 @@
 		A1F156A320AABFF50049DB21 /* PostSafety */ = {
 			isa = PBXGroup;
 			children = (
-				1812E69A20B8B8D000E484C6 /* APIManager */,
+				A1F156A420AABFF50049DB21 /* AppDelegate.swift */,
 				1812E69620B8A4F700E484C6 /* AppStateManager.swift */,
-				1812E69820B8A50C00E484C6 /* User.swift */,
 				1812E69320B8A4D800E484C6 /* Constants.swift */,
 				1812E69220B8A4D800E484C6 /* Utility.swift */,
-				A1F156A420AABFF50049DB21 /* AppDelegate.swift */,
+				180F040520B943FF00AC17E5 /* Models */,
+				1812E69A20B8B8D000E484C6 /* APIManager */,
 				18FDED3420B04EE0009CBA0B /* ThirdPartyLibs */,
 				A15BECE320AEEB550081BC25 /* Views */,
 				C4E5A56920AE5BBC0060898B /* CustomCells */,
@@ -546,7 +562,7 @@
 				1812E69420B8A4D800E484C6 /* Utility.swift in Sources */,
 				18FDED4220B04F82009CBA0B /* PhotoViewController.swift in Sources */,
 				1812E68B20B8A32100E484C6 /* AuthenticationAPIManager.swift in Sources */,
-				1812E68A20B8A32100E484C6 /* APIManager_Authentication.swift in Sources */,
+				1812E68A20B8A32100E484C6 /* APIManager+Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

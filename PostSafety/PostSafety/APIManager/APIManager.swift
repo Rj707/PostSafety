@@ -1,4 +1,3 @@
-
 import UIKit
 
 typealias DefaultAPIFailureClosure = (NSError) -> Void
