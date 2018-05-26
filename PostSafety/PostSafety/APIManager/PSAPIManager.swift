@@ -1,6 +1,6 @@
 import UIKit
 
-typealias DefaultAPIFailureClosure = (NSError) -> Void
+typealias DefaultAPIFailureClosure = (NSError,Int) -> Void
 typealias DefaultAPISuccessClosure = (Dictionary<String,AnyObject>) -> Void
 typealias DefaultBoolResultAPISuccesClosure = (Bool) -> Void
 typealias DefaultArrayResultAPISuccessClosure = (Dictionary<String,AnyObject>) -> Void

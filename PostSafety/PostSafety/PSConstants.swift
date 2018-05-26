@@ -9,24 +9,24 @@ enum ButtonHeight: Float
 
 struct Global
 {
-    static var APP_MANAGER                   = AppStateManager.sharedInstance
-    static var USER                          = APP_MANAGER.loggedInUser
+    static var APP_MANAGER = PSDataManager.sharedInstance
+    static var USER        = APP_MANAGER.loggedInUser
 }
 
 
 
 struct Constants
 {
-    static let AppName = "Template"
+    static let AppName = "PostSafety"
     
     static var CURRENCY_STRING = NSLocalizedString("AED", comment: "")
     static let kUserSessionKey = "userSessionKey"
     
-//    static let BaseURL                                        = "http://52.89.250.22"             // Live
+//    static let BaseURL                                        = "http://postsafety.anadeemus.ca"             // Live
     static let BaseURL                                          = "http://postsafety.anadeemus.ca"             // Local
     
     static let NO_INTERNET                                      = NSLocalizedString("No internet connection!", comment: "")
-    static let APP_COLOR                                        = UIColor(red: 197/255, green: 0/255, blue: 46/255, alpha: 1.0)
+    static let APP_COLOR                                        = UIColor(red: 246/255, green: 97/255, blue: 59/255, alpha: 1.0)
     static let kFONT_WIDTH_FACTOR                               = UIScreen.main.bounds.width / 414
     static let DEFAULT_IPHONE_5_HEIGHT                          = 47
     static let DEFAULT_IPHONE_6_HEIGHT                          = 55
@@ -69,6 +69,8 @@ struct FieldsErrorMessage
     static let ShortPassword = NSLocalizedString("This password is too short", comment: "")
     static let NewOldPasswordMatch = NSLocalizedString("New password cannot be same as old password.", comment: "")
     static let PasswordMisMatch = NSLocalizedString("Passwords do not match.", comment: "")
+    static let EmptyPhoneNumber = NSLocalizedString("Please enter your phone number.", comment: "")
+    static let EmptyPassword = NSLocalizedString("Please enter your password", comment: "")
 }
 
 struct PopupMessage

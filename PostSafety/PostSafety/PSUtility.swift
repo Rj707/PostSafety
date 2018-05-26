@@ -5,57 +5,71 @@ import AVFoundation
 
 import Alamofire
 
-class PSUtility {
-    
-    func roundAndFormatFloat(floatToReturn : Float, numDecimalPlaces: Int) -> String{
-        
+class PSUtility
+{
+    func roundAndFormatFloat(floatToReturn : Float, numDecimalPlaces: Int) -> String
+    {
         let formattedNumber = String(format: "%.\(numDecimalPlaces)f", floatToReturn)
         return formattedNumber
-        
     }
-    static func printFonts() {
-        for familyName in UIFont.familyNames {
+    
+    static func printFonts()
+    {
+        for familyName in UIFont.familyNames
+        {
             print("\n-- \(familyName) \n")
-            for fontName in UIFont.fontNames(forFamilyName: familyName) {
+            for fontName in UIFont.fontNames(forFamilyName: familyName)
+            {
                 print(fontName)
             }
         }
     }
     
-    func topViewController(base: UIViewController? = (Constants.APP_DELEGATE).window?.rootViewController) -> UIViewController? {
-        if let nav = base as? UINavigationController {
+    func topViewController(base: UIViewController? = (Constants.APP_DELEGATE).window?.rootViewController) -> UIViewController?
+    {
+        if let nav = base as? UINavigationController
+        {
             return topViewController(base: nav.visibleViewController)
         }
-        if let tab = base as? UITabBarController {
-            if let selected = tab.selectedViewController {
+        if let tab = base as? UITabBarController
+        {
+            if let selected = tab.selectedViewController
+            {
                 return topViewController(base: selected)
             }
         }
-        if let presented = base?.presentedViewController {
+        if let presented = base?.presentedViewController
+        {
             return topViewController(base: presented)
         }
         return base
     }
     
     
-    static func showAlert(title:String?, message:String?) {
+    static func showAlert(title:String?, message:String?)
+    {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.view.tintColor = Constants.APP_COLOR
         alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default) { _ in })
         PSUtility().topViewController()!.present(alert, animated: true){}
     }
     
     
-    static func resizeImage(image: UIImage,  targetSize: CGFloat) -> UIImage {
-        
-        guard (image.size.width > 1024 || image.size.height > 1024) else {
+    static func resizeImage(image: UIImage,  targetSize: CGFloat) -> UIImage
+    {
+        guard (image.size.width > 1024 || image.size.height > 1024) else
+        {
             return image;
         }
         
         var newRect: CGRect = CGRect.zero;
         
-        if(image.size.width > image.size.height) {
+        if(image.size.width > image.size.height)
+        {
             newRect.size = CGSize(width: targetSize, height: targetSize * (image.size.height / image.size.width))
-        } else {
+        }
+        else
+        {
             newRect.size = CGSize(width: targetSize * (image.size.width / image.size.height), height: targetSize)
         }
         
@@ -68,8 +82,8 @@ class PSUtility {
     }
     
     
-    static func thumbnailForVideoAtURL(url: URL) -> UIImage? {
-        
+    static func thumbnailForVideoAtURL(url: URL) -> UIImage?
+    {
         let asset = AVAsset(url: url)
         let assetImageGenerator = AVAssetImageGenerator(asset: asset)
         assetImageGenerator.appliesPreferredTrackTransform=true
@@ -77,27 +91,32 @@ class PSUtility {
         var time = asset.duration
         time.value = min(time.value, 2)
         
-        do {
+        do
+        {
             let imageRef = try assetImageGenerator.copyCGImage(at: time, actualTime: nil)
             return UIImage(cgImage: imageRef)
-        } catch {
+        }
+        catch
+        {
             print("error")
             return nil
         }
     }
     
-    
-    static func delay(delay:Double, closure:@escaping ()->()) {
+    static func delay(delay:Double, closure:@escaping ()->())
+    {
         DispatchQueue.main.asyncAfter(
             deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
     }
-    
  
-    static func getStarImage(_ starNumber: Double, _  rating: Double) -> UIImage {
-        
-        if round(rating) >= starNumber {
+    static func getStarImage(_ starNumber: Double, _  rating: Double) -> UIImage
+    {
+        if round(rating) >= starNumber
+        {
             return #imageLiteral(resourceName: "rate_yellowstar")
-        } else {
+        }
+        else
+        {
             return #imageLiteral(resourceName: "rate_whitestar")
         }
     }
@@ -106,7 +125,6 @@ class PSUtility {
     {
         if(str != nil)
         {
-            
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             let dater = dateFormatter.date(from: "2017-08-11 "+str)
@@ -143,7 +161,6 @@ class PSUtility {
     {
         if(str != nil)
         {
-            
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             let dater = dateFormatter.date(from: str)
@@ -162,9 +179,8 @@ class PSUtility {
     static func getAddressFromPlacemark(placemarks: CLPlacemark) -> String
     {
         return (placemarks.addressDictionary?["FormattedAddressLines"] as! NSArray).componentsJoined(by: ", ")
-        
-        
     }
+    
     static func stringToDate (_ str: String) -> Date
     {
         let dateFormatter = DateFormatter()
@@ -173,9 +189,7 @@ class PSUtility {
         let date = dateFormatter.date(from: str)
         return date!
     }
-    
 
-    
     static func getResponse(_ result: Dictionary<String,AnyObject>) -> String
     {
         return result["Message"] as! String
@@ -186,9 +200,10 @@ class PSUtility {
         return (result["Result"] as! Dictionary<String, Any>)["ErrorMessage"] as! String
     }
     
-    
-    static func applyBlurEffectToView(toView: UIView) -> UIView? {
-        if !UIAccessibilityIsReduceTransparencyEnabled() {
+    static func applyBlurEffectToView(toView: UIView) -> UIView?
+    {
+        if !UIAccessibilityIsReduceTransparencyEnabled()
+        {
             toView.backgroundColor = UIColor.clear
             
             let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
@@ -199,42 +214,43 @@ class PSUtility {
             toView.addSubview(blurEffectView)
             
             return blurEffectView
-        } else {
+        }
+        else
+        {
             toView.backgroundColor = UIColor.black
             return nil
         }
     }
     
     
-    static func markNotificationRead(notificationId: String)
-    {
-        let parameters: Parameters = [
-            "NotificationId": notificationId
-        ]
-        
-        let successClosure: DefaultArrayResultAPISuccessClosure = {
-            (result) in
-            
-            if self.getResponse(result) == "Success"
-            {
-                print("- Marked Notification as read.")
-            }
-            
-        }
-        let failureClosure: DefaultAPIFailureClosure = {
-            (error) in
-            print(error)
-            
-            if(error.code == -1009)
-            {
-                // No internet
-            }
-        }
-        
-//        APIManager.sharedInstance.markNotificationRead(parameters: parameters, success:successClosure , failure: failureClosure)
-    }
+//    static func markNotificationRead(notificationId: String)
+//    {
+//        let parameters: Parameters = [
+//            "NotificationId": notificationId
+//        ]
+//        
+//        let successClosure: DefaultArrayResultAPISuccessClosure = {
+//            (result) in
+//            
+//            if self.getResponse(result) == "Success"
+//            {
+//                print("- Marked Notification as read.")
+//            }
+//            
+//        }
+//        let failureClosure: DefaultAPIFailureClosure = {
+//            (error) in
+//            print(error)
+//            
+//            if(error.code == -1009)
+//            {
+//                // No internet
+//            }
+//        }
+//        
+////        APIManager.sharedInstance.markNotificationRead(parameters: parameters, success:successClosure , failure: failureClosure)
+//    }
     
 
-    
 }
 

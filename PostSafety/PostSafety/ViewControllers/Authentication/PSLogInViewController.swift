@@ -10,25 +10,61 @@ import UIKit
 
 class PSLogInViewController: UIViewController
 {
+    
+    @IBOutlet weak var phoneNumberTextField : UITextField?
+    @IBOutlet weak var passowrdTextField : UITextField?
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        PSAPIManager.sharedInstance.authenticateUserWith(email: "4038709552", password: "123454", success:
-            { (dic:Dictionary) in
-            
-            }, failure:
-            { (error:NSError) in
-            
-            }, errorPopup: true)
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func loginButtonTouched()
+    {
+        if (self.phoneNumberTextField?.text?.isEmpty)!
+        {
+            PSUtility.showAlert(title: "Login", message: FieldsErrorMessage.EmptyPhoneNumber)
+        }
+        else if (self.passowrdTextField?.text?.isEmpty)!
+        {
+            PSUtility.showAlert(title: "Login", message: FieldsErrorMessage.EmptyPassword)
+        }
+        else if CEReachabilityManager.isReachable()
+        {
+            PSAPIManager.sharedInstance.authenticateUserWith(email: (self.phoneNumberTextField?.text)!, password: (self.passowrdTextField?.text)!, success:
+            { (dic:Dictionary) in
+                let user = PSUser.init()
+                Global.USER = user.initWithDictionary(dict: dic as NSDictionary)
+                self.performSegue(withIdentifier: "NavigateToDashboard", sender: Any?.self)
+                
+            }, failure:
+                
+            {
+                    (error:NSError,statusCode:Int) in
+                    if(statusCode==404)
+                    {
+                        PSUtility.showAlert(title: "Login", message: ApiResultFailureMessage.InvalidEmailPassword)
+                    }
+                    else
+                    {
+                        
+                    }
+                    
+            }, errorPopup: true)
+        }
+        else
+        {
+            PSUtility.showAlert(title: "Login", message: Constants.NO_INTERNET)
+        }
+        
+    }
+    
     /*
     // MARK: - Navigation
 
