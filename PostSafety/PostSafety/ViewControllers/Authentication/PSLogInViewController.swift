@@ -29,11 +29,11 @@ class PSLogInViewController: UIViewController
     {
         if (self.phoneNumberTextField?.text?.isEmpty)!
         {
-            PSUtility.showAlert(title: "Login", message: FieldsErrorMessage.EmptyPhoneNumber)
+            PSUserInterfaceManager.showAlert(title: "Login", message: FieldsErrorMessage.EmptyPhoneNumber)
         }
         else if (self.passowrdTextField?.text?.isEmpty)!
         {
-            PSUtility.showAlert(title: "Login", message: FieldsErrorMessage.EmptyPassword)
+            PSUserInterfaceManager.showAlert(title: "Login", message: FieldsErrorMessage.EmptyPassword)
         }
         else if CEReachabilityManager.isReachable()
         {
@@ -49,7 +49,7 @@ class PSLogInViewController: UIViewController
                     (error:NSError,statusCode:Int) in
                     if(statusCode==404)
                     {
-                        PSUtility.showAlert(title: "Login", message: ApiResultFailureMessage.InvalidEmailPassword)
+                        PSUserInterfaceManager.showAlert(title: "Login", message: ApiResultFailureMessage.InvalidEmailPassword)
                     }
                     else
                     {
@@ -60,7 +60,7 @@ class PSLogInViewController: UIViewController
         }
         else
         {
-            PSUtility.showAlert(title: "Login", message: Constants.NO_INTERNET)
+            PSUserInterfaceManager.showAlert(title: "Login", message: ApiErrorMessage.NoNetwork)
         }
         
     }

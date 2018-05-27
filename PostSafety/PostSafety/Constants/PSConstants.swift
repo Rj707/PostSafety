@@ -1,19 +1,10 @@
 import UIKit
 
-enum ButtonHeight: Float
-{
-    case iPhone5  = 42.5
-    case iPhone6  = 55.0
-    case iPhone6p = 60.0
-}
-
 struct Global
 {
     static var APP_MANAGER = PSDataManager.sharedInstance
     static var USER        = APP_MANAGER.loggedInUser
 }
-
-
 
 struct Constants
 {
@@ -25,16 +16,7 @@ struct Constants
 //    static let BaseURL                                        = "http://postsafety.anadeemus.ca"             // Live
     static let BaseURL                                          = "http://postsafety.anadeemus.ca"             // Local
     
-    static let NO_INTERNET                                      = NSLocalizedString("No internet connection!", comment: "")
     static let APP_COLOR                                        = UIColor(red: 246/255, green: 97/255, blue: 59/255, alpha: 1.0)
-    static let kFONT_WIDTH_FACTOR                               = UIScreen.main.bounds.width / 414
-    static let DEFAULT_IPHONE_5_HEIGHT                          = 47
-    static let DEFAULT_IPHONE_6_HEIGHT                          = 55
-    static let DEFAULT_IPHONE_6P_HEIGHT                         = 60
-    static let kWINDOW_FRAME                                    = UIScreen.main.bounds
-    static let kSCREEN_SIZE                                     = UIScreen.main.bounds.size
-    static let kWINDOW_WIDTH                                    = UIScreen.main.bounds.size.width
-    static let kWINDOW_HIEGHT                                   = UIScreen.main.bounds.size.height
     
     static let APP_DELEGATE                                     = UIApplication.shared.delegate as! AppDelegate
     static let UIWINDOW                                         = UIApplication.shared.delegate!.window!

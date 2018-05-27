@@ -13,7 +13,7 @@
 		1812E68D20B8A37600E484C6 /* PSAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68C20B8A37600E484C6 /* PSAPIManager.swift */; };
 		1812E68F20B8A3EB00E484C6 /* PSAPIManagerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68E20B8A3EB00E484C6 /* PSAPIManagerBase.swift */; };
 		1812E69120B8A4C000E484C6 /* PSRouteUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69020B8A4C000E484C6 /* PSRouteUrls.swift */; };
-		1812E69420B8A4D800E484C6 /* PSUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69220B8A4D800E484C6 /* PSUtility.swift */; };
+		1812E69420B8A4D800E484C6 /* PSUserInterfaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69220B8A4D800E484C6 /* PSUserInterfaceManager.swift */; };
 		1812E69520B8A4D800E484C6 /* PSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69320B8A4D800E484C6 /* PSConstants.swift */; };
 		1812E69720B8A4F800E484C6 /* PSDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69620B8A4F700E484C6 /* PSDataManager.swift */; };
 		1812E69920B8A50C00E484C6 /* PSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69820B8A50C00E484C6 /* PSUser.swift */; };
@@ -79,7 +79,7 @@
 		1812E68C20B8A37600E484C6 /* PSAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSAPIManager.swift; sourceTree = "<group>"; };
 		1812E68E20B8A3EB00E484C6 /* PSAPIManagerBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSAPIManagerBase.swift; sourceTree = "<group>"; };
 		1812E69020B8A4C000E484C6 /* PSRouteUrls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSRouteUrls.swift; sourceTree = "<group>"; };
-		1812E69220B8A4D800E484C6 /* PSUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSUtility.swift; sourceTree = "<group>"; };
+		1812E69220B8A4D800E484C6 /* PSUserInterfaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSUserInterfaceManager.swift; sourceTree = "<group>"; };
 		1812E69320B8A4D800E484C6 /* PSConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSConstants.swift; sourceTree = "<group>"; };
 		1812E69620B8A4F700E484C6 /* PSDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSDataManager.swift; sourceTree = "<group>"; };
 		1812E69820B8A50C00E484C6 /* PSUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSUser.swift; sourceTree = "<group>"; };
@@ -153,6 +153,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1809905920BAC6C5003C4B94 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				1812E69320B8A4D800E484C6 /* PSConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		1809905A20BAC6E3003C4B94 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				1812E69220B8A4D800E484C6 /* PSUserInterfaceManager.swift */,
+				1812E69620B8A4F700E484C6 /* PSDataManager.swift */,
+				1812E69A20B8B8D000E484C6 /* APIManager */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		180D495920B9EAAB0023101D /* Reachibility */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,11 +331,9 @@
 			isa = PBXGroup;
 			children = (
 				A1F156A420AABFF50049DB21 /* AppDelegate.swift */,
-				1812E69620B8A4F700E484C6 /* PSDataManager.swift */,
-				1812E69320B8A4D800E484C6 /* PSConstants.swift */,
-				1812E69220B8A4D800E484C6 /* PSUtility.swift */,
+				1809905920BAC6C5003C4B94 /* Constants */,
 				180F040520B943FF00AC17E5 /* Models */,
-				1812E69A20B8B8D000E484C6 /* APIManager */,
+				1809905A20BAC6E3003C4B94 /* Managers */,
 				18FDED3420B04EE0009CBA0B /* ThirdPartyLibs */,
 				A15BECE320AEEB550081BC25 /* Views */,
 				C4E5A56920AE5BBC0060898B /* CustomCells */,
@@ -582,7 +598,7 @@
 				18FDED3B20B04F2A009CBA0B /* SwiftyCamButton.swift in Sources */,
 				C4E5A56620AE56050060898B /* PSReportSummaryViewController.swift in Sources */,
 				C4E5A56B20AE5BD50060898B /* CategoryTableViewCell.swift in Sources */,
-				1812E69420B8A4D800E484C6 /* PSUtility.swift in Sources */,
+				1812E69420B8A4D800E484C6 /* PSUserInterfaceManager.swift in Sources */,
 				18FDED4220B04F82009CBA0B /* PhotoViewController.swift in Sources */,
 				1812E68B20B8A32100E484C6 /* PSAuthenticationAPIManager.swift in Sources */,
 				1812E68A20B8A32100E484C6 /* PSAPIManager+Authentication.swift in Sources */,

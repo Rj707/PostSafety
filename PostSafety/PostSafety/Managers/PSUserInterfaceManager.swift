@@ -5,7 +5,7 @@ import AVFoundation
 
 import Alamofire
 
-class PSUtility
+class PSUserInterfaceManager
 {
     func roundAndFormatFloat(floatToReturn : Float, numDecimalPlaces: Int) -> String
     {
@@ -51,7 +51,7 @@ class PSUtility
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.view.tintColor = Constants.APP_COLOR
         alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default) { _ in })
-        PSUtility().topViewController()!.present(alert, animated: true){}
+        PSUserInterfaceManager().topViewController()!.present(alert, animated: true){}
     }
     
     
@@ -221,6 +221,27 @@ class PSUtility
             return nil
         }
     }
+    
+//    func loadUserOnBoarding()
+//    {
+//        let navigationController = UINavigationController()
+//        let landingPage = LandingPageViewController(nibName: "LandingPageViewController", bundle: nil)
+//        navigationController.viewControllers = [landingPage]
+//        window?.rootViewController = navigationController
+//
+//    }
+//
+//    func loadHomePage()
+//    {
+//        let navigationController = UINavigationController()
+//        let sideMenu = SideMenuViewController(nibName: "SideMenuViewController", bundle: nil)
+//        let homePage = HomePageViewController(nibName: "HomePageViewController", bundle: nil)
+//        navigationController.viewControllers = [homePage]
+//        let sideMenuController = RESideMenu(contentViewController: navigationController, leftMenuViewController: sideMenu, rightMenuViewController: nil)
+//        sideMenuController?.bouncesHorizontally = false
+//
+//        window?.rootViewController = sideMenuController
+//    }
     
     
 //    static func markNotificationRead(notificationId: String)
