@@ -2,8 +2,8 @@ import UIKit
 
 struct Global
 {
-    static var APP_MANAGER = PSDataManager.sharedInstance
-    static var USER        = APP_MANAGER.loggedInUser
+    static var DATA_MANAGER = PSDataManager.sharedInstance
+    static var USER        = DATA_MANAGER.loggedInUser
 }
 
 struct Constants

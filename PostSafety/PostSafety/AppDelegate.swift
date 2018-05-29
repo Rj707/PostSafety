@@ -15,10 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
+    {
         // Override point for customization after application launch.
         IQKeyboardManager.sharedManager().enable = true
-        PSDataManager.sharedInstance
+        if PSDataManager.sharedInstance.isUserLoggedIn()
+        {
+            PSUserInterfaceManager.sharedInstance.loadHomePage()
+        }
+        else
+        {
+            print("NO")
+        }
+        
         return true
     }
 

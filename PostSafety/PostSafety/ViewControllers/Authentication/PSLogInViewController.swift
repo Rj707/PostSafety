@@ -17,6 +17,8 @@ class PSLogInViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.phoneNumberTextField?.text = "4038709552"
+        self.passowrdTextField?.text = "654321"
     }
 
     override func didReceiveMemoryWarning()
@@ -38,12 +40,14 @@ class PSLogInViewController: UIViewController
         else if CEReachabilityManager.isReachable()
         {
             PSAPIManager.sharedInstance.authenticateUserWith(email: (self.phoneNumberTextField?.text)!, password: (self.passowrdTextField?.text)!, success:
-            { (dic:Dictionary) in
-                let user = PSUser.init()
-                Global.USER = user.initWithDictionary(dict: dic as NSDictionary)
+            { (dic:Any) in
+                var user : PSUser?
+                user = PSUser.init()
+                user = user?.initWithDictionary(dict: dic as! NSDictionary)
+                PSDataManager.sharedInstance.loggedInUser = user
                 self.performSegue(withIdentifier: "NavigateToDashboard", sender: Any?.self)
                 
-            }, failure:
+            } , failure:
                 
             {
                     (error:NSError,statusCode:Int) in

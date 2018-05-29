@@ -5,8 +5,10 @@ import AVFoundation
 
 import Alamofire
 
-class PSUserInterfaceManager
+class PSUserInterfaceManager:NSObject
 {
+    static let sharedInstance = PSUserInterfaceManager()
+    
     func roundAndFormatFloat(floatToReturn : Float, numDecimalPlaces: Int) -> String
     {
         let formattedNumber = String(format: "%.\(numDecimalPlaces)f", floatToReturn)
@@ -222,26 +224,26 @@ class PSUserInterfaceManager
         }
     }
     
-//    func loadUserOnBoarding()
-//    {
-//        let navigationController = UINavigationController()
-//        let landingPage = LandingPageViewController(nibName: "LandingPageViewController", bundle: nil)
-//        navigationController.viewControllers = [landingPage]
-//        window?.rootViewController = navigationController
-//
-//    }
-//
-//    func loadHomePage()
-//    {
-//        let navigationController = UINavigationController()
-//        let sideMenu = SideMenuViewController(nibName: "SideMenuViewController", bundle: nil)
-//        let homePage = HomePageViewController(nibName: "HomePageViewController", bundle: nil)
-//        navigationController.viewControllers = [homePage]
-//        let sideMenuController = RESideMenu(contentViewController: navigationController, leftMenuViewController: sideMenu, rightMenuViewController: nil)
-//        sideMenuController?.bouncesHorizontally = false
-//
-//        window?.rootViewController = sideMenuController
-//    }
+    func loadUserOnBoarding()
+    {
+        var navigationController : UINavigationController
+        let storyBoard = UIStoryboard.init(name: "Authentication", bundle: Bundle.main)
+        let landingPage = storyBoard.instantiateViewController(withIdentifier: "PSLogInViewController")
+        navigationController = storyBoard.instantiateViewController(withIdentifier: "PSLogInNavigationController") as! UINavigationController
+        navigationController.viewControllers = [landingPage]
+        Constants.APP_DELEGATE.window?.rootViewController = navigationController
+
+    }
+
+    func loadHomePage()
+    {
+        var navigationController : UINavigationController?
+        let storyBoard = UIStoryboard.init(name: "Dashboard", bundle: Bundle.main)
+        let homePage = storyBoard.instantiateViewController(withIdentifier: "PSDashboardViewController")
+        navigationController = storyBoard.instantiateViewController(withIdentifier: "PSDashboardNavigationController") as? UINavigationController
+        navigationController?.viewControllers = [homePage]
+        Constants.APP_DELEGATE.window?.rootViewController = navigationController
+    }
     
     
 //    static func markNotificationRead(notificationId: String)
