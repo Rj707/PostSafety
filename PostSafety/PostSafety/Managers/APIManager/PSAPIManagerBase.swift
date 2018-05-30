@@ -160,18 +160,21 @@ class PSAPIManagerBase: NSObject
                         failure:@escaping DefaultAPIFailureClosure,
                         errorPopup: Bool)
     {
-        alamoFireManager.request(route, method: .get, encoding: JSONEncoding.prettyPrinted, headers: getAuthorizationHeader()).responseJSON
+        alamoFireManager.request(route, method: .get, encoding: JSONEncoding.prettyPrinted, headers: nil).responseJSON
         {
             response in
             guard response.result.error == nil else
             {
-                let statusCode = response.response?.statusCode
+                var statusCode = response.response?.statusCode
                 print("error in calling get request")
                 if errorPopup
                 {
                     //                    self.showErrorMessage(error: response.result.error!)
                 }
-                
+                if statusCode==nil
+                {
+                    statusCode = 0
+                }
                 failure(response.result.error! as NSError,statusCode!)
                 
                 return;

@@ -1,29 +1,66 @@
 import UIKit
-
+import RealmSwift
 class PSDataManager: NSObject
 {
     static let sharedInstance = PSDataManager()
-    
-    var loggedInUser: PSUser!
+    var realm: Realm!
+    var loggedInUser: PSUser?
     {
-        set(user)
+//        set(user)
+//        {
+//            self.loggedInUser = user
+//            Constants.USER_DEFAULTS.set(user, forKey: "User")
+//        }
+//        get
+//        {
+//            return self.loggedInUser
+//        }
+        didSet
         {
-            self.loggedInUser = user
-            Constants.USER_DEFAULTS.set(user, forKey: "User")
+//            Constants.USER_DEFAULTS.set(loggedInUser, forKey: "User")
+            try!  self.realm.write()
+            {
+                self.realm.add(self.loggedInUser!)
+            }
         }
-        get
-        {
-            return self.loggedInUser
-        }
+
     }
     override init()
     {
         super.init()
         loggedInUser = Constants.USER_DEFAULTS.value(forKey: "User") as! PSUser?
+        
+        if(!(realm != nil))
+        {
+            realm = try! Realm()
+        }
+        loggedInUser = realm.objects(PSUser.self).first
+        if(loggedInUser == nil)
+        {
+            
+        }
+        else
+        {
+            print("\(loggedInUser?.emailId ?? "")")
+        }
+        
     }
     
     func isUserLoggedIn() -> Bool
     {
-        return false
+        if(!(realm != nil))
+        {
+            realm = try! Realm()
+        }
+        let results = realm.objects(PSUser.self)
+        if(results.count>0)
+        {
+            return true
+        }
+        else
+        {
+            return false
+        }
+        
     }
 }

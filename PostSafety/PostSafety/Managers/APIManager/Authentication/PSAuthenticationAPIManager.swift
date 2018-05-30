@@ -1,9 +1,7 @@
-
-
 import UIKit
 import Alamofire
 import SwiftyJSON
-class AuthenticationAPIManager: PSAPIManagerBase
+class PSAuthenticationAPIManager: PSAPIManagerBase
 {
 
     func authenticateUserWith(email: String,password: String,

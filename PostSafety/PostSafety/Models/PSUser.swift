@@ -1,6 +1,8 @@
 import UIKit
+import Realm
+import RealmSwift
 
-class PSUser
+class PSUser : Object
 {
     @objc dynamic var employeeId = 0
     @objc dynamic var employeeSystemId : String?

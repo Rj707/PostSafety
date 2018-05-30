@@ -17,8 +17,8 @@ class PSAPIManager: NSObject
 {
     static let sharedInstance = PSAPIManager()
     
-    let authenticationManagerAPI = AuthenticationAPIManager()
-    
+    let authenticationManagerAPI = PSAuthenticationAPIManager()
+    let checklistManagerAPI = PSChecklistAPIManager()
     var serverToken: String?
     {
         get
