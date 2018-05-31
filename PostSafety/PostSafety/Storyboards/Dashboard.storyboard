@@ -241,22 +241,6 @@
         <!--Dashboard View Controller-->
         <scene sceneID="rQU-7r-HQf">
             <objects>
-                <tapGestureRecognizer id="RP0-lW-Hoi">
-                    <connections>
-                        <segue destination="hxe-Df-Uhg" kind="push" id="qU7-3n-aIP"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="AE9-1y-Azl">
-                    <connections>
-                        <segue destination="Kp2-je-YB3" kind="push" id="fck-Yl-iB7"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9xV-43-ls7" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="qsx-y4-Sgx">
-                    <connections>
-                        <segue destination="eA9-nc-Ktu" kind="push" id="8eL-nX-R3x"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <viewController storyboardIdentifier="PSDashboardViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ia1-ET-bBe" customClass="PSDashboardViewController" customModule="PostSafety" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UwL-bo-7VK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -456,6 +440,22 @@
                     </view>
                     <navigationItem key="navigationItem" id="NRh-SO-hlT"/>
                 </viewController>
+                <tapGestureRecognizer id="RP0-lW-Hoi">
+                    <connections>
+                        <segue destination="hxe-Df-Uhg" kind="push" id="qU7-3n-aIP"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="AE9-1y-Azl">
+                    <connections>
+                        <segue destination="Kp2-je-YB3" kind="push" id="fck-Yl-iB7"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9xV-43-ls7" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="qsx-y4-Sgx">
+                    <connections>
+                        <segue destination="eA9-nc-Ktu" kind="push" id="8eL-nX-R3x"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2794.4000000000001" y="34.632683658170919"/>
         </scene>
@@ -548,25 +548,6 @@
         <!--Select Report Type View Controller-->
         <scene sceneID="Ttg-L8-z0Q">
             <objects>
-                <tapGestureRecognizer id="okK-NJ-3Cc">
-                    <connections>
-                        <action selector="incidentGestureTapped:" destination="hxe-Df-Uhg" id="h7y-E5-3kE"/>
-                        <outlet property="delegate" destination="hxe-Df-Uhg" id="uGw-3Y-cEr"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="Zq1-dM-9uc">
-                    <connections>
-                        <action selector="hazardGestureTapped:" destination="hxe-Df-Uhg" id="36B-Jb-5Yb"/>
-                        <outlet property="delegate" destination="hxe-Df-Uhg" id="P7W-k7-dYt"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cri-wj-pwL" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Mag-JL-905">
-                    <connections>
-                        <action selector="emergencyGestureTapped:" destination="hxe-Df-Uhg" id="AxD-D7-cxb"/>
-                        <outlet property="delegate" destination="hxe-Df-Uhg" id="7pB-qE-xER"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <viewController storyboardIdentifier="SelectReportTypeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hxe-Df-Uhg" customClass="PSSelectReportTypeViewController" customModule="PostSafety" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BD2-i2-VQP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -781,6 +762,25 @@
                     </view>
                     <navigationItem key="navigationItem" id="zxo-9J-uLS"/>
                 </viewController>
+                <tapGestureRecognizer id="okK-NJ-3Cc">
+                    <connections>
+                        <action selector="incidentGestureTapped:" destination="hxe-Df-Uhg" id="h7y-E5-3kE"/>
+                        <outlet property="delegate" destination="hxe-Df-Uhg" id="uGw-3Y-cEr"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Zq1-dM-9uc">
+                    <connections>
+                        <action selector="hazardGestureTapped:" destination="hxe-Df-Uhg" id="36B-Jb-5Yb"/>
+                        <outlet property="delegate" destination="hxe-Df-Uhg" id="P7W-k7-dYt"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cri-wj-pwL" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Mag-JL-905">
+                    <connections>
+                        <action selector="emergencyGestureTapped:" destination="hxe-Df-Uhg" id="AxD-D7-cxb"/>
+                        <outlet property="delegate" destination="hxe-Df-Uhg" id="7pB-qE-xER"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1855" y="756"/>
         </scene>
@@ -1912,7 +1912,7 @@
                                                                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="2"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ood-xU-dkD">
+                                                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ood-xU-dkD">
                                                                                 <rect key="frame" x="16" y="15" width="218.5" height="18"/>
                                                                                 <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
@@ -1936,7 +1936,7 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQS-e5-pfS" userLabel="Password Container">
-                                                                        <rect key="frame" x="0.0" y="58.5" width="250.5" height="49"/>
+                                                                        <rect key="frame" x="0.0" y="59" width="250.5" height="49"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1c-nc-dgw">
                                                                                 <rect key="frame" x="8" y="7.5" width="234.5" height="34"/>
@@ -1945,7 +1945,7 @@
                                                                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="2"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5JF-8e-Jgt">
+                                                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5JF-8e-Jgt">
                                                                                 <rect key="frame" x="16" y="15.5" width="218.5" height="18"/>
                                                                                 <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
@@ -1969,10 +1969,10 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pBl-ez-SU1" userLabel="Next Container">
-                                                                        <rect key="frame" x="0.0" y="117.5" width="250.5" height="49.5"/>
+                                                                        <rect key="frame" x="0.0" y="118.5" width="250.5" height="48.5"/>
                                                                         <subviews>
                                                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZK1-9G-ffo">
-                                                                                <rect key="frame" x="4.5" y="3" width="240" height="44"/>
+                                                                                <rect key="frame" x="4.5" y="2.5" width="240" height="44"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="240" id="1O1-1e-FqL"/>
                                                                                     <constraint firstAttribute="height" constant="44" id="P4U-N5-IcW"/>
@@ -2019,20 +2019,20 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="166.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="8RQ-6x-OFe" userLabel="TextFields Stack View">
-                                                                <rect key="frame" x="62.5" y="0.0" width="250.5" height="166.5"/>
+                                                                <rect key="frame" x="62.5" y="0.5" width="250.5" height="166.5"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ASD-Tz-EpZ" userLabel="Username Container">
                                                                         <rect key="frame" x="0.0" y="0.0" width="250.5" height="48.5"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cyx-Sr-Qoi">
-                                                                                <rect key="frame" x="8" y="7" width="234.5" height="34"/>
+                                                                                <rect key="frame" x="8" y="7.5" width="234.5" height="34"/>
                                                                                 <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="2"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Current Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kek-bY-za4">
-                                                                                <rect key="frame" x="16" y="15" width="218.5" height="18"/>
+                                                                                <rect key="frame" x="16" y="15.5" width="218.5" height="18"/>
                                                                                 <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
                                                                                 <textInputTraits key="textInputTraits"/>
@@ -2106,6 +2106,9 @@
                                                                                         <integer key="value" value="22"/>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
+                                                                                <connections>
+                                                                                    <action selector="saveChangesButtonTouched:" destination="Kp2-je-YB3" eventType="touchUpInside" id="vik-mc-REJ"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2200,7 +2203,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="ofd-RK-Bwo"/>
                     <connections>
+                        <outlet property="currentPasswordTextField" destination="kek-bY-za4" id="0o6-Wi-B6b"/>
+                        <outlet property="emailTextField" destination="ood-xU-dkD" id="5sg-yo-N5i"/>
                         <outlet property="newPassowrdTextField" destination="4Uy-4a-a0J" id="XUS-6k-v6A"/>
+                        <outlet property="phoneNumberTextField" destination="5JF-8e-Jgt" id="5Oz-TU-FFN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EcW-AN-lii" sceneMemberID="firstResponder"/>

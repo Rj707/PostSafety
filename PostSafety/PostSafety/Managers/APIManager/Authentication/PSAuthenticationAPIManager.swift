@@ -41,8 +41,7 @@ class PSAuthenticationAPIManager: PSAPIManagerBase
                 NewPassword
             ]
         
-        let route: URL = POSTURLforRoute(route: Route.Login.rawValue)!
-        
+        let route: URL = GETURLforPS(route: Route.UpdateEmployees.rawValue, parameters: parameters )!
         self.getRequestWith(route: route, parameters: parameters, success: success, failure: failure , errorPopup: errorPopup)
     }
     
