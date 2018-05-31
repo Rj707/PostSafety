@@ -28,11 +28,11 @@ extension PSAPIManager
         authenticationManagerAPI.forgotUserPassword(parameters: parameters, success: success, failure: failure,errorPopup: errorPopup)
     }
     
-    func updateUserInfo(parameters: Parameters,
+    func UpdateEmployees(employeeID: String,oldPassword: String,NewPassword: String,
                         success:@escaping DefaultArrayResultAPISuccessClosure,
                         failure:@escaping DefaultAPIFailureClosure,
                         errorPopup: Bool)
     {
-        authenticationManagerAPI.updateUserInfo(parameters: parameters, success: success, failure: failure,errorPopup: errorPopup)
+        authenticationManagerAPI.UpdateEmployees(employeeID: employeeID,oldPassword: oldPassword,NewPassword: NewPassword, success: success, failure: failure,errorPopup: errorPopup)
     }
 }

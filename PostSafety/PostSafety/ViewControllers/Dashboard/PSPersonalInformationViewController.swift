@@ -8,12 +8,25 @@
 
 import UIKit
 
-class PSPersonalInformationViewController: UIViewController {
+class PSPersonalInformationViewController: UIViewController
+{
 
-    override func viewDidLoad() {
+    @IBOutlet weak var newPassowrdTextField : UITextField?
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        PSAPIManager.sharedInstance.authenticationManagerAPI.UpdateEmployees(employeeID: String(format: "%@%", (Global.USER?.employeeId)!), oldPassword: (Global.USER?.password)!, NewPassword: (newPassowrdTextField?.text)!,success:
+        { (dic) in
+            var user : PSUser?
+            user = PSUser.init()
+            user = user?.initWithDictionary(dict: dic as NSDictionary)
+            PSDataManager.sharedInstance.loggedInUser = user
+        },
+        failure:
+        { (error, statusCode) in
+            
+        }, errorPopup: true)
     }
 
     override func didReceiveMemoryWarning() {

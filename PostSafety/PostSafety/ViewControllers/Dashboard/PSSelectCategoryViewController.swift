@@ -12,17 +12,29 @@ class PSSelectCategoryViewController: UIViewController,UITableViewDelegate,UITab
 {
 
     @IBOutlet weak var catergoryTableView: UITableView!
-     let categorynames = ["","","","","", "Other"]
+    let categorynames = ["","","","","", "Other"]
     var selectedCategoryArray = [String]()
-    override func viewDidLoad() {
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        self.catergoryTableView.allowsMultipleSelection=true
         
-
-        // Do any additional setup after loading the view.
+        self.catergoryTableView.allowsMultipleSelection = true
+        
+        PSAPIManager.sharedInstance.checklistManagerAPI.getChecklistDetailsWith(checkListID: "10002",
+        success:
+        { (dic:Dictionary<String,Any>) in
+            
+        },
+        failure:
+        { (error, statusCode) in
+            
+        }, errorPopup: true)
+        
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }

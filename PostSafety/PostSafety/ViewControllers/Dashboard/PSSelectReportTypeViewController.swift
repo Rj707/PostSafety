@@ -8,12 +8,31 @@
 
 import UIKit
 
-class PSSelectReportTypeViewController: UIViewController {
+class PSSelectReportTypeViewController: UIViewController
+{
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        PSAPIManager.sharedInstance.getAllChecklists(success:
+        { (dic) in
+                
+                
+        }, failure:
+            
+        {
+                (error:NSError,statusCode:Int) in
+                if(statusCode==404)
+                {
+                    PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiResultFailureMessage.InvalidEmailPassword)
+                }
+                else
+                {
+                    
+                }
+                
+        }, errorPopup: true)
     }
 
     override func didReceiveMemoryWarning() {
