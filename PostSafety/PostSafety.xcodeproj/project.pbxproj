@@ -27,6 +27,7 @@
 		18FDED4220B04F82009CBA0B /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED4020B04F82009CBA0B /* PhotoViewController.swift */; };
 		18FDED4420B05077009CBA0B /* SwiftyRecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED4320B05077009CBA0B /* SwiftyRecordButton.swift */; };
 		2C5F40C35FA6E8D5F17D9D1A /* Pods_PostSafety.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462E62552B0A0080C9267F99 /* Pods_PostSafety.framework */; };
+		A124938620C128C700B38DEF /* PSChecklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A124938520C128C700B38DEF /* PSChecklist.swift */; };
 		A15BECE520AEEB560081BC25 /* CameraOverLay.xib in Resources */ = {isa = PBXBuildFile; fileRef = A15BECE420AEEB550081BC25 /* CameraOverLay.xib */; };
 		A15BECE720AEEB6B0081BC25 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BECE620AEEB6A0081BC25 /* CameraViewController.swift */; };
 		A16142CE20AC108E00421414 /* PSLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142CD20AC108E00421414 /* PSLogInViewController.swift */; };
@@ -97,6 +98,7 @@
 		1A842FAE2CD79A6058C5732A /* Pods-PostSafety.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostSafety.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PostSafety/Pods-PostSafety.debug.xcconfig"; sourceTree = "<group>"; };
 		462E62552B0A0080C9267F99 /* Pods_PostSafety.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PostSafety.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6654D11319022298AEDDCE /* Pods-PostSafety.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostSafety.release.xcconfig"; path = "Pods/Target Support Files/Pods-PostSafety/Pods-PostSafety.release.xcconfig"; sourceTree = "<group>"; };
+		A124938520C128C700B38DEF /* PSChecklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSChecklist.swift; sourceTree = "<group>"; };
 		A15BECE420AEEB550081BC25 /* CameraOverLay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraOverLay.xib; sourceTree = "<group>"; };
 		A15BECE620AEEB6A0081BC25 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		A16142CD20AC108E00421414 /* PSLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSLogInViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				1812E69820B8A50C00E484C6 /* PSUser.swift */,
+				A124938520C128C700B38DEF /* PSChecklist.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				1811261920BDE52900ABA494 /* PSAPIManager+Checklist.swift in Sources */,
 				18FDED3D20B04F2A009CBA0B /* SwiftyCamViewControllerDelegate.swift in Sources */,
 				1812E69920B8A50C00E484C6 /* PSUser.swift in Sources */,
+				A124938620C128C700B38DEF /* PSChecklist.swift in Sources */,
 				180D495820B9DA070023101D /* CEReachabilityManager.m in Sources */,
 				C4E5A56420AE55E90060898B /* PSQuickSummaryViewController.swift in Sources */,
 				C4E5A56820AE56200060898B /* PSReportDetailViewController.swift in Sources */,

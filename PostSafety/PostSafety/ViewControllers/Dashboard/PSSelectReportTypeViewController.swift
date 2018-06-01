@@ -11,6 +11,8 @@ import UIKit
 class PSSelectReportTypeViewController: UIViewController
 {
 
+    var cheklistArray = [Any]()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -18,19 +20,32 @@ class PSSelectReportTypeViewController: UIViewController
         PSAPIManager.sharedInstance.getAllChecklists(success:
         { (dic) in
                 
-                
+            let tempArray = dic["array"] as! [Any]
+            
+            for checklistDict in tempArray
+            {
+                //                            if let dict = peopleDict as? [String: Any], let peopleArray = dict["People"] as? [String]
+                if let tempDict = checklistDict as? [String: Any]
+                {
+                    var checklist = PSChecklist()
+                    checklist = checklist.initWithDictionary(dict: tempDict as NSDictionary)
+                    self.cheklistArray.append(checklist)
+                }
+            }
+            print(self.cheklistArray)
+            
         }, failure:
             
         {
-                (error:NSError,statusCode:Int) in
-                if(statusCode==404)
-                {
-                    PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiResultFailureMessage.InvalidEmailPassword)
-                }
-                else
-                {
-                    
-                }
+            (error:NSError,statusCode:Int) in
+            if(statusCode==404)
+            {
+                PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiResultFailureMessage.InvalidEmailPassword)
+            }
+            else
+            {
+                
+            }
                 
         }, errorPopup: true)
     }
