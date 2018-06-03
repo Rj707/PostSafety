@@ -18,17 +18,22 @@ class PSDataManager: NSObject
         didSet
         {
 //            Constants.USER_DEFAULTS.set(loggedInUser, forKey: "User")
+            
             try!  self.realm.write()
             {
                 self.realm.add(self.loggedInUser!)
+                print(loggedInUser?.password ?? "")
             }
+            
         }
 
     }
+    
     override init()
     {
         super.init()
-        loggedInUser = Constants.USER_DEFAULTS.value(forKey: "User") as! PSUser?
+        
+//        loggedInUser = Constants.USER_DEFAULTS.value(forKey: "User") as! PSUser?
         
         if(!(realm != nil))
         {

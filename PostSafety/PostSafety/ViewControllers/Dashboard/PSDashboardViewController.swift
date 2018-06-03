@@ -15,25 +15,6 @@ class PSDashboardViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
-        PSAPIManager.sharedInstance.getAllChecklists(success:
-        { (dic:Dictionary) in
-
-
-        }, failure:
-
-        {
-                (error:NSError,statusCode:Int) in
-                if(statusCode==404)
-                {
-                    PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiResultFailureMessage.InvalidEmailPassword)
-                }
-                else
-                {
-
-                }
-
-        }, errorPopup: true)
     }
 
     override func didReceiveMemoryWarning()

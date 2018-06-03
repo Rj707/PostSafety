@@ -4,8 +4,8 @@ enum Route: String
     case Register = "/api/register"
     case Login = "/api/EmployeesLogin"
     case Checklist = "/api/Checklists"
-    case UpdateProfile = "/api/user/update"
-    case ForgotPassword = "/api/forgotpassword"
+    case ChecklistDetails = "/api/ChecklistDetails"
+    case UpdateEmployees = "/api/UpdateEmployees"
     
     func url() -> String
     {

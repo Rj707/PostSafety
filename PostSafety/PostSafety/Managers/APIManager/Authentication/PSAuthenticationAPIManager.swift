@@ -29,20 +29,27 @@ class PSAuthenticationAPIManager: PSAPIManagerBase
         self.postRequestWith(route: route, parameters: parameters, success: success, failure: failure, errorPopup: errorPopup)
     }
     
-    func updateUserInfo(parameters: Parameters,
-                           success:@escaping DefaultArrayResultAPISuccessClosure,
-                           failure:@escaping DefaultAPIFailureClosure, errorPopup: Bool)
+    func UpdateEmployees(employeeID: String,oldPassword: String,NewPassword: String,
+                         success:@escaping DefaultArrayResultAPISuccessClosure,
+                         failure:@escaping DefaultAPIFailureClosure,
+                         errorPopup: Bool)
     {
-        let route: URL = POSTURLforRoute(route: Route.UpdateProfile.rawValue)!
+        let parameters: [String] =
+            [
+                employeeID,
+                oldPassword,
+                NewPassword
+            ]
         
-        self.postRequestWith(route: route, parameters: parameters, success: success, failure: failure , errorPopup: errorPopup)
+        let route: URL = GETURLforPS(route: Route.UpdateEmployees.rawValue, parameters: parameters )!
+        self.getRequestWith(route: route, parameters: parameters, success: success, failure: failure , errorPopup: errorPopup)
     }
     
     func forgotUserPassword(parameters: Parameters,
                         success:@escaping DefaultArrayResultAPISuccessClosure,
                         failure:@escaping DefaultAPIFailureClosure, errorPopup: Bool)
     {
-        let route: URL = POSTURLforRoute(route: Route.ForgotPassword.rawValue)!
+        let route: URL = POSTURLforRoute(route: Route.UpdateEmployees.rawValue)!
         
         self.postRequestWith(route: route, parameters: parameters, success: success, failure: failure, errorPopup: errorPopup)
     }

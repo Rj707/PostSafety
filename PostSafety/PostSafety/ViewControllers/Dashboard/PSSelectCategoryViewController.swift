@@ -12,17 +12,43 @@ class PSSelectCategoryViewController: UIViewController,UITableViewDelegate,UITab
 {
 
     @IBOutlet weak var catergoryTableView: UITableView!
-     let categorynames = ["","","","","", "Other"]
+    let categorynames = ["","","","","", "Other"]
     var selectedCategoryArray = [String]()
-    override func viewDidLoad() {
+    var cheklistDetailsArray = [Any]()
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        self.catergoryTableView.allowsMultipleSelection=true
         
-
-        // Do any additional setup after loading the view.
+        self.catergoryTableView.allowsMultipleSelection = true
+        
+        PSAPIManager.sharedInstance.checklistManagerAPI.getChecklistDetailsWith(checkListID: "10002",
+        success:
+        { (dic:Dictionary<String,Any>) in
+            
+            let tempArray = dic["array"] as! [Any]
+            
+            for checklistDetailDict in tempArray
+            {
+                //                            if let dict = peopleDict as? [String: Any], let peopleArray = dict["People"] as? [String]
+                if let tempDict = checklistDetailDict as? [String: Any]
+                {
+                    var checklistDetail = PSChecklistDetail()
+                    checklistDetail = checklistDetail.initWithDictionary(dict: tempDict as NSDictionary)
+                    self.cheklistDetailsArray.append(checklistDetail)
+                }
+            }
+            print(self.cheklistDetailsArray)
+        },
+        failure:
+        { (error, statusCode) in
+            
+        }, errorPopup: true)
+        
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -53,10 +79,9 @@ class PSSelectCategoryViewController: UIViewController,UITableViewDelegate,UITab
     
     // MARK: - UITableViewDataSource
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
         return 70;
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -64,32 +89,32 @@ class PSSelectCategoryViewController: UIViewController,UITableViewDelegate,UITab
         let cell : CategoryTableViewCell = self.catergoryTableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as! CategoryTableViewCell
         cell.selectionStyle = .none
         let myString : String
-        if selectedCategoryArray.count>0 {
-              myString = selectedCategoryArray[0]
+        if selectedCategoryArray.count>0
+        {
+            myString = selectedCategoryArray[0]
         }
         else
         {
               myString = "7"
         }
+        
         if indexPath.row ==  Int(myString)
         {
-        cell.configureCell(isselected: true, category: categorynames[indexPath.row])
+            cell.configureCell(isselected: true, category: categorynames[indexPath.row])
         }
         else
         {
             cell.configureCell(isselected: false, category: categorynames[indexPath.row])
         }
         
-        //  cell.textLabel?.text = "Section \(indexPath.section) Row \(indexPath.row)"
         return cell
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-       
-            return 6;
-        
-        
+        return cheklistDetailsArray.count;
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
 //        let selectedItems = catergoryTableView.indexPathsForSelectedRows

@@ -8,7 +8,8 @@
 
 import UIKit
 
-class CategoryTableViewCell: UITableViewCell {
+class CategoryTableViewCell: UITableViewCell
+{
 
     @IBOutlet weak var radioButtonView: UIView!
     @IBOutlet weak var catergoryTextField: UITextField!

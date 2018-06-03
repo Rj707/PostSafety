@@ -188,7 +188,21 @@ class PSAPIManagerBase: NSObject
                 }
                 else
                 {
-                    success(Dictionary<String, AnyObject>())
+                    var finalArray:[Any] = []
+                    if let jsonResponse = response.result.value as? [Any]
+                    {
+                        for peopleDict in jsonResponse
+                        {
+//                            if let dict = peopleDict as? [String: Any], let peopleArray = dict["People"] as? [String]
+                            if let dict = peopleDict as? [String: Any]
+                            {
+                                finalArray.append(dict)
+                            }
+                        }
+                    }
+                    var dic = Dictionary<String, AnyObject>()
+                    dic["array"] = finalArray as AnyObject
+                    success(dic)
                 }
             }
         }
@@ -675,6 +689,7 @@ class PSAPIManagerBase: NSObject
             print("\(formData)")
         }
     }
+    
     
 }
 
