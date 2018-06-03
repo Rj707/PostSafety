@@ -10,6 +10,10 @@ import UIKit
 
 class PSSelectReportTypeViewController: UIViewController
 {
+    @IBOutlet weak var view4: UIView!
+    @IBOutlet weak var view3: UIView!
+    @IBOutlet weak var view2: UIView!
+    @IBOutlet weak var view1: UIView!
 
     var cheklistArray = [Any]()
     
@@ -17,7 +21,14 @@ class PSSelectReportTypeViewController: UIViewController
     {
         super.viewDidLoad()
 
-        PSAPIManager.sharedInstance.getAllChecklists(success:
+        self.view1.layer.borderWidth=1
+        self.view2.layer.borderWidth=1
+        self.view3.layer.borderWidth=1
+        self.view4.layer.borderWidth=1
+        self.view1.layer.borderColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0).cgColor
+        self.view2.layer.borderColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0).cgColor
+        self.view3.layer.borderColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0).cgColor
+        self.view4.layer.borderColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0).cgColor PSAPIManager.sharedInstance.getAllChecklists(success:
         { (dic) in
                 
             let tempArray = dic["array"] as! [Any]
