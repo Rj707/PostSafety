@@ -15,9 +15,11 @@ enum FeedType :Int
 import UIKit
 
 class PSUpdatesAnnouncementsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
-{
 
+{
+@IBOutlet weak var announcementView: UIView!
     @IBOutlet weak var updatesAnnouncementsTableView : UITableView!
+    @IBOutlet weak var sharedreportView: UIView!
     var type : FeedType!
     
     override func viewDidLoad()
@@ -66,12 +68,15 @@ class PSUpdatesAnnouncementsViewController: UIViewController,UITableViewDataSour
     
     @IBAction func announcementsViewTouched(_ sender: UITapGestureRecognizer)
     {
+        self.announcementView.backgroundColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0)
+        
         self.type = FeedType(rawValue: 0)
         self.updatesAnnouncementsTableView.reloadData()
     }
     
     @IBAction func sharedReportsViewTouched(_ sender: UITapGestureRecognizer)
     {
+    self.sharedreportView.backgroundColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0)
         self.type = FeedType(rawValue: 1)
         self.updatesAnnouncementsTableView.reloadData()
     }

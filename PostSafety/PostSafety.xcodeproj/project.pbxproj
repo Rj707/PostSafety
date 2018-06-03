@@ -48,6 +48,8 @@
 		A1F156BA20AABFF60049DB21 /* PostSafetyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F156B920AABFF60049DB21 /* PostSafetyTests.swift */; };
 		A1F156C520AABFF60049DB21 /* PostSafetyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F156C420AABFF60049DB21 /* PostSafetyUITests.swift */; };
 		A1F156D320AB13420049DB21 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F156D220AB13420049DB21 /* Dashboard.storyboard */; };
+		C40CABDF20C13B1A005212C1 /* Authentication_design.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40CABDD20C13B19005212C1 /* Authentication_design.storyboard */; };
+		C468820620C1710C00E8538C /* Dashboard_design.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C468820520C1710B00E8538C /* Dashboard_design.storyboard */; };
 		C4E5A56220AE55960060898B /* PSSelectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56120AE55950060898B /* PSSelectCategoryViewController.swift */; };
 		C4E5A56420AE55E90060898B /* PSQuickSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56320AE55E90060898B /* PSQuickSummaryViewController.swift */; };
 		C4E5A56620AE56050060898B /* PSReportSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56520AE56050060898B /* PSReportSummaryViewController.swift */; };
@@ -124,6 +126,8 @@
 		A1F156C420AABFF60049DB21 /* PostSafetyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSafetyUITests.swift; sourceTree = "<group>"; };
 		A1F156C620AABFF60049DB21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1F156D220AB13420049DB21 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		C40CABDE20C13B19005212C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication_design.storyboard; sourceTree = "<group>"; };
+		C468820520C1710B00E8538C /* Dashboard_design.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dashboard_design.storyboard; sourceTree = "<group>"; };
 		C4E5A56120AE55950060898B /* PSSelectCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSelectCategoryViewController.swift; sourceTree = "<group>"; };
 		C4E5A56320AE55E90060898B /* PSQuickSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSQuickSummaryViewController.swift; sourceTree = "<group>"; };
 		C4E5A56520AE56050060898B /* PSReportSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReportSummaryViewController.swift; sourceTree = "<group>"; };
@@ -304,7 +308,9 @@
 		A16142CB20AC103B00421414 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				C40CABDD20C13B19005212C1 /* Authentication_design.storyboard */,
 				A1F156A820AABFF50049DB21 /* Authentication.storyboard */,
+				C468820520C1710B00E8538C /* Dashboard_design.storyboard */,
 				A1F156D220AB13420049DB21 /* Dashboard.storyboard */,
 			);
 			path = Storyboards;
@@ -504,7 +510,9 @@
 			files = (
 				A1F156AF20AABFF60049DB21 /* LaunchScreen.storyboard in Resources */,
 				A1F156AC20AABFF60049DB21 /* Assets.xcassets in Resources */,
+				C40CABDF20C13B1A005212C1 /* Authentication_design.storyboard in Resources */,
 				A1F156AA20AABFF50049DB21 /* Authentication.storyboard in Resources */,
+				C468820620C1710C00E8538C /* Dashboard_design.storyboard in Resources */,
 				A1F156D320AB13420049DB21 /* Dashboard.storyboard in Resources */,
 				A15BECE520AEEB560081BC25 /* CameraOverLay.xib in Resources */,
 			);
@@ -667,6 +675,14 @@
 				A1F156AE20AABFF60049DB21 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C40CABDD20C13B19005212C1 /* Authentication_design.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C40CABDE20C13B19005212C1 /* Base */,
+			);
+			name = Authentication_design.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
