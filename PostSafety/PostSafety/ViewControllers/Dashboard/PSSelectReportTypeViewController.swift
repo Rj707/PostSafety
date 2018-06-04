@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ACProgressHUD_Swift
 
 class PSSelectReportTypeViewController: UIViewController
 {
@@ -16,10 +17,11 @@ class PSSelectReportTypeViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching checklists")
         PSAPIManager.sharedInstance.getAllChecklists(success:
         { (dic) in
-                
+            
+            PSUserInterfaceManager.sharedInstance.hideLoader()
             let tempArray = dic["array"] as! [Any]
             
             for checklistDict in tempArray
@@ -38,6 +40,8 @@ class PSSelectReportTypeViewController: UIViewController
             
         {
             (error:NSError,statusCode:Int) in
+            
+            PSUserInterfaceManager.sharedInstance.hideLoader()
             if(statusCode==404)
             {
                 PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiResultFailureMessage.InvalidEmailPassword)
