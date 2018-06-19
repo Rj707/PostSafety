@@ -11,6 +11,7 @@ import UIKit
 class PSLogInViewController: UIViewController
 {
     
+    @IBOutlet weak var nameTextField : UITextField?
     @IBOutlet weak var phoneNumberTextField : UITextField?
     @IBOutlet weak var passowrdTextField : UITextField?
 
@@ -72,8 +73,8 @@ class PSLogInViewController: UIViewController
     @IBAction func termsOfUseButtonTouched(sender: UITapGestureRecognizer)
     {
         self.definesPresentationContext = true;
-        let termsOfUseVC : PSSignUpViewController
-        termsOfUseVC = self.storyboard?.instantiateViewController(withIdentifier: "PSSignUpViewController") as! PSSignUpViewController
+        let termsOfUseVC : PSTermsOfUseViewController
+        termsOfUseVC = self.storyboard?.instantiateViewController(withIdentifier: "PSSignUpViewController") as! PSTermsOfUseViewController
         termsOfUseVC.view.backgroundColor = UIColor.clear
         termsOfUseVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
 //        self.view.backgroundColor = UIColor.clear

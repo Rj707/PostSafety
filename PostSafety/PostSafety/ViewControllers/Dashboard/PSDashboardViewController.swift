@@ -10,11 +10,12 @@ import UIKit
 
 class PSDashboardViewController: UIViewController
 {
-//    @IBOutlet weak var
+    @IBOutlet weak var menuButton:UIButton!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.addMenuAction()
     }
 
     override func didReceiveMemoryWarning()
@@ -39,5 +40,14 @@ class PSDashboardViewController: UIViewController
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func addMenuAction()
+    {
+        if self.revealViewController() != nil
+        {
+            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().revealToggle(_:)), for: .touchUpInside)
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+    }
 
 }

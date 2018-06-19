@@ -1,5 +1,5 @@
 //
-//  SendVerificationCodeViewController.swift
+//  SignUpViewController.swift
 //  PostSafety
 //
 //  Created by Hafiz Saad on 16/05/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PSSendVerificationCodeViewController: UIViewController {
+class PSTermsOfUseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,14 @@ class PSSendVerificationCodeViewController: UIViewController {
     @IBAction func backButtonTouched(_ sender: UIButton)
     {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func agreeAndContinueButtonTouched(_ sender: UIButton)
+    {
+        self.dismiss(animated: true)
+        {
+            
+        }
     }
     
     /*
