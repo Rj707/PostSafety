@@ -69,6 +69,27 @@ class PSLogInViewController: UIViewController
         
     }
     
+    @IBAction func termsOfUseButtonTouched(sender: UITapGestureRecognizer)
+    {
+        self.definesPresentationContext = true;
+        let termsOfUseVC : PSSignUpViewController
+        termsOfUseVC = self.storyboard?.instantiateViewController(withIdentifier: "PSSignUpViewController") as! PSSignUpViewController
+        termsOfUseVC.view.backgroundColor = UIColor.clear
+        termsOfUseVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+//        self.view.backgroundColor = UIColor.clear
+//        self.modalPresentationStyle = UIModalPresentationStyle.currentContext
+        self.present(termsOfUseVC, animated: true)
+        {
+            
+        }
+        
+//        self.definesPresentationContext = true; //self is presenting view controller
+//        presentedController.view.backgroundColor = [YOUR_COLOR with alpha OR clearColor]
+//        presentedController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+//
+//        [self presentViewController:presentedController animated:YES completion:nil];
+    }
+    
     /*
     // MARK: - Navigation
 

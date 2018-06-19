@@ -28,7 +28,9 @@ class PSSelectReportTypeViewController: UIViewController
         self.view1.layer.borderColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0).cgColor
         self.view2.layer.borderColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0).cgColor
         self.view3.layer.borderColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0).cgColor
-        self.view4.layer.borderColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0).cgColor PSAPIManager.sharedInstance.getAllChecklists(success:
+        self.view4.layer.borderColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0).cgColor
+        
+        PSAPIManager.sharedInstance.getAllChecklists(success:
         { (dic) in
                 
             let tempArray = dic["array"] as! [Any]
