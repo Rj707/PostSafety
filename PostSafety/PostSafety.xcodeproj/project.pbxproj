@@ -19,6 +19,9 @@
 		1812E69520B8A4D800E484C6 /* PSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69320B8A4D800E484C6 /* PSConstants.swift */; };
 		1812E69720B8A4F800E484C6 /* PSDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69620B8A4F700E484C6 /* PSDataManager.swift */; };
 		1812E69920B8A50C00E484C6 /* PSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69820B8A50C00E484C6 /* PSUser.swift */; };
+		184EC78420DC078A0089348C /* PSNoConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184EC78320DC078A0089348C /* PSNoConnectionViewController.swift */; };
+		184EC78620DC0FB70089348C /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184EC78520DC0FB70089348C /* User.storyboard */; };
+		184EC78820DC1ED40089348C /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184EC78720DC1ED40089348C /* Admin.storyboard */; };
 		18FDED3A20B04F2A009CBA0B /* SwiftyCamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3620B04F2A009CBA0B /* SwiftyCamViewController.swift */; };
 		18FDED3B20B04F2A009CBA0B /* SwiftyCamButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3720B04F2A009CBA0B /* SwiftyCamButton.swift */; };
 		18FDED3C20B04F2A009CBA0B /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3820B04F2A009CBA0B /* PreviewView.swift */; };
@@ -97,6 +100,9 @@
 		1812E69320B8A4D800E484C6 /* PSConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSConstants.swift; sourceTree = "<group>"; };
 		1812E69620B8A4F700E484C6 /* PSDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSDataManager.swift; sourceTree = "<group>"; };
 		1812E69820B8A50C00E484C6 /* PSUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSUser.swift; sourceTree = "<group>"; };
+		184EC78320DC078A0089348C /* PSNoConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSNoConnectionViewController.swift; sourceTree = "<group>"; };
+		184EC78520DC0FB70089348C /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
+		184EC78720DC1ED40089348C /* Admin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
 		18FDED3620B04F2A009CBA0B /* SwiftyCamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamViewController.swift; sourceTree = "<group>"; };
 		18FDED3720B04F2A009CBA0B /* SwiftyCamButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamButton.swift; sourceTree = "<group>"; };
 		18FDED3820B04F2A009CBA0B /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
@@ -327,6 +333,7 @@
 				C4E5A56520AE56050060898B /* PSReportSummaryViewController.swift */,
 				C4E5A56720AE56200060898B /* PSReportDetailViewController.swift */,
 				A1FF177420DBCCFF00F06EAC /* PSEmergencyInstructionsViewController.swift */,
+				184EC78320DC078A0089348C /* PSNoConnectionViewController.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -343,6 +350,8 @@
 			isa = PBXGroup;
 			children = (
 				A11DF68B20D8F0250079D861 /* Dashboard_design.storyboard */,
+				184EC78520DC0FB70089348C /* User.storyboard */,
+				184EC78720DC1ED40089348C /* Admin.storyboard */,
 				C4B0775C20C4090E00CCD778 /* Authentication_design.storyboard */,
 				A1F156A820AABFF50049DB21 /* Authentication.storyboard */,
 				A1F156D220AB13420049DB21 /* Dashboard.storyboard */,
@@ -549,6 +558,8 @@
 				A11DF68C20D8F0250079D861 /* Dashboard_design.storyboard in Resources */,
 				A1F156D320AB13420049DB21 /* Dashboard.storyboard in Resources */,
 				A15BECE520AEEB560081BC25 /* CameraOverLay.xib in Resources */,
+				184EC78820DC1ED40089348C /* Admin.storyboard in Resources */,
+				184EC78620DC0FB70089348C /* User.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +633,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184EC78420DC078A0089348C /* PSNoConnectionViewController.swift in Sources */,
 				1812E69120B8A4C000E484C6 /* PSRouteUrls.swift in Sources */,
 				A16142D420AC10FC00421414 /* PSTermsOfUseViewController.swift in Sources */,
 				A16142D620AC110A00421414 /* PSDashboardViewController.swift in Sources */,
