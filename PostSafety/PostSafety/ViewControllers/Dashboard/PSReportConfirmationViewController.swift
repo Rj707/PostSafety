@@ -8,15 +8,22 @@
 
 import UIKit
 
-class PSReportConfirmationViewController: UIViewController {
+class PSReportConfirmationViewController: UIViewController
+{
 
-    override func viewDidLoad() {
+    @IBOutlet weak var confirmationContainer:UIView!
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.confirmationContainer.layer.borderWidth=2
+        self.confirmationContainer.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -55,6 +62,7 @@ class PSReportConfirmationViewController: UIViewController {
             }
         }
     }
+    
     /*
     // MARK: - Navigation
 

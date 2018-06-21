@@ -784,10 +784,10 @@
             </objects>
             <point key="canvasLocation" x="1855" y="756"/>
         </scene>
-        <!--Select Location View Controller-->
+        <!--View Controller-->
         <scene sceneID="LiZ-Sd-ZhZ">
             <objects>
-                <viewController storyboardIdentifier="SelectLocationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DJn-pQ-wan" customClass="PSSelectLocationViewController" customModule="PostSafety" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="DJn-pQ-wan" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CDl-3h-31W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1156,10 +1156,10 @@
             </objects>
             <point key="canvasLocation" x="5254" y="756"/>
         </scene>
-        <!--Report Summary View Controller-->
+        <!--View Controller-->
         <scene sceneID="g7Y-4n-gft">
             <objects>
-                <viewController id="3Hy-7l-zcv" customClass="PSReportSummaryViewController" customModule="PostSafety" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3Hy-7l-zcv" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YcO-Li-hDh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1271,7 +1271,6 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="2"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="sendReportButtonTouched:" destination="3Hy-7l-zcv" eventType="touchUpInside" id="CF8-EW-kAv"/>
                                             <segue destination="OkT-hd-pwK" kind="push" id="I6j-PN-AaI"/>
                                         </connections>
                                     </button>
@@ -1346,9 +1345,6 @@
                                             <constraint firstAttribute="width" secondItem="J3g-x3-swl" secondAttribute="height" id="DGZ-ER-Vzg"/>
                                         </constraints>
                                         <state key="normal" image="back"/>
-                                        <connections>
-                                            <action selector="backButtonTouched:" destination="3Hy-7l-zcv" eventType="touchUpInside" id="8hW-rW-rpG"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1377,14 +1373,6 @@
                         <viewLayoutGuide key="safeArea" id="5iJ-PW-3HE"/>
                     </view>
                     <navigationItem key="navigationItem" id="yUZ-Rd-8y2"/>
-                    <connections>
-                        <outlet property="categoryTextField" destination="5sB-PW-NrJ" id="iAh-FY-A4z"/>
-                        <outlet property="dateTextField" destination="Cw1-N7-0bj" id="raY-QX-yfI"/>
-                        <outlet property="decriptionTextView" destination="qnt-Pf-86V" id="r32-pG-G6v"/>
-                        <outlet property="reportTypeTextField" destination="huE-Ei-N98" id="b7b-pi-bq0"/>
-                        <outlet property="siteLocationTextField" destination="ixk-nY-JM1" id="15t-gP-kpc"/>
-                        <outlet property="timeTextField" destination="UMa-i7-WQ4" id="xwp-pa-eDk"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbX-Lu-M6l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1615,10 +1603,10 @@
             </objects>
             <point key="canvasLocation" x="5351.1999999999998" y="-202.84857571214394"/>
         </scene>
-        <!--Select Category View Controller-->
+        <!--View Controller-->
         <scene sceneID="epv-il-PRT">
             <objects>
-                <viewController storyboardIdentifier="SelectCategoryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RtV-qp-Jse" customClass="PSSelectCategoryViewController" customModule="PostSafety" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="RtV-qp-Jse" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gZO-sD-tfv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

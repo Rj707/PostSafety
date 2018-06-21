@@ -12,9 +12,16 @@ class PSDashboardViewController: UIViewController
 {
     @IBOutlet weak var menuButton:UIButton!
     
+    @IBOutlet weak var receiveContainer:UIView!
+    @IBOutlet weak var reportContainer:UIView!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.receiveContainer.layer.borderWidth=1
+        self.receiveContainer.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        self.reportContainer.layer.borderWidth=1
+        self.reportContainer.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.addMenuAction()
     }
 
