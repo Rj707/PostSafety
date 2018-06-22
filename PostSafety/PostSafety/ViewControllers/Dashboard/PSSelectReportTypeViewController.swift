@@ -7,21 +7,37 @@
 //
 
 import UIKit
-import ACProgressHUD_Swift
 
 class PSSelectReportTypeViewController: UIViewController
 {
+    @IBOutlet weak var view4: UIView!
+    @IBOutlet weak var view3: UIView!
+    @IBOutlet weak var view2: UIView!
+    @IBOutlet weak var view1: UIView!
 
     var cheklistArray = [Any]()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching checklists")
+
+        self.view1.layer.borderWidth=1
+        self.view2.layer.borderWidth=1
+        self.view3.layer.borderWidth=1
+        self.view4.layer.borderWidth=1
+        self.view1.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        self.view2.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        self.view3.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        self.view4.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        
+//        self.passwordTextFieldContainer?.layer.borderWidth = 2
+//        self.passwordTextFieldContainer?.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+//        self.confirmPasswordTextFieldContainer?.layer.borderWidth = 2
+//        self.confirmPasswordTextFieldContainer?.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        
         PSAPIManager.sharedInstance.getAllChecklists(success:
         { (dic) in
-            
-            PSUserInterfaceManager.sharedInstance.hideLoader()
+                
             let tempArray = dic["array"] as! [Any]
             
             for checklistDict in tempArray
@@ -40,8 +56,6 @@ class PSSelectReportTypeViewController: UIViewController
             
         {
             (error:NSError,statusCode:Int) in
-            
-            PSUserInterfaceManager.sharedInstance.hideLoader()
             if(statusCode==404)
             {
                 PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiResultFailureMessage.InvalidEmailPassword)
@@ -66,15 +80,16 @@ class PSSelectReportTypeViewController: UIViewController
         self.navigationController?.popViewController(animated: true)
     }
 
-    @IBAction func emergencyGestureTapped(_ sender: Any)
+    
+    @IBAction func hazardGestureTapped(_ sender: Any)
     {
-        let dict:[String:String] = ["reporttype":"Emergency"]
+        
+        let dict:[String:String] = ["reporttype":"Hazard"]
         UserDefaults.standard.set(dict, forKey: "dict")
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
         navigationController?.pushViewController(vc,
                                                  animated: true)
-        
     }
     @IBAction func incidentGestureTapped(_ sender: Any)
     {
@@ -86,16 +101,21 @@ class PSSelectReportTypeViewController: UIViewController
                                                  animated: true)
  
     }
-    @IBAction func hazardGestureTapped(_ sender: Any)
+    @IBAction func nearMisstGestureTapped(_ sender: Any)
     {
-        
-        let dict:[String:String] = ["reporttype":"Hazard"]
+        let dict:[String:String] = ["reporttype":"NearMiss"]
         UserDefaults.standard.set(dict, forKey: "dict")
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
         navigationController?.pushViewController(vc,
                                                  animated: true)
+        
     }
+    @IBAction func emergencyGestureTapped(_ sender: Any)
+    {
+        
+    }
+   
     /*
     // MARK: - Navigation
 
