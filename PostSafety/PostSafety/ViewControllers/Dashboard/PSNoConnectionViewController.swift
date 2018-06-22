@@ -1,14 +1,14 @@
 //
-//  SendVerificationCodeViewController.swift
+//  PSNoConnectionViewController.swift
 //  PostSafety
 //
-//  Created by Hafiz Saad on 16/05/2018.
+//  Created by Rayyan on 21/06/2018.
 //  Copyright © 2018 Now Tel. All rights reserved.
 //
 
 import UIKit
 
-class PSSendVerificationCodeViewController: UIViewController {
+class PSNoConnectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +21,20 @@ class PSSendVerificationCodeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - IBActions
-    
-    @IBAction func backButtonTouched(_ sender: UIButton)
+    @IBAction func returnToDashboardButtonTouched(_ sender: UIButton)
     {
-        self.navigationController?.popViewController(animated: true)
+        if let viewControllers = self.navigationController?.viewControllers
+        {
+            for viewController in viewControllers
+            {
+                // some process
+                if viewController is PSDashboardViewController
+                {
+                    self.navigationController?.popToViewController(viewController, animated: true)
+                    break
+                }
+            }
+        }
     }
     
     /*

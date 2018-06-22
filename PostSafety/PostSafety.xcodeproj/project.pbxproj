@@ -19,6 +19,9 @@
 		1812E69520B8A4D800E484C6 /* PSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69320B8A4D800E484C6 /* PSConstants.swift */; };
 		1812E69720B8A4F800E484C6 /* PSDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69620B8A4F700E484C6 /* PSDataManager.swift */; };
 		1812E69920B8A50C00E484C6 /* PSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69820B8A50C00E484C6 /* PSUser.swift */; };
+		184EC78420DC078A0089348C /* PSNoConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184EC78320DC078A0089348C /* PSNoConnectionViewController.swift */; };
+		184EC78620DC0FB70089348C /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184EC78520DC0FB70089348C /* User.storyboard */; };
+		184EC78820DC1ED40089348C /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184EC78720DC1ED40089348C /* Admin.storyboard */; };
 		18FDED3A20B04F2A009CBA0B /* SwiftyCamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3620B04F2A009CBA0B /* SwiftyCamViewController.swift */; };
 		18FDED3B20B04F2A009CBA0B /* SwiftyCamButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3720B04F2A009CBA0B /* SwiftyCamButton.swift */; };
 		18FDED3C20B04F2A009CBA0B /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3820B04F2A009CBA0B /* PreviewView.swift */; };
@@ -27,13 +30,18 @@
 		18FDED4220B04F82009CBA0B /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED4020B04F82009CBA0B /* PhotoViewController.swift */; };
 		18FDED4420B05077009CBA0B /* SwiftyRecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED4320B05077009CBA0B /* SwiftyRecordButton.swift */; };
 		2C5F40C35FA6E8D5F17D9D1A /* Pods_PostSafety.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462E62552B0A0080C9267F99 /* Pods_PostSafety.framework */; };
+		A11DF68C20D8F0250079D861 /* Dashboard_design.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11DF68B20D8F0250079D861 /* Dashboard_design.storyboard */; };
+		A11DF69020D8F0860079D861 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A11DF68F20D8F0860079D861 /* SWRevealViewController.m */; };
+		A11DF69220D8F0FF0079D861 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11DF69120D8F0FF0079D861 /* MenuViewController.swift */; };
+		A11DF69520D8F1BF0079D861 /* MenuBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11DF69320D8F1BE0079D861 /* MenuBottomCell.swift */; };
+		A11DF69620D8F1BF0079D861 /* MenuTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11DF69420D8F1BF0079D861 /* MenuTopCell.swift */; };
 		A124938620C128C700B38DEF /* PSChecklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A124938520C128C700B38DEF /* PSChecklist.swift */; };
 		A15BECE520AEEB560081BC25 /* CameraOverLay.xib in Resources */ = {isa = PBXBuildFile; fileRef = A15BECE420AEEB550081BC25 /* CameraOverLay.xib */; };
 		A15BECE720AEEB6B0081BC25 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BECE620AEEB6A0081BC25 /* CameraViewController.swift */; };
 		A16142CE20AC108E00421414 /* PSLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142CD20AC108E00421414 /* PSLogInViewController.swift */; };
-		A16142D020AC10C400421414 /* PSSendVerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142CF20AC10C400421414 /* PSSendVerificationCodeViewController.swift */; };
+		A16142D020AC10C400421414 /* PSCreatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142CF20AC10C400421414 /* PSCreatePasswordViewController.swift */; };
 		A16142D220AC10D300421414 /* PSVerifyCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D120AC10D300421414 /* PSVerifyCodeViewController.swift */; };
-		A16142D420AC10FC00421414 /* PSSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D320AC10FC00421414 /* PSSignUpViewController.swift */; };
+		A16142D420AC10FC00421414 /* PSTermsOfUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D320AC10FC00421414 /* PSTermsOfUseViewController.swift */; };
 		A16142D620AC110A00421414 /* PSDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D520AC110A00421414 /* PSDashboardViewController.swift */; };
 		A16142D820AC11BD00421414 /* PSUpdatesAnnouncementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D720AC11BD00421414 /* PSUpdatesAnnouncementsViewController.swift */; };
 		A16142DA20AC11CD00421414 /* PSAnnouncementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D920AC11CD00421414 /* PSAnnouncementDetailViewController.swift */; };
@@ -49,6 +57,10 @@
 		A1F156BA20AABFF60049DB21 /* PostSafetyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F156B920AABFF60049DB21 /* PostSafetyTests.swift */; };
 		A1F156C520AABFF60049DB21 /* PostSafetyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F156C420AABFF60049DB21 /* PostSafetyUITests.swift */; };
 		A1F156D320AB13420049DB21 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F156D220AB13420049DB21 /* Dashboard.storyboard */; };
+		A1FF177120DBC3C700F06EAC /* PSPotentiallySeriousIncidentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FF177020DBC3C700F06EAC /* PSPotentiallySeriousIncidentViewController.swift */; };
+		A1FF177320DBC62300F06EAC /* PSSelectSubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FF177220DBC62300F06EAC /* PSSelectSubCategoryViewController.swift */; };
+		A1FF177520DBCCFF00F06EAC /* PSEmergencyInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FF177420DBCCFF00F06EAC /* PSEmergencyInstructionsViewController.swift */; };
+		C4B0775E20C4090E00CCD778 /* Authentication_design.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4B0775C20C4090E00CCD778 /* Authentication_design.storyboard */; };
 		C4E5A56220AE55960060898B /* PSSelectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56120AE55950060898B /* PSSelectCategoryViewController.swift */; };
 		C4E5A56420AE55E90060898B /* PSQuickSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56320AE55E90060898B /* PSQuickSummaryViewController.swift */; };
 		C4E5A56620AE56050060898B /* PSReportSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56520AE56050060898B /* PSReportSummaryViewController.swift */; };
@@ -88,6 +100,9 @@
 		1812E69320B8A4D800E484C6 /* PSConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSConstants.swift; sourceTree = "<group>"; };
 		1812E69620B8A4F700E484C6 /* PSDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSDataManager.swift; sourceTree = "<group>"; };
 		1812E69820B8A50C00E484C6 /* PSUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSUser.swift; sourceTree = "<group>"; };
+		184EC78320DC078A0089348C /* PSNoConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSNoConnectionViewController.swift; sourceTree = "<group>"; };
+		184EC78520DC0FB70089348C /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
+		184EC78720DC1ED40089348C /* Admin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
 		18FDED3620B04F2A009CBA0B /* SwiftyCamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamViewController.swift; sourceTree = "<group>"; };
 		18FDED3720B04F2A009CBA0B /* SwiftyCamButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamButton.swift; sourceTree = "<group>"; };
 		18FDED3820B04F2A009CBA0B /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
@@ -98,13 +113,19 @@
 		1A842FAE2CD79A6058C5732A /* Pods-PostSafety.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostSafety.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PostSafety/Pods-PostSafety.debug.xcconfig"; sourceTree = "<group>"; };
 		462E62552B0A0080C9267F99 /* Pods_PostSafety.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PostSafety.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6654D11319022298AEDDCE /* Pods-PostSafety.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostSafety.release.xcconfig"; path = "Pods/Target Support Files/Pods-PostSafety/Pods-PostSafety.release.xcconfig"; sourceTree = "<group>"; };
+		A11DF68B20D8F0250079D861 /* Dashboard_design.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dashboard_design.storyboard; sourceTree = "<group>"; };
+		A11DF68E20D8F0860079D861 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		A11DF68F20D8F0860079D861 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		A11DF69120D8F0FF0079D861 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		A11DF69320D8F1BE0079D861 /* MenuBottomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBottomCell.swift; sourceTree = "<group>"; };
+		A11DF69420D8F1BF0079D861 /* MenuTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTopCell.swift; sourceTree = "<group>"; };
 		A124938520C128C700B38DEF /* PSChecklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSChecklist.swift; sourceTree = "<group>"; };
 		A15BECE420AEEB550081BC25 /* CameraOverLay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraOverLay.xib; sourceTree = "<group>"; };
 		A15BECE620AEEB6A0081BC25 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		A16142CD20AC108E00421414 /* PSLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSLogInViewController.swift; sourceTree = "<group>"; };
-		A16142CF20AC10C400421414 /* PSSendVerificationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSendVerificationCodeViewController.swift; sourceTree = "<group>"; };
+		A16142CF20AC10C400421414 /* PSCreatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSCreatePasswordViewController.swift; sourceTree = "<group>"; };
 		A16142D120AC10D300421414 /* PSVerifyCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSVerifyCodeViewController.swift; sourceTree = "<group>"; };
-		A16142D320AC10FC00421414 /* PSSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSignUpViewController.swift; sourceTree = "<group>"; };
+		A16142D320AC10FC00421414 /* PSTermsOfUseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSTermsOfUseViewController.swift; sourceTree = "<group>"; };
 		A16142D520AC110A00421414 /* PSDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSDashboardViewController.swift; sourceTree = "<group>"; };
 		A16142D720AC11BD00421414 /* PSUpdatesAnnouncementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSUpdatesAnnouncementsViewController.swift; sourceTree = "<group>"; };
 		A16142D920AC11CD00421414 /* PSAnnouncementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSAnnouncementDetailViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +147,10 @@
 		A1F156C420AABFF60049DB21 /* PostSafetyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSafetyUITests.swift; sourceTree = "<group>"; };
 		A1F156C620AABFF60049DB21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1F156D220AB13420049DB21 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		A1FF177020DBC3C700F06EAC /* PSPotentiallySeriousIncidentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSPotentiallySeriousIncidentViewController.swift; sourceTree = "<group>"; };
+		A1FF177220DBC62300F06EAC /* PSSelectSubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSelectSubCategoryViewController.swift; sourceTree = "<group>"; };
+		A1FF177420DBCCFF00F06EAC /* PSEmergencyInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSEmergencyInstructionsViewController.swift; sourceTree = "<group>"; };
+		C4B0775D20C4090E00CCD778 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication_design.storyboard; sourceTree = "<group>"; };
 		C4E5A56120AE55950060898B /* PSSelectCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSelectCategoryViewController.swift; sourceTree = "<group>"; };
 		C4E5A56320AE55E90060898B /* PSQuickSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSQuickSummaryViewController.swift; sourceTree = "<group>"; };
 		C4E5A56520AE56050060898B /* PSReportSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReportSummaryViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +253,7 @@
 		18FDED3420B04EE0009CBA0B /* ThirdPartyLibs */ = {
 			isa = PBXGroup;
 			children = (
+				A11DF68D20D8F0860079D861 /* SWRevealViewController */,
 				180D495920B9EAAB0023101D /* Reachibility */,
 				18FDED3520B04EE0009CBA0B /* Source */,
 			);
@@ -265,13 +291,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A11DF68D20D8F0860079D861 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A11DF68E20D8F0860079D861 /* SWRevealViewController.h */,
+				A11DF68F20D8F0860079D861 /* SWRevealViewController.m */,
+			);
+			path = SWRevealViewController;
+			sourceTree = "<group>";
+		};
 		A15BECDF20AEB9D80081BC25 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
 				A16142CD20AC108E00421414 /* PSLogInViewController.swift */,
-				A16142CF20AC10C400421414 /* PSSendVerificationCodeViewController.swift */,
+				A16142CF20AC10C400421414 /* PSCreatePasswordViewController.swift */,
 				A16142D120AC10D300421414 /* PSVerifyCodeViewController.swift */,
-				A16142D320AC10FC00421414 /* PSSignUpViewController.swift */,
+				A16142D320AC10FC00421414 /* PSTermsOfUseViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -279,19 +314,26 @@
 		A15BECE020AEB9F50081BC25 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				A11DF69120D8F0FF0079D861 /* MenuViewController.swift */,
+				A11DF69320D8F1BE0079D861 /* MenuBottomCell.swift */,
+				A11DF69420D8F1BF0079D861 /* MenuTopCell.swift */,
 				A15BECE620AEEB6A0081BC25 /* CameraViewController.swift */,
 				A16142D520AC110A00421414 /* PSDashboardViewController.swift */,
 				A16142D720AC11BD00421414 /* PSUpdatesAnnouncementsViewController.swift */,
 				A16142D920AC11CD00421414 /* PSAnnouncementDetailViewController.swift */,
 				A16142DB20AC11E600421414 /* PSSelectReportTypeViewController.swift */,
+				A1FF177020DBC3C700F06EAC /* PSPotentiallySeriousIncidentViewController.swift */,
 				18FDED3E20B04F51009CBA0B /* CustomCamera */,
 				A16142DF20AC122700421414 /* PSSelectLocationViewController.swift */,
 				A16142E120AC219B00421414 /* PSReportConfirmationViewController.swift */,
 				A16142E320AC335500421414 /* PSPersonalInformationViewController.swift */,
 				C4E5A56120AE55950060898B /* PSSelectCategoryViewController.swift */,
+				A1FF177220DBC62300F06EAC /* PSSelectSubCategoryViewController.swift */,
 				C4E5A56320AE55E90060898B /* PSQuickSummaryViewController.swift */,
 				C4E5A56520AE56050060898B /* PSReportSummaryViewController.swift */,
 				C4E5A56720AE56200060898B /* PSReportDetailViewController.swift */,
+				A1FF177420DBCCFF00F06EAC /* PSEmergencyInstructionsViewController.swift */,
+				184EC78320DC078A0089348C /* PSNoConnectionViewController.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -307,6 +349,10 @@
 		A16142CB20AC103B00421414 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				A11DF68B20D8F0250079D861 /* Dashboard_design.storyboard */,
+				184EC78520DC0FB70089348C /* User.storyboard */,
+				184EC78720DC1ED40089348C /* Admin.storyboard */,
+				C4B0775C20C4090E00CCD778 /* Authentication_design.storyboard */,
 				A1F156A820AABFF50049DB21 /* Authentication.storyboard */,
 				A1F156D220AB13420049DB21 /* Dashboard.storyboard */,
 			);
@@ -507,10 +553,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1F156AF20AABFF60049DB21 /* LaunchScreen.storyboard in Resources */,
+				C4B0775E20C4090E00CCD778 /* Authentication_design.storyboard in Resources */,
 				A1F156AC20AABFF60049DB21 /* Assets.xcassets in Resources */,
 				A1F156AA20AABFF50049DB21 /* Authentication.storyboard in Resources */,
+				A11DF68C20D8F0250079D861 /* Dashboard_design.storyboard in Resources */,
 				A1F156D320AB13420049DB21 /* Dashboard.storyboard in Resources */,
 				A15BECE520AEEB560081BC25 /* CameraOverLay.xib in Resources */,
+				184EC78820DC1ED40089348C /* Admin.storyboard in Resources */,
+				184EC78620DC0FB70089348C /* User.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,10 +651,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184EC78420DC078A0089348C /* PSNoConnectionViewController.swift in Sources */,
 				1812E69120B8A4C000E484C6 /* PSRouteUrls.swift in Sources */,
-				A16142D420AC10FC00421414 /* PSSignUpViewController.swift in Sources */,
+				A16142D420AC10FC00421414 /* PSTermsOfUseViewController.swift in Sources */,
 				A16142D620AC110A00421414 /* PSDashboardViewController.swift in Sources */,
 				18FDED4120B04F82009CBA0B /* VideoViewController.swift in Sources */,
+				A1FF177320DBC62300F06EAC /* PSSelectSubCategoryViewController.swift in Sources */,
 				18FDED3A20B04F2A009CBA0B /* SwiftyCamViewController.swift in Sources */,
 				18FDED3C20B04F2A009CBA0B /* PreviewView.swift in Sources */,
 				1812E68D20B8A37600E484C6 /* PSAPIManager.swift in Sources */,
@@ -614,6 +666,7 @@
 				A16142E420AC335500421414 /* PSPersonalInformationViewController.swift in Sources */,
 				A16142D220AC10D300421414 /* PSVerifyCodeViewController.swift in Sources */,
 				1811261920BDE52900ABA494 /* PSAPIManager+Checklist.swift in Sources */,
+				A11DF69220D8F0FF0079D861 /* MenuViewController.swift in Sources */,
 				18FDED3D20B04F2A009CBA0B /* SwiftyCamViewControllerDelegate.swift in Sources */,
 				1812E69920B8A50C00E484C6 /* PSUser.swift in Sources */,
 				A124938620C128C700B38DEF /* PSChecklist.swift in Sources */,
@@ -621,13 +674,17 @@
 				C4E5A56420AE55E90060898B /* PSQuickSummaryViewController.swift in Sources */,
 				C4E5A56820AE56200060898B /* PSReportDetailViewController.swift in Sources */,
 				A16142E020AC122700421414 /* PSSelectLocationViewController.swift in Sources */,
+				A11DF69620D8F1BF0079D861 /* MenuTopCell.swift in Sources */,
 				A16142DA20AC11CD00421414 /* PSAnnouncementDetailViewController.swift in Sources */,
 				A1F156A520AABFF50049DB21 /* AppDelegate.swift in Sources */,
-				A16142D020AC10C400421414 /* PSSendVerificationCodeViewController.swift in Sources */,
+				A16142D020AC10C400421414 /* PSCreatePasswordViewController.swift in Sources */,
 				1812E69720B8A4F800E484C6 /* PSDataManager.swift in Sources */,
 				A16142DE20AC121400421414 /* TakePhotoVideoViewController.swift in Sources */,
 				A16142E220AC219B00421414 /* PSReportConfirmationViewController.swift in Sources */,
+				A11DF69520D8F1BF0079D861 /* MenuBottomCell.swift in Sources */,
+				A1FF177520DBCCFF00F06EAC /* PSEmergencyInstructionsViewController.swift in Sources */,
 				18FDED4420B05077009CBA0B /* SwiftyRecordButton.swift in Sources */,
+				A11DF69020D8F0860079D861 /* SWRevealViewController.m in Sources */,
 				1811261B20BDE60300ABA494 /* PSChecklistAPIManager.swift in Sources */,
 				A16142D820AC11BD00421414 /* PSUpdatesAnnouncementsViewController.swift in Sources */,
 				1812E69520B8A4D800E484C6 /* PSConstants.swift in Sources */,
@@ -639,6 +696,7 @@
 				1812E69420B8A4D800E484C6 /* PSUserInterfaceManager.swift in Sources */,
 				18FDED4220B04F82009CBA0B /* PhotoViewController.swift in Sources */,
 				1812E68B20B8A32100E484C6 /* PSAuthenticationAPIManager.swift in Sources */,
+				A1FF177120DBC3C700F06EAC /* PSPotentiallySeriousIncidentViewController.swift in Sources */,
 				1812E68A20B8A32100E484C6 /* PSAPIManager+Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -689,6 +747,14 @@
 				A1F156AE20AABFF60049DB21 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C4B0775C20C4090E00CCD778 /* Authentication_design.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4B0775D20C4090E00CCD778 /* Base */,
+			);
+			name = Authentication_design.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

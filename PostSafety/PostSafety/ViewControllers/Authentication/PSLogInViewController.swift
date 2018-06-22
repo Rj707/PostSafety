@@ -11,6 +11,7 @@ import UIKit
 class PSLogInViewController: UIViewController
 {
     
+    @IBOutlet weak var nameTextField : UITextField?
     @IBOutlet weak var phoneNumberTextField : UITextField?
     @IBOutlet weak var passowrdTextField : UITextField?
 
@@ -67,6 +68,27 @@ class PSLogInViewController: UIViewController
             PSUserInterfaceManager.showAlert(title: "Login", message: ApiErrorMessage.NoNetwork)
         }
         
+    }
+    
+    @IBAction func termsOfUseButtonTouched(sender: UITapGestureRecognizer)
+    {
+        self.definesPresentationContext = true;
+        let termsOfUseVC : PSTermsOfUseViewController
+        termsOfUseVC = self.storyboard?.instantiateViewController(withIdentifier: "PSSignUpViewController") as! PSTermsOfUseViewController
+        termsOfUseVC.view.backgroundColor = UIColor.clear
+        termsOfUseVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+//        self.view.backgroundColor = UIColor.clear
+//        self.modalPresentationStyle = UIModalPresentationStyle.currentContext
+        self.present(termsOfUseVC, animated: true)
+        {
+            
+        }
+        
+//        self.definesPresentationContext = true; //self is presenting view controller
+//        presentedController.view.backgroundColor = [YOUR_COLOR with alpha OR clearColor]
+//        presentedController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+//
+//        [self presentViewController:presentedController animated:YES completion:nil];
     }
     
     /*

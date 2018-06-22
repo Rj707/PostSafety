@@ -16,16 +16,16 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
         if result["reporttype"] != "Emergency"
         {
-            let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "SelectCategoryViewController") as! PSSelectCategoryViewController
+            let storyboard = UIStoryboard(name: "Dashboard_design", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController
             navigationController?.pushViewController(vc,
                                                      animated: true)
         }
         else
         {
             
-            let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "QuickSummaryViewController") as! PSQuickSummaryViewController
+            let storyboard = UIStoryboard(name: "Dashboard_design", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "PSQuickSummaryViewController") as! PSQuickSummaryViewController
             navigationController?.pushViewController(vc,
                                                      animated: true)
         }
@@ -36,16 +36,16 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
         if result["reporttype"] != "Emergency"
         {
-            let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "SelectCategoryViewController") as! PSSelectCategoryViewController
+            let storyboard = UIStoryboard(name: "Dashboard_design", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController
             navigationController?.pushViewController(vc,
                                                      animated: true)
         }
         else
         {
             
-            let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "QuickSummaryViewController") as! PSQuickSummaryViewController
+            let storyboard = UIStoryboard(name: "Dashboard_design", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "PSQuickSummaryViewController") as! PSQuickSummaryViewController
             navigationController?.pushViewController(vc,
                                                      animated: true)
         }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PSSignUpViewController: UIViewController {
+class PSTermsOfUseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,14 @@ class PSSignUpViewController: UIViewController {
     @IBAction func backButtonTouched(_ sender: UIButton)
     {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func agreeAndContinueButtonTouched(_ sender: UIButton)
+    {
+        self.dismiss(animated: true)
+        {
+            
+        }
     }
     
     /*

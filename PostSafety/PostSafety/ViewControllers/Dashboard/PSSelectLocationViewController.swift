@@ -8,13 +8,32 @@
 
 import UIKit
 
-class PSSelectLocationViewController: UIViewController {
+class PSSelectLocationViewController: UIViewController
+{
+    
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var view1: UIView!
+    @IBOutlet weak var view2: UIView!
+    @IBOutlet weak var view3: UIView!
+    @IBOutlet weak var view4: UIView!
     
     var locationselected:Bool=false
-    override func viewDidLoad() {
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
+        
+        self.view1.layer.borderWidth=1
+        self.view2.layer.borderWidth=1
+        self.view3.layer.borderWidth=1
+        self.view4.layer.borderWidth=1
+        self.backgroundView.layer.borderWidth=1
+        self.view1.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        self.view2.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        self.view3.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        self.view4.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        self.backgroundView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,48 +45,42 @@ class PSSelectLocationViewController: UIViewController {
     
     @IBAction func backButtonTouched(_ sender: UIButton)
     {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: false)
     }
     
-    @IBAction func CgestureTapped(_ sender: Any)
+    @IBAction func locationOneGestureTapped(_ sender: Any)
     {
         locationselected=true
         var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
         result["location"] = "A"
         UserDefaults.standard.set(result, forKey: "dict")
+        self.performSegue(withIdentifier: "toReportSummaryFromLocation", sender: (Any).self)
     }
-    @IBAction func AgestureTapped(_ sender: Any)
+    @IBAction func locationTwoGestureTapped(_ sender: Any)
     {
-                locationselected=true
-        var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
-        result["location"] = "C"
-        UserDefaults.standard.set(result, forKey: "dict")
-    }
-    @IBAction func BgestureTapped(_ sender: Any)
-    {
-                locationselected=true
+        locationselected=true
         var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
         result["location"] = "B"
         UserDefaults.standard.set(result, forKey: "dict")
+        self.performSegue(withIdentifier: "toReportSummaryFromLocation", sender: (Any).self)
     }
-    @IBAction func DgestureTapped(_ sender: Any)
+    @IBAction func locationThreeGestureTapped(_ sender: Any)
     {
-                locationselected=true
+        locationselected=true
+        var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
+        result["location"] = "C"
+        UserDefaults.standard.set(result, forKey: "dict")
+        self.performSegue(withIdentifier: "toReportSummaryFromLocation", sender: (Any).self)
+    }
+    @IBAction func locationFourGestureTapped(_ sender: Any)
+    {
+        locationselected=true
         var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
         result["location"] = "D"
         UserDefaults.standard.set(result, forKey: "dict")
+        self.performSegue(withIdentifier: "toReportSummaryFromLocation", sender: (Any).self)
     }
-    @IBAction func nextButtonTouched(_ sender: Any)
-    {
-        if locationselected
-        {}
-        else
-        {
-            var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
-            result["location"] = "A"
-            UserDefaults.standard.set(result, forKey: "dict")
-        }
-    }
+ 
     /*
     // MARK: - Navigation
 
