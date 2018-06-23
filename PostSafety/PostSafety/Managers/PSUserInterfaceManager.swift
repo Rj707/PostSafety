@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 import MapKit
 import AVFoundation
+import ACProgressHUD_Swift
 
 import Alamofire
 
@@ -243,6 +244,18 @@ class PSUserInterfaceManager:NSObject
         navigationController = storyBoard.instantiateViewController(withIdentifier: "PSDashboardNavigationController") as? UINavigationController
         navigationController?.viewControllers = [homePage]
         Constants.APP_DELEGATE.window?.rootViewController = navigationController
+    }
+    
+    func showLoaderWithText(text:String)
+    {
+        let progressView = ACProgressHUD.shared
+        progressView.progressText = text
+        progressView.showHUD()
+    }
+    
+    func hideLoader()
+    {
+        ACProgressHUD.shared.hideHUD()
     }
     
     
