@@ -255,10 +255,23 @@
                         <segue destination="nkT-YY-ALO" kind="show" id="l3t-tt-wrt"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="qsx-y4-Sgx"/>
-                <tapGestureRecognizer id="AE9-1y-Azl"/>
+                <tapGestureRecognizer id="qsx-y4-Sgx">
+                    <connections>
+                        <segue destination="gJj-5f-b3w" kind="push" id="Qw0-Fc-yIq"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2794.4000000000001" y="34.632683658170919"/>
+        </scene>
+        <!--UpdatesAnnouncementsViewController-->
+        <scene sceneID="giy-dN-sfv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="User" referencedIdentifier="UpdatesAnnouncementsViewController" id="gJj-5f-b3w" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="y6I-yi-3mk"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mSV-U2-LAO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3542" y="-15"/>
         </scene>
         <!--Report Confirmation View Controller-->
         <scene sceneID="pPe-TI-uiJ">
@@ -408,7 +421,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UU2-39-Xyo" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5253.6000000000004" y="755.17241379310349"/>
+            <point key="canvasLocation" x="5650" y="1782"/>
         </scene>
         <!--Take Photo Video View Controller-->
         <scene sceneID="9GQ-Nf-6pa">
@@ -468,7 +481,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zny-5j-ezP" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3628" y="1925"/>
+            <point key="canvasLocation" x="2916" y="958"/>
         </scene>
         <!--Select Report Type View Controller-->
         <scene sceneID="gPe-zz-D4P">
@@ -1273,7 +1286,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z3z-xY-ZDX" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6010" y="755"/>
+            <point key="canvasLocation" x="6567" y="958"/>
         </scene>
         <!--Select Category View Controller-->
         <scene sceneID="UdW-uG-sj5">
@@ -1590,7 +1603,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4711" y="1776"/>
+            <point key="canvasLocation" x="3855" y="958"/>
         </scene>
         <!--Select Location View Controller-->
         <scene sceneID="ir7-qX-7XH">
@@ -1893,25 +1906,29 @@
                 <tapGestureRecognizer id="1bN-Lk-aQx">
                     <connections>
                         <action selector="locationOneGestureTapped:" destination="rqu-UY-ohG" id="Efc-Vv-rCn"/>
+                        <segue destination="2z1-mb-use" kind="push" id="Wxq-Wq-2ay"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="HUD-wp-aja">
                     <connections>
                         <action selector="locationTwoGestureTapped:" destination="rqu-UY-ohG" id="5fZ-FB-pcJ"/>
+                        <segue destination="2z1-mb-use" kind="push" id="iUD-21-qDj"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="VBt-pn-K2k">
                     <connections>
                         <action selector="locationThreeGestureTapped:" destination="rqu-UY-ohG" id="WlZ-lw-KA5"/>
+                        <segue destination="2z1-mb-use" kind="push" id="asr-et-Nuh"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="a4G-kj-vFY">
                     <connections>
                         <action selector="locationFourGestureTapped:" destination="rqu-UY-ohG" id="hOQ-dr-6Da"/>
+                        <segue destination="2z1-mb-use" kind="push" id="Mtx-KS-ELh"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="5550" y="1775"/>
+            <point key="canvasLocation" x="4695" y="958"/>
         </scene>
         <!--Report Summary View Controller-->
         <scene sceneID="95x-RC-xAr">
@@ -2113,7 +2130,7 @@
                 <tapGestureRecognizer id="Z9z-64-k3l"/>
                 <tapGestureRecognizer id="jYi-da-4FI"/>
             </objects>
-            <point key="canvasLocation" x="6505" y="1775"/>
+            <point key="canvasLocation" x="5650" y="958"/>
         </scene>
         <!--Potentially Serious Incident View Controller-->
         <scene sceneID="9xc-gy-xSf">
@@ -2145,9 +2162,6 @@
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="2"/>
                                                                 </userDefinedRuntimeAttributes>
-                                                                <connections>
-                                                                    <outletCollection property="gestureRecognizers" destination="GlK-FD-4kf" appends="YES" id="PP9-Az-ico"/>
-                                                                </connections>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is this a potentially serious incident? PSI " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oU2-gX-KO9">
                                                                 <rect key="frame" x="48" y="24" width="279" height="107.5"/>
@@ -2319,17 +2333,17 @@
                 <tapGestureRecognizer id="klO-3V-TKR">
                     <connections>
                         <outlet property="delegate" destination="g5P-bO-AfD" id="vA0-rf-rVg"/>
+                        <segue destination="rqu-UY-ohG" kind="push" id="bL3-fP-6zu"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="ut3-QX-ee3">
                     <connections>
                         <outlet property="delegate" destination="g5P-bO-AfD" id="cGf-gQ-0KR"/>
+                        <segue destination="rqu-UY-ohG" kind="push" id="5Ur-Sc-IGt"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="ufU-mz-JHc"/>
-                <tapGestureRecognizer id="GlK-FD-4kf"/>
             </objects>
-            <point key="canvasLocation" x="1140" y="1925"/>
+            <point key="canvasLocation" x="4762" y="1760"/>
         </scene>
         <!--Select Sub Category View Controller-->
         <scene sceneID="B8h-s7-QvK">
@@ -2626,13 +2640,33 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5g-w6-Wn1" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="PU4-UU-AzV"/>
-                <tapGestureRecognizer id="lnz-5C-riC"/>
-                <tapGestureRecognizer id="Vso-S9-aCj"/>
-                <tapGestureRecognizer id="fP5-5K-KQU"/>
-                <tapGestureRecognizer id="Der-Ss-RG5"/>
+                <tapGestureRecognizer id="PU4-UU-AzV">
+                    <connections>
+                        <segue destination="rqu-UY-ohG" kind="push" id="LpL-gO-1jx"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="lnz-5C-riC">
+                    <connections>
+                        <segue destination="rqu-UY-ohG" kind="push" id="iZ1-Qy-3NZ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Vso-S9-aCj">
+                    <connections>
+                        <segue destination="rqu-UY-ohG" kind="push" id="J1x-l0-478"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="fP5-5K-KQU">
+                    <connections>
+                        <segue destination="rqu-UY-ohG" kind="push" id="Xja-fG-G76"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Der-Ss-RG5">
+                    <connections>
+                        <segue destination="rqu-UY-ohG" kind="push" id="HJn-J8-xY2"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4711" y="2577"/>
+            <point key="canvasLocation" x="3855" y="1760"/>
         </scene>
         <!--Emergency Instructions View Controller-->
         <scene sceneID="wrU-eB-JxR">
@@ -2759,7 +2793,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xoZ-7a-Mbf" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2076" y="1925"/>
+            <point key="canvasLocation" x="2076" y="1760"/>
         </scene>
     </scenes>
     <resources>
@@ -2778,4 +2812,8 @@
         <image name="tick" width="128" height="128"/>
         <image name="user_profile_icn" width="16" height="16"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="iUD-21-qDj"/>
+        <segue reference="bL3-fP-6zu"/>
+    </inferredMetricsTieBreakers>
 </document>

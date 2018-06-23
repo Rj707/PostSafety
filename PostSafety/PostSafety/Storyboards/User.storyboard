@@ -609,7 +609,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zld-oA-Nm1">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="142" estimatedRowHeight="142" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zld-oA-Nm1">
                                 <rect key="frame" x="0.0" y="192" width="375" height="475"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -652,6 +652,9 @@
                                                 <constraint firstItem="ZmN-bf-0YC" firstAttribute="top" secondItem="0BZ-gO-STX" secondAttribute="bottom" id="zHL-pI-Wm8"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="o0c-DC-IER" kind="show" id="rHp-WZ-mN2"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -734,10 +737,10 @@
             </objects>
             <point key="canvasLocation" x="3520.8000000000002" y="957.57121439280365"/>
         </scene>
-        <!--View Controller-->
+        <!--Announcement Detail View Controller-->
         <scene sceneID="U9f-5D-eBj">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="o0c-DC-IER" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PSAnnouncementDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="o0c-DC-IER" customClass="PSAnnouncementDetailViewController" customModule="PostSafety" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A0g-id-Kqx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
