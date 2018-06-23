@@ -4,6 +4,7 @@ class PSDataManager: NSObject
 {
     static let sharedInstance = PSDataManager()
     var realm: Realm!
+    var report: PSReport?
     var loggedInUser: PSUser?
     {
 //        set(user)
@@ -34,7 +35,7 @@ class PSDataManager: NSObject
         super.init()
         
 //        loggedInUser = Constants.USER_DEFAULTS.value(forKey: "User") as! PSUser?
-        
+        self.report = PSReport.init()
         if(!(realm != nil))
         {
             realm = try! Realm()

@@ -25,7 +25,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         {
             
             let storyboard = UIStoryboard(name: "Dashboard_design", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "PSQuickSummaryViewController") as! PSQuickSummaryViewController
+            let vc = storyboard.instantiateViewController(withIdentifier: "PSReportConfirmationViewController") as! PSReportConfirmationViewController
             navigationController?.pushViewController(vc,
                                                      animated: true)
         }
@@ -45,7 +45,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         {
             
             let storyboard = UIStoryboard(name: "Dashboard_design", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "PSQuickSummaryViewController") as! PSQuickSummaryViewController
+            let vc = storyboard.instantiateViewController(withIdentifier: "PSReportConfirmationViewController") as! PSReportConfirmationViewController
             navigationController?.pushViewController(vc,
                                                      animated: true)
         }

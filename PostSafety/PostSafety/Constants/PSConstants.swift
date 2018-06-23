@@ -4,6 +4,7 @@ struct Global
 {
     static var DATA_MANAGER = PSDataManager.sharedInstance
     static var USER        = DATA_MANAGER.loggedInUser
+    static var REPORT        = DATA_MANAGER.report
 }
 
 struct Constants
