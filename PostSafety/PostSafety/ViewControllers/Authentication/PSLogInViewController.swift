@@ -74,7 +74,7 @@ class PSLogInViewController: UIViewController
     {
         self.definesPresentationContext = true;
         let termsOfUseVC : PSTermsOfUseViewController
-        termsOfUseVC = self.storyboard?.instantiateViewController(withIdentifier: "PSSignUpViewController") as! PSTermsOfUseViewController
+        termsOfUseVC = self.storyboard?.instantiateViewController(withIdentifier: "PSTermsOfUseViewController") as! PSTermsOfUseViewController
         termsOfUseVC.view.backgroundColor = UIColor.clear
         termsOfUseVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
 //        self.view.backgroundColor = UIColor.clear

@@ -243,9 +243,6 @@
                                             <constraint firstAttribute="width" secondItem="RxS-z3-egp" secondAttribute="height" id="m58-tF-Hhv"/>
                                         </constraints>
                                         <state key="normal" image="back"/>
-                                        <connections>
-                                            <action selector="backButtonTouched:" destination="8ce-A6-TRK" eventType="touchUpInside" id="KuY-ZT-nO0"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -277,35 +274,32 @@
                         <viewLayoutGuide key="safeArea" id="Yp4-52-YR4"/>
                     </view>
                     <navigationItem key="navigationItem" id="b7x-kk-3cP"/>
-                    <connections>
-                        <outlet property="view1" destination="BLp-RK-nb4" id="rge-vh-esf"/>
-                        <outlet property="view2" destination="rwr-MB-CQz" id="hkQ-0G-20h"/>
-                        <outlet property="view3" destination="ble-qO-fs6" id="fK0-OV-IAg"/>
-                        <outlet property="view4" destination="ZAY-LT-3Cf" id="M6N-OV-VqB"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RbQ-mX-cnU" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="tXa-tm-4II">
                     <connections>
-                        <action selector="hazardGestureTapped:" destination="8ce-A6-TRK" id="e6g-Zh-YJy"/>
                         <segue destination="g5u-W6-rSJ" kind="push" id="kDY-qk-899"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="aT9-Rw-fpx">
                     <connections>
-                        <action selector="nearMisstGestureTapped:" destination="8ce-A6-TRK" id="dhe-sL-TlY"/>
                         <outlet property="delegate" destination="8ce-A6-TRK" id="cIh-Qn-On3"/>
+                        <segue destination="KTp-hF-yJE" kind="push" id="Ydx-sy-h0X"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="4Fv-iW-3jt">
                     <connections>
-                        <action selector="incidentGestureTapped:" destination="8ce-A6-TRK" id="cVl-iz-GW5"/>
                         <outlet property="delegate" destination="8ce-A6-TRK" id="O2q-Gh-hSt"/>
+                        <segue destination="jZa-NO-yVz" kind="push" id="OKi-l7-Rig"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="Zuc-op-dNq"/>
+                <tapGestureRecognizer id="Zuc-op-dNq">
+                    <connections>
+                        <segue destination="jZa-NO-yVz" kind="push" id="5QS-b8-YS3"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2076" y="958"/>
+            <point key="canvasLocation" x="1898" y="958"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="TcF-tj-mSx">
@@ -511,23 +505,25 @@
                 <tapGestureRecognizer id="ECS-ZG-F2j">
                     <connections>
                         <action selector="hazardGestureTapped:" destination="g5u-W6-rSJ" id="0rs-4i-YIt"/>
+                        <segue destination="jZa-NO-yVz" kind="push" id="cmA-OC-hwI"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="HOW-3N-zN5">
                     <connections>
                         <action selector="nearMisstGestureTapped:" destination="g5u-W6-rSJ" id="fEq-Ja-KGa"/>
                         <outlet property="delegate" destination="g5u-W6-rSJ" id="DOb-Z8-cwc"/>
+                        <segue destination="jZa-NO-yVz" kind="push" id="2hU-Ll-HLJ"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="fQ9-eD-YQM">
                     <connections>
                         <action selector="incidentGestureTapped:" destination="g5u-W6-rSJ" id="T7Z-a1-0ad"/>
                         <outlet property="delegate" destination="g5u-W6-rSJ" id="eFw-Cr-gyP"/>
+                        <segue destination="jZa-NO-yVz" kind="push" id="4sF-cH-ptW"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="GSd-Fv-fcS"/>
             </objects>
-            <point key="canvasLocation" x="2810" y="958"/>
+            <point key="canvasLocation" x="2727" y="958"/>
         </scene>
         <!--Updates Announcements View Controller-->
         <scene sceneID="Sfc-c1-cJL">
@@ -927,6 +923,9 @@
                                         <integer key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="O1A-Wh-tW7" appends="YES" id="aqL-tr-cqS"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovL-Fp-Urg">
                                 <rect key="frame" x="24" y="506" width="327" height="44"/>
@@ -957,6 +956,9 @@
                                         <integer key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="576-AC-U0L" appends="YES" id="5dr-Ud-3nF"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -985,21 +987,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0H-Zf-Vd5" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="O1A-Wh-tW7">
                     <connections>
-                        <action selector="announcementsViewTouched:" destination="KTp-hF-yJE" id="7bp-0B-yW0"/>
+                        <segue destination="OCW-UI-kVn" kind="modal" id="9Yj-U5-jLs"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="576-AC-U0L">
                     <connections>
-                        <action selector="sharedReportsViewTouched:" destination="KTp-hF-yJE" id="cou-31-SQb"/>
+                        <segue destination="uVs-g2-p0o" kind="modal" id="INn-wL-oeV"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4991.1999999999998" y="957.57121439280365"/>
         </scene>
-        <!--Terms Of Use View Controller-->
+        <!--View Controller-->
         <scene sceneID="lWR-Ku-FTE">
             <objects>
-                <viewController storyboardIdentifier="PSTermsOfUseViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OCW-UI-kVn" customClass="PSTermsOfUseViewController" customModule="PostSafety" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="OCW-UI-kVn" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jsG-SQ-3rc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1222,4 +1224,7 @@
         <image name="back" width="25" height="25"/>
         <image name="bg" width="1080" height="1920"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="5QS-b8-YS3"/>
+    </inferredMetricsTieBreakers>
 </document>
