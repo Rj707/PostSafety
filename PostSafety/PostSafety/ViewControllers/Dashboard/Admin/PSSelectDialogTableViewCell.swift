@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectDialogTableViewCell: UITableViewCell
+class PSSelectDialogTableViewCell: UITableViewCell
 {
     @IBOutlet weak var selectionButton : UIButton!
     @IBOutlet weak var selectionNameLabel : UILabel!

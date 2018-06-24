@@ -45,7 +45,7 @@ class PSSelectCategoryViewController: UIViewController
     
     func setNextViewController()
     {
-        let storyboard = UIStoryboard(name: "Dashboard_design", bundle: nil)
+        let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
 //        var reportType = ""
 //        print(Global.REPORT?.reportType ?? "")
 //        reportType = (Global.REPORT?.reportType)!

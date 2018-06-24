@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SummaryStatsHomeViewController: UIViewController {
+class PSSummaryStatsHomeViewController: UIViewController {
 
     @IBOutlet weak var yesterdayView: UIView!
     @IBOutlet weak var monthView: UIView!

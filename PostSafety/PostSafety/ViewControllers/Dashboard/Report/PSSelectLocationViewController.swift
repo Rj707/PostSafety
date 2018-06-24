@@ -50,33 +50,37 @@ class PSSelectLocationViewController: UIViewController
     
     @IBAction func locationOneGestureTapped(_ sender: Any)
     {
-        locationselected=true
+        Global.REPORT?.reportLocation = "Location 1"
+        locationselected = true
         var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
-        result["location"] = "A"
+        result["location"] = "Location 1"
         UserDefaults.standard.set(result, forKey: "dict")
         self.performSegue(withIdentifier: "toReportSummaryFromLocation", sender: (Any).self)
     }
     @IBAction func locationTwoGestureTapped(_ sender: Any)
     {
+        Global.REPORT?.reportLocation = "Location 2"
         locationselected=true
         var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
-        result["location"] = "B"
+        result["location"] = "Location 2"
         UserDefaults.standard.set(result, forKey: "dict")
         self.performSegue(withIdentifier: "toReportSummaryFromLocation", sender: (Any).self)
     }
     @IBAction func locationThreeGestureTapped(_ sender: Any)
     {
+        Global.REPORT?.reportLocation = "Location 3"
         locationselected=true
         var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
-        result["location"] = "C"
+        result["location"] = "Location 3"
         UserDefaults.standard.set(result, forKey: "dict")
         self.performSegue(withIdentifier: "toReportSummaryFromLocation", sender: (Any).self)
     }
     @IBAction func locationFourGestureTapped(_ sender: Any)
     {
+        Global.REPORT?.reportLocation = "Location 4"
         locationselected=true
         var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
-        result["location"] = "D"
+        result["location"] = "Location 4"
         UserDefaults.standard.set(result, forKey: "dict")
         self.performSegue(withIdentifier: "toReportSummaryFromLocation", sender: (Any).self)
     }

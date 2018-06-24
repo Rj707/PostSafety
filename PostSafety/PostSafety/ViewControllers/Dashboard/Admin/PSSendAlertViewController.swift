@@ -1,5 +1,5 @@
 //
-//  SummaryFeedViewController.swift
+//  SendAlertViewController.swift
 //  PostSafety
 //
 //  Created by Pasha on 24/06/2018.
@@ -8,16 +8,12 @@
 
 import UIKit
 
-class SummaryFeedViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
-{
-
-    @IBOutlet weak var summaryFeedTableView : UITableView!
+class PSSendAlertViewController: UIViewController {
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.summaryFeedTableView.dataSource = self
-        self.summaryFeedTableView.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -33,20 +29,19 @@ class SummaryFeedViewController: UIViewController,UITableViewDataSource,UITableV
         self.navigationController?.popViewController(animated: true)
     }
     
-    // MARK: - UITableViewDataSource
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    @IBAction func toTextFieldTouched(_ sender: UITapGestureRecognizer)
     {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        var cell:UITableViewCell
-        
-        cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath)
-        
-        return cell
+        self.definesPresentationContext = true;
+        let selectDialogVC : PSSelectDialogViewController
+        selectDialogVC = self.storyboard?.instantiateViewController(withIdentifier: "PSSelectDialogViewController") as! PSSelectDialogViewController
+        selectDialogVC.view.backgroundColor = UIColor.clear
+        selectDialogVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        //        self.view.backgroundColor = UIColor.clear
+        //        self.modalPresentationStyle = UIModalPresentationStyle.currentContext
+        self.present(selectDialogVC, animated: true)
+        {
+            
+        }
     }
     
     /*

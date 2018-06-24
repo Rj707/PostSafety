@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectDialogViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
+class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 {
     
     @IBOutlet weak var selectDialogTableView:UITableView!
@@ -32,20 +32,6 @@ class SelectDialogViewController: UIViewController,UITableViewDelegate,UITableVi
 //        searchBar.layer.cornerRadius = 15.0
 //        searchBar.barTintColor = UIColor(red: 255 / 255.0, green: 246 / 255.0, blue: 241 / 255.0, alpha: 1.0)
 //        searchBar.backgroundColor = UIColor.clear
-//
-//        let textField = searchBar.value(forKey: "_searchField") as? UITextField
-//        textField?.textColor = UIColor.brown
-//        textField?.placeholder = "Search"
-//        textField?.leftViewMode = .never
-//        //hiding left view
-//        textField?.backgroundColor = UIColor.clear
-//        textField?.font = UIFont.systemFont(ofSize: 18.0)
-//        textField?.setValue(UIColor.brown, forKeyPath: "_placeholderLabel.textColor")
-//        let imgview = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 30))
-//        imgview.image = UIImage(named: "searchIcon")
-//
-//        textField?.rightView = imgview
-//        textField?.rightViewMode = .always
     }
 
     override func didReceiveMemoryWarning()
@@ -90,8 +76,8 @@ class SelectDialogViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        var cell:SelectDialogTableViewCell
-        cell = tableView.dequeueReusableCell(withIdentifier: "SelectDialogCell", for: indexPath) as! SelectDialogTableViewCell
+        var cell:PSSelectDialogTableViewCell
+        cell = tableView.dequeueReusableCell(withIdentifier: "SelectDialogCell", for: indexPath) as! PSSelectDialogTableViewCell
         cell.selectionNameLabel?.text = selectDialogArray[indexPath.row]
         
         if selectDialogArray[indexPath.row] == selectedPeopleArray[indexPath.row]

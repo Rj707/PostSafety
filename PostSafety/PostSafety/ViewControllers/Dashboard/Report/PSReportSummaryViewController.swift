@@ -11,9 +11,11 @@ import IQKeyboardManagerSwift
 
 class PSReportSummaryViewController: UIViewController
 {
-
-    @IBOutlet weak var decriptionTextView: IQTextView!
+    @IBOutlet weak var categoryNameLabel: UILabel!
+    @IBOutlet weak var locationNameLabel: UILabel!
+    @IBOutlet weak var reportTypleLabel: UILabel!
     
+    @IBOutlet weak var decriptionTextView: IQTextView!
     @IBOutlet weak var decriptionTextViewContainer: UIView!
     @IBOutlet weak var backgroundView: UIView!
     
@@ -22,10 +24,13 @@ class PSReportSummaryViewController: UIViewController
         super.viewDidLoad()
 
         var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
-//        reportTypeTextField.text=result["reporttype"]
-//        siteLocationTextField.text=result["location"]
-//        categoryTextField.text=result["category"]
-//        // Do any additional setup after loading the view.
+        print(Global.REPORT?.reportType ?? "Type")
+        print(Global.REPORT?.reportLocation ?? "Location")
+        print(Global.REPORT?.reportCategory ?? "Category")
+        print(Global.REPORT?.reportSubcategory ?? "Subcategory")
+        reportTypleLabel.text=Global.REPORT?.reportType
+        locationNameLabel.text=Global.REPORT?.reportLocation
+        categoryNameLabel.text=Global.REPORT?.reportCategory
         
         self.backgroundView.layer.borderWidth=1
         self.backgroundView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
@@ -70,7 +75,14 @@ class PSReportSummaryViewController: UIViewController
     {
         if CEReachabilityManager.isReachable()
         {
-            self.performSegue(withIdentifier: "toReportConfirmFromSummary", sender: (Any).self)
+            if Global.REPORT?.reportType == "Emergency"
+            {
+                self.performSegue(withIdentifier: "toEmergencyReportConfirmFromSummary", sender: (Any).self)
+            }
+            else
+            {
+                self.performSegue(withIdentifier: "toReportConfirmFromSummary", sender: (Any).self)
+            }
         }
         else
         {

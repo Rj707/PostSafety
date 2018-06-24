@@ -1,5 +1,5 @@
 //
-//  SendAlertViewController.swift
+//  SummaryFeedViewController.swift
 //  PostSafety
 //
 //  Created by Pasha on 24/06/2018.
@@ -8,12 +8,16 @@
 
 import UIKit
 
-class SendAlertViewController: UIViewController {
+class PSSummaryFeedViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
+{
+
+    @IBOutlet weak var summaryFeedTableView : UITableView!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+        self.summaryFeedTableView.dataSource = self
+        self.summaryFeedTableView.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -29,19 +33,20 @@ class SendAlertViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func toTextFieldTouched(_ sender: UITapGestureRecognizer)
+    // MARK: - UITableViewDataSource
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        self.definesPresentationContext = true;
-        let selectDialogVC : SelectDialogViewController
-        selectDialogVC = self.storyboard?.instantiateViewController(withIdentifier: "SelectDialogViewController") as! SelectDialogViewController
-        selectDialogVC.view.backgroundColor = UIColor.clear
-        selectDialogVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        //        self.view.backgroundColor = UIColor.clear
-        //        self.modalPresentationStyle = UIModalPresentationStyle.currentContext
-        self.present(selectDialogVC, animated: true)
-        {
-            
-        }
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        var cell:UITableViewCell
+        
+        cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath)
+        
+        return cell
     }
     
     /*

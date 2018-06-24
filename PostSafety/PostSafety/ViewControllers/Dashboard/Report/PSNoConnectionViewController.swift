@@ -10,10 +10,14 @@ import UIKit
 
 class PSNoConnectionViewController: UIViewController {
 
-    override func viewDidLoad() {
+    @IBOutlet weak var noConnectionContainer : UIView!
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.noConnectionContainer.layer.borderWidth=2
+        self.noConnectionContainer.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
     }
 
     override func didReceiveMemoryWarning() {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CategorySelectViewController: UIViewController {
+class PSCategorySelectViewController: UIViewController {
 
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view2: UIView!

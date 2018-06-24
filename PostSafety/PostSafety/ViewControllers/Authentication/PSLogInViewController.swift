@@ -14,12 +14,22 @@ class PSLogInViewController: UIViewController
     @IBOutlet weak var nameTextField : UITextField?
     @IBOutlet weak var phoneNumberTextField : UITextField?
     @IBOutlet weak var passowrdTextField : UITextField?
+    @IBOutlet weak var termsLabel : UILabel?
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
         self.phoneNumberTextField?.text = "4038709552"
         self.passowrdTextField?.text = "123456"
+        
+        var text: NSMutableAttributedString? = nil
+        if let aText = termsLabel?.attributedText
+        {
+            text = NSMutableAttributedString(attributedString: aText)
+        }
+        text?.addAttribute(NSForegroundColorAttributeName, value: UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1), range: NSRange(location: 39, length: 12))
+        termsLabel?.attributedText = text
+        
     }
 
     override func didReceiveMemoryWarning()

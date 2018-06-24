@@ -16,7 +16,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
         if result["reporttype"] != "Emergency"
         {
-            let storyboard = UIStoryboard(name: "Dashboard_design", bundle: nil)
+            let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController
             navigationController?.pushViewController(vc,
                                                      animated: true)
@@ -24,8 +24,8 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         else
         {
             
-            let storyboard = UIStoryboard(name: "Dashboard_design", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "ReportConfirmationViewController") as! PSReportConfirmationViewController
+            let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "PSReportConfirmationViewController") as! PSReportConfirmationViewController
             navigationController?.pushViewController(vc,
                                                      animated: true)
         }
@@ -36,7 +36,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
         if result["reporttype"] != "Emergency"
         {
-            let storyboard = UIStoryboard(name: "Dashboard_design", bundle: nil)
+            let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController
             navigationController?.pushViewController(vc,
                                                      animated: true)
@@ -44,8 +44,8 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         else
         {
             
-            let storyboard = UIStoryboard(name: "Dashboard_design", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "ReportConfirmationViewController") as! PSReportConfirmationViewController
+            let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "PSReportConfirmationViewController") as! PSReportConfirmationViewController
             navigationController?.pushViewController(vc,
                                                      animated: true)
         }
