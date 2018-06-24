@@ -45,6 +45,39 @@ class PSReceiveHomeViewController: UIViewController
     
     // MARK: - IBActions
     
+    @IBAction func alertsGestureTapped(_ sender: Any)
+    {
+        let storyboard = UIStoryboard(name: "User", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSReceiveAlertsViewController") as! PSReceiveAlertsViewController
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
+    }
+    @IBAction func viewReportsGestureTapped(_ sender: Any)
+    {
+        let storyboard = UIStoryboard(name: "User", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedViewController") as! PSFeedViewController
+        vc.feedTitle = "Reports"
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
+    }
+    @IBAction func trainingGestureTapped(_ sender: Any)
+    {
+        let storyboard = UIStoryboard(name: "User", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedViewController") as! PSFeedViewController
+        vc.feedTitle = "Training"
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
+    }
+    @IBAction func policiesGestureTapped(_ sender: Any)
+    {
+        let storyboard = UIStoryboard(name: "User", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedViewController") as! PSFeedViewController
+        vc.feedTitle = "Policies/Procedures"
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
+    }
+    
+    
     @IBAction func backButtonTouched(_ sender: UIButton)
     {
         self.navigationController?.popViewController(animated: true)

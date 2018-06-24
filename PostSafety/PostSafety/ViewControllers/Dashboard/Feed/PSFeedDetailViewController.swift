@@ -8,12 +8,17 @@
 
 import UIKit
 
-class PSFeedDetailViewController: UIViewController {
+class PSFeedDetailViewController: UIViewController
+{
 
-    override func viewDidLoad() {
+    @IBOutlet weak var feedDetailTitleLabel: UILabel!
+    var feedDetailTitle: String = ""
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.feedDetailTitleLabel.text = self.feedDetailTitle
     }
 
     override func didReceiveMemoryWarning() {

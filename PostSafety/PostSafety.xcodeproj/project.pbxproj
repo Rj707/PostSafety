@@ -29,6 +29,8 @@
 		18AD08D820DF855D0096A910 /* PSCloseReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD08D720DF855D0096A910 /* PSCloseReportViewController.swift */; };
 		18AD08DA20DFB33E0096A910 /* PSSelectDialogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD08D920DFB33E0096A910 /* PSSelectDialogTableViewCell.swift */; };
 		18BB7CDF20E00B7300E452AB /* PSEmergencyReportConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BB7CDE20E00B7300E452AB /* PSEmergencyReportConfirmationViewController.swift */; };
+		18C40C0D20E02A7600F5B380 /* IQDropDownTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C40C0C20E02A7600F5B380 /* IQDropDownTextField.m */; };
+		18C40C0F20E02BAC00F5B380 /* PSSortReportsDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C40C0E20E02BAC00F5B380 /* PSSortReportsDialogViewController.swift */; };
 		18FDED3A20B04F2A009CBA0B /* SwiftyCamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3620B04F2A009CBA0B /* SwiftyCamViewController.swift */; };
 		18FDED3B20B04F2A009CBA0B /* SwiftyCamButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3720B04F2A009CBA0B /* SwiftyCamButton.swift */; };
 		18FDED3C20B04F2A009CBA0B /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3820B04F2A009CBA0B /* PreviewView.swift */; };
@@ -120,6 +122,9 @@
 		18AD08D720DF855D0096A910 /* PSCloseReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSCloseReportViewController.swift; sourceTree = "<group>"; };
 		18AD08D920DFB33E0096A910 /* PSSelectDialogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSelectDialogTableViewCell.swift; sourceTree = "<group>"; };
 		18BB7CDE20E00B7300E452AB /* PSEmergencyReportConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSEmergencyReportConfirmationViewController.swift; sourceTree = "<group>"; };
+		18C40C0B20E02A7600F5B380 /* IQDropDownTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQDropDownTextField.h; sourceTree = "<group>"; };
+		18C40C0C20E02A7600F5B380 /* IQDropDownTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQDropDownTextField.m; sourceTree = "<group>"; };
+		18C40C0E20E02BAC00F5B380 /* PSSortReportsDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSortReportsDialogViewController.swift; sourceTree = "<group>"; };
 		18FDED3620B04F2A009CBA0B /* SwiftyCamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamViewController.swift; sourceTree = "<group>"; };
 		18FDED3720B04F2A009CBA0B /* SwiftyCamButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamButton.swift; sourceTree = "<group>"; };
 		18FDED3820B04F2A009CBA0B /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
@@ -284,6 +289,7 @@
 				A16142DB20AC11E600421414 /* PSSelectReportTypeViewController.swift */,
 				A1FF177220DBC62300F06EAC /* PSSelectSubCategoryViewController.swift */,
 				18BB7CDE20E00B7300E452AB /* PSEmergencyReportConfirmationViewController.swift */,
+				18C40C0E20E02BAC00F5B380 /* PSSortReportsDialogViewController.swift */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -316,9 +322,19 @@
 			path = Receive;
 			sourceTree = "<group>";
 		};
+		18C40C0A20E02A7600F5B380 /* IQDropDownTextField */ = {
+			isa = PBXGroup;
+			children = (
+				18C40C0B20E02A7600F5B380 /* IQDropDownTextField.h */,
+				18C40C0C20E02A7600F5B380 /* IQDropDownTextField.m */,
+			);
+			path = IQDropDownTextField;
+			sourceTree = "<group>";
+		};
 		18FDED3420B04EE0009CBA0B /* ThirdPartyLibs */ = {
 			isa = PBXGroup;
 			children = (
+				18C40C0A20E02A7600F5B380 /* IQDropDownTextField */,
 				A11DF68D20D8F0860079D861 /* SWRevealViewController */,
 				180D495920B9EAAB0023101D /* Reachibility */,
 				18FDED3520B04EE0009CBA0B /* Source */,
@@ -720,6 +736,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				184EC78420DC078A0089348C /* PSNoConnectionViewController.swift in Sources */,
+				18C40C0F20E02BAC00F5B380 /* PSSortReportsDialogViewController.swift in Sources */,
 				1812E69120B8A4C000E484C6 /* PSRouteUrls.swift in Sources */,
 				A16142D420AC10FC00421414 /* PSTermsOfUseViewController.swift in Sources */,
 				A16142D620AC110A00421414 /* PSDashboardViewController.swift in Sources */,
@@ -743,6 +760,7 @@
 				A124938620C128C700B38DEF /* PSChecklist.swift in Sources */,
 				180D495820B9DA070023101D /* CEReachabilityManager.m in Sources */,
 				C4E5A56420AE55E90060898B /* PSReportOverviewViewController.swift in Sources */,
+				18C40C0D20E02A7600F5B380 /* IQDropDownTextField.m in Sources */,
 				C4E5A56820AE56200060898B /* PSReportDetailViewController.swift in Sources */,
 				A16142E020AC122700421414 /* PSSelectLocationViewController.swift in Sources */,
 				18AD08D220DF74020096A910 /* PSReceiveHomeViewController.swift in Sources */,

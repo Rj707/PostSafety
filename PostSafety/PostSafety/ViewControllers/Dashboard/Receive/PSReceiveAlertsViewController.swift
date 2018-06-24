@@ -35,6 +35,33 @@ class PSReceiveAlertsViewController: UIViewController
     {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func alertsGestureTapped(_ sender: Any)
+    {
+        let storyboard = UIStoryboard(name: "User", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedViewController") as! PSFeedViewController
+        vc.feedTitle = "Alerts"
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
+    }
+    
+    @IBAction func announcementsGestureTapped(_ sender: Any)
+    {
+        let storyboard = UIStoryboard(name: "User", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedViewController") as! PSFeedViewController
+        vc.feedTitle = "Announcements"
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
+    }
+    
+    @IBAction func safetyUpdatesGestureTapped(_ sender: Any)
+    {
+        let storyboard = UIStoryboard(name: "User", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedViewController") as! PSFeedViewController
+        vc.feedTitle = "Safety Updates"
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
+    }
 
     override func didReceiveMemoryWarning()
     {
