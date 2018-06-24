@@ -263,10 +263,10 @@
             </objects>
             <point key="canvasLocation" x="2794.4000000000001" y="34.632683658170919"/>
         </scene>
-        <!--UpdatesAnnouncementsViewController-->
+        <!--User-->
         <scene sceneID="giy-dN-sfv">
             <objects>
-                <viewControllerPlaceholder storyboardName="User" referencedIdentifier="UpdatesAnnouncementsViewController" id="gJj-5f-b3w" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="User" id="gJj-5f-b3w" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="y6I-yi-3mk"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSV-U2-LAO" userLabel="First Responder" sceneMemberID="firstResponder"/>
