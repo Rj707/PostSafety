@@ -75,14 +75,7 @@ class PSReportSummaryViewController: UIViewController
     {
         if CEReachabilityManager.isReachable()
         {
-            if Global.REPORT?.reportType == "Emergency"
-            {
-                self.performSegue(withIdentifier: "toEmergencyReportConfirmFromSummary", sender: (Any).self)
-            }
-            else
-            {
-                self.performSegue(withIdentifier: "toReportConfirmFromSummary", sender: (Any).self)
-            }
+            self.performSegue(withIdentifier: "toReportConfirmFromSummary", sender: (Any).self)
         }
         else
         {

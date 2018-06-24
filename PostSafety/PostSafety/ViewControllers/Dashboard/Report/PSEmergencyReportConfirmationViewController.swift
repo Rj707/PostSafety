@@ -41,14 +41,13 @@ class PSEmergencyReportConfirmationViewController: UIViewController {
             for viewController in viewControllers
             {
                 // some process
-                if viewController is PSDashboardViewController
+                if viewController is TakePhotoVideoViewController
                 {
                     self.navigationController?.popToViewController(viewController, animated: true)
-                    break
+                    return
                 }
             }
         }
-        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func returnToDashboardButtonTouched(_ sender: UIButton)

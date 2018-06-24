@@ -450,15 +450,34 @@
                                     <action selector="toggleFlashTapped:" destination="JXk-sm-ukh" eventType="touchUpInside" id="UId-7r-x6c"/>
                                 </connections>
                             </button>
+                            <view alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xxo-U8-pYk">
+                                <rect key="frame" x="0.0" y="647" width="375" height="20"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap for phote, hold down for video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hH6-ea-whc">
+                                        <rect key="frame" x="83.5" y="2.5" width="208" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="hH6-ea-whc" firstAttribute="centerX" secondItem="Xxo-U8-pYk" secondAttribute="centerX" id="RnH-J0-RB0"/>
+                                    <constraint firstItem="hH6-ea-whc" firstAttribute="centerY" secondItem="Xxo-U8-pYk" secondAttribute="centerY" id="SrB-xH-REE"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Xxo-U8-pYk" firstAttribute="top" secondItem="4sD-44-2QB" secondAttribute="bottom" id="00K-i7-Y7H"/>
+                            <constraint firstItem="42j-Xg-TnD" firstAttribute="top" secondItem="Xxo-U8-pYk" secondAttribute="bottom" id="0Gu-Qz-rBG"/>
                             <constraint firstItem="HEn-Tg-E18" firstAttribute="leading" secondItem="4sD-44-2QB" secondAttribute="trailing" constant="50" id="ByV-iU-REY"/>
                             <constraint firstItem="HEn-Tg-E18" firstAttribute="centerY" secondItem="4sD-44-2QB" secondAttribute="centerY" id="G7h-fv-Tbx"/>
                             <constraint firstItem="4sD-44-2QB" firstAttribute="leading" secondItem="3uG-BI-bgp" secondAttribute="trailing" constant="50" id="NJx-5e-itE"/>
+                            <constraint firstItem="Xxo-U8-pYk" firstAttribute="leading" secondItem="Mu4-lS-1BV" secondAttribute="leading" id="Ut4-Bw-aLm"/>
                             <constraint firstAttribute="bottom" secondItem="4sD-44-2QB" secondAttribute="bottom" constant="20" symbolic="YES" id="Xfk-Kc-Zsz"/>
                             <constraint firstItem="4sD-44-2QB" firstAttribute="centerX" secondItem="BVZ-R3-fzy" secondAttribute="centerX" id="fsy-D5-heg"/>
                             <constraint firstItem="3uG-BI-bgp" firstAttribute="centerY" secondItem="4sD-44-2QB" secondAttribute="centerY" id="p6g-fQ-PnW"/>
+                            <constraint firstItem="Xxo-U8-pYk" firstAttribute="trailing" secondItem="Mu4-lS-1BV" secondAttribute="trailing" id="vTA-XX-2mD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mu4-lS-1BV"/>
                     </view>
@@ -470,7 +489,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zny-5j-ezP" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2916" y="958"/>
+            <point key="canvasLocation" x="2916" y="957.57121439280365"/>
         </scene>
         <!--Select Report Type View Controller-->
         <scene sceneID="gPe-zz-D4P">
@@ -2103,7 +2122,6 @@
                         <outlet property="reportTypleLabel" destination="l12-a5-MTg" id="ihv-dI-rpo"/>
                         <segue destination="OkT-hd-pwK" kind="push" identifier="toReportConfirmFromSummary" id="2RZ-rD-852"/>
                         <segue destination="YOa-Nb-MTV" kind="push" identifier="toNoInternetFromSummary" id="ptG-su-us6"/>
-                        <segue destination="yhc-Sn-UEc" kind="push" identifier="toEmergencyReportConfirmFromSummary" id="eDo-hh-3Mj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ywr-3s-oA5" sceneMemberID="firstResponder"/>
