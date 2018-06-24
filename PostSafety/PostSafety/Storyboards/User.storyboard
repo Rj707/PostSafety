@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8ce-A6-TRK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,10 +12,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Receive Home View Controller-->
         <scene sceneID="LxT-JR-OHd">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="8ce-A6-TRK" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PSReceiveHomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8ce-A6-TRK" customClass="PSReceiveHomeViewController" customModule="PostSafety" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q4u-3y-im1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -186,6 +186,9 @@
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="2"/>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outletCollection property="gestureRecognizers" destination="d7I-0E-NVB" appends="YES" id="6dp-H6-Nx6"/>
+                                                                </connections>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary Statitics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTe-hk-oHQ">
                                                                 <rect key="frame" x="63" y="43" width="249" height="36"/>
@@ -243,6 +246,9 @@
                                             <constraint firstAttribute="width" secondItem="RxS-z3-egp" secondAttribute="height" id="m58-tF-Hhv"/>
                                         </constraints>
                                         <state key="normal" image="back"/>
+                                        <connections>
+                                            <action selector="backButtonTouched:" destination="8ce-A6-TRK" eventType="touchUpInside" id="ndo-OB-xru"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -274,6 +280,14 @@
                         <viewLayoutGuide key="safeArea" id="Yp4-52-YR4"/>
                     </view>
                     <navigationItem key="navigationItem" id="b7x-kk-3cP"/>
+                    <connections>
+                        <outlet property="summaryStatisticsStackView" destination="sjN-bY-Xdt" id="n75-sk-SBc"/>
+                        <outlet property="view1" destination="BLp-RK-nb4" id="z9J-8x-uug"/>
+                        <outlet property="view2" destination="rwr-MB-CQz" id="sLS-Zh-EZv"/>
+                        <outlet property="view3" destination="ble-qO-fs6" id="Fuf-tI-UEf"/>
+                        <outlet property="view4" destination="ZAY-LT-3Cf" id="SAp-EL-kFF"/>
+                        <outlet property="view5" destination="e4t-tb-scE" id="DQ5-RG-1AT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RbQ-mX-cnU" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="tXa-tm-4II">
@@ -298,13 +312,28 @@
                         <segue destination="jZa-NO-yVz" kind="push" id="5QS-b8-YS3"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="d7I-0E-NVB">
+                    <connections>
+                        <segue destination="3pj-yr-TJD" kind="push" id="4AP-hV-VTC"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1898" y="958"/>
+            <point key="canvasLocation" x="1786" y="958"/>
         </scene>
-        <!--View Controller-->
+        <!--SummaryStatsHomeViewController-->
+        <scene sceneID="4f8-QB-MVJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Admin" referencedIdentifier="SummaryStatsHomeViewController" id="3pj-yr-TJD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="h4z-l1-v5J"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jvs-9K-8CN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2540" y="1119"/>
+        </scene>
+        <!--Receive Alerts View Controller-->
         <scene sceneID="TcF-tj-mSx">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="g5u-W6-rSJ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PSReceiveAlertsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="g5u-W6-rSJ" customClass="PSReceiveAlertsViewController" customModule="PostSafety" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ere-cr-jBc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -504,31 +533,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXG-Uq-Snz" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="ECS-ZG-F2j">
                     <connections>
-                        <action selector="hazardGestureTapped:" destination="g5u-W6-rSJ" id="0rs-4i-YIt"/>
                         <segue destination="jZa-NO-yVz" kind="push" id="cmA-OC-hwI"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="HOW-3N-zN5">
                     <connections>
-                        <action selector="nearMisstGestureTapped:" destination="g5u-W6-rSJ" id="fEq-Ja-KGa"/>
                         <outlet property="delegate" destination="g5u-W6-rSJ" id="DOb-Z8-cwc"/>
                         <segue destination="jZa-NO-yVz" kind="push" id="2hU-Ll-HLJ"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="fQ9-eD-YQM">
                     <connections>
-                        <action selector="incidentGestureTapped:" destination="g5u-W6-rSJ" id="T7Z-a1-0ad"/>
                         <outlet property="delegate" destination="g5u-W6-rSJ" id="eFw-Cr-gyP"/>
                         <segue destination="jZa-NO-yVz" kind="push" id="4sF-cH-ptW"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2727" y="958"/>
+            <point key="canvasLocation" x="1785" y="1746"/>
         </scene>
-        <!--Updates Announcements View Controller-->
+        <!--Feed View Controller-->
         <scene sceneID="Sfc-c1-cJL">
             <objects>
-                <viewController storyboardIdentifier="UpdatesAnnouncementsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jZa-NO-yVz" customClass="PSUpdatesAnnouncementsViewController" customModule="PostSafety" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UpdatesAnnouncementsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jZa-NO-yVz" customClass="PSFeedViewController" customModule="PostSafety" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0ES-Ce-bGV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -731,12 +757,12 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3520.8000000000002" y="957.57121439280365"/>
+            <point key="canvasLocation" x="3378" y="1746"/>
         </scene>
-        <!--Announcement Detail View Controller-->
+        <!--Feed Detail View Controller-->
         <scene sceneID="U9f-5D-eBj">
             <objects>
-                <viewController storyboardIdentifier="PSAnnouncementDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="o0c-DC-IER" customClass="PSAnnouncementDetailViewController" customModule="PostSafety" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PSAnnouncementDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="o0c-DC-IER" customClass="PSFeedDetailViewController" customModule="PostSafety" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A0g-id-Kqx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -790,15 +816,15 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KT6-qq-NiT">
-                                <rect key="frame" x="24" y="136" width="327" height="445"/>
+                                <rect key="frame" x="24" y="136" width="327" height="443"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xel-ee-F9U">
-                                <rect key="frame" x="24" y="597" width="107" height="30"/>
-                                <state key="normal" title="Attachment.pdf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xel-ee-F9U">
+                                <rect key="frame" x="24" y="595" width="159" height="32"/>
+                                <state key="normal" title="Attachment.pdf" image="attachment">
                                     <color key="titleColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
@@ -822,23 +848,15 @@
                     <navigationItem key="navigationItem" id="rYk-ab-U4x"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RK3-ii-7Xm" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="8i5-Sq-dCD">
-                    <connections>
-                        <action selector="announcementsViewTouched:" destination="o0c-DC-IER" id="L7f-aL-7Zn"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="t7J-Dl-84I">
-                    <connections>
-                        <action selector="sharedReportsViewTouched:" destination="o0c-DC-IER" id="aV6-fL-R3U"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="8i5-Sq-dCD"/>
+                <tapGestureRecognizer id="t7J-Dl-84I"/>
             </objects>
-            <point key="canvasLocation" x="4242" y="958"/>
+            <point key="canvasLocation" x="4401" y="1746"/>
         </scene>
-        <!--View Controller-->
+        <!--Report Post View Controller-->
         <scene sceneID="G7D-LT-KHe">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="KTp-hF-yJE" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PSReportPostViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KTp-hF-yJE" customClass="PSReportPostViewController" customModule="PostSafety" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jjx-7u-ijq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -897,17 +915,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMx-XE-MvK">
                                 <rect key="frame" x="24" y="446" width="327" height="44"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfR-Fz-368">
-                                        <rect key="frame" x="16" y="11.5" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Report Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfR-Fz-368">
+                                        <rect key="frame" x="16" y="11.5" width="128" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="aCm-LL-SKc">
-                                        <rect key="frame" x="264" y="9.5" width="47" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="aCm-LL-SKc" secondAttribute="height" multiplier="15:8" id="u7Y-hM-4D0"/>
-                                        </constraints>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drop-down-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="aCm-LL-SKc">
+                                        <rect key="frame" x="279" y="6" width="32" height="32"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -930,17 +945,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovL-Fp-Urg">
                                 <rect key="frame" x="24" y="506" width="327" height="44"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDX-AA-atY">
-                                        <rect key="frame" x="16" y="11.5" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Report Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDX-AA-atY">
+                                        <rect key="frame" x="16" y="11.5" width="108.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="5Ns-4N-Cfp">
-                                        <rect key="frame" x="264" y="9.5" width="47" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="5Ns-4N-Cfp" secondAttribute="height" multiplier="15:8" id="PYn-NI-cnQ"/>
-                                        </constraints>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drop-down-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="5Ns-4N-Cfp">
+                                        <rect key="frame" x="279" y="6" width="32" height="32"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -960,17 +972,51 @@
                                     <outletCollection property="gestureRecognizers" destination="576-AC-U0L" appends="YES" id="5dr-Ud-3nF"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EPt-Bz-RfF">
+                                <rect key="frame" x="24" y="566" width="327" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Report Actions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjc-h5-brs">
+                                        <rect key="frame" x="16" y="11.5" width="113.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drop-down-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="wUw-G4-ozg">
+                                        <rect key="frame" x="279" y="6" width="32" height="32"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ISq-Jc-k4N"/>
+                                    <constraint firstItem="Kjc-h5-brs" firstAttribute="leading" secondItem="EPt-Bz-RfF" secondAttribute="leading" constant="16" id="X0a-kB-zjC"/>
+                                    <constraint firstItem="Kjc-h5-brs" firstAttribute="centerY" secondItem="EPt-Bz-RfF" secondAttribute="centerY" id="fci-6e-ttt"/>
+                                    <constraint firstAttribute="trailing" secondItem="wUw-G4-ozg" secondAttribute="trailing" constant="16" id="ncR-A3-8fC"/>
+                                    <constraint firstItem="wUw-G4-ozg" firstAttribute="centerY" secondItem="EPt-Bz-RfF" secondAttribute="centerY" id="uJV-9R-ErZ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="dQf-4e-4XI" appends="YES" id="EUJ-1C-SAc"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="EPt-Bz-RfF" firstAttribute="leading" secondItem="ovL-Fp-Urg" secondAttribute="leading" id="79z-ol-s3Q"/>
                             <constraint firstItem="ovL-Fp-Urg" firstAttribute="height" secondItem="UMx-XE-MvK" secondAttribute="height" id="7w5-lI-IW8"/>
                             <constraint firstItem="ovL-Fp-Urg" firstAttribute="leading" secondItem="UMx-XE-MvK" secondAttribute="leading" id="9f8-Ep-19o"/>
                             <constraint firstItem="zcP-HJ-bca" firstAttribute="top" secondItem="p9K-s6-8yy" secondAttribute="bottom" constant="24" id="BCf-xN-RuN"/>
                             <constraint firstItem="p9K-s6-8yy" firstAttribute="leading" secondItem="jjx-7u-ijq" secondAttribute="leading" id="Ft2-Hw-YFF"/>
                             <constraint firstItem="zcP-HJ-bca" firstAttribute="centerX" secondItem="jjx-7u-ijq" secondAttribute="centerX" id="MPA-bb-rFY"/>
+                            <constraint firstItem="EPt-Bz-RfF" firstAttribute="top" secondItem="ovL-Fp-Urg" secondAttribute="bottom" constant="16" id="ad5-gd-YGa"/>
                             <constraint firstItem="Pmj-oE-dvv" firstAttribute="trailing" secondItem="FDZ-p1-1uA" secondAttribute="trailing" constant="24" id="cCz-jt-OfQ"/>
                             <constraint firstItem="FDZ-p1-1uA" firstAttribute="height" secondItem="jjx-7u-ijq" secondAttribute="height" multiplier="3/7" id="eWR-yn-K1k"/>
                             <constraint firstItem="FDZ-p1-1uA" firstAttribute="top" secondItem="zcP-HJ-bca" secondAttribute="bottom" constant="24" id="ekM-hS-YzV"/>
+                            <constraint firstItem="EPt-Bz-RfF" firstAttribute="trailing" secondItem="ovL-Fp-Urg" secondAttribute="trailing" id="fWB-EU-Klt"/>
                             <constraint firstItem="ovL-Fp-Urg" firstAttribute="top" secondItem="UMx-XE-MvK" secondAttribute="bottom" constant="16" id="heQ-eE-Pl3"/>
                             <constraint firstItem="UMx-XE-MvK" firstAttribute="trailing" secondItem="FDZ-p1-1uA" secondAttribute="trailing" id="q5Z-Hq-BRT"/>
                             <constraint firstItem="ovL-Fp-Urg" firstAttribute="trailing" secondItem="UMx-XE-MvK" secondAttribute="trailing" id="qo4-Zh-Cb2"/>
@@ -987,16 +1033,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0H-Zf-Vd5" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="O1A-Wh-tW7">
                     <connections>
-                        <segue destination="OCW-UI-kVn" kind="modal" id="9Yj-U5-jLs"/>
+                        <action selector="reportOverviewGestureTapped:" destination="KTp-hF-yJE" id="QpW-cs-HDe"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="576-AC-U0L">
                     <connections>
-                        <segue destination="uVs-g2-p0o" kind="modal" id="INn-wL-oeV"/>
+                        <action selector="reportDetailsGestureTapped:" destination="KTp-hF-yJE" id="AYy-QU-LuQ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="dQf-4e-4XI">
+                    <connections>
+                        <action selector="reportActionsGestureTapped:" destination="KTp-hF-yJE" id="ubY-CX-u3a"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4991.1999999999998" y="957.57121439280365"/>
+            <point key="canvasLocation" x="3377" y="958"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="lWR-Ku-FTE">
@@ -1127,7 +1178,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZAE-4z-Qfk" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="EkM-Yd-IMd"/>
             </objects>
-            <point key="canvasLocation" x="5807" y="958"/>
+            <point key="canvasLocation" x="4401" y="958"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Rca-PU-92R">
@@ -1217,12 +1268,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bgg-dZ-t5r" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="0EK-MD-oMU"/>
             </objects>
-            <point key="canvasLocation" x="6524" y="958"/>
+            <point key="canvasLocation" x="4401" y="229"/>
         </scene>
     </scenes>
     <resources>
+        <image name="attachment" width="32" height="32"/>
         <image name="back" width="25" height="25"/>
         <image name="bg" width="1080" height="1920"/>
+        <image name="drop-down-arrow" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5QS-b8-YS3"/>

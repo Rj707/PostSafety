@@ -21,7 +21,45 @@ class ReportActionPopupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    // MARK: - IBActions
+    
+    @IBAction func crossButtonTouched(_ sender: UIButton)
+    {
+        self.dismiss(animated: true)
+        {
+        }
+    }
+    
+    @IBAction func shareReportButtonTouched(_ sender: UIButton)
+    {
+        self.definesPresentationContext = true;
+        let selectDialogVC : SelectDialogViewController
+        selectDialogVC = self.storyboard?.instantiateViewController(withIdentifier: "SelectDialogViewController") as! SelectDialogViewController
+        selectDialogVC.view.backgroundColor = UIColor.clear
+        selectDialogVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        //        self.view.backgroundColor = UIColor.clear
+        //        self.modalPresentationStyle = UIModalPresentationStyle.currentContext
+        self.present(selectDialogVC, animated: true)
+        {
+            
+        }
+    }
+    
+    @IBAction func closeReportButtonTouched(_ sender: UIButton)
+    {
+        self.definesPresentationContext = true;
+        let closeReportVC : PSCloseReportViewController
+        closeReportVC = self.storyboard?.instantiateViewController(withIdentifier: "PSCloseReportViewController") as! PSCloseReportViewController
+        closeReportVC.view.backgroundColor = UIColor.clear
+        closeReportVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        //        self.view.backgroundColor = UIColor.clear
+        //        self.modalPresentationStyle = UIModalPresentationStyle.currentContext
+        self.present(closeReportVC, animated: true)
+        {
+            
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -14,10 +14,10 @@ enum FeedType :Int
 
 import UIKit
 
-class PSUpdatesAnnouncementsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
+class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 
 {
-@IBOutlet weak var announcementView: UIView!
+    @IBOutlet weak var announcementView: UIView!
     @IBOutlet weak var updatesAnnouncementsTableView : UITableView!
     @IBOutlet weak var sharedreportView: UIView!
     var type : FeedType!

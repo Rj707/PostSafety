@@ -8,37 +8,29 @@
 
 import UIKit
 
-class PSReportDetailViewController: UIViewController {
+class PSReportDetailViewController: UIViewController
+{
     
-    @IBOutlet weak var typeLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var sitelocationLabel: UILabel!
-    @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var ReportOverviewView: UIView!
-    
-    @IBOutlet weak var reportDetailView: UIView!
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        let myColor = UIColor.black;
-        self.ReportOverviewView.layer.borderColor=myColor.cgColor
-        self.ReportOverviewView.layer.borderWidth=2
-        self.reportDetailView.layer.borderColor=myColor.cgColor
-        self.reportDetailView.layer.borderWidth=2
+        
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     // MARK: - IBActions
     
-    @IBAction func backButtonTouched(_ sender: UIButton)
+    @IBAction func crossButtonTouched(_ sender: UIButton)
     {
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true)
+        {
+        }
     }
     
     /*

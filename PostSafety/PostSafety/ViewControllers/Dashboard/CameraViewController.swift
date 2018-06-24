@@ -260,7 +260,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
        {
         
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "QuickSummaryViewController") as! PSQuickSummaryViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "QuickSummaryViewController") as! PSReportOverviewViewController
         navigationController?.pushViewController(vc,
                                                  animated: true)
         }

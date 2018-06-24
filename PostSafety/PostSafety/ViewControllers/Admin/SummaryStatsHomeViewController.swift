@@ -10,10 +10,33 @@ import UIKit
 
 class SummaryStatsHomeViewController: UIViewController {
 
+    @IBOutlet weak var yesterdayView: UIView!
+    @IBOutlet weak var monthView: UIView!
+    @IBOutlet weak var yearView: UIView!
+    
+    @IBOutlet weak var view1: UIView!
+    @IBOutlet weak var view2: UIView!
+    @IBOutlet weak var view3: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.yesterdayView.layer.borderWidth=2
+        self.monthView.layer.borderWidth=2
+        self.yearView.layer.borderWidth=2
+      
+        self.yesterdayView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        self.monthView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        self.yearView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        
+        self.view1.layer.borderWidth=2
+        self.view2.layer.borderWidth=2
+        self.view3.layer.borderWidth=2
+        
+        self.view1.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        self.view2.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        self.view3.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,7 +44,13 @@ class SummaryStatsHomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    // MARK: - IBActions
+    
+    @IBAction func backButtonTouched(_ sender: UIButton)
+    {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

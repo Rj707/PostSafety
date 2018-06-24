@@ -1,23 +1,18 @@
 //
-//  SummaryFeedViewController.swift
+//  AnnouncementDetailViewController.swift
 //  PostSafety
 //
-//  Created by Pasha on 24/06/2018.
+//  Created by Hafiz Saad on 16/05/2018.
 //  Copyright © 2018 Now Tel. All rights reserved.
 //
 
 import UIKit
 
-class SummaryFeedViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
-{
+class PSFeedDetailViewController: UIViewController {
 
-    @IBOutlet weak var summaryFeedTableView : UITableView!
-    
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
-        self.summaryFeedTableView.dataSource = self
-        self.summaryFeedTableView.delegate = self
+
         // Do any additional setup after loading the view.
     }
 
@@ -31,22 +26,6 @@ class SummaryFeedViewController: UIViewController,UITableViewDataSource,UITableV
     @IBAction func backButtonTouched(_ sender: UIButton)
     {
         self.navigationController?.popViewController(animated: true)
-    }
-    
-    // MARK: - UITableViewDataSource
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        var cell:UITableViewCell
-        
-        cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath)
-        
-        return cell
     }
     
     /*

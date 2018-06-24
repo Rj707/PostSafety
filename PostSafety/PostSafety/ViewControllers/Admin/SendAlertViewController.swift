@@ -9,10 +9,11 @@
 import UIKit
 
 class SendAlertViewController: UIViewController {
-
-    override func viewDidLoad() {
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -21,7 +22,28 @@ class SendAlertViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    // MARK: - IBActions
+    
+    @IBAction func backButtonTouched(_ sender: UIButton)
+    {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func toTextFieldTouched(_ sender: UITapGestureRecognizer)
+    {
+        self.definesPresentationContext = true;
+        let selectDialogVC : SelectDialogViewController
+        selectDialogVC = self.storyboard?.instantiateViewController(withIdentifier: "SelectDialogViewController") as! SelectDialogViewController
+        selectDialogVC.view.backgroundColor = UIColor.clear
+        selectDialogVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        //        self.view.backgroundColor = UIColor.clear
+        //        self.modalPresentationStyle = UIModalPresentationStyle.currentContext
+        self.present(selectDialogVC, animated: true)
+        {
+            
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

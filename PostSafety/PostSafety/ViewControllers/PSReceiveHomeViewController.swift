@@ -1,37 +1,44 @@
 //
-//  CategorySelectViewController.swift
+//  PSReceiveHomeViewController.swift
 //  PostSafety
 //
-//  Created by Pasha on 24/06/2018.
+//  Created by Rayyan on 24/06/2018.
 //  Copyright © 2018 Now Tel. All rights reserved.
 //
 
 import UIKit
 
-class CategorySelectViewController: UIViewController {
+class PSReceiveHomeViewController: UIViewController
+{
 
-    @IBOutlet weak var view1: UIView!
-    @IBOutlet weak var view2: UIView!
-    @IBOutlet weak var view3: UIView!
+    @IBOutlet weak var view5: UIView!
     @IBOutlet weak var view4: UIView!
+    @IBOutlet weak var view3: UIView!
+    @IBOutlet weak var view2: UIView!
+    @IBOutlet weak var view1: UIView!
+    
+    @IBOutlet weak var summaryStatisticsStackView: UIStackView!
+    
+    var cheklistArray = [Any]()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        self.view1.layer.borderWidth=2
-        self.view2.layer.borderWidth=2
-        self.view3.layer.borderWidth=2
-        self.view4.layer.borderWidth=2
-        
-        self.view4.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        self.view1.layer.borderWidth=1
+        self.view2.layer.borderWidth=1
+        self.view3.layer.borderWidth=1
+        self.view4.layer.borderWidth=1
+        self.view5.layer.borderWidth=1
+        self.view5.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view1.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view2.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view3.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
-        
+        self.view4.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -42,6 +49,7 @@ class CategorySelectViewController: UIViewController {
     {
         self.navigationController?.popViewController(animated: true)
     }
+    
 
     /*
     // MARK: - Navigation

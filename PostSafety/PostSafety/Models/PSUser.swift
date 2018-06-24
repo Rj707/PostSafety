@@ -2,6 +2,12 @@ import UIKit
 import Realm
 import RealmSwift
 
+enum UserType :Int
+{
+    case UserTypeAdmin
+    case UserTypeNormal
+}
+
 class PSUser : Object
 {
     @objc dynamic var employeeId = 0
@@ -14,6 +20,7 @@ class PSUser : Object
     @objc dynamic var phone : String?
     @objc dynamic var branch : String?
     @objc dynamic var incident : String?
+    var userType : UserType?
 
 public func initWithDictionary(dict:NSDictionary)-> PSUser
 {
@@ -28,6 +35,7 @@ public func initWithDictionary(dict:NSDictionary)-> PSUser
     user.phone = dict["phone"] as? String
     user.branch = dict["branch"] as? String
     user.incident = dict["incident"] as? String
+    user.userType = UserType(rawValue: UserType.UserTypeAdmin.rawValue)
     return user
 }
     
