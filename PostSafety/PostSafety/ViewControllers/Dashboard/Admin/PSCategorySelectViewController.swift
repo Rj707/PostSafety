@@ -15,6 +15,8 @@ class PSCategorySelectViewController: UIViewController {
     @IBOutlet weak var view3: UIView!
     @IBOutlet weak var view4: UIView!
     
+    var summaryStatisticsTitle: String = ""
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -42,6 +44,44 @@ class PSCategorySelectViewController: UIViewController {
     {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func hazardGestureTapped(_ sender: Any)
+    {
+        let storyboard = UIStoryboard(name: "Admin", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryFeedViewController") as! PSSummaryFeedViewController
+        summaryStatisticsTitle += "Hazard"
+        vc.summaryFeedTitle += summaryStatisticsTitle
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
+    }
+    @IBAction func nearMissGestureTapped(_ sender: Any)
+    {
+        let storyboard = UIStoryboard(name: "Admin", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryFeedViewController") as! PSSummaryFeedViewController
+        summaryStatisticsTitle += "Near Miss"
+        vc.summaryFeedTitle += summaryStatisticsTitle
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
+    }
+    @IBAction func incidentGestureTapped(_ sender: Any)
+    {
+        let storyboard = UIStoryboard(name: "Admin", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryFeedViewController") as! PSSummaryFeedViewController
+        summaryStatisticsTitle += "Incident"
+        vc.summaryFeedTitle += summaryStatisticsTitle
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
+    }
+    @IBAction func emergencyTapped(_ sender: Any)
+    {
+        let storyboard = UIStoryboard(name: "Admin", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryFeedViewController") as! PSSummaryFeedViewController
+        summaryStatisticsTitle += "Emergency"
+        vc.summaryFeedTitle += summaryStatisticsTitle
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
+    }
+    
 
     /*
     // MARK: - Navigation

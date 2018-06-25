@@ -25,6 +25,15 @@ class PSReceiveHomeViewController: UIViewController
     {
         super.viewDidLoad()
         
+        if Global.USERTYPE?.rawValue == UserType.UserTypeAdmin.rawValue
+        {
+            self.summaryStatisticsStackView.isHidden = false
+        }
+        else
+        {
+            self.summaryStatisticsStackView.isHidden = true
+        }
+        
         self.view1.layer.borderWidth=1
         self.view2.layer.borderWidth=1
         self.view3.layer.borderWidth=1

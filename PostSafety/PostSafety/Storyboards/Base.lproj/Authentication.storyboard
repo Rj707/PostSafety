@@ -154,7 +154,7 @@
                                                                 <rect key="frame" x="79" y="107.5" width="218" height="18"/>
                                                                 <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
                                                                         <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -511,7 +511,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UfG-Kj-Ycg" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="dCu-xj-8Nj"/>
             </objects>
-            <point key="canvasLocation" x="3034" y="35"/>
+            <point key="canvasLocation" x="3598" y="35"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gJA-4Y-goU">
@@ -733,7 +733,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TF8-Xm-bsF" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Sd5-BZ-zPg"/>
             </objects>
-            <point key="canvasLocation" x="4142" y="45"/>
+            <point key="canvasLocation" x="2782" y="35"/>
         </scene>
     </scenes>
     <resources>
@@ -742,6 +742,6 @@
         <image name="logo" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="i8L-LW-Yi3"/>
+        <segue reference="Ige-6g-Acy"/>
     </inferredMetricsTieBreakers>
 </document>

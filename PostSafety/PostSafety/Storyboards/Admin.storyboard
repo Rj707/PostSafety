@@ -1160,18 +1160,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gIm-6T-kDt" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="rvZ-Ot-7EK">
                     <connections>
-                        <segue destination="O77-UU-pq1" kind="push" id="6cZ-gj-pDJ"/>
+                        <action selector="hazardGestureTapped:" destination="4xB-8L-oR0" id="HeN-uJ-p9X"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="Vio-hq-eki">
                     <connections>
-                        <segue destination="O77-UU-pq1" kind="push" id="s2k-QV-q5T"/>
+                        <action selector="nearMissGestureTapped:" destination="4xB-8L-oR0" id="OQG-Gq-Dxa"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="Gya-AQ-Xlz"/>
+                <tapGestureRecognizer id="Gya-AQ-Xlz">
+                    <connections>
+                        <action selector="incidentGestureTapped:" destination="4xB-8L-oR0" id="t8z-Tb-KzZ"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <tapGestureRecognizer id="lFR-3E-tWM">
                     <connections>
-                        <segue destination="O77-UU-pq1" kind="push" id="2br-k7-38i"/>
+                        <action selector="emergencyTapped:" destination="4xB-8L-oR0" id="sy5-d8-74h"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -1475,17 +1479,17 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hee-DG-9GO" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="9pW-Tf-fxI">
                     <connections>
-                        <segue destination="4xB-8L-oR0" kind="push" id="Gdn-6Z-tsG"/>
+                        <action selector="yesterdayGestureTapped:" destination="Tuo-UE-fAv" id="TsM-Tc-lax"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="Yqf-RX-A2L">
                     <connections>
-                        <segue destination="4xB-8L-oR0" kind="push" id="kaB-nx-prh"/>
+                        <action selector="thisMonthGestureTapped:" destination="Tuo-UE-fAv" id="jQA-kR-9ZM"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="Rd5-z3-N8a">
                     <connections>
-                        <segue destination="4xB-8L-oR0" kind="push" id="bpa-ql-GKL"/>
+                        <action selector="yearToDateGestureTapped:" destination="Tuo-UE-fAv" id="c9E-CV-bjr"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -1494,7 +1498,7 @@
         <!--Summary Feed View Controller-->
         <scene sceneID="JGB-oU-7nk">
             <objects>
-                <viewController storyboardIdentifier="SummaryFeedViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="O77-UU-pq1" customClass="PSSummaryFeedViewController" customModule="PostSafety" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PSSummaryFeedViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="O77-UU-pq1" customClass="PSSummaryFeedViewController" customModule="PostSafety" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hQ6-CC-bmz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1623,6 +1627,7 @@
                     <navigationItem key="navigationItem" id="LhP-xn-DXr"/>
                     <connections>
                         <outlet property="summaryFeedTableView" destination="2cK-zM-Iax" id="WvE-CF-Oe8"/>
+                        <outlet property="summaryFeedTitleLabel" destination="Kyz-6e-YnA" id="jUF-z7-SzB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="381-H5-SvS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1655,7 +1660,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Yt-Bc-Q50" userLabel="BG View">
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Yt-Bc-Q50" userLabel="BG View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -2023,6 +2028,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="7jE-hh-0gv"/>
                     <connections>
+                        <outlet property="reportCategoryDDTextField" destination="E95-Od-As9" id="eXH-DW-NeZ"/>
+                        <outlet property="reportEndDateDDTextField" destination="imO-lI-tMv" id="Ozj-YH-3WI"/>
+                        <outlet property="reportSenderDDTextField" destination="jVP-XR-CND" id="6gD-0h-5Hj"/>
+                        <outlet property="reportStartDateDDTextField" destination="iTQ-4b-eAi" id="ZBj-pb-zag"/>
+                        <outlet property="reportTypeDDTextField" destination="wRN-kO-yOe" id="Dhi-dN-gci"/>
                         <outlet property="view1" destination="Xz8-t1-vnF" id="9W7-gT-CHI"/>
                         <outlet property="view2" destination="M59-Kg-lbj" id="jwQ-W1-awM"/>
                         <outlet property="view3" destination="rtq-xa-3qe" id="P7u-db-FIY"/>
@@ -2042,8 +2052,4 @@
         <image name="drop-down-arrow" width="32" height="32"/>
         <image name="unselected" width="16" height="16"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="2br-k7-38i"/>
-        <segue reference="kaB-nx-prh"/>
-    </inferredMetricsTieBreakers>
 </document>

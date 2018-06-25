@@ -12,13 +12,18 @@ class PSSummaryFeedViewController: UIViewController,UITableViewDataSource,UITabl
 {
 
     @IBOutlet weak var summaryFeedTableView : UITableView!
+    @IBOutlet weak var summaryFeedTitleLabel : UILabel!
+    
+    var summaryFeedTitle: String = ""
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         self.summaryFeedTableView.dataSource = self
         self.summaryFeedTableView.delegate = self
-        // Do any additional setup after loading the view.
+        
+        summaryFeedTitleLabel.text =  summaryFeedTitle
+        
     }
 
     override func didReceiveMemoryWarning() {

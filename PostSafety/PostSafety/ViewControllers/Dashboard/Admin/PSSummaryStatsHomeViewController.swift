@@ -18,7 +18,10 @@ class PSSummaryStatsHomeViewController: UIViewController {
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view3: UIView!
     
-    override func viewDidLoad() {
+    
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         self.yesterdayView.layer.borderWidth=2
@@ -39,12 +42,38 @@ class PSSummaryStatsHomeViewController: UIViewController {
         
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     // MARK: - IBActions
+    
+    @IBAction func yesterdayGestureTapped(_ sender: Any)
+    {
+        let storyboard = UIStoryboard(name: "Admin", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSCategorySelectViewController") as! PSCategorySelectViewController
+        vc.summaryStatisticsTitle = "Yesterday's "
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
+    }
+    @IBAction func thisMonthGestureTapped(_ sender: Any)
+    {
+        let storyboard = UIStoryboard(name: "Admin", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSCategorySelectViewController") as! PSCategorySelectViewController
+        vc.summaryStatisticsTitle = "This Month's "
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
+    }
+    @IBAction func yearToDateGestureTapped(_ sender: Any)
+    {
+        let storyboard = UIStoryboard(name: "Admin", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSCategorySelectViewController") as! PSCategorySelectViewController
+        vc.summaryStatisticsTitle = "Year To Date's "
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
+    }
     
     @IBAction func backButtonTouched(_ sender: UIButton)
     {

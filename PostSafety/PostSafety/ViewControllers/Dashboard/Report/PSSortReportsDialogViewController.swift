@@ -8,7 +8,8 @@
 
 import UIKit
 
-class PSSortReportsDialogViewController: UIViewController {
+class PSSortReportsDialogViewController: UIViewController
+{
 
     @IBOutlet weak var view5: UIView!
     @IBOutlet weak var view4: UIView!
@@ -16,11 +17,29 @@ class PSSortReportsDialogViewController: UIViewController {
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view1: UIView!
     
+    @IBOutlet weak var reportCategoryDDTextField: IQDropDownTextField!
+    @IBOutlet weak var reportSenderDDTextField: IQDropDownTextField!
+    @IBOutlet weak var reportTypeDDTextField: IQDropDownTextField!
+    @IBOutlet weak var reportStartDateDDTextField: IQDropDownTextField!
+    @IBOutlet weak var reportEndDateDDTextField: IQDropDownTextField!
+    
+    var reportCategoryArray = ["Category 1", "Category 2", "Category 3","Category 4"]
+    var reportSenderArray = ["a", "b", "c","d", "e", "f","g", "h", "i"]
+    var reportTypeArray = ["Hazard", "Near Miss", "Incident","Emergency"]
+    var reportStartDateArray = ["1", "2", "3","4", "5", "6","7", "8", "9"]
+    var reportEndDateArray = ["1", "2", "3","4", "5", "6","7", "8", "9"]
+    
     var cheklistArray = [Any]()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        reportCategoryDDTextField.itemList = reportCategoryArray
+        reportSenderDDTextField.itemList = reportSenderArray
+        reportTypeDDTextField.itemList = reportTypeArray
+        reportStartDateDDTextField.itemList = reportStartDateArray
+        reportEndDateDDTextField.itemList = reportEndDateArray
         
         self.view1.layer.borderWidth=1
         self.view2.layer.borderWidth=1

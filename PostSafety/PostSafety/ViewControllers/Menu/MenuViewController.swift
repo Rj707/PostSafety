@@ -10,14 +10,16 @@ import UIKit
 
 @available(iOS 10.0, *)
 @available(iOS 10.0, *)
-class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataSource
+{
 
     @IBOutlet weak var menuTableView: UITableView!
     
     var menuIdentifiers = [String]()
     var selectedSection = 1
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         menuIdentifiers.append("userProfileCell")
         menuIdentifiers.append("paymentCell")
@@ -27,7 +29,8 @@ class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         self.menuTableView.separatorStyle = .none
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool)
+    {
         super.viewDidAppear(true)
     }
     
@@ -56,10 +59,18 @@ class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     {
         selectedSection = indexPath.row
         tableView.reloadData()
+        if indexPath.row==0
+        {
+            let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "PSSettingsViewController") as! PSSettingsViewController
+            navigationController?.pushViewController(vc,
+                                                     animated: true)
+        }
+        
         if indexPath.row==3
         {
             var rootVC : UIViewController?
-            rootVC = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "AuthenticationNavCont")
+            rootVC = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "PSLogInNavigationController")
           
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.window?.rootViewController = rootVC
