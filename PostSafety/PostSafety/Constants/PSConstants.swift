@@ -5,7 +5,7 @@ struct Global
     static var DATA_MANAGER  = PSDataManager.sharedInstance
     static var USER          = DATA_MANAGER.loggedInUser
     static var REPORT        = DATA_MANAGER.report
-    static var USERTYPE      = UserType(rawValue: UserType.UserTypeAdmin.rawValue)
+    static var USERTYPE      = UserType(rawValue: UserType.UserTypeNormal.rawValue)
 }
 
 struct Constants

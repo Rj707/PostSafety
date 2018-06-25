@@ -43,7 +43,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VX1-69-zyg" userLabel="Container">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="185.5"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="b5R-U2-s8d">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="b5R-U2-s8d">
                                                                 <rect key="frame" x="137" y="33.5" width="100" height="100"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="100" id="FXV-gG-vGi"/>
@@ -320,6 +320,17 @@
                                     <constraint firstAttribute="bottom" secondItem="LXb-nf-7PX" secondAttribute="bottom" id="zk9-Zb-urd"/>
                                 </constraints>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="vtg-hN-aap">
+                                <rect key="frame" x="129" y="29.5" width="117" height="29"/>
+                                <segments>
+                                    <segment title="Noraml"/>
+                                    <segment title="Admin"/>
+                                </segments>
+                                <color key="tintColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="userTypeSegmentValueChangedWithSender:" destination="gbS-2y-xEM" eventType="valueChanged" id="pH5-TX-ABx"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -329,6 +340,8 @@
                             <constraint firstItem="tFj-x7-HTj" firstAttribute="centerX" secondItem="NQG-00-adl" secondAttribute="centerX" id="TNF-dU-ZoX"/>
                             <constraint firstItem="ude-Om-C4h" firstAttribute="centerY" secondItem="NQG-00-adl" secondAttribute="centerY" id="bBg-lK-yEM"/>
                             <constraint firstAttribute="bottom" secondItem="tFj-x7-HTj" secondAttribute="bottom" id="e45-Xd-A9m"/>
+                            <constraint firstItem="ude-Om-C4h" firstAttribute="top" secondItem="vtg-hN-aap" secondAttribute="bottom" constant="8" id="fq9-4x-TEw"/>
+                            <constraint firstItem="vtg-hN-aap" firstAttribute="centerX" secondItem="Ced-fU-zGS" secondAttribute="centerX" id="nQw-Qt-iwz"/>
                             <constraint firstItem="tFj-x7-HTj" firstAttribute="top" secondItem="Ced-fU-zGS" secondAttribute="top" id="oa1-XT-oYa"/>
                             <constraint firstItem="ude-Om-C4h" firstAttribute="centerX" secondItem="NQG-00-adl" secondAttribute="centerX" id="qUU-W1-Ofe"/>
                             <constraint firstItem="tFj-x7-HTj" firstAttribute="height" secondItem="Ced-fU-zGS" secondAttribute="height" id="wsr-Si-qDY"/>
@@ -739,7 +752,7 @@
     <resources>
         <image name="back" width="25" height="25"/>
         <image name="bg" width="1080" height="1920"/>
-        <image name="logo" width="64" height="64"/>
+        <image name="logo" width="334" height="142"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Ige-6g-Acy"/>

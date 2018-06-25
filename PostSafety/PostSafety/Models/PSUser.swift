@@ -4,8 +4,8 @@ import RealmSwift
 
 enum UserType :Int
 {
-    case UserTypeAdmin
     case UserTypeNormal
+    case UserTypeAdmin
 }
 
 class PSUser : Object

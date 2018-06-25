@@ -101,6 +101,13 @@ class PSLogInViewController: UIViewController
 //        [self presentViewController:presentedController animated:YES completion:nil];
     }
     
+    @IBAction func userTypeSegmentValueChanged(sender: UISegmentedControl)
+    {
+        print(sender.selectedSegmentIndex)
+        Global.USERTYPE? = UserType(rawValue: sender.selectedSegmentIndex)!
+        print(Global.USERTYPE ?? "UserType")
+    }
+    
     /*
     // MARK: - Navigation
 
