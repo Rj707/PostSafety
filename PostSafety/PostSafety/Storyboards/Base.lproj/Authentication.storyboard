@@ -707,6 +707,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="saveChangesButtonTouched:" destination="DvF-eO-aE8" eventType="touchUpInside" id="KIF-O7-5gv"/>
                                     <segue destination="SzT-ZZ-ulS" kind="push" id="i8L-LW-Yi3"/>
                                 </connections>
                             </button>
@@ -755,6 +756,6 @@
         <image name="logo" width="334" height="142"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ige-6g-Acy"/>
+        <segue reference="i8L-LW-Yi3"/>
     </inferredMetricsTieBreakers>
 </document>

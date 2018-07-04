@@ -19,6 +19,7 @@ class PSLogInViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
         self.phoneNumberTextField?.text = "4038709552"
         self.passowrdTextField?.text = "123456"
         
@@ -27,6 +28,7 @@ class PSLogInViewController: UIViewController
         {
             text = NSMutableAttributedString(attributedString: aText)
         }
+        
         text?.addAttribute(NSForegroundColorAttributeName, value: UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1), range: NSRange(location: 39, length: 12))
         termsLabel?.attributedText = text
         
@@ -50,26 +52,36 @@ class PSLogInViewController: UIViewController
         }
         else if CEReachabilityManager.isReachable()
         {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Logging In")
             PSAPIManager.sharedInstance.authenticateUserWith(email: (self.phoneNumberTextField?.text)!, password: (self.passowrdTextField?.text)!, success:
             { (dic) in
+                PSUserInterfaceManager.sharedInstance.hideLoader()
                 var user : PSUser?
                 user = PSUser.init()
                 user = user?.initWithDictionary(dict: dic as NSDictionary)
                 PSDataManager.sharedInstance.loggedInUser = user
-                self.performSegue(withIdentifier: "NavigateToDashboard", sender: Any?.self)
+                if user?.passwordChanged == 1
+                {
+                    
+                }
+                else
+                {
+                    self.performSegue(withIdentifier: "NavigateToDashboard", sender: Any?.self)
+                }
                 
             } , failure:
                 
             {
-                    (error:NSError,statusCode:Int) in
-                    if(statusCode==404)
-                    {
-                        PSUserInterfaceManager.showAlert(title: "Login", message: ApiResultFailureMessage.InvalidEmailPassword)
-                    }
-                    else
-                    {
-                        
-                    }
+                (error:NSError,statusCode:Int) in
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                if(statusCode==404)
+                {
+                    PSUserInterfaceManager.showAlert(title: "Login", message: ApiResultFailureMessage.InvalidEmailPassword)
+                }
+                else
+                {
+                    
+                }
                     
             }, errorPopup: true)
         }

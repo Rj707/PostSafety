@@ -39,6 +39,42 @@ class PSCreatePasswordViewController: UIViewController
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func saveChangesButtonTouched(_ sender: UIButton)
+    {
+        if CEReachabilityManager.isReachable()
+        {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Creating Password")
+            PSAPIManager.sharedInstance.authenticationManagerAPI.UpdateEmployees(employeeID: (Global.USER?.employeeId.description)!, oldPassword: (passwordTextField?.text)!, NewPassword: (confirmPasswordTextField?.text)!,
+                                                                                 success:
+            { (dic) in
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                var user : PSUser?
+                user = PSUser.init()
+                user = user?.initWithDictionary(dict: dic as NSDictionary)
+                PSDataManager.sharedInstance.loggedInUser = user
+            },
+                                                                                 failure:
+            { (error, statusCode) in
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                if(statusCode==404)
+                {
+                    PSUserInterfaceManager.showAlert(title: "Create Password", message: ApiResultFailureMessage.InvalidEmailPassword)
+                }
+                else
+                {
+                    
+                }
+                
+            }, errorPopup: true)
+        
+        }
+        else
+        {
+            PSUserInterfaceManager.showAlert(title: "Create Password", message: ApiErrorMessage.NoNetwork)
+        }
+    }
+    
+    
     /*
     // MARK: - Navigation
 
