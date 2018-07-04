@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "no-wifi.png",
+      "filename" : "13.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "no-wifi@2x.png",
+      "filename" : "13-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "no-wifi@3x.png",
+      "filename" : "13-2.png",
       "scale" : "3x"
     }
   ],
