@@ -8,15 +8,28 @@
 
 import UIKit
 
-class PSReportPostViewController: UIViewController {
+class PSReportPostViewController: UIViewController
+{
+    @IBOutlet weak var reportActionsContainer:UIView!
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        if Global.USERTYPE?.rawValue == UserType.UserTypeAdmin.rawValue
+        {
+            self.reportActionsContainer.isHidden = false
+        }
+        else if Global.USERTYPE?.rawValue == UserType.UserTypeNormal.rawValue
+        {
+            self.reportActionsContainer.isHidden = true
+        }
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }

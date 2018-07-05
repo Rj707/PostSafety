@@ -41,7 +41,7 @@ class PSSelectReportTypeViewController: UIViewController
                 if let tempDict = checklistDict as? [String: Any]
                 {
                     var checklist = PSChecklist()
-                    checklist = checklist.initWithDictionary(dict: tempDict as NSDictionary)
+                    checklist = checklist.initChecklistWithDictionary(dict: tempDict as NSDictionary)
                     self.cheklistArray.append(checklist)
                 }
             }

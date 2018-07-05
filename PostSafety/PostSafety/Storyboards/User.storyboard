@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="16T-eJ-uAZ">
-                                <rect key="frame" x="-0.5" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wje-Ti-8IJ" userLabel="Main Container">
                                 <rect key="frame" x="0.0" y="65" width="375" height="602"/>
@@ -47,7 +47,7 @@
                                                                 </connections>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alerts/Announcements" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1Y-63-AoS">
-                                                                <rect key="frame" x="31" y="43" width="314.5" height="36"/>
+                                                                <rect key="frame" x="31" y="42.5" width="314.5" height="36"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                                 <color key="textColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -82,7 +82,7 @@
                                                                 </connections>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Reports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0J-80-8ll">
-                                                                <rect key="frame" x="98" y="42.5" width="180" height="36"/>
+                                                                <rect key="frame" x="98" y="43" width="180" height="36"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                                 <color key="textColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -339,7 +339,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="Agr-eO-Ke1">
-                                <rect key="frame" x="-0.5" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1D-O5-rSZ" userLabel="Main Container">
                                 <rect key="frame" x="0.0" y="65" width="375" height="602"/>
@@ -615,7 +615,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="187.5" height="44"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New &amp; Unopened (3)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Foa-aT-gdh">
-                                                                <rect key="frame" x="12" y="12" width="164.5" height="20.5"/>
+                                                                <rect key="frame" x="12.5" y="12" width="164.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -631,7 +631,7 @@
                                                         <rect key="frame" x="187.5" y="0.0" width="187.5" height="44"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Archived" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8H-Ip-Pte">
-                                                                <rect key="frame" x="59.5" y="12" width="69.5" height="20.5"/>
+                                                                <rect key="frame" x="60" y="12" width="69.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -918,14 +918,14 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KT6-qq-NiT">
-                                <rect key="frame" x="24" y="136" width="327" height="443"/>
+                                <rect key="frame" x="24" y="136" width="327" height="418"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xel-ee-F9U">
-                                <rect key="frame" x="24" y="595" width="159" height="32"/>
+                                <rect key="frame" x="24" y="570" width="184" height="57"/>
                                 <state key="normal" title="Attachment.pdf" image="attachment">
                                     <color key="titleColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -1027,7 +1027,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drop-down-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="aCm-LL-SKc">
-                                        <rect key="frame" x="279" y="6" width="32" height="32"/>
+                                        <rect key="frame" x="271" y="2" width="40" height="40"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1057,7 +1057,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drop-down-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="5Ns-4N-Cfp">
-                                        <rect key="frame" x="279" y="6" width="32" height="32"/>
+                                        <rect key="frame" x="271" y="2" width="40" height="40"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1087,7 +1087,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drop-down-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="wUw-G4-ozg">
-                                        <rect key="frame" x="279" y="6" width="32" height="32"/>
+                                        <rect key="frame" x="271" y="2" width="40" height="40"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1134,6 +1134,9 @@
                         <viewLayoutGuide key="safeArea" id="Pmj-oE-dvv"/>
                     </view>
                     <navigationItem key="navigationItem" id="Itg-rU-hBq"/>
+                    <connections>
+                        <outlet property="reportActionsContainer" destination="EPt-Bz-RfF" id="sG4-PB-L4t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0H-Zf-Vd5" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="O1A-Wh-tW7">
@@ -1156,9 +1159,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="attachment" width="32" height="32"/>
-        <image name="back" width="25" height="25"/>
-        <image name="bg" width="1080" height="1920"/>
-        <image name="drop-down-arrow" width="32" height="32"/>
+        <image name="attachment" width="57" height="57"/>
+        <image name="back" width="40" height="40"/>
+        <image name="bg" width="360" height="480"/>
+        <image name="drop-down-arrow" width="40" height="40"/>
     </resources>
 </document>

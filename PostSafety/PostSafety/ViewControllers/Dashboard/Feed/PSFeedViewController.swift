@@ -83,11 +83,29 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        let storyboard = UIStoryboard(name: "User", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedDetailViewController") as! PSFeedDetailViewController
-        vc.feedDetailTitle = self.feedTitleLabel.text!
-        navigationController?.pushViewController(vc,
-                                                 animated: true)
+        if Global.USERTYPE?.rawValue == UserType.UserTypeAdmin.rawValue && feedTitle == "Reports"
+        {
+            let storyboard = UIStoryboard(name: "User", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "PSReportPostViewController") as! PSReportPostViewController
+            navigationController?.pushViewController(vc,
+                                                     animated: true)
+        }
+        else if Global.USERTYPE?.rawValue == UserType.UserTypeNormal.rawValue && feedTitle == "Reports"
+        {
+            let storyboard = UIStoryboard(name: "User", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "PSReportPostViewController") as! PSReportPostViewController
+            navigationController?.pushViewController(vc,
+                                                     animated: true)
+        }
+        else
+        {
+            let storyboard = UIStoryboard(name: "User", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedDetailViewController") as! PSFeedDetailViewController
+            vc.feedDetailTitle = self.feedTitleLabel.text!
+            navigationController?.pushViewController(vc,
+                                                     animated: true)
+        }
+        
     }
     
     // MARK: - IBActions

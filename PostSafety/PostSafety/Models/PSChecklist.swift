@@ -10,18 +10,18 @@ import UIKit
 
 class PSChecklist: NSObject
 {
-    @objc dynamic var checklistId = 0
-    @objc dynamic var checklistName : String?
-    @objc dynamic var checklistDetails = [String]()
-    @objc dynamic var incidentType = [String]()
+    @objc dynamic var incidentType = 0
+    @objc dynamic var typeName : String?
+    @objc dynamic var checkList = 0
+    @objc dynamic var checklistDetails = [NSDictionary]()
     
-    public func initWithDictionary(dict:NSDictionary)-> PSChecklist
+    public func initChecklistWithDictionary(dict:NSDictionary)-> PSChecklist
     {
         let checklist = PSChecklist.init()
-        checklist.checklistId = dict["checklistId"] as! Int
-        checklist.checklistName = dict["checklistName"] as? String
-//        checklist.checklistDetails = (dict["checklistDetails"] as? [String])!
-//        checklist.incidentType = (dict["incidentType"] as? [String])!
+        checklist.incidentType = dict["incidentType"] as! Int
+        checklist.typeName = dict["typeName"] as? String
+        checklist.checkList = dict["checkList"] as! Int
+        checklist.checklistDetails = (dict["checklistItems"] as? [NSDictionary])!
         return checklist
     }
     
@@ -46,3 +46,7 @@ class PSChecklistDetail: NSObject
     
 }
 
+//"incidentType1": 1,
+//"typeName": "Emergency",
+//"checkList": 10009,
+//"checklistItems": {

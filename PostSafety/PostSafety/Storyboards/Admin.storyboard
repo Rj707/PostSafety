@@ -257,8 +257,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6hl-uE-PKE">
                                         <rect key="frame" x="15.5" y="200" width="345.5" height="266.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Report Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPm-in-QCK">
-                                                <rect key="frame" x="0.5" y="0.0" width="149" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Report Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPm-in-QCK">
+                                                <rect key="frame" x="0.5" y="0.0" width="126.5" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1650,7 +1650,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1cJ-LF-dCo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="93553" y="351"/>
+            <point key="canvasLocation" x="93553" y="349"/>
         </scene>
         <!--Sort Reports Dialog View Controller-->
         <scene sceneID="drL-QN-x2Y">
@@ -2046,10 +2046,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="25" height="25"/>
-        <image name="bg" width="1080" height="1920"/>
-        <image name="cross" width="32" height="32"/>
-        <image name="drop-down-arrow" width="32" height="32"/>
+        <image name="back" width="40" height="40"/>
+        <image name="bg" width="360" height="480"/>
+        <image name="cross" width="43" height="43"/>
+        <image name="drop-down-arrow" width="40" height="40"/>
         <image name="unselected" width="16" height="16"/>
     </resources>
 </document>

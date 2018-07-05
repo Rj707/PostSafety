@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @available(iOS 10.0, *)
 @available(iOS 10.0, *)
@@ -14,6 +15,7 @@ class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataS
 {
 
     @IBOutlet weak var menuTableView: UITableView!
+    var realm: Realm!
     
     var menuIdentifiers = [String]()
     var selectedSection = 1
@@ -21,6 +23,10 @@ class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        if(!(realm != nil))
+        {
+            realm = try! Realm()
+        }
         menuIdentifiers.append("userProfileCell")
         menuIdentifiers.append("paymentCell")
         menuIdentifiers.append("helpCell")
@@ -34,20 +40,28 @@ class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         super.viewDidAppear(true)
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         return menuIdentifiers.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        if indexPath.row == 0
+        {
             let cell = tableView.dequeueReusableCell(withIdentifier: menuIdentifiers[indexPath.row], for: indexPath) as! MenuTopCell
             return cell
-        }else{
+        }
+        else
+        {
             let cell = tableView.dequeueReusableCell(withIdentifier: menuIdentifiers[indexPath.row], for: indexPath) as! MenuBottomCell
-            if indexPath.row == selectedSection {
+            if indexPath.row == selectedSection
+            {
                 cell.selectedRowBg?.isHidden = false
                 cell.selectedRowIndicator?.isHidden = false
-            }else{
+            }
+            else
+            {
                 cell.selectedRowBg?.isHidden = true
                 cell.selectedRowIndicator?.isHidden = true
             }
@@ -69,6 +83,11 @@ class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
         if indexPath.row==3
         {
+            try! realm.write
+            {
+                realm.delete(Global.DATA_MANAGER.loggedInUser!)
+            }
+            
             var rootVC : UIViewController?
             rootVC = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "PSLogInNavigationController")
           

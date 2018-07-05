@@ -35,7 +35,9 @@ class PSDataManager: NSObject
         super.init()
         
 //        loggedInUser = Constants.USER_DEFAULTS.value(forKey: "User") as! PSUser?
+        
         self.report = PSReport.init()
+        
         if(!(realm != nil))
         {
             realm = try! Realm()
