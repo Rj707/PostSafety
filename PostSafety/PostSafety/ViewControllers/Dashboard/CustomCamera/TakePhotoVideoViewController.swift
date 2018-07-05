@@ -55,9 +55,10 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
     @IBOutlet weak var captureButton: SwiftyRecordButton!
     @IBOutlet weak var flipCameraButton: UIButton!
     @IBOutlet weak var flashButton: UIButton!
+    var incidentTypeID = 0
     
-    
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         cameraDelegate = self
         maximumVideoDuration = 10.0

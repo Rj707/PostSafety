@@ -14,6 +14,11 @@ class PSSelectReportTypeViewController: UIViewController
     @IBOutlet weak var view3: UIView!
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view1: UIView!
+    
+    @IBOutlet weak var label4: UILabel!
+    @IBOutlet weak var label3: UILabel!
+    @IBOutlet weak var label2: UILabel!
+    @IBOutlet weak var label1: UILabel!
 
     var cheklistArray = [Any]()
     
@@ -30,42 +35,73 @@ class PSSelectReportTypeViewController: UIViewController
         self.view3.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view4.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         
-        PSAPIManager.sharedInstance.getAllChecklists(success:
-        { (dic) in
-                
-            let tempArray = dic["array"] as! [Any]
-            
-            for checklistDict in tempArray
-            {
-                //                            if let dict = peopleDict as? [String: Any], let peopleArray = dict["People"] as? [String]
-                if let tempDict = checklistDict as? [String: Any]
-                {
-                    var checklist = PSChecklist()
-                    checklist = checklist.initChecklistWithDictionary(dict: tempDict as NSDictionary)
-                    self.cheklistArray.append(checklist)
-                }
-            }
-            print(self.cheklistArray)
-            
-        }, failure:
-            
+        if CEReachabilityManager.isReachable()
         {
-            (error:NSError,statusCode:Int) in
-            if(statusCode==404)
-            {
-                PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiResultFailureMessage.InvalidEmailPassword)
-            }
-            else
-            {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "")
+            PSAPIManager.sharedInstance.getAllChecklists(success:
+            { (dic) in
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                let tempArray = dic["array"] as! [Any]
                 
-            }
+                for checklistDict in tempArray
+                {
+                    //                            if let dict = peopleDict as? [String: Any], let peopleArray = dict["People"] as? [String]
+                    if let tempDict = checklistDict as? [String: Any]
+                    {
+                        var checklist = PSChecklist()
+                        checklist = checklist.initChecklistWithDictionary(dict: tempDict as NSDictionary)
+                        self.cheklistArray.append(checklist)
+                    }
+                }
+                print(self.cheklistArray)
                 
-        }, errorPopup: true)
+            }, failure:
+                
+            {
+                (error:NSError,statusCode:Int) in
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                if(statusCode==404)
+                {
+                    PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiResultFailureMessage.InvalidEmailPassword)
+                }
+                else
+                {
+                    
+                }
+                
+            }, errorPopup: true)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func configureReportTypes() -> Void
+    {
+        for i in 1...self.cheklistArray.count
+        {
+            var item = PSChecklist.init()
+            item = cheklistArray[i] as! PSChecklist
+            
+            switch i
+            {
+                case 0  :
+                self.label1.text = item.typeName
+                self.label1.tag = item.incidentType
+                case 1  :
+                self.label2.text = item.typeName
+                self.label2.tag = item.incidentType
+                case 2  :
+                self.label3.text = item.typeName
+                self.label3.tag = item.incidentType
+                default :
+                self.label4.text = item.typeName
+                self.label4.tag = item.incidentType
+            }
+        }
+
     }
     
     // MARK: - IBActions
@@ -83,6 +119,7 @@ class PSSelectReportTypeViewController: UIViewController
         UserDefaults.standard.set(dict, forKey: "dict")
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
+        vc.incidentTypeID = self.label1.tag
         navigationController?.pushViewController(vc,
                                                  animated: true)
     }
@@ -93,6 +130,7 @@ class PSSelectReportTypeViewController: UIViewController
         UserDefaults.standard.set(dict, forKey: "dict")
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
+        vc.incidentTypeID = self.label2.tag
         navigationController?.pushViewController(vc,
                                                  animated: true)
  
@@ -104,6 +142,7 @@ class PSSelectReportTypeViewController: UIViewController
         UserDefaults.standard.set(dict, forKey: "dict")
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
+        vc.incidentTypeID = self.label3.tag
         navigationController?.pushViewController(vc,
                                                  animated: true)
         

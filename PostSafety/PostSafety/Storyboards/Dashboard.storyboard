@@ -982,7 +982,7 @@
                                                                 </connections>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Jo-Pq-zVT">
-                                                                <rect key="frame" x="77" y="32.5" width="134.5" height="31.5"/>
+                                                                <rect key="frame" x="77" y="33" width="134.5" height="31.5"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                                                 <color key="textColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -1024,7 +1024,7 @@
                                                                 </connections>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIC-fH-8k6">
-                                                                <rect key="frame" x="76.5" y="31" width="135.5" height="31.5"/>
+                                                                <rect key="frame" x="76.5" y="31.5" width="135.5" height="31.5"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                                                 <color key="textColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -1302,7 +1302,7 @@
                                                                 </connections>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORm-eB-oQf">
-                                                                <rect key="frame" x="81" y="32.5" width="127" height="31.5"/>
+                                                                <rect key="frame" x="81" y="33" width="127" height="31.5"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                                                 <color key="textColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -1344,7 +1344,7 @@
                                                                 </connections>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJy-03-Xsu">
-                                                                <rect key="frame" x="80.5" y="31" width="128" height="31.5"/>
+                                                                <rect key="frame" x="80.5" y="31.5" width="128" height="31.5"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                                                 <color key="textColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -2039,7 +2039,7 @@
                                                                 </connections>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subcategory 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHv-ng-4eW">
-                                                                <rect key="frame" x="55" y="32.5" width="178.5" height="31.5"/>
+                                                                <rect key="frame" x="55" y="33" width="178.5" height="31.5"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                                                 <color key="textColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -2081,7 +2081,7 @@
                                                                 </connections>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subcategory 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyJ-MJ-qqY">
-                                                                <rect key="frame" x="55" y="31" width="179" height="31.5"/>
+                                                                <rect key="frame" x="55" y="31.5" width="179" height="31.5"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                                                 <color key="textColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
