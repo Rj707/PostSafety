@@ -240,10 +240,10 @@ class PSUserInterfaceManager:NSObject
     {
         var navigationController : UINavigationController?
         let storyBoard = UIStoryboard.init(name: "Dashboard", bundle: Bundle.main)
-        let homePage = storyBoard.instantiateViewController(withIdentifier: "PSDashboardViewController")
-        navigationController = storyBoard.instantiateViewController(withIdentifier: "PSDashboardNavigationController") as? UINavigationController
-        navigationController?.viewControllers = [homePage]
-        Constants.APP_DELEGATE.window?.rootViewController = navigationController
+//        let homePage = storyBoard.instantiateViewController(withIdentifier: "PSDashboardViewController")
+//        navigationController = storyBoard.instantiateViewController(withIdentifier: "PSDashboardNavigationController") as? UINavigationController
+//        navigationController?.viewControllers = [homePage]
+        Constants.APP_DELEGATE.window?.rootViewController = storyBoard.instantiateInitialViewController()
     }
     
     func showLoaderWithText(text:String)
