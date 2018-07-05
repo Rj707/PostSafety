@@ -976,17 +976,17 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9C7SE2E79C;
 				INFOPLIST_FILE = PostSafety/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.postsafety.com;
+				PRODUCT_BUNDLE_IDENTIFIER = com.distribution.talkhomeapps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "c9235357-a65f-4d92-bbf4-0898d20d03e9";
+				PROVISIONING_PROFILE_SPECIFIER = "iOS Development com.distribution.talkhomeapps";
 				SWIFT_OBJC_BRIDGING_HEADER = "PostSafety/PostSafety-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1009,7 +1009,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.postsafety.com;
+				PRODUCT_BUNDLE_IDENTIFIER = com.distribution.talkhomeapps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PostSafety/PostSafety-Bridging-Header.h";

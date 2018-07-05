@@ -16,8 +16,8 @@ class PSNoConnectionViewController: UIViewController {
     {
         super.viewDidLoad()
 
-        self.noConnectionContainer.layer.borderWidth=2
-        self.noConnectionContainer.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+//        self.noConnectionContainer.layer.borderWidth=2
+//        self.noConnectionContainer.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
     }
 
     override func didReceiveMemoryWarning() {

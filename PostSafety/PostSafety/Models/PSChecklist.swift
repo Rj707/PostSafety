@@ -20,8 +20,8 @@ class PSChecklist: NSObject
         let checklist = PSChecklist.init()
         checklist.checklistId = dict["checklistId"] as! Int
         checklist.checklistName = dict["checklistName"] as? String
-        checklist.checklistDetails = (dict["checklistDetails"] as? [String])!
-        checklist.incidentType = (dict["incidentType"] as? [String])!
+//        checklist.checklistDetails = (dict["checklistDetails"] as? [String])!
+//        checklist.incidentType = (dict["incidentType"] as? [String])!
         return checklist
     }
     

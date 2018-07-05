@@ -18,8 +18,8 @@ class PSReportConfirmationViewController: UIViewController
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.confirmationContainer.layer.borderWidth=2
-        self.confirmationContainer.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+//        self.confirmationContainer.layer.borderWidth=2
+//        self.confirmationContainer.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
     }
 
     override func didReceiveMemoryWarning()
