@@ -18,6 +18,8 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         {
             let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController
+            vc.checklistId = checkList.checkList
+            vc.cheklistDetailsArray = checkList.checklistDetails["checklistDetails"] as! [Any]
             navigationController?.pushViewController(vc,
                                                      animated: true)
         }
@@ -38,6 +40,8 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         {
             let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController
+            vc.checklistId = checkList.checkList
+            vc.cheklistDetailsArray = checkList.checklistDetails["checklistDetails"] as! [Any]
             navigationController?.pushViewController(vc,
                                                      animated: true)
         }
@@ -56,6 +60,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
     @IBOutlet weak var flipCameraButton: UIButton!
     @IBOutlet weak var flashButton: UIButton!
     var incidentTypeID = 0
+    var checkList = PSChecklist()
     
     override func viewDidLoad()
     {
@@ -65,58 +70,109 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         shouldUseDeviceOrientation = true
         allowAutoRotate = true
         audioEnabled = true
+        
+        
+        self.createReport()
     }
     
-    override var prefersStatusBarHidden: Bool {
+    func createReport() -> Void
+    {
+        if CEReachabilityManager.isReachable()
+        {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Creating Report")
+            PSAPIManager.sharedInstance.createReportForIncidentTypeID(typeID: String(self.incidentTypeID),
+                                                                      success:
+            { (dic) in
+                
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                print(dic["ReportID"] ?? "")
+                    
+            } ,
+                                                                      failure:
+                
+            {
+                (error:NSError,statusCode:Int) in
+                
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                if(statusCode==404)
+                {
+                    PSUserInterfaceManager.showAlert(title: "Login", message: ApiResultFailureMessage.InvalidEmailPassword)
+                }
+                else
+                {
+                    
+                }
+                    
+            }, errorPopup: true)
+        }
+        else
+        {
+            PSUserInterfaceManager.showAlert(title: "Login", message: ApiErrorMessage.NoNetwork)
+        }
+    }
+    
+    override var prefersStatusBarHidden: Bool
+    {
         return true
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool)
+    {
         super.viewDidAppear(animated)
         captureButton.delegate = self
     }
     
-    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
+    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage)
+    {
         let newVC = PhotoViewController(image: photo)
         newVC.delegate = self
         self.present(newVC, animated: true, completion: nil)
     }
     
-    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didBeginRecordingVideo camera: SwiftyCamViewController.CameraSelection) {
+    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didBeginRecordingVideo camera: SwiftyCamViewController.CameraSelection)
+    {
         print("Did Begin Recording")
         captureButton.growButton()
-        UIView.animate(withDuration: 0.25, animations: {
+        UIView.animate(withDuration: 0.25, animations:
+        {
             self.flashButton.alpha = 0.0
             self.flipCameraButton.alpha = 0.0
         })
     }
     
-    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFinishRecordingVideo camera: SwiftyCamViewController.CameraSelection) {
+    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFinishRecordingVideo camera: SwiftyCamViewController.CameraSelection)
+    {
         print("Did finish Recording")
         captureButton.shrinkButton()
-        UIView.animate(withDuration: 0.25, animations: {
+        UIView.animate(withDuration: 0.25, animations:
+        {
             self.flashButton.alpha = 1.0
             self.flipCameraButton.alpha = 1.0
         })
     }
     
-    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFinishProcessVideoAt url: URL) {
+    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFinishProcessVideoAt url: URL)
+    {
         let newVC = VideoViewController(videoURL: url)
         newVC.delegate = self
         self.present(newVC, animated: true, completion: nil)
     }
     
-    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFocusAtPoint point: CGPoint) {
+    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFocusAtPoint point: CGPoint)
+    {
         let focusView = UIImageView(image: #imageLiteral(resourceName: "focus"))
         focusView.center = point
         focusView.alpha = 0.0
         view.addSubview(focusView)
         
-        UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseInOut, animations:
+        {
             focusView.alpha = 1.0
             focusView.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
-        }, completion: { (success) in
-            UIView.animate(withDuration: 0.15, delay: 0.5, options: .curveEaseInOut, animations: {
+        }, completion:
+        { (success) in
+            UIView.animate(withDuration: 0.15, delay: 0.5, options: .curveEaseInOut, animations:
+                {
                 focusView.alpha = 0.0
                 focusView.transform = CGAffineTransform(translationX: 0.6, y: 0.6)
             }, completion: { (success) in
@@ -125,28 +181,36 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         })
     }
     
-    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didChangeZoomLevel zoom: CGFloat) {
+    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didChangeZoomLevel zoom: CGFloat)
+    {
         print(zoom)
     }
     
-    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didSwitchCameras camera: SwiftyCamViewController.CameraSelection) {
+    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didSwitchCameras camera: SwiftyCamViewController.CameraSelection)
+    {
         print(camera)
     }
     
-    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFailToRecordVideo error: Error) {
+    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFailToRecordVideo error: Error)
+    {
         print(error)
     }
     
-    @IBAction func cameraSwitchTapped(_ sender: Any) {
+    @IBAction func cameraSwitchTapped(_ sender: Any)
+    {
         switchCamera()
     }
     
-    @IBAction func toggleFlashTapped(_ sender: Any) {
+    @IBAction func toggleFlashTapped(_ sender: Any)
+    {
         flashEnabled = !flashEnabled
         
-        if flashEnabled == true {
+        if flashEnabled == true
+        {
             flashButton.setImage(#imageLiteral(resourceName: "flash"), for: UIControlState())
-        } else {
+        }
+        else
+        {
             flashButton.setImage(#imageLiteral(resourceName: "flashOutline"), for: UIControlState())
         }
     }

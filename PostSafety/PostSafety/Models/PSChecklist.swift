@@ -13,15 +13,15 @@ class PSChecklist: NSObject
     @objc dynamic var incidentType = 0
     @objc dynamic var typeName : String?
     @objc dynamic var checkList = 0
-    @objc dynamic var checklistDetails = [NSDictionary]()
+    @objc dynamic var checklistDetails = NSDictionary()
     
     public func initChecklistWithDictionary(dict:NSDictionary)-> PSChecklist
     {
         let checklist = PSChecklist.init()
-        checklist.incidentType = dict["incidentType"] as! Int
+        checklist.incidentType = dict["incidentType1"] as! Int
         checklist.typeName = dict["typeName"] as? String
         checklist.checkList = dict["checkList"] as! Int
-        checklist.checklistDetails = (dict["checklistItems"] as? [NSDictionary])!
+        checklist.checklistDetails = (dict["checklistItems"] as? NSDictionary)!
         return checklist
     }
     

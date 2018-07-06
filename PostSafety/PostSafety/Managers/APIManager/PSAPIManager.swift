@@ -19,6 +19,7 @@ class PSAPIManager: NSObject
     
     let authenticationManagerAPI = PSAuthenticationAPIManager()
     let checklistManagerAPI = PSChecklistAPIManager()
+    let reportManagerAPI = PSReportAPIManager()
     var serverToken: String?
     {
         get

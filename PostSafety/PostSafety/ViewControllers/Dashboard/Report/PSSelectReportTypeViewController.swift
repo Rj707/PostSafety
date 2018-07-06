@@ -37,7 +37,7 @@ class PSSelectReportTypeViewController: UIViewController
         
         if CEReachabilityManager.isReachable()
         {
-            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "")
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Incident Types")
             PSAPIManager.sharedInstance.getAllChecklists(success:
             { (dic) in
                 PSUserInterfaceManager.sharedInstance.hideLoader()
@@ -45,7 +45,6 @@ class PSSelectReportTypeViewController: UIViewController
                 
                 for checklistDict in tempArray
                 {
-                    //                            if let dict = peopleDict as? [String: Any], let peopleArray = dict["People"] as? [String]
                     if let tempDict = checklistDict as? [String: Any]
                     {
                         var checklist = PSChecklist()
@@ -53,6 +52,8 @@ class PSSelectReportTypeViewController: UIViewController
                         self.cheklistArray.append(checklist)
                     }
                 }
+                
+                self.configureReportTypes()
                 print(self.cheklistArray)
                 
             }, failure:
@@ -73,35 +74,51 @@ class PSSelectReportTypeViewController: UIViewController
         }
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func configureReportTypes() -> Void
     {
-        for i in 1...self.cheklistArray.count
+        for i in 0...self.cheklistArray.count-1
         {
             var item = PSChecklist.init()
             item = cheklistArray[i] as! PSChecklist
             
-            switch i
+            switch item.incidentType
             {
-                case 0  :
-                self.label1.text = item.typeName
-                self.label1.tag = item.incidentType
                 case 1  :
-                self.label2.text = item.typeName
-                self.label2.tag = item.incidentType
-                case 2  :
-                self.label3.text = item.typeName
-                self.label3.tag = item.incidentType
-                default :
                 self.label4.text = item.typeName
                 self.label4.tag = item.incidentType
+                case 2  :
+                self.label1.text = item.typeName
+                self.label1.tag = item.incidentType
+                case 3  :
+                self.label2.text = item.typeName
+                self.label2.tag = item.incidentType
+                default :
+                self.label3.text = item.typeName
+                self.label3.tag = item.incidentType
             }
         }
-
+    }
+    
+    func setCheckListForReporType(reportType:Int) -> PSChecklist
+    {
+        for i in 1...self.cheklistArray.count-1
+        {
+            var item = PSChecklist.init()
+            item = cheklistArray[i] as! PSChecklist
+            
+            if item.incidentType == reportType
+            {
+                return item;
+            }
+            
+        }
+        return PSChecklist.init()
     }
     
     // MARK: - IBActions
@@ -120,6 +137,7 @@ class PSSelectReportTypeViewController: UIViewController
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
         vc.incidentTypeID = self.label1.tag
+        vc.checkList = self.setCheckListForReporType(reportType: vc.incidentTypeID)
         navigationController?.pushViewController(vc,
                                                  animated: true)
     }
@@ -131,6 +149,7 @@ class PSSelectReportTypeViewController: UIViewController
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
         vc.incidentTypeID = self.label2.tag
+        vc.checkList = self.setCheckListForReporType(reportType: vc.incidentTypeID)
         navigationController?.pushViewController(vc,
                                                  animated: true)
  
@@ -143,6 +162,7 @@ class PSSelectReportTypeViewController: UIViewController
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
         vc.incidentTypeID = self.label3.tag
+        vc.checkList = self.setCheckListForReporType(reportType: vc.incidentTypeID)
         navigationController?.pushViewController(vc,
                                                  animated: true)
         

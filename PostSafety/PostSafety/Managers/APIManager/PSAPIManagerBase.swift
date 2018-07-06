@@ -186,6 +186,14 @@ class PSAPIManagerBase: NSObject
                 {
                     success(jsonResponse)
                 }
+                if let jsonResponse = response.result.value as? Int
+                {
+                    let parameters: [String:Any] =
+                        [
+                            "ReportID":jsonResponse,
+                        ]
+                    success(parameters as Dictionary<String, AnyObject>)
+                }
                 else
                 {
                     var finalArray:[Any] = []

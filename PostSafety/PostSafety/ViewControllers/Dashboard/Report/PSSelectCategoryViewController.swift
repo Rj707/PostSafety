@@ -16,25 +16,45 @@ class PSSelectCategoryViewController: UIViewController
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view3: UIView!
     @IBOutlet weak var view4: UIView!
+    
+    @IBOutlet weak var stackView4: UIStackView!
+    
+    @IBOutlet weak var label4: UILabel!
+    @IBOutlet weak var label3: UILabel!
+    @IBOutlet weak var label2: UILabel!
+    @IBOutlet weak var label1: UILabel!
+    
     var nextViewController : UIViewController!
     var cheklistDetailsArray = [Any]()
+    var checklistId = 0
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
+        if self.cheklistDetailsArray.count  == 3
+        {
+            self.stackView4.isHidden = true
+        }
+        else
+        {
+            self.stackView4.isHidden = false
+        }
+        
         self.view1.layer.borderWidth=1
         self.view2.layer.borderWidth=1
         self.view3.layer.borderWidth=1
         self.view4.layer.borderWidth=1
+        
         self.backgroundView.layer.borderWidth=1
         self.view1.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view2.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view3.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view4.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.backgroundView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
-        self.setNextViewController()
         
+        self.setNextViewController()
+        self.configureCategoryForReportType()
     }
 
     override func didReceiveMemoryWarning()
@@ -46,6 +66,7 @@ class PSSelectCategoryViewController: UIViewController
     func setNextViewController()
     {
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+        
 //        var reportType = ""
 //        print(Global.REPORT?.reportType ?? "")
 //        reportType = (Global.REPORT?.reportType)!
@@ -64,7 +85,7 @@ class PSSelectCategoryViewController: UIViewController
     
     func getCheckListDetails()
     {
-        PSAPIManager.sharedInstance.checklistManagerAPI.getChecklistDetailsWith(checkListID: "10002",
+        PSAPIManager.sharedInstance.checklistManagerAPI.getChecklistDetailsWith(checkListID: String(checklistId),
                                                                                 success:
             { (dic:Dictionary<String,Any>) in
                 
@@ -86,6 +107,27 @@ class PSSelectCategoryViewController: UIViewController
             { (error, statusCode) in
                 
         }, errorPopup: true)
+    }
+    
+    func configureCategoryForReportType() -> Void
+    {
+        for i in 0...self.cheklistDetailsArray.count-1
+        {
+            var item = NSDictionary()
+            item = cheklistDetailsArray[i] as! NSDictionary
+
+            switch i
+            {
+            case 0  :
+                self.label1.text = item["name"] as? String
+            case 1  :
+                self.label2.text = item["name"] as? String
+            case 2  :
+                self.label3.text = item["name"] as? String
+            default :
+                self.label4.text = item["name"] as? String
+            }
+        }
     }
     
     // MARK: - IBActions

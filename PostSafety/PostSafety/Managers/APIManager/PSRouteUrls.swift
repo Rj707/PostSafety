@@ -7,8 +7,8 @@ enum Route: String
     case ChecklistDetails   = "/api/ChecklistDetails"
     case Notifications      = "/api/NotificationsAPI"
     case Reports            = "/api/ReportsAPI"
-    case CreateReport       = "/api/CreateReport"
-//    case ReportType         = "/api/IncidentTypes"
+    case CreateReport       = "/api/CreateReport/"
+    case SingleChecklist    = "/api/Checklists"
     case UpdateEmployees    = "/api/UpdateEmployees"
     
     func url() -> String

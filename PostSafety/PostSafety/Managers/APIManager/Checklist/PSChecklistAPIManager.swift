@@ -9,9 +9,9 @@ class PSChecklistAPIManager: PSAPIManagerBase
     {
         
         let parameters: [String] =
-            [
-                
-            ]
+        [
+            
+        ]
         
         let route: URL = GETURLforPS(route: Route.Checklist.rawValue, parameters: parameters )!
         
@@ -29,7 +29,7 @@ class PSChecklistAPIManager: PSAPIManagerBase
             checkListID
         ]
         
-        let route: URL = GETURLforPS(route: Route.ChecklistDetails.rawValue, parameters: parameters )!
+        let route: URL = GETURLforPS(route: Route.SingleChecklist.rawValue, parameters: parameters )!
         
         self.getRequestWith(route: route, parameters: parameters, success: success, failure: failure, errorPopup: errorPopup)
     }

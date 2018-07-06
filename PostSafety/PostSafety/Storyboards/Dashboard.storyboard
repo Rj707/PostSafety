@@ -731,6 +731,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="a8N-MX-bcl"/>
                     <connections>
+                        <outlet property="label1" destination="hX4-h7-731" id="BLw-b6-oNx"/>
+                        <outlet property="label2" destination="1aq-oS-JpL" id="nIS-OG-nts"/>
+                        <outlet property="label3" destination="n3f-Zq-inw" id="w1N-y8-M3M"/>
+                        <outlet property="label4" destination="PS0-Yk-sdN" id="hZC-9p-8hk"/>
                         <outlet property="view1" destination="shT-wI-o0B" id="Yxf-go-gWi"/>
                         <outlet property="view2" destination="VDi-u5-S2T" id="KMR-zP-8NG"/>
                         <outlet property="view3" destination="5g1-2a-i5X" id="hOg-hU-YEf"/>
@@ -1187,6 +1191,11 @@
                     <navigationItem key="navigationItem" id="7xy-gV-gus"/>
                     <connections>
                         <outlet property="backgroundView" destination="CPl-M5-fOk" id="Ahs-fU-chK"/>
+                        <outlet property="label1" destination="awk-qC-agh" id="19B-ck-vEf"/>
+                        <outlet property="label2" destination="8Jo-Pq-zVT" id="nn5-r9-9pe"/>
+                        <outlet property="label3" destination="DIC-fH-8k6" id="BdP-bX-dbq"/>
+                        <outlet property="label4" destination="9zl-5E-HAR" id="egM-jl-3Ig"/>
+                        <outlet property="stackView4" destination="YqY-qO-yne" id="OWG-qf-34z"/>
                         <outlet property="view1" destination="4Tk-1M-pMU" id="a87-mE-IfI"/>
                         <outlet property="view2" destination="UwM-04-bLq" id="Bej-y8-LaT"/>
                         <outlet property="view3" destination="F0b-Pf-vBW" id="bDR-br-ARY"/>
