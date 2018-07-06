@@ -20,8 +20,22 @@ class PSReportAPIManager: PSAPIManagerBase
         self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
     }
     
+    func getReportsFor(companyId: String,
+                                       success:@escaping DefaultArrayResultAPISuccessClosure,
+                                       failure:@escaping DefaultAPIFailureClosure,
+                                       errorPopup: Bool)
+    {
+        
+        let parameters: [String:Any] =
+            [
+                "CompanyId":companyId,
+                ]
+        
+        let route: URL = GETURLfor(route: Route.Reports.rawValue, parameters: parameters )!
+        
+        self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
+    }
+    
 }
 
-//http://postsafety.anadeemus.ca/api/CreateReport/2
-//http://postsafety.anadeemus.ca/api/CreateReport/?IncidentTypeID=1
-//http://postsafety.anadeemus.ca/api/CreateReport?IncidentTypeID=3
+
