@@ -77,7 +77,7 @@ class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         {
             let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PSSettingsViewController") as! PSSettingsViewController
-            navigationController?.pushViewController(vc,
+            self.navigationController?.pushViewController(vc,
                                                      animated: true)
         }
         

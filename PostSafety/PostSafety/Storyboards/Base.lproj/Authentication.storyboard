@@ -254,7 +254,6 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="loginButtonTouched" destination="gbS-2y-xEM" eventType="touchUpInside" id="rol-uj-PAA"/>
-                                                                            <segue destination="DvF-eO-aE8" kind="push" id="caU-Qs-vdM"/>
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQx-Fk-p1r">
@@ -356,6 +355,7 @@
                         <outlet property="phoneNumberTextField" destination="hBd-eu-k9h" id="CvC-OJ-fDl"/>
                         <outlet property="termsLabel" destination="bw9-2L-kLi" id="JTf-hm-3jI"/>
                         <segue destination="SzT-ZZ-ulS" kind="push" identifier="NavigateToDashboard" id="Ige-6g-Acy"/>
+                        <segue destination="DvF-eO-aE8" kind="push" identifier="NavigateToCreatePassword" id="cTH-lq-XCK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kY8-A9-AQv" sceneMemberID="firstResponder"/>
@@ -570,7 +570,7 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8r-Y0-8SM">
                                                                 <rect key="frame" x="0.0" y="0.0" width="250" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" red="0.92941176470588238" green="0.42352941176470588" blue="0.17647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tR5-uv-cf2" userLabel="Password Container">
@@ -579,7 +579,7 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNH-87-DYZ">
                                                                 <rect key="frame" x="0.0" y="94.5" width="250" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" red="0.92941176470588238" green="0.42352941176470588" blue="0.17647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYG-pa-J6h" userLabel="New Password Container">
@@ -751,9 +751,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="25" height="25"/>
-        <image name="bg" width="1080" height="1920"/>
-        <image name="logo" width="334" height="142"/>
+        <image name="back" width="40" height="40"/>
+        <image name="bg" width="360" height="480"/>
+        <image name="logo" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="i8L-LW-Yi3"/>

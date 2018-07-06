@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     {
         // Override point for customization after application launch.
+        
         IQKeyboardManager.sharedManager().enable = true
         if PSDataManager.sharedInstance.isUserLoggedIn()
         {
@@ -26,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         }
         else
         {
-            print("NO")
+            print("Not a logged in User")
         }
         
         return true

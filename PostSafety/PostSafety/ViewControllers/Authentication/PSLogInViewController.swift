@@ -60,9 +60,17 @@ class PSLogInViewController: UIViewController
                 user = PSUser.init()
                 user = user?.initWithDictionary(dict: dic as NSDictionary)
                 PSDataManager.sharedInstance.loggedInUser = user
-                if user?.passwordChanged == 1
+                if user?.employeeType == "Reviewers"
                 {
-                    
+                    Global.USERTYPE? = UserType(rawValue: 1)!
+                }
+                else
+                {
+                    Global.USERTYPE? = UserType(rawValue: 0)!
+                }
+                if user?.passwordChanged == 0
+                {
+                    self.performSegue(withIdentifier: "NavigateToCreatePassword", sender: Any?.self)
                 }
                 else
                 {

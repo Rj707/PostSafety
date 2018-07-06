@@ -186,7 +186,7 @@ class PSAPIManagerBase: NSObject
                 {
                     success(jsonResponse)
                 }
-                if let jsonResponse = response.result.value as? Int
+                else if let jsonResponse = response.result.value as? Int
                 {
                     let parameters: [String:Any] =
                         [
