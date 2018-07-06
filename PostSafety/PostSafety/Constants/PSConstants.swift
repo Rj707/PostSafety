@@ -3,9 +3,9 @@ import UIKit
 struct Global
 {
     static var DATA_MANAGER  = PSDataManager.sharedInstance
-    static var USER          = DATA_MANAGER.loggedInUser
+    static var USER          = PSDataManager.sharedInstance.loggedInUser
     static var REPORT        = DATA_MANAGER.report
-    static var USERTYPE      = UserType(rawValue: UserType.UserTypeNormal.rawValue)
+    static var USERTYPE      = PSDataManager.sharedInstance.loggedInUser?.userType
 }
 
 struct Constants

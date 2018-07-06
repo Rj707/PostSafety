@@ -654,7 +654,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Scc-kB-yP7">
-                                <rect key="frame" x="18.5" y="138" width="101" height="30"/>
+                                <rect key="frame" x="18.5" y="138" width="128" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="k8E-lS-hS4"/>
                                 </constraints>
@@ -2050,6 +2050,6 @@
         <image name="bg" width="360" height="480"/>
         <image name="cross" width="43" height="43"/>
         <image name="drop-down-arrow" width="40" height="40"/>
-        <image name="unselected" width="16" height="16"/>
+        <image name="unselected" width="43" height="43"/>
     </resources>
 </document>

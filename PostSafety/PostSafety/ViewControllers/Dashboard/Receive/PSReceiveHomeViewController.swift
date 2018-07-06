@@ -25,7 +25,7 @@ class PSReceiveHomeViewController: UIViewController
     {
         super.viewDidLoad()
         
-        if Global.USERTYPE?.rawValue == UserType.UserTypeAdmin.rawValue
+        if PSDataManager.sharedInstance.loggedInUser?.employeeType == "Reviewers"
         {
             self.summaryStatisticsStackView.isHidden = false
         }
