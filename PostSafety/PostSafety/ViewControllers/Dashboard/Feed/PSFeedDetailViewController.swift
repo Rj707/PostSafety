@@ -12,13 +12,17 @@ class PSFeedDetailViewController: UIViewController
 {
 
     @IBOutlet weak var feedDetailTitleLabel: UILabel!
+    @IBOutlet weak var feedDetailTextView: UITextView!
+    @IBOutlet weak var feedDetailAttachmentButton: UIButton!
     var feedDetailTitle: String = ""
-    
+    var feedDict = NSDictionary.init()
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
-        self.feedDetailTitleLabel.text = self.feedDetailTitle
+        self.feedDetailTitleLabel.text = self.feedDict["title"] as? String
+        self.feedDetailTextView.text = self.feedDict["details"] as! String
+        self.feedDetailAttachmentButton.setTitle(self.feedDict["pictureUrl"] as? String, for: UIControlState.normal)
     }
 
     override func didReceiveMemoryWarning() {

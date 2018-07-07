@@ -22,7 +22,8 @@ class PSDataManager: NSObject
             
             try!  self.realm.write()
             {
-                self.realm.add(self.loggedInUser!)
+//                self.realm.add(self.loggedInUser!)
+                self.realm.add(self.loggedInUser!, update: true)
                 print(loggedInUser?.password ?? "")
             }
             

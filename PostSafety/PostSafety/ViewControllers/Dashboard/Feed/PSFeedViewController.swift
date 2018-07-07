@@ -29,13 +29,18 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     @IBOutlet weak var updatesAnnouncementsTableView : UITableView!
     @IBOutlet weak var feedTitleLabel: UILabel!
+    
     var feedTitle: String = ""
     
     var type : FeedType!
-    
+    var feedArray = [Any]()
+    var feedArray2 = Array<Any>()
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.updatesAnnouncementsTableView.tableFooterView = UIView.init()
+        
         self.type = FeedType.init(rawValue: 0)
         self.updatesAnnouncementsTableView.dataSource = self
         self.updatesAnnouncementsTableView.delegate = self
@@ -63,26 +68,30 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 10
+        return self.feedArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        var cell:UITableViewCell
+        var cell:PSFeedTableViewCell
         if self.type.rawValue == 0
         {
-            cell = tableView.dequeueReusableCell(withIdentifier: "AnnouncementCell", for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: "AnnouncementCell", for: indexPath) as! PSFeedTableViewCell
         }
         else
         {
-            cell = tableView.dequeueReusableCell(withIdentifier: "SharedReportsCell", for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: "SharedReportsCell", for: indexPath) as! PSFeedTableViewCell
         }
-        
+        let dic = self.feedArray[indexPath.row] as! NSDictionary
+        cell.titleLabel.text = dic["title"] as? String
+//        cell.titleLabel.text = (self.feedArray[indexPath.row])[""]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
+        let dic = self.feedArray[indexPath.row] as! NSDictionary
+        
         if Global.USERTYPE?.rawValue == UserType.UserTypeAdmin.rawValue && feedTitle == "Reports"
         {
             let storyboard = UIStoryboard(name: "User", bundle: nil)
@@ -101,7 +110,9 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         {
             let storyboard = UIStoryboard(name: "User", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedDetailViewController") as! PSFeedDetailViewController
-            vc.feedDetailTitle = self.feedTitleLabel.text!
+//            vc.feedDetailTitle = self.feedTitleLabel.text!
+            vc.feedDetailTitle = (dic["title"] as? String)!
+            vc.feedDict = dic
             navigationController?.pushViewController(vc,
                                                      animated: true)
         }
@@ -144,12 +155,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         {
             
         }
-        
-        //        self.definesPresentationContext = true; //self is presenting view controller
-        //        presentedController.view.backgroundColor = [YOUR_COLOR with alpha OR clearColor]
-        //        presentedController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        //
-        //        [self presentViewController:presentedController animated:YES completion:nil];
+
     }
 
     /*

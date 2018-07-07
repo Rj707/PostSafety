@@ -14,6 +14,7 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
     @IBOutlet weak var selectDialogTableView:UITableView!
     @IBOutlet weak var selectionButton:UIButton!
     @IBOutlet weak var searchBar:UISearchBar!
+    @IBOutlet weak var selectionLabel:UILabel!
     var selectDialogArray = ["a", "b", "c","d", "e", "f","g", "h", "i"]
     var selectedPeopleArray = ["", "", "","", "", "","", "", ""]
     
@@ -42,19 +43,22 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
     
     // MARK: - IBActions
     
-    @IBAction func selectAllButtonTouched(_ sender: UIButton)
+    @IBAction func selectAllButtonTouched(_ sender: UITapGestureRecognizer)
     {
-        if selectionButton.titleLabel?.text == "  Select All"
+        if selectionButton.imageView?.image == (UIImage.init(named: "unselected"))
+//        if selectionButton.titleLabel?.text == "  Select All"
         {
+            self.selectionLabel.text = "Unselect All"
             selectedPeopleArray = ["a", "b", "c","d", "e", "f","g", "h", "i"]
             self.selectionButton.setImage(UIImage.init(named: "selected"), for: UIControlState.normal)
-            self.selectionButton.setTitle("  Unselect All", for: UIControlState.normal)
+//            self.selectionButton.setTitle("  Unselect All", for: UIControlState.normal)
         }
         else
         {
+            self.selectionLabel.text = "Select All"
             selectedPeopleArray = ["", "", "","", "", "","", "", ""]
             self.selectionButton.setImage(UIImage.init(named: "unselected"), for: UIControlState.normal)
-            self.selectionButton.setTitle("  Select All", for: UIControlState.normal)
+//            self.selectionButton.setTitle("  Select All", for: UIControlState.normal)
         }
         
         selectDialogTableView.reloadData()

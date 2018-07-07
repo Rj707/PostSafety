@@ -14,8 +14,8 @@ class PSReceiveAlertsViewController: UIViewController
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view1: UIView!
     
-    var cheklistArray = [Any]()
-    
+    var alertsArray = [Any]()
+    var companyId = 0
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -26,6 +26,44 @@ class PSReceiveAlertsViewController: UIViewController
         self.view1.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view2.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view3.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        
+        
+        if CEReachabilityManager.isReachable()
+        {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Reports")
+            companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
+            PSAPIManager.sharedInstance.getNotificationsFor(companyId: String(companyId), success:
+            { (dic) in
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                let tempArray = dic["array"] as! [Any]
+                
+                for checklistDict in tempArray
+                {
+                    if let tempDict = checklistDict as? [String: Any]
+                    {
+                        self.alertsArray.append(tempDict)
+                    }
+                }
+                
+                //                    self.configureReportTypes()
+                print(self.alertsArray)
+                
+            }, failure:
+            { (error:NSError,statusCode:Int) in
+            
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                if(statusCode==404)
+                {
+                    PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiResultFailureMessage.InvalidEmailPassword)
+                }
+                else
+                {
+                    
+                }
+                
+            }, errorPopup: true)
+        }
+            
         
     }
     
@@ -41,6 +79,8 @@ class PSReceiveAlertsViewController: UIViewController
         let storyboard = UIStoryboard(name: "User", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedViewController") as! PSFeedViewController
         vc.feedTitle = "Alerts"
+        let resultPredicate = NSPredicate(format: "type = %@", "Alert")
+        vc.feedArray = (self.alertsArray as NSArray).filtered(using: resultPredicate)
         navigationController?.pushViewController(vc,
                                                  animated: true)
     }

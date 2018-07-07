@@ -238,7 +238,7 @@ class PSUserInterfaceManager:NSObject
 
     func loadHomePage()
     {
-        var navigationController : UINavigationController?
+        var _ : UINavigationController?
         let storyBoard = UIStoryboard.init(name: "Dashboard", bundle: Bundle.main)
 //        let homePage = storyBoard.instantiateViewController(withIdentifier: "PSDashboardViewController")
 //        navigationController = storyBoard.instantiateViewController(withIdentifier: "PSDashboardNavigationController") as? UINavigationController

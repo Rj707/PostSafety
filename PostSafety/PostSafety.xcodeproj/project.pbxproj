@@ -19,6 +19,7 @@
 		1812E69520B8A4D800E484C6 /* PSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69320B8A4D800E484C6 /* PSConstants.swift */; };
 		1812E69720B8A4F800E484C6 /* PSDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69620B8A4F700E484C6 /* PSDataManager.swift */; };
 		1812E69920B8A50C00E484C6 /* PSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69820B8A50C00E484C6 /* PSUser.swift */; };
+		18161A5720F10F5800C0C3BF /* PSFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18161A5620F10F5800C0C3BF /* PSFeedTableViewCell.swift */; };
 		182E5DD320DE38DC00E3A851 /* PSReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E5DD220DE38DC00E3A851 /* PSReport.swift */; };
 		184EC78420DC078A0089348C /* PSNoConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184EC78320DC078A0089348C /* PSNoConnectionViewController.swift */; };
 		184EC78620DC0FB70089348C /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184EC78520DC0FB70089348C /* User.storyboard */; };
@@ -115,6 +116,7 @@
 		1812E69320B8A4D800E484C6 /* PSConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSConstants.swift; sourceTree = "<group>"; };
 		1812E69620B8A4F700E484C6 /* PSDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSDataManager.swift; sourceTree = "<group>"; };
 		1812E69820B8A50C00E484C6 /* PSUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSUser.swift; sourceTree = "<group>"; };
+		18161A5620F10F5800C0C3BF /* PSFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSFeedTableViewCell.swift; sourceTree = "<group>"; };
 		182E5DD220DE38DC00E3A851 /* PSReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReport.swift; sourceTree = "<group>"; };
 		184EC78320DC078A0089348C /* PSNoConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSNoConnectionViewController.swift; sourceTree = "<group>"; };
 		184EC78520DC0FB70089348C /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 			children = (
 				A16142D920AC11CD00421414 /* PSFeedDetailViewController.swift */,
 				A16142D720AC11BD00421414 /* PSFeedViewController.swift */,
+				18161A5620F10F5800C0C3BF /* PSFeedTableViewCell.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -438,10 +441,10 @@
 		A16142CB20AC103B00421414 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				A11DF68B20D8F0250079D861 /* Dashboard.storyboard */,
-				184EC78520DC0FB70089348C /* User.storyboard */,
 				184EC78720DC1ED40089348C /* Admin.storyboard */,
 				C4B0775C20C4090E00CCD778 /* Authentication.storyboard */,
+				A11DF68B20D8F0250079D861 /* Dashboard.storyboard */,
+				184EC78520DC0FB70089348C /* User.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -804,6 +807,7 @@
 				1812E69520B8A4D800E484C6 /* PSConstants.swift in Sources */,
 				A16142CE20AC108E00421414 /* PSLogInViewController.swift in Sources */,
 				18FDED3B20B04F2A009CBA0B /* SwiftyCamButton.swift in Sources */,
+				18161A5720F10F5800C0C3BF /* PSFeedTableViewCell.swift in Sources */,
 				182E5DD320DE38DC00E3A851 /* PSReport.swift in Sources */,
 				C4E5A56620AE56050060898B /* PSReportSummaryViewController.swift in Sources */,
 				18AD08D820DF855D0096A910 /* PSCloseReportViewController.swift in Sources */,
@@ -992,17 +996,17 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 9C7SE2E79C;
+				DEVELOPMENT_TEAM = THAAVDZLRL;
 				INFOPLIST_FILE = PostSafety/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.distribution.talkhomeapps;
+				PRODUCT_BUNDLE_IDENTIFIER = com.postsafety.co;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c9235357-a65f-4d92-bbf4-0898d20d03e9";
-				PROVISIONING_PROFILE_SPECIFIER = "iOS Development com.distribution.talkhomeapps";
+				PROVISIONING_PROFILE = "bc04c500-6b32-4a12-a5c6-ec8d575815c6";
+				PROVISIONING_PROFILE_SPECIFIER = Zafar;
 				SWIFT_OBJC_BRIDGING_HEADER = "PostSafety/PostSafety-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1025,7 +1029,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.distribution.talkhomeapps;
+				PRODUCT_BUNDLE_IDENTIFIER = com.postsafety.co;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PostSafety/PostSafety-Bridging-Header.h";

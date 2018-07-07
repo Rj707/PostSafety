@@ -20,4 +20,12 @@ extension PSAPIManager
         reportManagerAPI.getReportsFor(companyId: companyId,success: success, failure: failure,errorPopup: errorPopup)
     }
     
+    func getNotificationsFor(companyId: String,
+                       success:@escaping DefaultArrayResultAPISuccessClosure,
+                       failure:@escaping DefaultAPIFailureClosure,
+                       errorPopup: Bool)
+    {
+        reportManagerAPI.getNotificationsFor(companyId: companyId,success: success, failure: failure,errorPopup: errorPopup)
+    }
+    
 }
