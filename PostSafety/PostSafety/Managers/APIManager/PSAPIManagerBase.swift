@@ -521,50 +521,41 @@ class PSAPIManagerBase: NSObject
                 }
                 
         }, usingThreshold: UInt64.init(), to: endUrl, method: .post, headers: nil)
+        { (result) in
+            switch result
         {
-            
-                result in
+            case .success(let upload, _, _):
                 
-                switch result
+                upload.uploadProgress(closure:
                 {
-                    case .success(let upload, _, _):
-                    upload.responseJSON
+                    (progress) in
+                    //Print progress
+                    print("Upload Progress: \(progress.fractionCompleted)")
+                })
+                
+                upload.responseJSON
+                {
+                    response in
+                    //print response.result
+                    if let jsonResponse = response.result.value as? Dictionary<String, AnyObject>
                     {
-                        response in
-                        guard response.result.error == nil else
-                        {
-                            let statusCode = response.response?.statusCode
-                            print("error in calling post request")
-                            if errorPopup
-                            {
-                                //                            self.showErrorMessage(error: response.result.error!)
-                            }
-                            
-                            failure(response.result.error! as NSError,statusCode!)
-                            return;
-                        }
-                    
-                        if let value = response.result.value
-                        {
-                            print (value)
-                            if let jsonResponse = response.result.value as? Dictionary<String, AnyObject>
-                            {
-                                success(jsonResponse)
-                            }
-                            else
-                            {
-                                success(Dictionary<String, AnyObject>())
-                            }
-                        }
+                        success(jsonResponse)
                     }
-                    case .failure(let encodingError):
-                    if errorPopup
+                    else if let jsonResponse = response.result.value as? String
                     {
-                        //                    self.showErrorMessage(error: encodingError)
+                        let parameters: [String:Any] =
+                            [
+                                "Upload-Status":jsonResponse,
+                            ]
+                        success(parameters as Dictionary<String, AnyObject>)
                     }
-                    failure(encodingError as NSError,0)
                 }
-            
+                
+            case .failure(let encodingError):
+                //print encodingError.description
+                print("Failure in Upload")
+                
+            }
         }
     }
     
