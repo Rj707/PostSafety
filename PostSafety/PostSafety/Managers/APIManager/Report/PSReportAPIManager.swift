@@ -65,8 +65,8 @@ class PSReportAPIManager: PSAPIManagerBase
                 "Type":Type,
             ]
         
-        let route: URL = GETURLfor(route: Route.Notifications.rawValue, parameters: parameters )!
-        self.requestWith(endUrl: route.absoluteString, imageData: UIImageJPEGRepresentation(UIImage.init(named: "send")!,1), parameters: [String:Any]());
+        let route: URL = GETURLfor(route: Route.UploadImage.rawValue, parameters: parameters )!
+        self.requestWith(endUrl: route.absoluteString, imageData: UIImageJPEGRepresentation(UIImage.init(named: "send")!,1), parameters: [String:Any](), success: success, failure: failure, errorPopup: errorPopup);
         
 //        self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
     }

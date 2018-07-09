@@ -37,7 +37,9 @@ class PSSettingsViewController: UIViewController
     
     @IBAction func backButtonTouched(_ sender: UIButton)
     {
-        self.navigationController?.popViewController(animated: true)
+        var array = self.navigationController?.viewControllers
+//        [self.revealViewController.navigationController popViewControllerAnimated:YES]
+        self.revealViewController().navigationController?.popViewController(animated: true)
     }
     
     override func didReceiveMemoryWarning()

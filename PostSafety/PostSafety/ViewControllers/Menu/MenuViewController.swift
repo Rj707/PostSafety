@@ -76,9 +76,15 @@ class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         if indexPath.row==0
         {
             let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+            let navigationVC = storyboard.instantiateViewController(withIdentifier: "PSSettingsNavigationController") as! UINavigationController
+            
             let vc = storyboard.instantiateViewController(withIdentifier: "PSSettingsViewController") as! PSSettingsViewController
-            self.navigationController?.pushViewController(vc,
-                                                     animated: true)
+            navigationVC.viewControllers = [vc]
+//            self.navigationController?.pushViewController(vc,
+//                                                     animated: true)
+//            self.present(vc, animated: false, completion: nil)
+            self.revealViewController().pushFrontViewController(vc, animated: true)
+            
         }
         
         if indexPath.row==3

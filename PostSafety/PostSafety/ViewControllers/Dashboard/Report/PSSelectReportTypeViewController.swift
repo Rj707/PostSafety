@@ -38,48 +38,52 @@ class PSSelectReportTypeViewController: UIViewController
         PSAPIManager.sharedInstance.uploadImageFor(ReportId: "10005", Type: "Image", success:
         { (dic) in
             
+            
+            
         }, failure:
         { (error:NSError,statusCode:Int) in
             
+            
+            
         }, errorPopup: true)
         
-        if CEReachabilityManager.isReachable()
-        {
-            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Incident Types")
-            PSAPIManager.sharedInstance.getAllChecklists(success:
-            { (dic) in
-                PSUserInterfaceManager.sharedInstance.hideLoader()
-                let tempArray = dic["array"] as! [Any]
-                
-                for checklistDict in tempArray
-                {
-                    if let tempDict = checklistDict as? [String: Any]
-                    {
-                        var checklist = PSChecklist()
-                        checklist = checklist.initChecklistWithDictionary(dict: tempDict as NSDictionary)
-                        self.cheklistArray.append(checklist)
-                    }
-                }
-                
-                self.configureReportTypes()
-                print(self.cheklistArray)
-                
-            }, failure:
-                
-            {
-                (error:NSError,statusCode:Int) in
-                PSUserInterfaceManager.sharedInstance.hideLoader()
-                if(statusCode==404)
-                {
-                    PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiResultFailureMessage.InvalidEmailPassword)
-                }
-                else
-                {
-                    
-                }
-                
-            }, errorPopup: true)
-        }
+//        if CEReachabilityManager.isReachable()
+//        {
+//            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Incident Types")
+//            PSAPIManager.sharedInstance.getAllChecklists(success:
+//            { (dic) in
+//                PSUserInterfaceManager.sharedInstance.hideLoader()
+//                let tempArray = dic["array"] as! [Any]
+//
+//                for checklistDict in tempArray
+//                {
+//                    if let tempDict = checklistDict as? [String: Any]
+//                    {
+//                        var checklist = PSChecklist()
+//                        checklist = checklist.initChecklistWithDictionary(dict: tempDict as NSDictionary)
+//                        self.cheklistArray.append(checklist)
+//                    }
+//                }
+//
+//                self.configureReportTypes()
+//                print(self.cheklistArray)
+//
+//            }, failure:
+//
+//            {
+//                (error:NSError,statusCode:Int) in
+//                PSUserInterfaceManager.sharedInstance.hideLoader()
+//                if(statusCode==404)
+//                {
+//                    PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiResultFailureMessage.InvalidEmailPassword)
+//                }
+//                else
+//                {
+//
+//                }
+//
+//            }, errorPopup: true)
+//        }
     }
 
     override func didReceiveMemoryWarning()

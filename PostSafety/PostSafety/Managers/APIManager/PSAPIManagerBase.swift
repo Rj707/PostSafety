@@ -503,10 +503,12 @@ class PSAPIManagerBase: NSObject
     func requestWith(endUrl: String,
                      imageData: Data?,
                      parameters: [String : Any],
-                     onCompletion: ((JSON?) -> Void)? = nil, onError: ((Error?) -> Void)? = nil)
+                     success:@escaping DefaultArrayResultAPISuccessClosure,
+                     failure:@escaping DefaultAPIFailureClosure,
+                     errorPopup: Bool)
     {
         Alamofire.upload(multipartFormData:
-            {
+        {
                 (multipartFormData) in
                 for (key, value) in parameters
                 {
@@ -520,25 +522,49 @@ class PSAPIManagerBase: NSObject
                 
         }, usingThreshold: UInt64.init(), to: endUrl, method: .post, headers: nil)
         {
-            (result) in
-            switch result
-            {
-            case .success(let upload, _, _):
-                upload.responseJSON
+            
+                result in
+                
+                switch result
+                {
+                    case .success(let upload, _, _):
+                    upload.responseJSON
                     {
                         response in
-                        print("Succesfully uploaded")
-                        //                    if let err = response.de
-                        //                    {
-                        //                        onError?(err)
-                        //                        return
-                        //                    }
-                        onCompletion?(nil)
+                        guard response.result.error == nil else
+                        {
+                            let statusCode = response.response?.statusCode
+                            print("error in calling post request")
+                            if errorPopup
+                            {
+                                //                            self.showErrorMessage(error: response.result.error!)
+                            }
+                            
+                            failure(response.result.error! as NSError,statusCode!)
+                            return;
+                        }
+                    
+                        if let value = response.result.value
+                        {
+                            print (value)
+                            if let jsonResponse = response.result.value as? Dictionary<String, AnyObject>
+                            {
+                                success(jsonResponse)
+                            }
+                            else
+                            {
+                                success(Dictionary<String, AnyObject>())
+                            }
+                        }
+                    }
+                    case .failure(let encodingError):
+                    if errorPopup
+                    {
+                        //                    self.showErrorMessage(error: encodingError)
+                    }
+                    failure(encodingError as NSError,0)
                 }
-            case .failure(let error):
-                print("Error in upload: \(error.localizedDescription)")
-                onError?(error)
-            }
+            
         }
     }
     
