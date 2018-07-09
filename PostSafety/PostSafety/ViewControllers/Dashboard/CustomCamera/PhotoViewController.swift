@@ -15,20 +15,24 @@ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
 
 import UIKit
 
-class PhotoViewController: UIViewController {
+class PhotoViewController: UIViewController
+{
 
-	override var prefersStatusBarHidden: Bool {
+	override var prefersStatusBarHidden: Bool
+    {
 		return true
 	}
     public var delegate:PhotoViewControllerDelegate!
 	private var backgroundImage: UIImage
 
-	init(image: UIImage) {
+	init(image: UIImage)
+    {
 		self.backgroundImage = image
 		super.init(nibName: nil, bundle: nil)
 	}
 
-	required init?(coder aDecoder: NSCoder) {
+	required init?(coder aDecoder: NSCoder)
+    {
 		fatalError("init(coder:) has not been implemented")
 	}
 
@@ -49,11 +53,13 @@ class PhotoViewController: UIViewController {
         view.addSubview(sendButton)
 	}
 
-	func cancel() {
+	func cancel()
+    {
 		dismiss(animated: true, completion: nil)
 	}
     
-    func send() {
+    func send()
+    {
         dismiss(animated: true, completion: nil)
         self.delegate.sendPhoto()
     }

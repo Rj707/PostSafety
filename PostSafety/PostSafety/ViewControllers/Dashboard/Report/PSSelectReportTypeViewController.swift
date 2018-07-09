@@ -35,6 +35,14 @@ class PSSelectReportTypeViewController: UIViewController
         self.view3.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view4.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         
+        PSAPIManager.sharedInstance.uploadImageFor(ReportId: "10005", Type: "Image", success:
+        { (dic) in
+            
+        }, failure:
+        { (error:NSError,statusCode:Int) in
+            
+        }, errorPopup: true)
+        
         if CEReachabilityManager.isReachable()
         {
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Incident Types")

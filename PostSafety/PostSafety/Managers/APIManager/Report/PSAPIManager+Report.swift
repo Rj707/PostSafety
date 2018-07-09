@@ -28,4 +28,13 @@ extension PSAPIManager
         reportManagerAPI.getNotificationsFor(companyId: companyId,success: success, failure: failure,errorPopup: errorPopup)
     }
     
+    func uploadImageFor(ReportId: String,
+                        Type: String,
+                        success:@escaping DefaultArrayResultAPISuccessClosure,
+                        failure:@escaping DefaultAPIFailureClosure,
+                        errorPopup: Bool)
+    {
+        reportManagerAPI.uploadImageFor(ReportId: ReportId,Type: Type,success: success, failure: failure,errorPopup: errorPopup)
+    }
+    
 }

@@ -498,6 +498,92 @@ class PSAPIManagerBase: NSObject
         })
     }
     
+    // MARK: Upload Image
+
+    func requestWith(endUrl: String,
+                     imageData: Data?,
+                     parameters: [String : Any],
+                     onCompletion: ((JSON?) -> Void)? = nil, onError: ((Error?) -> Void)? = nil)
+    {
+        Alamofire.upload(multipartFormData:
+            {
+                (multipartFormData) in
+                for (key, value) in parameters
+                {
+                    multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
+                }
+                
+                if let data = imageData
+                {
+                    multipartFormData.append(data, withName: "image", fileName: "image.png", mimeType: "image/png")
+                }
+                
+        }, usingThreshold: UInt64.init(), to: endUrl, method: .post, headers: nil)
+        {
+            (result) in
+            switch result
+            {
+            case .success(let upload, _, _):
+                upload.responseJSON
+                    {
+                        response in
+                        print("Succesfully uploaded")
+                        //                    if let err = response.de
+                        //                    {
+                        //                        onError?(err)
+                        //                        return
+                        //                    }
+                        onCompletion?(nil)
+                }
+            case .failure(let error):
+                print("Error in upload: \(error.localizedDescription)")
+                onError?(error)
+            }
+        }
+    }
+    
+//    func requestWith(endUrl: String,
+//                     imageData: Data?,
+//                     parameters: [String : Any],
+//                     onCompletion: ((JSON?) -> Void)? = nil, onError: ((Error?) -> Void)? = nil)
+//    {
+//        Alamofire.upload(multipartFormData:
+//        {
+//            (multipartFormData) in
+//            for (key, value) in parameters
+//            {
+//                multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
+//            }
+//
+//            if let data = imageData
+//            {
+//                multipartFormData.append(data, withName: "image", fileName: "image.png", mimeType: "image/png")
+//            }
+//
+//        }, usingThreshold: UInt64.init(), to: endUrl, method: .post, headers: nil)
+//        {
+//            (result) in
+//            switch result
+//            {
+//            case .success(let upload, _, _):
+//            upload.responseJSON
+//            {
+//                response in
+//                print("Succesfully uploaded")
+////                    if let err = response.de
+////                    {
+////                        onError?(err)
+////                        return
+////                    }
+//                onCompletion?(nil)
+//            }
+//            case .failure(let error):
+//            print("Error in upload: \(error.localizedDescription)")
+//            onError?(error)
+//            }
+//        }
+//    }
+    
     // MARK: PUT
     
     func putRequestWith(route: URL,parameters: Parameters,
@@ -630,7 +716,8 @@ class PSAPIManagerBase: NSObject
                 print(value)
             }
             
-        }, with: URLSTR, encodingCompletion: {result in
+        }, with: URLSTR, encodingCompletion:
+            {result in
             
             switch result
             {
