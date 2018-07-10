@@ -89,9 +89,12 @@ class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
         if indexPath.row==3
         {
-            try! realm.write
+            if PSDataManager.sharedInstance.isUserLoggedIn()
             {
-                realm.delete(Global.DATA_MANAGER.loggedInUser!)
+                try! realm.write
+                {
+                    realm.delete(Global.DATA_MANAGER.loggedInUser!)
+                }
             }
             
             var rootVC : UIViewController?

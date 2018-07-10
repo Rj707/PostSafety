@@ -138,6 +138,7 @@ class PSSelectReportTypeViewController: UIViewController
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
         vc.incidentTypeID = self.label1.tag
+        vc.employeeID = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
         vc.checkList = self.setCheckListForReporType(reportType: vc.incidentTypeID)
         navigationController?.pushViewController(vc,
                                                  animated: true)
@@ -150,6 +151,7 @@ class PSSelectReportTypeViewController: UIViewController
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
         vc.incidentTypeID = self.label2.tag
+        vc.employeeID = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
         vc.checkList = self.setCheckListForReporType(reportType: vc.incidentTypeID)
         navigationController?.pushViewController(vc,
                                                  animated: true)
@@ -163,6 +165,7 @@ class PSSelectReportTypeViewController: UIViewController
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
         vc.incidentTypeID = self.label3.tag
+        vc.employeeID = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
         vc.checkList = self.setCheckListForReporType(reportType: vc.incidentTypeID)
         navigationController?.pushViewController(vc,
                                                  animated: true)

@@ -5,6 +5,7 @@ import SwiftyJSON
 class PSReportAPIManager: PSAPIManagerBase
 {
     func createReportForIncidentTypeID(typeID: String,
+                                       EmployeeID:String,
                                        success:@escaping DefaultArrayResultAPISuccessClosure,
                                        failure:@escaping DefaultAPIFailureClosure,
                                        errorPopup: Bool)
@@ -13,6 +14,7 @@ class PSReportAPIManager: PSAPIManagerBase
         let parameters: [String:Any] =
         [
             "IncidentTypeID":typeID,
+            "EmployeeID":EmployeeID,
         ]
         
         let route: URL = GETURLfor(route: Route.CreateReport.rawValue, parameters: parameters )!
@@ -54,6 +56,7 @@ class PSReportAPIManager: PSAPIManagerBase
     
     func uploadImageFor(ReportId: String,
                         Type: String,
+                        Image: UIImage,
                         success:@escaping DefaultArrayResultAPISuccessClosure,
                         failure:@escaping DefaultAPIFailureClosure,
                         errorPopup: Bool)
@@ -66,7 +69,7 @@ class PSReportAPIManager: PSAPIManagerBase
             ]
         
         let route: URL = GETURLfor(route: Route.UploadImage.rawValue, parameters: parameters )!
-        self.requestWith(endUrl: route.absoluteString, imageData: UIImageJPEGRepresentation(UIImage.init(named: "send")!,1), parameters: [String:Any](), success: success, failure: failure, errorPopup: errorPopup);
+        self.requestWith(endUrl: route.absoluteString, imageData: UIImageJPEGRepresentation(Image,1), parameters: [String:Any](), success: success, failure: failure, errorPopup: errorPopup);
         
     }
     

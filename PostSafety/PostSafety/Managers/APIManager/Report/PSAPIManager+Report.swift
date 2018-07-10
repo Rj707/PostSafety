@@ -5,11 +5,12 @@ import SwiftyJSON
 extension PSAPIManager
 {
     func createReportForIncidentTypeID(typeID: String,
+                                       EmployeeID:String,
                                        success:@escaping DefaultArrayResultAPISuccessClosure,
                                        failure:@escaping DefaultAPIFailureClosure,
                                        errorPopup: Bool)
     {
-        reportManagerAPI.createReportForIncidentTypeID(typeID: typeID,success: success, failure: failure,errorPopup: errorPopup)
+        reportManagerAPI.createReportForIncidentTypeID(typeID: typeID, EmployeeID:EmployeeID , success: success, failure: failure,errorPopup: errorPopup)
     }
     
     func getReportsFor(companyId: String,
@@ -30,11 +31,12 @@ extension PSAPIManager
     
     func uploadImageFor(ReportId: String,
                         Type: String,
+                        Image: UIImage,
                         success:@escaping DefaultArrayResultAPISuccessClosure,
                         failure:@escaping DefaultAPIFailureClosure,
                         errorPopup: Bool)
     {
-        reportManagerAPI.uploadImageFor(ReportId: ReportId,Type: Type,success: success, failure: failure,errorPopup: errorPopup)
+        reportManagerAPI.uploadImageFor(ReportId: ReportId,Type: Type, Image:Image, success: success, failure: failure,errorPopup: errorPopup)
     }
     
     func updateReportFor(ReportId: String,

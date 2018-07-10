@@ -15,6 +15,7 @@ class PSLogInViewController: UIViewController
     @IBOutlet weak var phoneNumberTextField : UITextField?
     @IBOutlet weak var passowrdTextField : UITextField?
     @IBOutlet weak var termsLabel : UILabel?
+    @IBOutlet weak var rememberMeSwitch : UISwitch?
 
     override func viewDidLoad()
     {
@@ -56,10 +57,21 @@ class PSLogInViewController: UIViewController
             PSAPIManager.sharedInstance.authenticateUserWith(email: (self.phoneNumberTextField?.text)!, password: (self.passowrdTextField?.text)!, success:
             { (dic) in
                 PSUserInterfaceManager.sharedInstance.hideLoader()
+                
                 var user : PSUser?
                 user = PSUser.init()
                 user = user?.initWithDictionary(dict: dic as NSDictionary)
-                PSDataManager.sharedInstance.loggedInUser = user
+                
+                if (self.rememberMeSwitch?.isOn)!
+                {
+                    print("ON")
+                    PSDataManager.sharedInstance.loggedInUser = user
+                }
+                else
+                {
+                    print("Off")
+                }
+                
                 if user?.employeeType == "Reviewers"
                 {
                     Global.USERTYPE? = UserType(rawValue: 1)!

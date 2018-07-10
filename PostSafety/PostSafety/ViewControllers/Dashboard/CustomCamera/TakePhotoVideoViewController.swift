@@ -33,37 +33,35 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         }
     }
     
-    func sendPhoto()
+    func sendPhoto(image: UIImage)
     {
-        var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
-        if result["reporttype"] != "Emergency"
-        {
-            let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController
-            vc.checklistId = checkList.checkList
-            vc.cheklistDetailsArray = checkList.checklistDetails["checklistDetails"] as! [Any]
-            navigationController?.pushViewController(vc,
-                                                     animated: true)
-        }
-        else
-        {
-            
-            let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "PSEmergencyReportConfirmationViewController") as! PSEmergencyReportConfirmationViewController
-            navigationController?.pushViewController(vc,
-                                                     animated: true)
-        }
-        
-        PSAPIManager.sharedInstance.uploadImageFor(ReportId: "10005", Type: "Image", success:
+        PSAPIManager.sharedInstance.uploadImageFor(ReportId: String(self.reportID), Type: "Image", Image:image , success:
         { (dic) in
+
+            var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
+            if result["reporttype"] != "Emergency"
+            {
+                let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController
+                vc.checklistId = self.checkList.checkList
+                vc.cheklistDetailsArray = self.checkList.checklistDetails["checklistDetails"] as! [Any]
+                self.navigationController?.pushViewController(vc,
+                                                         animated: true)
+            }
+            else
+            {
                 
-                
-                
+                let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "PSEmergencyReportConfirmationViewController") as! PSEmergencyReportConfirmationViewController
+                self.navigationController?.pushViewController(vc,
+                                                         animated: true)
+            }
+
         }, failure:
         { (error:NSError,statusCode:Int) in
-                
-                
-                
+
+
+
         }, errorPopup: true)
     }
     
@@ -72,6 +70,8 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
     @IBOutlet weak var flipCameraButton: UIButton!
     @IBOutlet weak var flashButton: UIButton!
     var incidentTypeID = 0
+    var employeeID = 0
+    var reportID = 0
     var checkList = PSChecklist()
     
     override func viewDidLoad()
@@ -93,11 +93,13 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         {
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Creating Report")
             PSAPIManager.sharedInstance.createReportForIncidentTypeID(typeID: String(self.incidentTypeID),
+                                                                      EmployeeID: String(self.employeeID),
                                                                       success:
             { (dic) in
                 
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 print(dic["ReportID"] ?? "")
+                self.reportID = dic["ReportID"] as! Int
                     
             } ,
                                                                       failure:

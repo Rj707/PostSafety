@@ -353,6 +353,7 @@
                         <outlet property="nameTextField" destination="Br7-rN-3eA" id="VKk-uB-zKT"/>
                         <outlet property="passowrdTextField" destination="SSQ-Z1-TCH" id="M63-tT-V8y"/>
                         <outlet property="phoneNumberTextField" destination="hBd-eu-k9h" id="CvC-OJ-fDl"/>
+                        <outlet property="rememberMeSwitch" destination="Xhh-GT-Si8" id="RBP-N2-SnE"/>
                         <outlet property="termsLabel" destination="bw9-2L-kLi" id="JTf-hm-3jI"/>
                         <segue destination="SzT-ZZ-ulS" kind="push" identifier="NavigateToDashboard" id="Ige-6g-Acy"/>
                         <segue destination="DvF-eO-aE8" kind="push" identifier="NavigateToCreatePassword" id="cTH-lq-XCK"/>
@@ -756,6 +757,6 @@
         <image name="logo" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="i8L-LW-Yi3"/>
+        <segue reference="Ige-6g-Acy"/>
     </inferredMetricsTieBreakers>
 </document>
