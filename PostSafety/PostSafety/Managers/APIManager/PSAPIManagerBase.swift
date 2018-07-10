@@ -502,23 +502,36 @@ class PSAPIManagerBase: NSObject
 
     func requestWith(endUrl: String,
                      imageData: Data?,
+                     dataType: String?,
                      parameters: [String : Any],
                      success:@escaping DefaultArrayResultAPISuccessClosure,
                      failure:@escaping DefaultAPIFailureClosure,
+                     uploadProgress:@escaping DefaultAPIProgressClosure,
                      errorPopup: Bool)
     {
         Alamofire.upload(multipartFormData:
         {
-                (multipartFormData) in
-                for (key, value) in parameters
-                {
-                    multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
-                }
-                
+            (multipartFormData) in
+            for (key, value) in parameters
+            {
+                multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
+            }
+            
+            if dataType == "Image"
+            {
                 if let data = imageData
                 {
                     multipartFormData.append(data, withName: "image", fileName: "image.png", mimeType: "image/png")
                 }
+            }
+            else
+            {
+                if let data = imageData
+                {
+                    multipartFormData.append(data, withName: "image", fileName: "image.png", mimeType: "image/png")
+                }
+            }
+            
                 
         }, usingThreshold: UInt64.init(), to: endUrl, method: .post, headers: nil)
         { (result) in
@@ -531,6 +544,7 @@ class PSAPIManagerBase: NSObject
                     (progress) in
                     //Print progress
                     print("Upload Progress: \(progress.fractionCompleted)")
+                    uploadProgress(progress.fractionCompleted)
                 })
                 
                 upload.responseJSON

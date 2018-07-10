@@ -61,11 +61,11 @@ class PhotoViewController: UIViewController
     func send()
     {
         dismiss(animated: true, completion: nil)
-        self.delegate.sendPhoto(image: self.backgroundImage)
+        self.delegate.sendPhoto(imageData:UIImageJPEGRepresentation(self.backgroundImage,1)!)
     }
 }
 
 protocol PhotoViewControllerDelegate
 {
-    func sendPhoto(image: UIImage)
+    func sendPhoto(imageData: Data)
 }

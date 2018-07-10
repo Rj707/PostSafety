@@ -31,12 +31,13 @@ extension PSAPIManager
     
     func uploadImageFor(ReportId: String,
                         Type: String,
-                        Image: UIImage,
+                        data: Data,
                         success:@escaping DefaultArrayResultAPISuccessClosure,
                         failure:@escaping DefaultAPIFailureClosure,
+                        progress:@escaping DefaultAPIProgressClosure,
                         errorPopup: Bool)
     {
-        reportManagerAPI.uploadImageFor(ReportId: ReportId,Type: Type, Image:Image, success: success, failure: failure,errorPopup: errorPopup)
+        reportManagerAPI.uploadImageFor(ReportId: ReportId,Type: Type, data:data, success: success, failure: failure,  progress: progress ,errorPopup: errorPopup)
     }
     
     func updateReportFor(ReportId: String,

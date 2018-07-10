@@ -5,6 +5,7 @@ typealias DefaultAPISuccessClosure = (Dictionary<String,AnyObject>) -> Void
 typealias DefaultBoolResultAPISuccesClosure = (Bool) -> Void
 typealias DefaultArrayResultAPISuccessClosure = (Dictionary<String,AnyObject>) -> Void
 
+typealias DefaultAPIProgressClosure = (Double) -> Void
 
 protocol APIErrorHandler
 {

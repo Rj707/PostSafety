@@ -474,6 +474,12 @@
                                     <constraint firstItem="hH6-ea-whc" firstAttribute="centerY" secondItem="Xxo-U8-pYk" secondAttribute="centerY" id="SrB-xH-REE"/>
                                 </constraints>
                             </view>
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jUU-wb-sBC">
+                                <rect key="frame" x="85" y="283" width="150" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="82t-Hq-GBh"/>
+                                </constraints>
+                            </progressView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Xxo-U8-pYk" firstAttribute="top" secondItem="4sD-44-2QB" secondAttribute="bottom" id="00K-i7-Y7H"/>
@@ -483,9 +489,11 @@
                             <constraint firstItem="4sD-44-2QB" firstAttribute="leading" secondItem="3uG-BI-bgp" secondAttribute="trailing" constant="50" id="NJx-5e-itE"/>
                             <constraint firstItem="Xxo-U8-pYk" firstAttribute="leading" secondItem="Mu4-lS-1BV" secondAttribute="leading" id="Ut4-Bw-aLm"/>
                             <constraint firstAttribute="bottom" secondItem="4sD-44-2QB" secondAttribute="bottom" constant="20" symbolic="YES" id="Xfk-Kc-Zsz"/>
+                            <constraint firstItem="jUU-wb-sBC" firstAttribute="centerX" secondItem="BVZ-R3-fzy" secondAttribute="centerX" id="YQB-ta-nVs"/>
                             <constraint firstItem="4sD-44-2QB" firstAttribute="centerX" secondItem="BVZ-R3-fzy" secondAttribute="centerX" id="fsy-D5-heg"/>
                             <constraint firstItem="3uG-BI-bgp" firstAttribute="centerY" secondItem="4sD-44-2QB" secondAttribute="centerY" id="p6g-fQ-PnW"/>
                             <constraint firstItem="Xxo-U8-pYk" firstAttribute="trailing" secondItem="Mu4-lS-1BV" secondAttribute="trailing" id="vTA-XX-2mD"/>
+                            <constraint firstItem="jUU-wb-sBC" firstAttribute="centerY" secondItem="BVZ-R3-fzy" secondAttribute="centerY" id="x2Z-lc-hW2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mu4-lS-1BV"/>
                     </view>
@@ -493,6 +501,7 @@
                         <outlet property="captureButton" destination="4sD-44-2QB" id="wIz-NC-ow8"/>
                         <outlet property="flashButton" destination="HEn-Tg-E18" id="jgh-RZ-pdM"/>
                         <outlet property="flipCameraButton" destination="3uG-BI-bgp" id="ffc-dg-1v3"/>
+                        <outlet property="progressView" destination="jUU-wb-sBC" id="MPo-yl-goA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zny-5j-ezP" sceneMemberID="firstResponder"/>

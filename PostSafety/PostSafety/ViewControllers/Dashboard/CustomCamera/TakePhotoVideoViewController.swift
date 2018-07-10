@@ -11,34 +11,63 @@ import UIKit
 
 class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewControllerDelegate,PhotoViewControllerDelegate,VideoViewControllerDelegate
 {
-    func sendVideo()
+    func sendVideo(videoData:Data)
     {
-        var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
-        if result["reporttype"] != "Emergency"
+        if CEReachabilityManager.isReachable()
         {
-            let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController
-            vc.checklistId = checkList.checkList
-            vc.cheklistDetailsArray = checkList.checklistDetails["checklistDetails"] as! [Any]
-            navigationController?.pushViewController(vc,
-                                                     animated: true)
+            self.progressView.isHidden = false
+//            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Uploading Video")
+            PSAPIManager.sharedInstance.uploadImageFor(ReportId: String(self.reportID), Type: "Video", data:videoData , success:
+            { (dic) in
+                self.progressView.isHidden = true
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
+                if result["reporttype"] != "Emergency"
+                {
+                    let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController
+                    vc.checklistId = self.checkList.checkList
+                    vc.cheklistDetailsArray = self.checkList.checklistDetails["checklistDetails"] as! [Any]
+                    self.navigationController?.pushViewController(vc,
+                                                             animated: true)
+                }
+                else
+                {
+                    
+                    let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "PSEmergencyReportConfirmationViewController") as! PSEmergencyReportConfirmationViewController
+                    self.navigationController?.pushViewController(vc,
+                                                             animated: true)
+                }
+                    
+            }, failure:
+                
+            { (error:NSError,statusCode:Int) in
+                    
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    
+            },
+               progress:
+            {
+                (prog:Double) in
+                
+                self.progressView.setProgress(Float(prog), animated: true)
+                
+            }, errorPopup: true)
         }
         else
         {
-            
-            let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "PSEmergencyReportConfirmationViewController") as! PSEmergencyReportConfirmationViewController
-            navigationController?.pushViewController(vc,
-                                                     animated: true)
+            PSUserInterfaceManager.showAlert(title: "Uploading Image", message: ApiErrorMessage.NoNetwork)
         }
+        
     }
     
-    func sendPhoto(image: UIImage)
+    func sendPhoto(imageData: Data)
     {
         if CEReachabilityManager.isReachable()
         {
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Uploading Image")
-            PSAPIManager.sharedInstance.uploadImageFor(ReportId: String(self.reportID), Type: "Image", Image:image , success:
+            PSAPIManager.sharedInstance.uploadImageFor(ReportId: String(self.reportID), Type: "Image", data:imageData , success:
             { (dic) in
                 
                 PSUserInterfaceManager.sharedInstance.hideLoader()
@@ -67,6 +96,10 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
 
                 PSUserInterfaceManager.sharedInstance.hideLoader()
 
+            }, progress:
+            {
+                (prog:Double) in
+                
             }, errorPopup: true)
         }
         else
@@ -79,6 +112,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
     @IBOutlet weak var captureButton: SwiftyRecordButton!
     @IBOutlet weak var flipCameraButton: UIButton!
     @IBOutlet weak var flashButton: UIButton!
+    @IBOutlet weak var progressView: UIProgressView!
     var incidentTypeID = 0
     var employeeID = 0
     var reportID = 0

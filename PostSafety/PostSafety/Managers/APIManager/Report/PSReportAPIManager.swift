@@ -56,9 +56,10 @@ class PSReportAPIManager: PSAPIManagerBase
     
     func uploadImageFor(ReportId: String,
                         Type: String,
-                        Image: UIImage,
+                        data: Data,
                         success:@escaping DefaultArrayResultAPISuccessClosure,
                         failure:@escaping DefaultAPIFailureClosure,
+                        progress:@escaping DefaultAPIProgressClosure,
                         errorPopup: Bool)
     {
         
@@ -69,7 +70,7 @@ class PSReportAPIManager: PSAPIManagerBase
             ]
         
         let route: URL = GETURLfor(route: Route.UploadImage.rawValue, parameters: parameters )!
-        self.requestWith(endUrl: route.absoluteString, imageData: UIImageJPEGRepresentation(Image,1), parameters: [String:Any](), success: success, failure: failure, errorPopup: errorPopup);
+        self.requestWith(endUrl: route.absoluteString, imageData: data ,dataType: Type, parameters: [String:Any](), success: success, failure: failure,uploadProgress: progress ,errorPopup: errorPopup);
         
     }
     
