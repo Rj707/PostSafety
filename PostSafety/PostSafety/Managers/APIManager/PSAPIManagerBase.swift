@@ -554,6 +554,12 @@ class PSAPIManagerBase: NSObject
             case .failure(let encodingError):
                 //print encodingError.description
                 print("Failure in Upload")
+                guard encodingError == nil else
+                {
+                    var statusCode = 0
+                    failure(encodingError as NSError,statusCode)
+                    return
+                }
                 
             }
         }

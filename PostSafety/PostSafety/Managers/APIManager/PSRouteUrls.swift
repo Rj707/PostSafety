@@ -10,7 +10,9 @@ enum Route: String
     case CreateReport       = "/api/CreateReport/"
     case SingleChecklist    = "/api/Checklists"
     case UpdateEmployees    = "/api/UpdateEmployees"
-    case UploadImage    = "/api/UploadImage/"
+    case UploadImage        = "/api/UploadImage/"
+    case UpdateReport        = "/api/UpdateReport/"
+    
     func url() -> String
     {
         return Constants.BaseURL + self.rawValue

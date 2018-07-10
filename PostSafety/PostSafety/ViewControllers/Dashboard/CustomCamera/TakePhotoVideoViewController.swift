@@ -53,6 +53,18 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
             navigationController?.pushViewController(vc,
                                                      animated: true)
         }
+        
+        PSAPIManager.sharedInstance.uploadImageFor(ReportId: "10005", Type: "Image", success:
+        { (dic) in
+                
+                
+                
+        }, failure:
+        { (error:NSError,statusCode:Int) in
+                
+                
+                
+        }, errorPopup: true)
     }
     
     

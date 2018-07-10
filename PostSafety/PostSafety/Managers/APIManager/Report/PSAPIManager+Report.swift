@@ -37,4 +37,18 @@ extension PSAPIManager
         reportManagerAPI.uploadImageFor(ReportId: ReportId,Type: Type,success: success, failure: failure,errorPopup: errorPopup)
     }
     
+    func updateReportFor(ReportId: String,
+                        LocationId: String,
+                        Title: String,
+                        Details: String,
+                        success:@escaping DefaultArrayResultAPISuccessClosure,
+                        failure:@escaping DefaultAPIFailureClosure,
+                        errorPopup: Bool)
+    {
+        reportManagerAPI.updateReportFor(ReportId: ReportId,LocationId: LocationId,Title: Title,Details: Details,success: success, failure: failure,errorPopup: errorPopup)
+    }
+    
+    
+//    http://postsafety.anadeemus.ca/api/UpdateReport/?ReportId=10000&LocationId=10008&Title=CriticalIncident&Details=whywhere
+    
 }
