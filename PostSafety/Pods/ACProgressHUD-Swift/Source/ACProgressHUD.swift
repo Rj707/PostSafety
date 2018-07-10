@@ -91,12 +91,12 @@ open class ACProgressHUD {
     private init() {
         self.acProgressView = nil
         self.progressText = "Please wait..."
-        self.progressTextColor = .black
+        self.progressTextColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1)
         self.progressTextFont = .systemFont(ofSize: UIFont.labelFontSize)
         self.shadowColor = .black
         self.shadowRadius = 10.0
         self.cornerRadius = 5
-        self.indicatorColor = .black
+        self.indicatorColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1)
         self.hudBackgroundColor = UIColor(red: 0.94, green: 0.94, blue: 0.94, alpha: 1)
         self.enableBackground = true
         self.backgroundColor = .black
