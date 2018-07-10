@@ -35,34 +35,44 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
     
     func sendPhoto(image: UIImage)
     {
-        PSAPIManager.sharedInstance.uploadImageFor(ReportId: String(self.reportID), Type: "Image", Image:image , success:
-        { (dic) in
-
-            var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
-            if result["reporttype"] != "Emergency"
-            {
-                let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController
-                vc.checklistId = self.checkList.checkList
-                vc.cheklistDetailsArray = self.checkList.checklistDetails["checklistDetails"] as! [Any]
-                self.navigationController?.pushViewController(vc,
-                                                         animated: true)
-            }
-            else
-            {
+        if CEReachabilityManager.isReachable()
+        {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Uploading Image")
+            PSAPIManager.sharedInstance.uploadImageFor(ReportId: String(self.reportID), Type: "Image", Image:image , success:
+            { (dic) in
                 
-                let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "PSEmergencyReportConfirmationViewController") as! PSEmergencyReportConfirmationViewController
-                self.navigationController?.pushViewController(vc,
-                                                         animated: true)
-            }
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
+                if result["reporttype"] != "Emergency"
+                {
+                    let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController
+                    vc.checklistId = self.checkList.checkList
+                    vc.cheklistDetailsArray = self.checkList.checklistDetails["checklistDetails"] as! [Any]
+                    self.navigationController?.pushViewController(vc,
+                                                             animated: true)
+                }
+                else
+                {
+                    
+                    let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "PSEmergencyReportConfirmationViewController") as! PSEmergencyReportConfirmationViewController
+                    self.navigationController?.pushViewController(vc,
+                                                             animated: true)
+                }
 
-        }, failure:
-        { (error:NSError,statusCode:Int) in
+            }, failure:
+                
+            { (error:NSError,statusCode:Int) in
 
+                PSUserInterfaceManager.sharedInstance.hideLoader()
 
-
-        }, errorPopup: true)
+            }, errorPopup: true)
+        }
+        else
+        {
+            PSUserInterfaceManager.showAlert(title: "Uploading Image", message: ApiErrorMessage.NoNetwork)
+        }
     }
     
     
