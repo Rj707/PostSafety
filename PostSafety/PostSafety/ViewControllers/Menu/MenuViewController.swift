@@ -15,6 +15,9 @@ class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataS
 {
 
     @IBOutlet weak var menuTableView: UITableView!
+    
+    var dashboardNavViewController: UINavigationController?
+    
     var realm: Realm!
     
     var menuIdentifiers = [String]()
@@ -77,7 +80,10 @@ class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         {
             let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PSSettingsViewController") as! PSSettingsViewController
-            self.revealViewController().pushFrontViewController(vc, animated: true)
+            
+            // homeNavViewController is basically the Nav Controller of the rear VC of revealViewController, which is Dashboadr VC
+            dashboardNavViewController?.pushViewController(vc, animated: false)
+            revealViewController().revealToggle(animated: true)
             
         }
         

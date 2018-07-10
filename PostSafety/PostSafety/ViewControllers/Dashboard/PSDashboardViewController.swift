@@ -22,6 +22,9 @@ class PSDashboardViewController: UIViewController
 //        self.receiveContainer.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
 //        self.reportContainer.layer.borderWidth=1
 //        self.reportContainer.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        
+        
+        
         self.addMenuAction()
     }
 
@@ -54,6 +57,10 @@ class PSDashboardViewController: UIViewController
         {
             menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().revealToggle(_:)), for: .touchUpInside)
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+            let menuVC = revealViewController().rearViewController as? MenuViewController
+           
+            menuVC?.dashboardNavViewController = self.navigationController
         }
     }
 
