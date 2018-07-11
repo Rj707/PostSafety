@@ -16,7 +16,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         if CEReachabilityManager.isReachable()
         {
             self.progressView.isHidden = false
-//            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Uploading Video")
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Uploading Video")
             PSAPIManager.sharedInstance.uploadImageFor(ReportId: String(self.reportID), Type: "Video", data:videoData , success:
             { (dic) in
                 self.progressView.isHidden = true
@@ -45,7 +45,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
             { (error:NSError,statusCode:Int) in
                     
                     PSUserInterfaceManager.sharedInstance.hideLoader()
-                    
+                    self.progressView.isHidden = true
             },
                progress:
             {
@@ -66,10 +66,11 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
     {
         if CEReachabilityManager.isReachable()
         {
+            self.progressView.isHidden = false
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Uploading Image")
             PSAPIManager.sharedInstance.uploadImageFor(ReportId: String(self.reportID), Type: "Image", data:imageData , success:
             { (dic) in
-                
+                self.progressView.isHidden = true
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
                 if result["reporttype"] != "Emergency"
@@ -93,12 +94,14 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
             }, failure:
                 
             { (error:NSError,statusCode:Int) in
-
+                self.progressView.isHidden = true
                 PSUserInterfaceManager.sharedInstance.hideLoader()
 
             }, progress:
             {
                 (prog:Double) in
+                
+                self.progressView.setProgress(Float(prog), animated: true)
                 
             }, errorPopup: true)
         }
@@ -126,8 +129,12 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         shouldUseDeviceOrientation = true
         allowAutoRotate = true
         audioEnabled = true
-        let transform = CGAffineTransform(scaleX: 1.0, y: 3.0)
+        let transform = CGAffineTransform(scaleX: 1.5, y: 8.0)
         progressView.transform = transform
+        progressView.clipsToBounds = true
+        progressView.layer.cornerRadius = progressView.frame.height/2
+//        self.progressView.layer.borderWidth=1
+//        self.progressView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         
         self.createReport()
     }
@@ -136,6 +143,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
     {
         if CEReachabilityManager.isReachable()
         {
+            
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Creating Report")
             PSAPIManager.sharedInstance.createReportForIncidentTypeID(typeID: String(self.incidentTypeID),
                                                                       EmployeeID: String(self.employeeID),

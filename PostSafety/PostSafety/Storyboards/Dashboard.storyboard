@@ -461,7 +461,7 @@
                             <view alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xxo-U8-pYk">
                                 <rect key="frame" x="0.0" y="548" width="320" height="20"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap for phote, hold down for video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hH6-ea-whc">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap for photo, hold down for video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hH6-ea-whc">
                                         <rect key="frame" x="56" y="2.5" width="208" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -474,8 +474,8 @@
                                     <constraint firstItem="hH6-ea-whc" firstAttribute="centerY" secondItem="Xxo-U8-pYk" secondAttribute="centerY" id="SrB-xH-REE"/>
                                 </constraints>
                             </view>
-                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jUU-wb-sBC">
-                                <rect key="frame" x="85" y="283" width="150" height="2"/>
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jUU-wb-sBC">
+                                <rect key="frame" x="85" y="391" width="150" height="2"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="82t-Hq-GBh"/>
                                 </constraints>
@@ -489,12 +489,12 @@
                             <constraint firstItem="HEn-Tg-E18" firstAttribute="centerY" secondItem="4sD-44-2QB" secondAttribute="centerY" id="G7h-fv-Tbx"/>
                             <constraint firstItem="4sD-44-2QB" firstAttribute="leading" secondItem="3uG-BI-bgp" secondAttribute="trailing" constant="50" id="NJx-5e-itE"/>
                             <constraint firstItem="Xxo-U8-pYk" firstAttribute="leading" secondItem="Mu4-lS-1BV" secondAttribute="leading" id="Ut4-Bw-aLm"/>
+                            <constraint firstItem="4sD-44-2QB" firstAttribute="top" secondItem="jUU-wb-sBC" secondAttribute="bottom" constant="80" id="Wcc-mX-SlB"/>
                             <constraint firstAttribute="bottom" secondItem="4sD-44-2QB" secondAttribute="bottom" constant="20" symbolic="YES" id="Xfk-Kc-Zsz"/>
                             <constraint firstItem="jUU-wb-sBC" firstAttribute="centerX" secondItem="BVZ-R3-fzy" secondAttribute="centerX" id="YQB-ta-nVs"/>
                             <constraint firstItem="4sD-44-2QB" firstAttribute="centerX" secondItem="BVZ-R3-fzy" secondAttribute="centerX" id="fsy-D5-heg"/>
                             <constraint firstItem="3uG-BI-bgp" firstAttribute="centerY" secondItem="4sD-44-2QB" secondAttribute="centerY" id="p6g-fQ-PnW"/>
                             <constraint firstItem="Xxo-U8-pYk" firstAttribute="trailing" secondItem="Mu4-lS-1BV" secondAttribute="trailing" id="vTA-XX-2mD"/>
-                            <constraint firstItem="jUU-wb-sBC" firstAttribute="centerY" secondItem="BVZ-R3-fzy" secondAttribute="centerY" id="x2Z-lc-hW2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mu4-lS-1BV"/>
                     </view>
