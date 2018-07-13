@@ -13,6 +13,7 @@ class PSPotentiallySeriousIncidentViewController: UIViewController
 
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view1: UIView!
+    @IBOutlet weak var view3: UIView!
     
     override func viewDidLoad()
     {
@@ -20,6 +21,8 @@ class PSPotentiallySeriousIncidentViewController: UIViewController
 
         self.view1.layer.borderWidth=1
         self.view2.layer.borderWidth=1
+        self.view3.layer.borderWidth=1
+        self.view3.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view1.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view2.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
     }

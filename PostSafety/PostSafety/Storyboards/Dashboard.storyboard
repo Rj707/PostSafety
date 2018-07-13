@@ -1965,6 +1965,7 @@
                     <connections>
                         <outlet property="view1" destination="cwW-bC-nxS" id="TiY-YL-W5y"/>
                         <outlet property="view2" destination="8uo-sM-qgp" id="it7-9X-zJa"/>
+                        <outlet property="view3" destination="1CD-cg-RFJ" id="1wR-Zz-IrJ"/>
                         <segue destination="rqu-UY-ohG" kind="push" identifier="toReportSummaryFromPSI" id="TbI-Gg-wZk"/>
                     </connections>
                 </viewController>
@@ -3143,6 +3144,6 @@
         <image name="tick" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="z08-Pk-UqW"/>
+        <segue reference="TbI-Gg-wZk"/>
     </inferredMetricsTieBreakers>
 </document>
