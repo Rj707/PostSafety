@@ -129,7 +129,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         shouldUseDeviceOrientation = true
         allowAutoRotate = true
         audioEnabled = true
-        let transform = CGAffineTransform(scaleX: 1.5, y: 8.0)
+        let transform = CGAffineTransform(scaleX: 1.5, y: 10.0)
         progressView.transform = transform
         progressView.clipsToBounds = true
         progressView.layer.cornerRadius = progressView.frame.height/2
