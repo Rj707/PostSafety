@@ -12,6 +12,7 @@ enum Route: String
     case UpdateEmployees    = "/api/UpdateEmployees"
     case UploadImage        = "/api/UploadImage/"
     case UpdateReport        = "/api/UpdateReport/"
+    case LocationsList        = "/api/LocationsList/"
     
     func url() -> String
     {

@@ -18,7 +18,7 @@ class PSReportSummaryViewController: UIViewController
     @IBOutlet weak var decriptionTextView: IQTextView!
     @IBOutlet weak var decriptionTextViewContainer: UIView!
     @IBOutlet weak var backgroundView: UIView!
-    
+     var locationID = 0
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -75,7 +75,20 @@ class PSReportSummaryViewController: UIViewController
     {
         if CEReachabilityManager.isReachable()
         {
-            self.performSegue(withIdentifier: "toReportConfirmFromSummary", sender: (Any).self)
+            var report = PSReport.init()
+            report = Global.REPORT!
+            PSAPIManager.sharedInstance.updateReportFor(ReportId: String(report.reportID), LocationId: String(locationID), Title: "", Details: self.decriptionTextView.text, CatagoryId: String(report.categoryID), SubCatagory: "0", success:
+            { (dict) in
+                Global.REPORT = PSReport.init()
+                self.performSegue(withIdentifier: "toReportConfirmFromSummary", sender: (Any).self)
+                
+            },
+                                                        failure:
+            { (error, stausCode) in
+                
+            }, errorPopup: true)
+            
+            
         }
         else
         {

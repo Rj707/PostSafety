@@ -90,6 +90,7 @@ class PSSelectReportTypeViewController: UIViewController
             
             switch item.incidentType
             {
+                
                 case 1  :
                 self.label4.text = item.typeName
                 self.label4.tag = item.incidentType
@@ -133,6 +134,7 @@ class PSSelectReportTypeViewController: UIViewController
     @IBAction func hazardGestureTapped(_ sender: Any)
     {
         Global.REPORT?.reportType = "Hazard"
+        Global.REPORT?.incidentType = self.label1.tag
         let dict:[String:String] = ["reporttype":"Hazard"]
         UserDefaults.standard.set(dict, forKey: "dict")
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
@@ -146,6 +148,7 @@ class PSSelectReportTypeViewController: UIViewController
     @IBAction func incidentGestureTapped(_ sender: Any)
     {
         Global.REPORT?.reportType = "Incident"
+        Global.REPORT?.incidentType = self.label2.tag
         let dict:[String:String] = ["reporttype":"Incident"]
         UserDefaults.standard.set(dict, forKey: "dict")
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
@@ -160,6 +163,7 @@ class PSSelectReportTypeViewController: UIViewController
     @IBAction func nearMisstGestureTapped(_ sender: Any)
     {
         Global.REPORT?.reportType = "NearMiss"
+        Global.REPORT?.incidentType = self.label3.tag
         let dict:[String:String] = ["reporttype":"NearMiss"]
         UserDefaults.standard.set(dict, forKey: "dict")
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
@@ -173,7 +177,15 @@ class PSSelectReportTypeViewController: UIViewController
     }
     @IBAction func emergencyGestureTapped(_ sender: Any)
     {
+        Global.REPORT?.incidentType = self.label4.tag
         Global.REPORT?.reportType = "Emergency"
+        
+        let dict:[String:String] = ["reporttype":"Emergency"]
+        UserDefaults.standard.set(dict, forKey: "dict")
+        let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSEmergencyInstructionsViewController") as! PSEmergencyInstructionsViewController
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
     }
    
     /*

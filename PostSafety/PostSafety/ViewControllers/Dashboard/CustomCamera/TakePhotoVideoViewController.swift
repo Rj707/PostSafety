@@ -135,7 +135,12 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         progressView.layer.cornerRadius = progressView.frame.height/2
 //        self.progressView.layer.borderWidth=1
 //        self.progressView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
-        
+        self.employeeID = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
+        if self.incidentTypeID == 0
+        {
+            self.incidentTypeID = (Global.REPORT?.incidentType)!
+        }
+        else{}
         self.createReport()
     }
     
@@ -153,7 +158,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 print(dic["ReportID"] ?? "")
                 self.reportID = dic["ReportID"] as! Int
-                    
+                Global.REPORT?.reportID = dic["ReportID"] as! Int
             } ,
                                                                       failure:
                 

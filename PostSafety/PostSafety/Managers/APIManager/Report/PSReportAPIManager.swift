@@ -78,6 +78,8 @@ class PSReportAPIManager: PSAPIManagerBase
                          LocationId: String,
                          Title: String,
                          Details: String,
+                         CatagoryId: String,
+                         SubCatagory: String,
                          success:@escaping DefaultArrayResultAPISuccessClosure,
                          failure:@escaping DefaultAPIFailureClosure,
                          errorPopup: Bool)
@@ -88,9 +90,28 @@ class PSReportAPIManager: PSAPIManagerBase
                 "LocationId":LocationId,
                 "Title":Title,
                 "Details":Details,
+                "CatagoryId":CatagoryId,
+                "SubCatagory":SubCatagory,
             ]
         
         let route: URL = GETURLfor(route: Route.UpdateReport.rawValue, parameters: parameters )!
+        
+        self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
+    }
+    
+    
+    func getLocationsFor(companyId: String,
+                             success:@escaping DefaultArrayResultAPISuccessClosure,
+                             failure:@escaping DefaultAPIFailureClosure,
+                             errorPopup: Bool)
+    {
+        
+        let parameters: [String:Any] =
+            [
+                "CompanyId":companyId,
+            ]
+        
+        let route: URL = GETURLfor(route: Route.LocationsList.rawValue, parameters: parameters )!
         
         self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
     }

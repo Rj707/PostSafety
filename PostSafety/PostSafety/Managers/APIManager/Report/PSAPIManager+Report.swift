@@ -41,14 +41,24 @@ extension PSAPIManager
     }
     
     func updateReportFor(ReportId: String,
-                        LocationId: String,
-                        Title: String,
-                        Details: String,
-                        success:@escaping DefaultArrayResultAPISuccessClosure,
-                        failure:@escaping DefaultAPIFailureClosure,
-                        errorPopup: Bool)
+                         LocationId: String,
+                         Title: String,
+                         Details: String,
+                         CatagoryId: String,
+                         SubCatagory: String,
+                         success:@escaping DefaultArrayResultAPISuccessClosure,
+                         failure:@escaping DefaultAPIFailureClosure,
+                         errorPopup: Bool)
     {
-        reportManagerAPI.updateReportFor(ReportId: ReportId,LocationId: LocationId,Title: Title,Details: Details,success: success, failure: failure,errorPopup: errorPopup)
+        reportManagerAPI.updateReportFor(ReportId: ReportId,LocationId: LocationId,Title: Title,Details: Details,CatagoryId: CatagoryId,SubCatagory: SubCatagory,success: success, failure: failure,errorPopup: errorPopup)
+    }
+    
+    func getLocationsFor(companyId: String,
+                         success:@escaping DefaultArrayResultAPISuccessClosure,
+                         failure:@escaping DefaultAPIFailureClosure,
+                         errorPopup: Bool)
+    {
+        reportManagerAPI.getLocationsFor(companyId: companyId, success: success, failure: failure, errorPopup: errorPopup)
     }
     
     

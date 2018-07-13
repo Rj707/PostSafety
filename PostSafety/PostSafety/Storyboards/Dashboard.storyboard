@@ -771,7 +771,7 @@
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="Kqm-uN-PMd">
                     <connections>
-                        <segue destination="dbW-6G-5vs" kind="push" id="ISM-3c-wAD"/>
+                        <action selector="emergencyGestureTapped:" destination="nkT-YY-ALO" id="lJa-4h-7tc"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -1526,6 +1526,14 @@
                     <navigationItem key="navigationItem" id="2q6-SK-4Iu"/>
                     <connections>
                         <outlet property="backgroundView" destination="mpI-Cs-GF6" id="CPP-8t-h54"/>
+                        <outlet property="label1" destination="CNp-Qb-VM9" id="f0F-vE-3km"/>
+                        <outlet property="label2" destination="ORm-eB-oQf" id="Ax6-mm-yN2"/>
+                        <outlet property="label3" destination="bJy-03-Xsu" id="6X9-hb-Bml"/>
+                        <outlet property="label4" destination="JoU-aj-0QW" id="YOT-mD-1Lx"/>
+                        <outlet property="stackView1" destination="Wjk-qk-Mid" id="kh3-5g-NjJ"/>
+                        <outlet property="stackView2" destination="oS8-Ei-IKP" id="O8z-4g-vJC"/>
+                        <outlet property="stackView3" destination="wbW-Vq-3ac" id="9II-Pv-Y2t"/>
+                        <outlet property="stackView4" destination="eQg-gO-UdB" id="LLm-tL-uDf"/>
                         <outlet property="view1" destination="Vzf-Fp-60z" id="VDc-hU-wLm"/>
                         <outlet property="view2" destination="eh6-MY-mNc" id="qhg-hZ-XOQ"/>
                         <outlet property="view3" destination="jWj-Ty-qnz" id="pa1-j0-e2G"/>

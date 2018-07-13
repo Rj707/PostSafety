@@ -40,7 +40,7 @@ class PSSelectCategoryViewController: UIViewController
         {
             self.stackView4.isHidden = false
         }
-        
+        Global.REPORT?.categoryID = self.checklistId
         self.view1.layer.borderWidth=1
         self.view2.layer.borderWidth=1
         self.view3.layer.borderWidth=1
@@ -134,16 +134,17 @@ class PSSelectCategoryViewController: UIViewController
     
     @IBAction func categoryOneGestureTapped(_ sender: Any)
     {
-        Global.REPORT?.reportCategory = "Category 1"
-        let dict:[String:String] = ["reportCategory":"Category 1"]
+        
+        Global.REPORT?.reportCategory = self.label1.text
+        let dict:[String:String] = ["reportCategory":self.label1.text!]
         UserDefaults.standard.set(dict, forKey: "dict")
         navigationController?.pushViewController(nextViewController,
                                                  animated: true)
     }
     @IBAction func categoryTwoGestureTapped(_ sender: Any)
     {
-        Global.REPORT?.reportCategory = "Category 2"
-        let dict:[String:String] = ["reportCategory":"Category 2"]
+        Global.REPORT?.reportCategory = self.label2.text
+        let dict:[String:String] = ["reportCategory":self.label2.text!]
         UserDefaults.standard.set(dict, forKey: "dict")
         navigationController?.pushViewController(nextViewController,
                                                  animated: true)
@@ -151,8 +152,8 @@ class PSSelectCategoryViewController: UIViewController
     }
     @IBAction func categoryThreeGestureTapped(_ sender: Any)
     {
-        Global.REPORT?.reportCategory = "Category 3"
-        let dict:[String:String] = ["reportCategory":"Category 3"]
+        Global.REPORT?.reportCategory = self.label3.text
+        let dict:[String:String] = ["reportCategory":self.label3.text!]
         UserDefaults.standard.set(dict, forKey: "dict")
         navigationController?.pushViewController(nextViewController,
                                                  animated: true)
@@ -160,8 +161,8 @@ class PSSelectCategoryViewController: UIViewController
     }
     @IBAction func categoryFourGestureTapped(_ sender: Any)
     {
-        Global.REPORT?.reportCategory = "Category 4"
-        let dict:[String:String] = ["reportCategory":"Category 4"]
+        Global.REPORT?.reportCategory = self.label4.text
+        let dict:[String:String] = ["reportCategory":self.label4.text!]
         UserDefaults.standard.set(dict, forKey: "dict")
         navigationController?.pushViewController(nextViewController,
                                                  animated: true)
