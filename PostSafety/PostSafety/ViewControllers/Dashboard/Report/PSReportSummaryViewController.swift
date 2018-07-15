@@ -9,7 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 
-class PSReportSummaryViewController: UIViewController
+class PSReportSummaryViewController: UIViewController,UITextViewDelegate
 {
     @IBOutlet weak var categoryNameLabel: UILabel!
     @IBOutlet weak var locationNameLabel: UILabel!
@@ -18,7 +18,8 @@ class PSReportSummaryViewController: UIViewController
     @IBOutlet weak var decriptionTextView: IQTextView!
     @IBOutlet weak var decriptionTextViewContainer: UIView!
     @IBOutlet weak var backgroundView: UIView!
-     var locationID = 0
+    var locationID = 0
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -45,25 +46,6 @@ class PSReportSummaryViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
-    func setDateTimeForReport()
-    {
-//        let date = Date()
-//        let formatter = DateFormatter()
-////        Give the format you want to the formatter:
-//        
-//        formatter.dateFormat = "dd.MM.yyyy"
-////        Get the result string:
-//        
-//        var result = formatter.string(from: date)
-////        Set your label:
-//        
-//        self.dateTextField.text = result
-//        
-//        formatter.dateFormat = "hh:mm a"
-//        result = formatter.string(from: date)
-//        self.timeTextField.text = result
-    }
-    
     // MARK: - IBActions
     
     @IBAction func backButtonTouched(_ sender: UIButton)
@@ -77,8 +59,10 @@ class PSReportSummaryViewController: UIViewController
         {
             var report = PSReport.init()
             report = Global.REPORT!
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Updating Report")
             PSAPIManager.sharedInstance.updateReportFor(ReportId: String(report.reportID), LocationId: String(locationID), Title: "", Details: self.decriptionTextView.text, CatagoryId: String(report.categoryID), SubCatagory: "0", success:
             { (dict) in
+                PSUserInterfaceManager.sharedInstance.hideLoader()
                 Global.REPORT = PSReport.init()
                 self.performSegue(withIdentifier: "toReportConfirmFromSummary", sender: (Any).self)
                 
@@ -96,6 +80,24 @@ class PSReportSummaryViewController: UIViewController
         }
     }
     
+    // MARK: - UITextViewDelegate
+    
+    public func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
+    {
+        textView.text = ""
+        return true
+    }
+    
+    public func textViewShouldEndEditing(_ textView: UITextView) -> Bool
+    {
+        if textView.text == ""
+        {
+            textView.text = "Enter additional details"
+        }
+        
+        return true
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -105,5 +107,24 @@ class PSReportSummaryViewController: UIViewController
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func setDateTimeForReport()
+    {
+        //        let date = Date()
+        //        let formatter = DateFormatter()
+        ////        Give the format you want to the formatter:
+        //
+        //        formatter.dateFormat = "dd.MM.yyyy"
+        ////        Get the result string:
+        //
+        //        var result = formatter.string(from: date)
+        ////        Set your label:
+        //
+        //        self.dateTextField.text = result
+        //
+        //        formatter.dateFormat = "hh:mm a"
+        //        result = formatter.string(from: date)
+        //        self.timeTextField.text = result
+    }
 
 }

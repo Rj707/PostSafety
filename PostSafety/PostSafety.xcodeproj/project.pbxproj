@@ -20,6 +20,7 @@
 		1812E69720B8A4F800E484C6 /* PSDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69620B8A4F700E484C6 /* PSDataManager.swift */; };
 		1812E69920B8A50C00E484C6 /* PSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E69820B8A50C00E484C6 /* PSUser.swift */; };
 		18161A5720F10F5800C0C3BF /* PSFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18161A5620F10F5800C0C3BF /* PSFeedTableViewCell.swift */; };
+		181FA62B20FB4BF600F9F674 /* 480x480.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 181FA62A20FB4BF600F9F674 /* 480x480.jpg */; };
 		182E5DD320DE38DC00E3A851 /* PSReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E5DD220DE38DC00E3A851 /* PSReport.swift */; };
 		184EC78420DC078A0089348C /* PSNoConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184EC78320DC078A0089348C /* PSNoConnectionViewController.swift */; };
 		184EC78620DC0FB70089348C /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184EC78520DC0FB70089348C /* User.storyboard */; };
@@ -117,6 +118,7 @@
 		1812E69620B8A4F700E484C6 /* PSDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSDataManager.swift; sourceTree = "<group>"; };
 		1812E69820B8A50C00E484C6 /* PSUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSUser.swift; sourceTree = "<group>"; };
 		18161A5620F10F5800C0C3BF /* PSFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSFeedTableViewCell.swift; sourceTree = "<group>"; };
+		181FA62A20FB4BF600F9F674 /* 480x480.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 480x480.jpg; path = Assets.xcassets/launch.imageset/480x480.jpg; sourceTree = "<group>"; };
 		182E5DD220DE38DC00E3A851 /* PSReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReport.swift; sourceTree = "<group>"; };
 		184EC78320DC078A0089348C /* PSNoConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSNoConnectionViewController.swift; sourceTree = "<group>"; };
 		184EC78520DC0FB70089348C /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 				A1F156AD20AABFF60049DB21 /* LaunchScreen.storyboard */,
 				A1F156B020AABFF60049DB21 /* Info.plist */,
 				180D495520B9DA060023101D /* PostSafety-Bridging-Header.h */,
+				181FA62A20FB4BF600F9F674 /* 480x480.jpg */,
 			);
 			path = PostSafety;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 			files = (
 				A1F156AF20AABFF60049DB21 /* LaunchScreen.storyboard in Resources */,
 				C4B0775E20C4090E00CCD778 /* Authentication.storyboard in Resources */,
+				181FA62B20FB4BF600F9F674 /* 480x480.jpg in Resources */,
 				A1F156AC20AABFF60049DB21 /* Assets.xcassets in Resources */,
 				A11DF68C20D8F0250079D861 /* Dashboard.storyboard in Resources */,
 				A15BECE520AEEB560081BC25 /* CameraOverLay.xib in Resources */,
