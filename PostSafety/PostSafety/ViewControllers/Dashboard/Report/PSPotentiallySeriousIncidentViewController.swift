@@ -43,8 +43,7 @@ class PSPotentiallySeriousIncidentViewController: UIViewController
     @IBAction func yesGestureTapped(_ sender: Any)
     {
         Global.REPORT?.isReportPSI = "Yes"
-        let dict:[String:String] = ["PSI":"Yes"]
-        UserDefaults.standard.set(dict, forKey: "dict")
+        
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectLocationViewController") as! PSSelectLocationViewController
         navigationController?.pushViewController(vc,
@@ -54,8 +53,7 @@ class PSPotentiallySeriousIncidentViewController: UIViewController
     @IBAction func noGestureTapped(_ sender: Any)
     {
         Global.REPORT?.isReportPSI = "No"
-        let dict:[String:String] = ["PSI":"No"]
-        UserDefaults.standard.set(dict, forKey: "dict")
+     
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectLocationViewController") as! PSSelectLocationViewController
         navigationController?.pushViewController(vc,

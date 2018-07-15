@@ -27,8 +27,8 @@ class PSEmergencyInstructionsViewController: UIViewController
 
     @IBAction func takeVideoButtonTouched(_ sender: Any)
     {
-        let dict:[String:String] = ["reporttype":"Emergency"]
-        UserDefaults.standard.set(dict, forKey: "dict")
+        Global.REPORT?.reportType = "Emergency"
+        
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
         navigationController?.pushViewController(vc,

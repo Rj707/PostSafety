@@ -135,8 +135,7 @@ class PSSelectReportTypeViewController: UIViewController
     {
         Global.REPORT?.reportType = "Hazard"
         Global.REPORT?.incidentType = self.label1.tag
-        let dict:[String:String] = ["reporttype":"Hazard"]
-        UserDefaults.standard.set(dict, forKey: "dict")
+        
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
         vc.incidentTypeID = self.label1.tag
@@ -149,8 +148,7 @@ class PSSelectReportTypeViewController: UIViewController
     {
         Global.REPORT?.reportType = "Incident"
         Global.REPORT?.incidentType = self.label2.tag
-        let dict:[String:String] = ["reporttype":"Incident"]
-        UserDefaults.standard.set(dict, forKey: "dict")
+        
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
         vc.incidentTypeID = self.label2.tag
@@ -164,8 +162,7 @@ class PSSelectReportTypeViewController: UIViewController
     {
         Global.REPORT?.reportType = "NearMiss"
         Global.REPORT?.incidentType = self.label3.tag
-        let dict:[String:String] = ["reporttype":"NearMiss"]
-        UserDefaults.standard.set(dict, forKey: "dict")
+        
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
         vc.incidentTypeID = self.label3.tag
@@ -180,8 +177,6 @@ class PSSelectReportTypeViewController: UIViewController
         Global.REPORT?.incidentType = self.label4.tag
         Global.REPORT?.reportType = "Emergency"
         
-        let dict:[String:String] = ["reporttype":"Emergency"]
-        UserDefaults.standard.set(dict, forKey: "dict")
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PSEmergencyInstructionsViewController") as! PSEmergencyInstructionsViewController
         navigationController?.pushViewController(vc,

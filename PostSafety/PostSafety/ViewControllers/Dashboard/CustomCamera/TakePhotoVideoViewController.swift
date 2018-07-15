@@ -21,8 +21,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
             { (dic) in
                 self.progressView.isHidden = true
                 PSUserInterfaceManager.sharedInstance.hideLoader()
-                var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
-                if result["reporttype"] != "Emergency"
+                if PSDataManager.sharedInstance.report?.reportType != "Emergency"
                 {
                     let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
                     let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController
@@ -72,8 +71,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
             { (dic) in
                 self.progressView.isHidden = true
                 PSUserInterfaceManager.sharedInstance.hideLoader()
-                var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
-                if result["reporttype"] != "Emergency"
+                if PSDataManager.sharedInstance.report?.reportType != "Emergency"
                 {
                     let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
                     let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController

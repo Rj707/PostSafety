@@ -141,36 +141,28 @@ class PSSelectLocationViewController: UIViewController
     {
         Global.REPORT?.reportLocation = self.label1.text
         locationselected = true
-        var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
-        result["location"] = self.label1.text
-        UserDefaults.standard.set(result, forKey: "dict")
+        
         self.performSegue(withIdentifier: "toReportSummaryFromLocation", sender: self.label1.tag)
     }
     @IBAction func locationTwoGestureTapped(_ sender: Any)
     {
         Global.REPORT?.reportLocation = self.label2.text
         locationselected=true
-        var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
-        result["location"] = self.label2.text
-        UserDefaults.standard.set(result, forKey: "dict")
+        
         self.performSegue(withIdentifier: "toReportSummaryFromLocation", sender: self.label2.tag)
     }
     @IBAction func locationThreeGestureTapped(_ sender: Any)
     {
         Global.REPORT?.reportLocation = self.label3.text
         locationselected=true
-        var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
-        result["location"] = self.label3.text
-        UserDefaults.standard.set(result, forKey: "dict")
+        
         self.performSegue(withIdentifier: "toReportSummaryFromLocation", sender: self.label3.tag)
     }
     @IBAction func locationFourGestureTapped(_ sender: Any)
     {
         Global.REPORT?.reportLocation = self.label4.text
         locationselected=true
-        var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
-        result["location"] = self.label4.text
-        UserDefaults.standard.set(result, forKey: "dict")
+        
         self.performSegue(withIdentifier: "toReportSummaryFromLocation", sender: self.label4.tag)
     }
  

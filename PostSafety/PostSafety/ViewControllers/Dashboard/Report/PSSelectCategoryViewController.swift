@@ -136,16 +136,14 @@ class PSSelectCategoryViewController: UIViewController
     {
         
         Global.REPORT?.reportCategory = self.label1.text
-        let dict:[String:String] = ["reportCategory":self.label1.text!]
-        UserDefaults.standard.set(dict, forKey: "dict")
+        
         navigationController?.pushViewController(nextViewController,
                                                  animated: true)
     }
     @IBAction func categoryTwoGestureTapped(_ sender: Any)
     {
         Global.REPORT?.reportCategory = self.label2.text
-        let dict:[String:String] = ["reportCategory":self.label2.text!]
-        UserDefaults.standard.set(dict, forKey: "dict")
+        
         navigationController?.pushViewController(nextViewController,
                                                  animated: true)
         
@@ -153,8 +151,7 @@ class PSSelectCategoryViewController: UIViewController
     @IBAction func categoryThreeGestureTapped(_ sender: Any)
     {
         Global.REPORT?.reportCategory = self.label3.text
-        let dict:[String:String] = ["reportCategory":self.label3.text!]
-        UserDefaults.standard.set(dict, forKey: "dict")
+        
         navigationController?.pushViewController(nextViewController,
                                                  animated: true)
         
@@ -162,8 +159,7 @@ class PSSelectCategoryViewController: UIViewController
     @IBAction func categoryFourGestureTapped(_ sender: Any)
     {
         Global.REPORT?.reportCategory = self.label4.text
-        let dict:[String:String] = ["reportCategory":self.label4.text!]
-        UserDefaults.standard.set(dict, forKey: "dict")
+        
         navigationController?.pushViewController(nextViewController,
                                                  animated: true)
         

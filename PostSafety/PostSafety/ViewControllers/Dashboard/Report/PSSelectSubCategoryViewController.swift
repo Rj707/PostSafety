@@ -49,31 +49,27 @@ class PSSelectSubCategoryViewController: UIViewController
     @IBAction func subCategoryOneGestureTapped(_ sender: Any)
     {
         Global.REPORT?.reportSubcategory = "Subcategory 1"
-        let dict:[String:String] = ["reportCategory":"Category 1"]
-        UserDefaults.standard.set(dict, forKey: "dict")
+        
         self.performSegue(withIdentifier: "toReportSummaryFromSubcategory", sender: (Any).self)
     }
     @IBAction func subCategoryTwoGestureTapped(_ sender: Any)
     {
         Global.REPORT?.reportSubcategory = "Subcategory 2"
-        let dict:[String:String] = ["reportCategory":"Category 2"]
-        UserDefaults.standard.set(dict, forKey: "dict")
+        
         self.performSegue(withIdentifier: "toReportSummaryFromSubcategory", sender: (Any).self)
         
     }
     @IBAction func subCategoryThreeGestureTapped(_ sender: Any)
     {
         Global.REPORT?.reportSubcategory = "Subcategory 3"
-        let dict:[String:String] = ["reportCategory":"Category 3"]
-        UserDefaults.standard.set(dict, forKey: "dict")
+        
         self.performSegue(withIdentifier: "toReportSummaryFromSubcategory", sender: (Any).self)
         
     }
     @IBAction func subCategoryFourGestureTapped(_ sender: Any)
     {
         Global.REPORT?.reportSubcategory = "Subcategory 4"
-        let dict:[String:String] = ["reportCategory":"Category 4"]
-        UserDefaults.standard.set(dict, forKey: "dict")
+        
         self.performSegue(withIdentifier: "toReportSummaryFromSubcategory", sender: (Any).self)
         
     }

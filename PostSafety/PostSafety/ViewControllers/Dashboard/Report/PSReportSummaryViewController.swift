@@ -23,11 +23,11 @@ class PSReportSummaryViewController: UIViewController
     {
         super.viewDidLoad()
 
-        var result:[String:String] = (UserDefaults.standard.value(forKey: "dict") as? [String : String])!
         print(Global.REPORT?.reportType ?? "Type")
         print(Global.REPORT?.reportLocation ?? "Location")
         print(Global.REPORT?.reportCategory ?? "Category")
         print(Global.REPORT?.reportSubcategory ?? "Subcategory")
+        
         reportTypleLabel.text=Global.REPORT?.reportType
         locationNameLabel.text=Global.REPORT?.reportLocation
         categoryNameLabel.text=Global.REPORT?.reportCategory
