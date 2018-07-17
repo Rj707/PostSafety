@@ -481,13 +481,21 @@
                                 </constraints>
                                 <color key="progressTintColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqI-mT-qOC">
+                                <rect key="frame" x="134.5" y="80" width="52.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="0.77436840529999995" green="0.30915492770000003" blue="0.02683828399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Xxo-U8-pYk" firstAttribute="top" secondItem="4sD-44-2QB" secondAttribute="bottom" id="00K-i7-Y7H"/>
                             <constraint firstItem="42j-Xg-TnD" firstAttribute="top" secondItem="Xxo-U8-pYk" secondAttribute="bottom" id="0Gu-Qz-rBG"/>
                             <constraint firstItem="HEn-Tg-E18" firstAttribute="leading" secondItem="4sD-44-2QB" secondAttribute="trailing" constant="50" id="ByV-iU-REY"/>
+                            <constraint firstItem="sqI-mT-qOC" firstAttribute="top" secondItem="BVZ-R3-fzy" secondAttribute="top" constant="80" id="FuL-ia-OB6"/>
                             <constraint firstItem="HEn-Tg-E18" firstAttribute="centerY" secondItem="4sD-44-2QB" secondAttribute="centerY" id="G7h-fv-Tbx"/>
                             <constraint firstItem="4sD-44-2QB" firstAttribute="leading" secondItem="3uG-BI-bgp" secondAttribute="trailing" constant="50" id="NJx-5e-itE"/>
+                            <constraint firstItem="sqI-mT-qOC" firstAttribute="centerX" secondItem="BVZ-R3-fzy" secondAttribute="centerX" id="OKm-ss-9zh"/>
                             <constraint firstItem="Xxo-U8-pYk" firstAttribute="leading" secondItem="Mu4-lS-1BV" secondAttribute="leading" id="Ut4-Bw-aLm"/>
                             <constraint firstItem="4sD-44-2QB" firstAttribute="top" secondItem="jUU-wb-sBC" secondAttribute="bottom" constant="80" id="Wcc-mX-SlB"/>
                             <constraint firstAttribute="bottom" secondItem="4sD-44-2QB" secondAttribute="bottom" constant="20" symbolic="YES" id="Xfk-Kc-Zsz"/>
@@ -503,6 +511,7 @@
                         <outlet property="flashButton" destination="HEn-Tg-E18" id="jgh-RZ-pdM"/>
                         <outlet property="flipCameraButton" destination="3uG-BI-bgp" id="ffc-dg-1v3"/>
                         <outlet property="progressView" destination="jUU-wb-sBC" id="MPo-yl-goA"/>
+                        <outlet property="timeLabel" destination="sqI-mT-qOC" id="qLI-a0-6hh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zny-5j-ezP" sceneMemberID="firstResponder"/>
