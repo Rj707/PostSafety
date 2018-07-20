@@ -8,21 +8,11 @@
 
 import UIKit
 
-class PSSelectCategoryViewController: UIViewController
+class PSSelectCategoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 {
     
     @IBOutlet weak var backgroundView: UIView!
-    @IBOutlet weak var view1: UIView!
-    @IBOutlet weak var view2: UIView!
-    @IBOutlet weak var view3: UIView!
-    @IBOutlet weak var view4: UIView!
-    
-    @IBOutlet weak var stackView4: UIStackView!
-    
-    @IBOutlet weak var label4: UILabel!
-    @IBOutlet weak var label3: UILabel!
-    @IBOutlet weak var label2: UILabel!
-    @IBOutlet weak var label1: UILabel!
+    @IBOutlet weak var categoryTableView: UITableView!
     
     var nextViewController : UIViewController!
     var cheklistDetailsArray = [Any]()
@@ -31,30 +21,14 @@ class PSSelectCategoryViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        if self.cheklistDetailsArray.count  == 3
-        {
-            self.stackView4.isHidden = true
-        }
-        else
-        {
-            self.stackView4.isHidden = false
-        }
+        self.categoryTableView.dataSource = self
+        self.categoryTableView.delegate = self
         Global.REPORT?.categoryID = self.checklistId
-        self.view1.layer.borderWidth=1
-        self.view2.layer.borderWidth=1
-        self.view3.layer.borderWidth=1
-        self.view4.layer.borderWidth=1
-        
         self.backgroundView.layer.borderWidth=1
-        self.view1.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
-        self.view2.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
-        self.view3.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
-        self.view4.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.backgroundView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         
         self.setNextViewController()
-        self.configureCategoryForReportType()
+//        self.configureCategoryForReportType()
     }
 
     override func didReceiveMemoryWarning()
@@ -67,9 +41,6 @@ class PSSelectCategoryViewController: UIViewController
     {
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         
-//        var reportType = ""
-//        print(Global.REPORT?.reportType ?? "")
-//        reportType = (Global.REPORT?.reportType)!
         switch Global.REPORT?.reportType
         {
         case "Hazard":
@@ -109,64 +80,60 @@ class PSSelectCategoryViewController: UIViewController
         }, errorPopup: true)
     }
     
-    func configureCategoryForReportType() -> Void
-    {
-        for i in 0...self.cheklistDetailsArray.count-1
-        {
-            var item = NSDictionary()
-            item = cheklistDetailsArray[i] as! NSDictionary
-
-            switch i
-            {
-            case 0  :
-                self.label1.text = item["name"] as? String
-            case 1  :
-                self.label2.text = item["name"] as? String
-            case 2  :
-                self.label3.text = item["name"] as? String
-            default :
-                self.label4.text = item["name"] as? String
-            }
-        }
-    }
+//    func configureCategoryForReportType() -> Void
+//    {
+//        for i in 0...self.cheklistDetailsArray.count-1
+//        {
+//            var item = NSDictionary()
+//            item = cheklistDetailsArray[i] as! NSDictionary
+//
+//            switch i
+//            {
+//            case 0  :
+//                self.label1.text = item["name"] as? String
+//            case 1  :
+//                self.label2.text = item["name"] as? String
+//            case 2  :
+//                self.label3.text = item["name"] as? String
+//            default :
+//                self.label4.text = item["name"] as? String
+//            }
+//        }
+//    }
     
     // MARK: - IBActions
     
-    @IBAction func categoryOneGestureTapped(_ sender: Any)
-    {
-        
-        Global.REPORT?.reportCategory = self.label1.text
-        
-        navigationController?.pushViewController(nextViewController,
-                                                 animated: true)
-    }
-    @IBAction func categoryTwoGestureTapped(_ sender: Any)
-    {
-        Global.REPORT?.reportCategory = self.label2.text
-        
-        navigationController?.pushViewController(nextViewController,
-                                                 animated: true)
-        
-    }
-    @IBAction func categoryThreeGestureTapped(_ sender: Any)
-    {
-        Global.REPORT?.reportCategory = self.label3.text
-        
-        navigationController?.pushViewController(nextViewController,
-                                                 animated: true)
-        
-    }
-    @IBAction func categoryFourGestureTapped(_ sender: Any)
-    {
-        Global.REPORT?.reportCategory = self.label4.text
-        
-        navigationController?.pushViewController(nextViewController,
-                                                 animated: true)
-        
-    }
     @IBAction func backButtonTouched(_ sender: UIButton)
     {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: - UITableViewDataSource
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return self.cheklistDetailsArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        var cell:PSCategoryTableViewCell
+        cell = tableView.dequeueReusableCell(withIdentifier: "PSCategoryTableViewCell") as! PSCategoryTableViewCell
+        let dic = self.cheklistDetailsArray[indexPath.row] as! NSDictionary
+        cell.categoryTitleLabel.text = dic["name"] as? String
+        cell.data = self.cheklistDetailsArray[indexPath.row] as! NSDictionary
+//        cell.contentView.layer.borderWidth=1
+//        cell.contentView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        var cell:PSCategoryTableViewCell
+        cell = tableView.cellForRow(at: indexPath) as! PSCategoryTableViewCell
+        Global.REPORT?.reportCategory = cell.data["name"] as? String
+        navigationController?.pushViewController(nextViewController,
+                                                 animated: true)
     }
     
     /*

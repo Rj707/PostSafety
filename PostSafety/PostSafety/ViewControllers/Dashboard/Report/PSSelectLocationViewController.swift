@@ -8,24 +8,11 @@
 
 import UIKit
 
-class PSSelectLocationViewController: UIViewController
+class PSSelectLocationViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 {
-    
+    @IBOutlet weak var locationTableView: UITableView!
     @IBOutlet weak var backgroundView: UIView!
-    @IBOutlet weak var view1: UIView!
-    @IBOutlet weak var view2: UIView!
-    @IBOutlet weak var view3: UIView!
-    @IBOutlet weak var view4: UIView!
-    
-    @IBOutlet weak var stackView1: UIStackView!
-    @IBOutlet weak var stackView2: UIStackView!
-    @IBOutlet weak var stackView3: UIStackView!
-    @IBOutlet weak var stackView4: UIStackView!
-    
-    @IBOutlet weak var label4: UILabel!
-    @IBOutlet weak var label3: UILabel!
-    @IBOutlet weak var label2: UILabel!
-    @IBOutlet weak var label1: UILabel!
+   
     
     var locationsArray = [Any]()
     var companyId = 0
@@ -35,23 +22,9 @@ class PSSelectLocationViewController: UIViewController
     {
         super.viewDidLoad()
         
+        
         self.getLocationsforReport()
-        
-        self.stackView1.isHidden = true
-        self.stackView2.isHidden = true
-        self.stackView3.isHidden = true
-        self.stackView4.isHidden = true
-        
-        self.view1.layer.borderWidth=1
-        self.view2.layer.borderWidth=1
-        self.view3.layer.borderWidth=1
-        self.view4.layer.borderWidth=1
         self.backgroundView.layer.borderWidth=1
-        
-        self.view1.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
-        self.view2.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
-        self.view3.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
-        self.view4.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.backgroundView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
 
     }
@@ -74,9 +47,11 @@ class PSSelectLocationViewController: UIViewController
                         self.locationsArray.append(tempDict)
                     }
                 }
-                
-                self.configureLocations()
+                self.locationTableView.dataSource = self
+                self.locationTableView.delegate = self
+//                self.configureLocations()
                 print(self.locationsArray)
+                self.locationTableView.reloadData()
                 
             }, failure:
                 
@@ -96,34 +71,6 @@ class PSSelectLocationViewController: UIViewController
         }
     }
     
-    func configureLocations() -> Void
-    {
-        for i in 0...self.locationsArray.count-1
-        {
-            var item = NSDictionary()
-            item = locationsArray[i] as! NSDictionary
-            
-            switch i
-            {
-                case 0  :
-                    self.stackView1.isHidden = false
-                    self.label1.text = item["branchAddress"] as? String
-                    self.label1.tag = (item["branchId"] as? Int)!
-                case 1  :
-                    self.stackView2.isHidden = false
-                    self.label2.text = item["branchAddress"] as? String
-                    self.label2.tag = (item["branchId"] as? Int)!
-                case 2  :
-                    self.stackView3.isHidden = false
-                    self.label3.text = item["branchAddress"] as? String
-                    self.label3.tag = (item["branchId"] as? Int)!
-                default :
-                    self.stackView4.isHidden = false
-                    self.label4.text = item["branchAddress"] as? String
-                    self.label4.tag = (item["branchId"] as? Int)!
-            }
-        }
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -137,35 +84,32 @@ class PSSelectLocationViewController: UIViewController
         self.navigationController?.popViewController(animated: false)
     }
     
-    @IBAction func locationOneGestureTapped(_ sender: Any)
+    // MARK: - UITableViewDataSource
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        Global.REPORT?.reportLocation = self.label1.text
-        locationselected = true
-        
-        self.performSegue(withIdentifier: "toReportSummaryFromLocation", sender: self.label1.tag)
+        return self.locationsArray.count
     }
-    @IBAction func locationTwoGestureTapped(_ sender: Any)
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        Global.REPORT?.reportLocation = self.label2.text
-        locationselected=true
-        
-        self.performSegue(withIdentifier: "toReportSummaryFromLocation", sender: self.label2.tag)
+        var cell:PSCategoryTableViewCell
+        cell = tableView.dequeueReusableCell(withIdentifier: "PSCategoryTableViewCell") as! PSCategoryTableViewCell
+        let dic = self.locationsArray[indexPath.row] as! NSDictionary
+        cell.categoryTitleLabel.text = dic["branchAddress"] as? String
+        cell.data = self.locationsArray[indexPath.row] as! NSDictionary
+        //        cell.contentView.layer.borderWidth=1
+        //        cell.contentView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        return cell
     }
-    @IBAction func locationThreeGestureTapped(_ sender: Any)
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        Global.REPORT?.reportLocation = self.label3.text
-        locationselected=true
-        
-        self.performSegue(withIdentifier: "toReportSummaryFromLocation", sender: self.label3.tag)
+        var cell:PSCategoryTableViewCell
+        cell = tableView.cellForRow(at: indexPath) as! PSCategoryTableViewCell
+        Global.REPORT?.reportLocation = cell.data["branchAddress"] as? String
+        self.performSegue(withIdentifier: "toReportSummaryFromLocation", sender: cell.data["branchId"])
     }
-    @IBAction func locationFourGestureTapped(_ sender: Any)
-    {
-        Global.REPORT?.reportLocation = self.label4.text
-        locationselected=true
-        
-        self.performSegue(withIdentifier: "toReportSummaryFromLocation", sender: self.label4.tag)
-    }
- 
     
     // MARK: - Navigation
 

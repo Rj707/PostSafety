@@ -72,8 +72,13 @@ class PSSelectReportTypeViewController: UIViewController
 
             }, errorPopup: true)
         }
+        else
+        {
+            PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiErrorMessage.NoNetwork)
+        }
         
     }
+    
 
     override func didReceiveMemoryWarning()
     {

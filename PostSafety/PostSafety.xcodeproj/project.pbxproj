@@ -34,6 +34,7 @@
 		18C40C0D20E02A7600F5B380 /* IQDropDownTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C40C0C20E02A7600F5B380 /* IQDropDownTextField.m */; };
 		18C40C0F20E02BAC00F5B380 /* PSSortReportsDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C40C0E20E02BAC00F5B380 /* PSSortReportsDialogViewController.swift */; };
 		18C8FC2820E16291000E15CE /* PSSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8FC2720E16291000E15CE /* PSSettingsViewController.swift */; };
+		18EFDA8B20FE57E8009F0B9F /* PSCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EFDA8A20FE57E8009F0B9F /* PSCategoryTableViewCell.swift */; };
 		18FDED3A20B04F2A009CBA0B /* SwiftyCamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3620B04F2A009CBA0B /* SwiftyCamViewController.swift */; };
 		18FDED3B20B04F2A009CBA0B /* SwiftyCamButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3720B04F2A009CBA0B /* SwiftyCamButton.swift */; };
 		18FDED3C20B04F2A009CBA0B /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3820B04F2A009CBA0B /* PreviewView.swift */; };
@@ -133,6 +134,7 @@
 		18C40C0C20E02A7600F5B380 /* IQDropDownTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQDropDownTextField.m; sourceTree = "<group>"; };
 		18C40C0E20E02BAC00F5B380 /* PSSortReportsDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSortReportsDialogViewController.swift; sourceTree = "<group>"; };
 		18C8FC2720E16291000E15CE /* PSSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSettingsViewController.swift; sourceTree = "<group>"; };
+		18EFDA8A20FE57E8009F0B9F /* PSCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		18FDED3620B04F2A009CBA0B /* SwiftyCamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamViewController.swift; sourceTree = "<group>"; };
 		18FDED3720B04F2A009CBA0B /* SwiftyCamButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamButton.swift; sourceTree = "<group>"; };
 		18FDED3820B04F2A009CBA0B /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				A16142E120AC219B00421414 /* PSReportConfirmationViewController.swift */,
 				C4E5A56520AE56050060898B /* PSReportSummaryViewController.swift */,
 				C4E5A56120AE55950060898B /* PSSelectCategoryViewController.swift */,
+				18EFDA8A20FE57E8009F0B9F /* PSCategoryTableViewCell.swift */,
 				A16142DF20AC122700421414 /* PSSelectLocationViewController.swift */,
 				A16142DB20AC11E600421414 /* PSSelectReportTypeViewController.swift */,
 				A1FF177220DBC62300F06EAC /* PSSelectSubCategoryViewController.swift */,
@@ -789,6 +792,7 @@
 				A16142E020AC122700421414 /* PSSelectLocationViewController.swift in Sources */,
 				18AD08D220DF74020096A910 /* PSReceiveHomeViewController.swift in Sources */,
 				A11DF69620D8F1BF0079D861 /* MenuTopCell.swift in Sources */,
+				18EFDA8B20FE57E8009F0B9F /* PSCategoryTableViewCell.swift in Sources */,
 				C409873B20DED26400081069 /* PSSelectDialogViewController.swift in Sources */,
 				A16142DA20AC11CD00421414 /* PSFeedDetailViewController.swift in Sources */,
 				A1F156A520AABFF50049DB21 /* AppDelegate.swift in Sources */,
