@@ -138,8 +138,8 @@ class PSSelectReportTypeViewController: UIViewController
     
     @IBAction func hazardGestureTapped(_ sender: Any)
     {
-        Global.REPORT?.reportType = "Hazard"
-        Global.REPORT?.incidentType = self.label1.tag
+        PSDataManager.sharedInstance.report?.reportType = "Hazard"
+        PSDataManager.sharedInstance.report?.incidentType = self.label1.tag
         
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
@@ -151,8 +151,8 @@ class PSSelectReportTypeViewController: UIViewController
     }
     @IBAction func incidentGestureTapped(_ sender: Any)
     {
-        Global.REPORT?.reportType = "Incident"
-        Global.REPORT?.incidentType = self.label2.tag
+        PSDataManager.sharedInstance.report?.reportType = "Incident"
+        PSDataManager.sharedInstance.report?.incidentType = self.label2.tag
         
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
@@ -165,8 +165,8 @@ class PSSelectReportTypeViewController: UIViewController
     }
     @IBAction func nearMisstGestureTapped(_ sender: Any)
     {
-        Global.REPORT?.reportType = "NearMiss"
-        Global.REPORT?.incidentType = self.label3.tag
+        PSDataManager.sharedInstance.report?.reportType = "NearMiss"
+        PSDataManager.sharedInstance.report?.incidentType = self.label3.tag
         
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
@@ -179,9 +179,9 @@ class PSSelectReportTypeViewController: UIViewController
     }
     @IBAction func emergencyGestureTapped(_ sender: Any)
     {
-        Global.REPORT?.incidentType = self.label4.tag
-        Global.REPORT?.reportType = "Emergency"
-        
+        PSDataManager.sharedInstance.report?.incidentType = self.label4.tag
+        PSDataManager.sharedInstance.report?.reportType = "Emergency"
+        print(PSDataManager.sharedInstance.report?.reportType ?? "No Type Found")
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PSEmergencyInstructionsViewController") as! PSEmergencyInstructionsViewController
         navigationController?.pushViewController(vc,

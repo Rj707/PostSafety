@@ -231,6 +231,8 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
                 { (dic) in
                     self.progressView.isHidden = true
                     PSUserInterfaceManager.sharedInstance.hideLoader()
+                    print(Global.REPORT?.reportType ?? "No Type Found")
+                    print(PSDataManager.sharedInstance.report?.reportType ?? "No Type Found")
                     if PSDataManager.sharedInstance.report?.reportType != "Emergency"
                     {
                         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)

@@ -30,6 +30,11 @@ class VideoViewController: UIViewController
     var player: AVPlayer?
     var playerController : AVPlayerViewController?
     var movieData:Data?
+    var isPlayingVideo:Bool?
+    var playButton:UIButton!
+    
+    //MARK:Implementation
+    
     init(videoURL: URL)
     {
         self.videoURL = videoURL
@@ -45,6 +50,7 @@ class VideoViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.isPlayingVideo = false
         self.view.backgroundColor = UIColor.gray
         player = AVPlayer(url: videoURL)
         playerController = AVPlayerViewController()
@@ -65,11 +71,17 @@ class VideoViewController: UIViewController
         cancelButton.setImage(#imageLiteral(resourceName: "cross"), for: UIControlState())
         cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
         view.addSubview(cancelButton)
+        
         let sendButton = UIButton(frame: CGRect(x: self.view.frame.size.width-40, y: 40.0, width: 30.0, height: 30.0))
         sendButton.setImage(#imageLiteral(resourceName: "send"), for: UIControlState())
         sendButton.addTarget(self, action: #selector(send), for: .touchUpInside)
         view.addSubview(sendButton)
         
+        playButton = UIButton(frame: CGRect(x: self.view.frame.size.width-40, y: 40.0, width: 64.0, height: 64.0))
+        playButton.center = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
+        playButton.setImage(#imageLiteral(resourceName: "play"), for: UIControlState())
+        playButton.addTarget(self, action: #selector(playVideo), for: .touchUpInside)
+        view.addSubview(playButton)
         
         do
         {
@@ -81,12 +93,33 @@ class VideoViewController: UIViewController
             
         }
         print("ABC")
+        
     }
     
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
-        player?.play()
+//        player?.play()
+    }
+    
+    @objc fileprivate func playerItemDidReachEnd(_ notification: Notification)
+    {
+        if self.player != nil
+        {
+            self.player!.seek(to: kCMTimeZero)
+            self.playButton.isHidden =  false
+//            self.player!.play()
+        }
+    }
+    
+    func backgroundViewTapped(_ sender: UITapGestureRecognizer)
+    {
+        if self.isPlayingVideo!
+        {
+            player?.pause()
+            self.isPlayingVideo = false
+            self.playButton.isHidden =  false
+        }
     }
     
     func cancel()
@@ -100,14 +133,20 @@ class VideoViewController: UIViewController
         self.delegate.sendVideo(videoData: self.movieData!)
     }
     
-    @objc fileprivate func playerItemDidReachEnd(_ notification: Notification)
+    func playVideo()
     {
-        if self.player != nil
+        if self.isPlayingVideo!
         {
-            self.player!.seek(to: kCMTimeZero)
-            self.player!.play()
+            self.isPlayingVideo = false
+        }
+        else
+        {
+            self.isPlayingVideo = true
+            player?.play()
+            self.playButton.isHidden =  true
         }
     }
+    
 }
 
 protocol VideoViewControllerDelegate
