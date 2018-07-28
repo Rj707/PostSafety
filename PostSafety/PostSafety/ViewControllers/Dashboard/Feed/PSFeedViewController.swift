@@ -17,6 +17,7 @@ import UIKit
 class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 
 {
+    
     @IBOutlet weak var unOpenedView: UIView!
     @IBOutlet weak var archivedView: UIView!
     
@@ -31,10 +32,12 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     @IBOutlet weak var feedTitleLabel: UILabel!
     
     var feedTitle: String = ""
-    
+    var route: String = ""
+    var companyId = 0
     var type : FeedType!
     var feedArray = [Any]()
     var feedArray2 = Array<Any>()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -57,11 +60,59 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
             self.reportsStackView.isHidden = true
         }
         
+        if feedTitle == "Alerts" || feedTitle == "Announcements" || feedTitle == "Safety Updates"
+        {
+            
+        }
+        else
+        {
+            self.getInfoFor()
+        }
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getInfoFor()
+    {
+        if CEReachabilityManager.isReachable()
+        {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: String(format: "%@%@", "Fetching ", self.feedTitle))
+            companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
+            PSAPIManager.sharedInstance.getInfoFor(companyId: String(companyId), route: route ,success:
+                { (dic) in
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    let tempArray = dic["array"] as! [Any]
+                    
+                    for checklistDict in tempArray
+                    {
+                        if let tempDict = checklistDict as? [String: Any]
+                        {
+                            self.feedArray.append(tempDict)
+                        }
+                    }
+                    self.updatesAnnouncementsTableView.reloadData()
+                    //                    self.configureReportTypes()
+                    print(self.feedArray)
+                    
+            }, failure:
+                { (error:NSError,statusCode:Int) in
+                    
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    if(statusCode==404)
+                    {
+                        PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiResultFailureMessage.InvalidEmailPassword)
+                    }
+                    else
+                    {
+                        
+                    }
+                    
+            }, errorPopup: true)
+        }
     }
     
     // MARK: - UITableViewDataSource
@@ -84,25 +135,42 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         }
         let dic = self.feedArray[indexPath.row] as! NSDictionary
         cell.titleLabel.text = dic["title"] as? String
-//        cell.titleLabel.text = (self.feedArray[indexPath.row])[""]
+        
+        if self.feedTitle == "Reports"
+        {
+            cell.dateLabel.text = dic["date"] as? String
+        }
+        else if self.feedTitle == "Training"
+        {
+            cell.dateLabel.text = dic["dateTimePosted"] as? String
+        }
+        else if self.feedTitle == "Policies/Procedures"
+        {
+            cell.dateLabel.text = dic["dateTimePosted"] as? String
+        }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let dic = self.feedArray[indexPath.row] as! NSDictionary
-        
-        if Global.USERTYPE?.rawValue == UserType.UserTypeAdmin.rawValue && feedTitle == "Reports"
+        print(Global.USERTYPE?.rawValue ?? "Global None")
+        print(PSDataManager.sharedInstance.loggedInUser?.userType?.rawValue ?? "PSDataManager None")
+        print(PSDataManager.sharedInstance.loggedInUser?.userTypeByRole ?? "PSDataManager RoleNone")
+        if PSDataManager.sharedInstance.loggedInUser?.userTypeByRole == UserType.UserTypeAdmin.rawValue && feedTitle == "Reports"
         {
             let storyboard = UIStoryboard(name: "User", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PSReportPostViewController") as! PSReportPostViewController
+            vc.reportPostDict = self.feedArray[indexPath.row] as! NSDictionary
             navigationController?.pushViewController(vc,
                                                      animated: true)
         }
-        else if Global.USERTYPE?.rawValue == UserType.UserTypeNormal.rawValue && feedTitle == "Reports"
+        else if PSDataManager.sharedInstance.loggedInUser?.userTypeByRole == UserType.UserTypeNormal.rawValue && feedTitle == "Reports"
         {
             let storyboard = UIStoryboard(name: "User", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PSReportPostViewController") as! PSReportPostViewController
+            vc.reportPostDict = self.feedArray[indexPath.row] as! NSDictionary
             navigationController?.pushViewController(vc,
                                                      animated: true)
         }
@@ -111,7 +179,15 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
             let storyboard = UIStoryboard(name: "User", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedDetailViewController") as! PSFeedDetailViewController
 //            vc.feedDetailTitle = self.feedTitleLabel.text!
-            vc.feedDetailTitle = (dic["title"] as? String)!
+            if dic["title"] is NSNull
+            {
+                vc.feedDetailTitle = "None"
+            }
+            else
+            {
+                vc.feedDetailTitle = (dic["title"] as? String)!
+            }
+            
             vc.feedDict = dic
             navigationController?.pushViewController(vc,
                                                      animated: true)

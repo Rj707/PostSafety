@@ -10,11 +10,12 @@ import UIKit
 
 class PSReportDetailViewController: UIViewController
 {
-    
+    var reportDetailsDict = NSDictionary.init()
+    @IBOutlet weak var reportDetailsLable: UILabel!
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+        self.reportDetailsLable.text = self.reportDetailsDict["details"] is NSNull ? "None" : self.reportDetailsDict["details"] as! String
         // Do any additional setup after loading the view.
     }
 
@@ -30,6 +31,7 @@ class PSReportDetailViewController: UIViewController
     {
         self.dismiss(animated: true)
         {
+            
         }
     }
     

@@ -21,11 +21,12 @@ class PSFeedDetailViewController: UIViewController
         super.viewDidLoad()
 
         self.feedDetailTitleLabel.text = self.feedDict["title"] as? String
-        self.feedDetailTextView.text = self.feedDict["details"] as! String
+        self.feedDetailTextView.text = self.feedDict["details"] is NSNull ? "" : self.feedDict["details"] as! String
         self.feedDetailAttachmentButton.setTitle(self.feedDict["pictureUrl"] as? String, for: UIControlState.normal)
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }

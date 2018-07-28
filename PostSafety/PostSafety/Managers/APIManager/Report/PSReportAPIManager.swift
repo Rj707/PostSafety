@@ -54,6 +54,23 @@ class PSReportAPIManager: PSAPIManagerBase
         self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
     }
     
+    func getInfoFor(companyId: String,
+                    route: String,
+                    success:@escaping DefaultArrayResultAPISuccessClosure,
+                    failure:@escaping DefaultAPIFailureClosure,
+                    errorPopup: Bool)
+    {
+        
+        let parameters: [String:Any] =
+            [
+                "CompanyId":companyId,
+            ]
+        
+        let route: URL = GETURLfor(route: route, parameters: parameters )!
+        
+        self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
+    }
+    
     func uploadImageFor(ReportId: String,
                         Type: String,
                         data: Data,

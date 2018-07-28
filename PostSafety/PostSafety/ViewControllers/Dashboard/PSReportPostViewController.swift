@@ -11,18 +11,18 @@ import UIKit
 class PSReportPostViewController: UIViewController
 {
     @IBOutlet weak var reportActionsContainer:UIView!
-
+    var reportPostDict = NSDictionary.init()
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        if Global.USERTYPE?.rawValue == UserType.UserTypeAdmin.rawValue
+        if PSDataManager.sharedInstance.loggedInUser?.userTypeByRole == UserType.UserTypeAdmin.rawValue
         {
             self.reportActionsContainer.isHidden = false
         }
-        else if Global.USERTYPE?.rawValue == UserType.UserTypeNormal.rawValue
+        else if PSDataManager.sharedInstance.loggedInUser?.userTypeByRole == UserType.UserTypeNormal.rawValue
         {
             self.reportActionsContainer.isHidden = true
         }
@@ -48,10 +48,12 @@ class PSReportPostViewController: UIViewController
         let reportOverViewVC : PSReportOverviewViewController
         let storyBoard = UIStoryboard.init(name: "Admin", bundle: Bundle.main)
         reportOverViewVC = storyBoard.instantiateViewController(withIdentifier: "PSReportOverviewViewController") as! PSReportOverviewViewController
+        reportOverViewVC.reportOverviewDict = self.reportPostDict
         reportOverViewVC.view.backgroundColor = UIColor.clear
         reportOverViewVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         //        self.view.backgroundColor = UIColor.clear
         //        self.modalPresentationStyle = UIModalPresentationStyle.currentContext
+        
         self.present(reportOverViewVC, animated: true)
         {
             
@@ -64,6 +66,7 @@ class PSReportPostViewController: UIViewController
         let reportDetailVC : PSReportDetailViewController
         let storyBoard = UIStoryboard.init(name: "Admin", bundle: Bundle.main)
         reportDetailVC = storyBoard.instantiateViewController(withIdentifier: "PSReportDetailViewController") as! PSReportDetailViewController
+        reportDetailVC.reportDetailsDict = self.reportPostDict
         reportDetailVC.view.backgroundColor = UIColor.clear
         reportDetailVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         //        self.view.backgroundColor = UIColor.clear

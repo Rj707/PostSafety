@@ -23,6 +23,7 @@ class PSUser : Object
     @objc dynamic var incident : String?
     @objc dynamic var employeeType : String?
     @objc dynamic var passwordChanged = 0
+    @objc dynamic var userTypeByRole = 0
     var userType : UserType?
 
     override class func primaryKey() -> String?
@@ -48,10 +49,12 @@ class PSUser : Object
         if user.employeeType == "Reviewers"
         {
             user.userType = UserType(rawValue: UserType.UserTypeAdmin.rawValue)
+            user.userTypeByRole = 1
         }
         else
         {
             user.userType = UserType(rawValue: UserType.UserTypeNormal.rawValue)
+            user.userTypeByRole = 0
         }
         
         user.passwordChanged = dict["passwordChanged"] as! Int

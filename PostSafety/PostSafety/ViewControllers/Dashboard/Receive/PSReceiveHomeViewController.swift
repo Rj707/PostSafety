@@ -66,6 +66,7 @@ class PSReceiveHomeViewController: UIViewController
         let storyboard = UIStoryboard(name: "User", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedViewController") as! PSFeedViewController
         vc.feedTitle = "Reports"
+        vc.route = Route.AllReports.rawValue
         navigationController?.pushViewController(vc,
                                                  animated: true)
     }
@@ -74,6 +75,7 @@ class PSReceiveHomeViewController: UIViewController
         let storyboard = UIStoryboard(name: "User", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedViewController") as! PSFeedViewController
         vc.feedTitle = "Training"
+        vc.route = Route.Trainings.rawValue
         navigationController?.pushViewController(vc,
                                                  animated: true)
     }
@@ -82,6 +84,7 @@ class PSReceiveHomeViewController: UIViewController
         let storyboard = UIStoryboard(name: "User", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedViewController") as! PSFeedViewController
         vc.feedTitle = "Policies/Procedures"
+        vc.route = Route.PolicyProcedures.rawValue
         navigationController?.pushViewController(vc,
                                                  animated: true)
     }
