@@ -16,6 +16,8 @@ enum Route: String
     case AllReports         = "/api/AllReports/"
     case PolicyProcedures   = "/api/PolicyAndProcedures/"
     case Trainings          = "/api/Trainings/"
+    case SummaryStatsCount  = "/api/SummaryReportsCount/"
+    case SummaryStatsDetail = "/api/SummaryStatiticsReports/"
     
     func url() -> String
     {

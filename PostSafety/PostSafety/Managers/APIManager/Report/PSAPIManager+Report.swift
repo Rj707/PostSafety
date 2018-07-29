@@ -70,6 +70,14 @@ extension PSAPIManager
         reportManagerAPI.getLocationsFor(companyId: companyId, success: success, failure: failure, errorPopup: errorPopup)
     }
     
+    func getStatictisCount(companyId: String,
+                         success:@escaping DefaultArrayResultAPISuccessClosure,
+                         failure:@escaping DefaultAPIFailureClosure,
+                         errorPopup: Bool)
+    {
+        reportManagerAPI.getStatictisCount(companyId: companyId, success: success, failure: failure, errorPopup: errorPopup)
+    }
+    
     
 //    http://postsafety.anadeemus.ca/api/UpdateReport/?ReportId=10000&LocationId=10008&Title=CriticalIncident&Details=whywhere
     

@@ -15,11 +15,22 @@ class PSCategorySelectViewController: UIViewController {
     @IBOutlet weak var view3: UIView!
     @IBOutlet weak var view4: UIView!
     
+    @IBOutlet weak var hazardLabel: UILabel!
+    @IBOutlet weak var nearMissLabel: UILabel!
+    @IBOutlet weak var incidentLabel: UILabel!
+    @IBOutlet weak var emergencyLabel: UILabel!
+    
     var summaryStatisticsTitle: String = ""
+    var summaryStatisticsDict = NSDictionary.init()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.hazardLabel.text =  String(format: "%@%@%@%@", "Hazards ","(", String(summaryStatisticsDict["numberOfHazards"] as! Int),")")
+        self.nearMissLabel.text = String(format: "%@%@%@%@", "NearMisses  ","(", String(summaryStatisticsDict["numberOfNearMisses"] as! Int),")")
+        self.incidentLabel.text = String(format: "%@%@%@%@", "Incidents ","(", String(summaryStatisticsDict["numberOfIncidents"] as! Int),")")
+        self.emergencyLabel.text = String(format: "%@%@%@%@", "Emergencies ","(", String(summaryStatisticsDict["numberOfEmergencies"] as! Int),")")
         
         self.view1.layer.borderWidth=2
         self.view2.layer.borderWidth=2
@@ -33,7 +44,8 @@ class PSCategorySelectViewController: UIViewController {
         
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
