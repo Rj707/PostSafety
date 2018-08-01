@@ -61,7 +61,7 @@ class PSSummaryStatsHomeViewController: UIViewController
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Statistics")
             companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
             PSAPIManager.sharedInstance.getStatictisCount(companyId: String(companyId), success:
-                { (dic) in
+            { (dic) in
                     PSUserInterfaceManager.sharedInstance.hideLoader()
 //                    let tempArray = dic["array"] as! [Any]
 //
@@ -127,6 +127,7 @@ class PSSummaryStatsHomeViewController: UIViewController
         let storyboard = UIStoryboard(name: "Admin", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PSCategorySelectViewController") as! PSCategorySelectViewController
         vc.summaryStatisticsTitle = "Yesterday's "
+        vc.DateType = "Yesterday"
         vc.summaryStatisticsDict = self.summaryStatsArray[0] as! NSDictionary
         navigationController?.pushViewController(vc,
                                                  animated: true)
@@ -136,6 +137,7 @@ class PSSummaryStatsHomeViewController: UIViewController
         let storyboard = UIStoryboard(name: "Admin", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PSCategorySelectViewController") as! PSCategorySelectViewController
         vc.summaryStatisticsTitle = "This Month's "
+        vc.DateType = "Month"
         vc.summaryStatisticsDict = self.summaryStatsArray[1] as! NSDictionary
         navigationController?.pushViewController(vc,
                                                  animated: true)
@@ -145,6 +147,7 @@ class PSSummaryStatsHomeViewController: UIViewController
         let storyboard = UIStoryboard(name: "Admin", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PSCategorySelectViewController") as! PSCategorySelectViewController
         vc.summaryStatisticsTitle = "Year To Date's "
+        vc.DateType = "Year"
         vc.summaryStatisticsDict = self.summaryStatsArray[2] as! NSDictionary
         navigationController?.pushViewController(vc,
                                                  animated: true)

@@ -21,6 +21,9 @@ class PSCategorySelectViewController: UIViewController {
     @IBOutlet weak var emergencyLabel: UILabel!
     
     var summaryStatisticsTitle: String = ""
+    var DateType: String = ""
+    
+    
     var summaryStatisticsDict = NSDictionary.init()
     
     override func viewDidLoad()
@@ -63,6 +66,8 @@ class PSCategorySelectViewController: UIViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryFeedViewController") as! PSSummaryFeedViewController
         summaryStatisticsTitle += "Hazard"
         vc.summaryFeedTitle += summaryStatisticsTitle
+        vc.DateType = self.DateType
+        vc.IncidentType = "Hazard"
         navigationController?.pushViewController(vc,
                                                  animated: true)
     }
@@ -72,6 +77,8 @@ class PSCategorySelectViewController: UIViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryFeedViewController") as! PSSummaryFeedViewController
         summaryStatisticsTitle += "Near Miss"
         vc.summaryFeedTitle += summaryStatisticsTitle
+        vc.DateType = self.DateType
+        vc.IncidentType = "NearMiss"
         navigationController?.pushViewController(vc,
                                                  animated: true)
     }
@@ -81,6 +88,8 @@ class PSCategorySelectViewController: UIViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryFeedViewController") as! PSSummaryFeedViewController
         summaryStatisticsTitle += "Incident"
         vc.summaryFeedTitle += summaryStatisticsTitle
+        vc.DateType = self.DateType
+        vc.IncidentType = "Incident"
         navigationController?.pushViewController(vc,
                                                  animated: true)
     }
@@ -90,6 +99,8 @@ class PSCategorySelectViewController: UIViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryFeedViewController") as! PSSummaryFeedViewController
         summaryStatisticsTitle += "Emergency"
         vc.summaryFeedTitle += summaryStatisticsTitle
+        vc.DateType = self.DateType
+        vc.IncidentType = "Emergency"
         navigationController?.pushViewController(vc,
                                                  animated: true)
     }
