@@ -1602,7 +1602,7 @@
                                 <rect key="frame" x="0.0" y="127.5" width="375" height="539.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedCell" rowHeight="142" id="Tyc-rG-4md">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SummaryFeedCell" rowHeight="142" id="Tyc-rG-4md" customClass="PSFeedTableViewCell" customModule="PostSafety" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="142"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tyc-rG-4md" id="nuY-EH-pGA">
@@ -1653,6 +1653,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="1OR-gD-hdy" id="Q07-Af-Jf3"/>
+                                            <outlet property="timeLabel" destination="Cx6-B3-dbU" id="5mC-og-9c3"/>
+                                            <outlet property="titleLabel" destination="E0Z-IV-edc" id="n6N-NN-tjd"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

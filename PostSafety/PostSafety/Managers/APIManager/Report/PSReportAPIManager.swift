@@ -43,10 +43,12 @@ class PSReportAPIManager: PSAPIManagerBase
                        failure:@escaping DefaultAPIFailureClosure,
                        errorPopup: Bool)
     {
-        
+        let EmployeeId = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
         let parameters: [String:Any] =
             [
                 "CompanyId":companyId,
+                "EmployeeId":EmployeeId,
+                "Filter":"All"
             ]
         
         let route: URL = GETURLfor(route: Route.Notifications.rawValue, parameters: parameters )!

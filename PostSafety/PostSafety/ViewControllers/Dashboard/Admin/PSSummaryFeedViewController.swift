@@ -48,16 +48,63 @@ class PSSummaryFeedViewController: UIViewController,UITableViewDataSource,UITabl
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 10
+        return self.summaryFeedArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        var cell:UITableViewCell
+        var cell:PSFeedTableViewCell
+   
+        cell = tableView.dequeueReusableCell(withIdentifier: "SummaryFeedCell", for: indexPath) as! PSFeedTableViewCell
         
-        cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath)
+        let dic = self.summaryFeedArray[indexPath.row] as! NSDictionary
+        cell.titleLabel.text = dic["title"] as? String
+        cell.dateLabel.text = dic["date"] as? String
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+//        let dic = self.summaryFeedArray[indexPath.row] as! NSDictionary
+//        print(Global.USERTYPE?.rawValue ?? "Global None")
+//        print(PSDataManager.sharedInstance.loggedInUser?.userType?.rawValue ?? "PSDataManager None")
+//        print(PSDataManager.sharedInstance.loggedInUser?.userTypeByRole ?? "PSDataManager RoleNone")
+//        if PSDataManager.sharedInstance.loggedInUser?.userTypeByRole == UserType.UserTypeAdmin.rawValue && feedTitle == "Reports"
+//        {
+//            let storyboard = UIStoryboard(name: "User", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "PSReportPostViewController") as! PSReportPostViewController
+//            vc.reportPostDict = self.summaryFeedArray[indexPath.row] as! NSDictionary
+//            navigationController?.pushViewController(vc,
+//                                                     animated: true)
+//        }
+//        else if PSDataManager.sharedInstance.loggedInUser?.userTypeByRole == UserType.UserTypeNormal.rawValue && feedTitle == "Reports"
+//        {
+//            let storyboard = UIStoryboard(name: "User", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "PSReportPostViewController") as! PSReportPostViewController
+//            vc.reportPostDict = self.summaryFeedArray[indexPath.row] as! NSDictionary
+//            navigationController?.pushViewController(vc,
+//                                                     animated: true)
+//        }
+//        else
+//        {
+//            let storyboard = UIStoryboard(name: "User", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedDetailViewController") as! PSFeedDetailViewController
+//            //            vc.feedDetailTitle = self.feedTitleLabel.text!
+//            if dic["title"] is NSNull
+//            {
+//                vc.feedDetailTitle = "None"
+//            }
+//            else
+//            {
+//                vc.feedDetailTitle = (dic["title"] as? String)!
+//            }
+//
+//            vc.feedDict = dic
+//            navigationController?.pushViewController(vc,
+//                                                     animated: true)
+//        }
+        
     }
     
     func getSummaryStatsDetail()
@@ -71,46 +118,18 @@ class PSSummaryFeedViewController: UIViewController,UITableViewDataSource,UITabl
                 
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                     
-//                    //                    let tempArray = dic["array"] as! [Any]
-//                    //
-//                    //                    for checklistDict in tempArray
-//                    //                    {
-//                    //                        if let tempDict = checklistDict as? [String: Int]
-//                    //                        {
-//                    //                            self.summaryStatsArray.append(tempDict)
-//                    //                        }
-//                    //                    }
-//
-//                    var tempDict = dic["yesterday"] as! [String: Int]
-//                    self.summaryStatsArray.append(tempDict)
-//                    tempDict = dic["year"] as! [String: Int]
-//                    self.summaryStatsArray.append(tempDict)
-//                    tempDict = dic["thisMonth"] as! [String: Int]
-//                    self.summaryStatsArray.append(tempDict)
-//
-//
-//                    for i in 0...self.summaryStatsArray.count-1
-//                    {
-//                        var item = NSDictionary()
-//                        item = self.summaryStatsArray[i] as! NSDictionary
-//                        switch i
-//                        {
-//                        case 0:
-//                            print(item["totalReports"] ?? "None0")
-//                            self.yesterdayReportLabel.text = String(item["totalReports"] as! Int)
-//                            break
-//                        case 1:
-//                            print(item["totalReports"] as? String ?? "None1")
-//                            self.monthReportLabel.text = String(item["totalReports"] as! Int)
-//                            break
-//                        default:
-//                            print(item["totalReports"] as? String ?? "NoneDefault")
-//                            self.yearReportLabel.text = String(item["totalReports"] as! Int)
-//                        }
-//                    }
-//
-//                    print(self.summaryStatsArray)
-                    
+                let tempArray = dic["array"] as! [Any]
+
+                for checklistDict in tempArray
+                {
+                    if let tempDict = checklistDict as? [String: Any]
+                    {
+                        self.summaryFeedArray.append(tempDict)
+                    }
+                }
+                self.summaryFeedTableView.reloadData()
+                print(self.summaryFeedArray)
+                
             }, failure:
                 { (error:NSError,statusCode:Int) in
                     
