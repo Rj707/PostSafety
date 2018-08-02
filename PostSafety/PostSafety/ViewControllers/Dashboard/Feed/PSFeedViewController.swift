@@ -30,6 +30,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     @IBOutlet weak var updatesAnnouncementsTableView : UITableView!
     @IBOutlet weak var feedTitleLabel: UILabel!
+    @IBOutlet weak var menuButton:UIButton!
     
     var feedTitle: String = ""
     var route: String = ""
@@ -41,7 +42,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+        self.addMenuAction()
         self.updatesAnnouncementsTableView.tableFooterView = UIView.init()
         
         self.type = FeedType.init(rawValue: 0)
@@ -49,7 +50,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         self.updatesAnnouncementsTableView.delegate = self
         self.feedTitleLabel.text = self.feedTitle
         
-        if Global.USERTYPE?.rawValue == UserType.UserTypeAdmin.rawValue && feedTitle == "Reports"
+        if PSDataManager.sharedInstance.loggedInUser?.userTypeByRole == UserType.UserTypeAdmin.rawValue && feedTitle == "Reports"
         {
             self.filterReportsView.isHidden = false
             self.reportsStackView.isHidden = false
@@ -232,6 +233,19 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
             
         }
 
+    }
+    
+    func addMenuAction()
+    {
+        if self.revealViewController() != nil
+        {
+            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().revealToggle(_:)), for: .touchUpInside)
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+            let menuVC = revealViewController().rearViewController as? MenuViewController
+            
+            menuVC?.dashboardNavViewController = self.navigationController
+        }
     }
 
     /*

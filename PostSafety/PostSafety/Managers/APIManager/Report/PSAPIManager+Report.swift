@@ -87,6 +87,13 @@ extension PSAPIManager
     {
         reportManagerAPI.getSummaryStatisticsReportsWith(companyId: companyId,DateType: DateType,IncidentType: IncidentType, success: success, failure: failure, errorPopup: errorPopup)
     }
+    func listAllEmployeesFor(companyId: String,
+                             success:@escaping DefaultArrayResultAPISuccessClosure,
+                             failure:@escaping DefaultAPIFailureClosure,
+                             errorPopup: Bool)
+    {
+        reportManagerAPI.listAllEmployeesFor(companyId: companyId, success: success, failure: failure, errorPopup: errorPopup)
+    }
     
     
 //    http://postsafety.anadeemus.ca/api/UpdateReport/?ReportId=10000&LocationId=10008&Title=CriticalIncident&Details=whywhere

@@ -2629,7 +2629,7 @@
         <!--Navigation Controller-->
         <scene sceneID="yvN-ja-unm">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="RXw-6a-NLq" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FrontNavCont" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="RXw-6a-NLq" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="det-OS-8yL">

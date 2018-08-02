@@ -11,11 +11,13 @@ import UIKit
 class PSReportPostViewController: UIViewController
 {
     @IBOutlet weak var reportActionsContainer:UIView!
+    @IBOutlet weak var menuButton:UIButton!
     var reportPostDict = NSDictionary.init()
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
+        self.addMenuAction()
         // Do any additional setup after loading the view.
         
         if PSDataManager.sharedInstance.loggedInUser?.userTypeByRole == UserType.UserTypeAdmin.rawValue
@@ -90,6 +92,19 @@ class PSReportPostViewController: UIViewController
         self.present(reportActionVC, animated: true)
         {
             
+        }
+    }
+    
+    func addMenuAction()
+    {
+        if self.revealViewController() != nil
+        {
+            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().revealToggle(_:)), for: .touchUpInside)
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+            let menuVC = revealViewController().rearViewController as? MenuViewController
+            
+            menuVC?.dashboardNavViewController = self.navigationController
         }
     }
 

@@ -10,7 +10,7 @@ import UIKit
 
 class PSFeedDetailViewController: UIViewController
 {
-
+    @IBOutlet weak var menuButton:UIButton!
     @IBOutlet weak var feedDetailTitleLabel: UILabel!
     @IBOutlet weak var feedDetailTextView: UITextView!
     @IBOutlet weak var feedDetailAttachmentButton: UIButton!
@@ -20,6 +20,7 @@ class PSFeedDetailViewController: UIViewController
     {
         super.viewDidLoad()
 
+        self.addMenuAction()
         self.feedDetailTitleLabel.text = self.feedDict["title"] as? String
         self.feedDetailTextView.text = self.feedDict["details"] is NSNull ? "" : self.feedDict["details"] as! String
         self.feedDetailAttachmentButton.setTitle(self.feedDict["pictureUrl"] as? String, for: UIControlState.normal)
@@ -36,6 +37,19 @@ class PSFeedDetailViewController: UIViewController
     @IBAction func backButtonTouched(_ sender: UIButton)
     {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func addMenuAction()
+    {
+        if self.revealViewController() != nil
+        {
+            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().revealToggle(_:)), for: .touchUpInside)
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+            let menuVC = revealViewController().rearViewController as? MenuViewController
+            
+            menuVC?.dashboardNavViewController = self.navigationController
+        }
     }
     
     /*

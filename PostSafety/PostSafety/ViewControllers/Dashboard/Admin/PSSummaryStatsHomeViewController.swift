@@ -10,7 +10,7 @@ import UIKit
 
 class PSSummaryStatsHomeViewController: UIViewController
 {
-
+    @IBOutlet weak var menuButton:UIButton!
     @IBOutlet weak var yesterdayView: UIView!
     @IBOutlet weak var monthView: UIView!
     @IBOutlet weak var yearView: UIView!
@@ -29,6 +29,7 @@ class PSSummaryStatsHomeViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.addMenuAction()
         self.getSummaryStatsCount()
         self.yesterdayView.layer.borderWidth=2
         self.monthView.layer.borderWidth=2
@@ -156,6 +157,19 @@ class PSSummaryStatsHomeViewController: UIViewController
     @IBAction func backButtonTouched(_ sender: UIButton)
     {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func addMenuAction()
+    {
+        if self.revealViewController() != nil
+        {
+            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().revealToggle(_:)), for: .touchUpInside)
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+            let menuVC = revealViewController().rearViewController as? MenuViewController
+            
+            menuVC?.dashboardNavViewController = self.navigationController
+        }
     }
     
     /*

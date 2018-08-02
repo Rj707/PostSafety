@@ -475,7 +475,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kc0-i6-iLV" userLabel="Nav Bar">
+                            <view alpha="0.69999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kc0-i6-iLV" userLabel="Nav Bar">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
                                     <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Udl-CV-guY">
@@ -500,13 +500,10 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="8sT-lG-LNd" secondAttribute="height" id="sXH-bj-gt3"/>
                                         </constraints>
-                                        <state key="normal" image="back"/>
-                                        <connections>
-                                            <action selector="backButtonTouched:" destination="KKp-N5-kbT" eventType="touchUpInside" id="9Xs-Yw-hKi"/>
-                                        </connections>
+                                        <state key="normal" image="menu"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstItem="Udl-CV-guY" firstAttribute="top" secondItem="kc0-i6-iLV" secondAttribute="top" constant="20" id="Ka7-5c-C1R"/>
                                     <constraint firstItem="8sT-lG-LNd" firstAttribute="top" secondItem="kc0-i6-iLV" secondAttribute="top" constant="20" id="Oe2-cj-T2e"/>
@@ -621,6 +618,9 @@
                         <viewLayoutGuide key="safeArea" id="441-Ye-CT9"/>
                     </view>
                     <navigationItem key="navigationItem" id="hC2-p8-9q6"/>
+                    <connections>
+                        <outlet property="menuButton" destination="8sT-lG-LNd" id="mbA-1f-M95"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rFe-jB-Rcy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Yxf-Ue-zbE">
@@ -1143,10 +1143,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="U0G-5J-ujp" secondAttribute="height" id="iZ1-KW-SxE"/>
                                         </constraints>
-                                        <state key="normal" image="back"/>
-                                        <connections>
-                                            <action selector="backButtonTouched:" destination="4xB-8L-oR0" eventType="touchUpInside" id="6uY-Va-8ed"/>
-                                        </connections>
+                                        <state key="normal" image="menu"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1187,6 +1184,7 @@
                         <outlet property="emergencyLabel" destination="wkD-vZ-I3z" id="aSZ-5t-CRG"/>
                         <outlet property="hazardLabel" destination="bfw-rq-Ihb" id="WNw-lV-7NH"/>
                         <outlet property="incidentLabel" destination="fnb-9q-eC7" id="h5b-Aw-zdN"/>
+                        <outlet property="menuButton" destination="U0G-5J-ujp" id="Sbc-fG-2fr"/>
                         <outlet property="nearMissLabel" destination="DFp-hG-EAY" id="5gg-ar-rK8"/>
                         <outlet property="view1" destination="D4t-bW-Qm5" id="96T-zT-7jM"/>
                         <outlet property="view2" destination="60N-Eh-aNJ" id="0kZ-4x-DjL"/>
@@ -1520,10 +1518,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="n3o-Hn-HOX" secondAttribute="height" id="GRx-vt-3aD"/>
                                         </constraints>
-                                        <state key="normal" image="back"/>
-                                        <connections>
-                                            <action selector="backButtonTouched:" destination="Tuo-UE-fAv" eventType="touchUpInside" id="rwa-Vn-fsA"/>
-                                        </connections>
+                                        <state key="normal" image="menu"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1560,6 +1555,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="gj9-tt-AC4"/>
                     <connections>
+                        <outlet property="menuButton" destination="n3o-Hn-HOX" id="kLZ-8C-20b"/>
                         <outlet property="monthReportLabel" destination="uSW-QO-BEY" id="wg8-H0-qFk"/>
                         <outlet property="monthView" destination="P3I-eU-aqR" id="25N-Mp-0M7"/>
                         <outlet property="view1" destination="dnc-z1-IWs" id="8Rq-xt-SVF"/>
@@ -1661,7 +1657,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fID-td-FqQ" userLabel="Nav Bar">
+                            <view alpha="0.69999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fID-td-FqQ" userLabel="Nav Bar">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
                                     <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxf-Ri-Jbg">
@@ -1686,13 +1682,10 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ue1-U8-sZb" secondAttribute="height" id="vBg-Pf-xco"/>
                                         </constraints>
-                                        <state key="normal" image="back"/>
-                                        <connections>
-                                            <action selector="backButtonTouched:" destination="O77-UU-pq1" eventType="touchUpInside" id="hqV-DQ-NQv"/>
-                                        </connections>
+                                        <state key="normal" image="menu"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="ue1-U8-sZb" secondAttribute="bottom" id="7Js-9B-m1w"/>
                                     <constraint firstAttribute="height" constant="64" id="NAJ-94-i9y"/>
@@ -1726,6 +1719,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="LhP-xn-DXr"/>
                     <connections>
+                        <outlet property="menuButton" destination="ue1-U8-sZb" id="g6h-nM-Rsn"/>
                         <outlet property="summaryFeedTableView" destination="2cK-zM-Iax" id="WvE-CF-Oe8"/>
                         <outlet property="summaryFeedTitleLabel" destination="Kyz-6e-YnA" id="jUF-z7-SzB"/>
                     </connections>
@@ -1784,7 +1778,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F8o-fP-GwI">
                                 <rect key="frame" x="16" y="94" width="343" height="509"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9aS-55-vdt">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9aS-55-vdt" userLabel="Report Type">
                                         <rect key="frame" x="16" y="16" width="311" height="72"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xz8-t1-vnF">
@@ -1839,7 +1833,7 @@
                                             <constraint firstAttribute="height" constant="72" id="oQX-UG-gmd"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F5d-di-Ovr">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F5d-di-Ovr" userLabel="Report Category">
                                         <rect key="frame" x="16" y="104" width="311" height="72"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M59-Kg-lbj">
@@ -1894,7 +1888,7 @@
                                             <constraint firstItem="M59-Kg-lbj" firstAttribute="top" secondItem="b1i-9j-VRn" secondAttribute="bottom" constant="8" id="tFA-GK-6Ew"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78j-py-NED">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78j-py-NED" userLabel="Report Sender">
                                         <rect key="frame" x="16" y="192" width="311" height="72"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rtq-xa-3qe">
@@ -1949,13 +1943,13 @@
                                             <constraint firstItem="Ucm-ey-rps" firstAttribute="leading" secondItem="78j-py-NED" secondAttribute="leading" constant="8" id="vOf-oE-yXT"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kcc-UA-liD">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kcc-UA-liD" userLabel="Start Date">
                                         <rect key="frame" x="16" y="280" width="311" height="72"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oGa-OV-TCY">
                                                 <rect key="frame" x="8" y="37" width="287" height="44"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iTQ-4b-eAi" customClass="IQDropDownTextField">
+                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iTQ-4b-eAi">
                                                         <rect key="frame" x="8" y="8" width="247" height="28"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="textColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1995,6 +1989,7 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="bpx-28-h9X" firstAttribute="leading" secondItem="kcc-UA-liD" secondAttribute="leading" constant="8" id="EQT-nt-Ttd"/>
                                             <constraint firstItem="oGa-OV-TCY" firstAttribute="leading" secondItem="bpx-28-h9X" secondAttribute="leading" id="NbS-yi-PCd"/>
@@ -2003,14 +1998,17 @@
                                             <constraint firstAttribute="trailing" secondItem="oGa-OV-TCY" secondAttribute="trailing" constant="16" id="pno-Cr-MVu"/>
                                             <constraint firstAttribute="height" constant="72" id="wEQ-vE-CRf"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="iib-bz-kFO" appends="YES" id="0jf-j3-Zbb"/>
+                                        </connections>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jln-2a-9Fn">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jln-2a-9Fn" userLabel="End Date">
                                         <rect key="frame" x="16" y="368" width="311" height="72"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MxI-Ai-Yki">
                                                 <rect key="frame" x="8" y="37" width="287" height="44"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="imO-lI-tMv" customClass="IQDropDownTextField">
+                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="imO-lI-tMv">
                                                         <rect key="frame" x="8" y="8" width="247" height="28"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="textColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2050,6 +2048,7 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="72" id="3eA-kg-bDH"/>
                                             <constraint firstAttribute="trailing" secondItem="MxI-Ai-Yki" secondAttribute="trailing" constant="16" id="D6u-b1-44S"/>
@@ -2058,6 +2057,9 @@
                                             <constraint firstItem="MxI-Ai-Yki" firstAttribute="top" secondItem="N53-NU-Oux" secondAttribute="bottom" constant="8" id="kIN-ZZ-vaj"/>
                                             <constraint firstItem="N53-NU-Oux" firstAttribute="leading" secondItem="jln-2a-9Fn" secondAttribute="leading" constant="8" id="xZt-Yt-zeQ"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="f5w-28-QEj" appends="YES" id="m4f-se-A3V"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -2129,9 +2131,9 @@
                     <navigationItem key="navigationItem" id="7jE-hh-0gv"/>
                     <connections>
                         <outlet property="reportCategoryDDTextField" destination="E95-Od-As9" id="eXH-DW-NeZ"/>
-                        <outlet property="reportEndDateDDTextField" destination="imO-lI-tMv" id="Ozj-YH-3WI"/>
+                        <outlet property="reportEndDateDDTextField" destination="imO-lI-tMv" id="NgQ-HF-iWe"/>
                         <outlet property="reportSenderDDTextField" destination="jVP-XR-CND" id="6gD-0h-5Hj"/>
-                        <outlet property="reportStartDateDDTextField" destination="iTQ-4b-eAi" id="ZBj-pb-zag"/>
+                        <outlet property="reportStartDateDDTextField" destination="iTQ-4b-eAi" id="hek-OY-gQd"/>
                         <outlet property="reportTypeDDTextField" destination="wRN-kO-yOe" id="Dhi-dN-gci"/>
                         <outlet property="view1" destination="Xz8-t1-vnF" id="9W7-gT-CHI"/>
                         <outlet property="view2" destination="M59-Kg-lbj" id="jwQ-W1-awM"/>
@@ -2141,15 +2143,25 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctp-Nh-Qpt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="f5w-28-QEj">
+                    <connections>
+                        <action selector="selectEndDate:" destination="FEB-1j-IDs" id="9tq-M4-Hwi"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="iib-bz-kFO">
+                    <connections>
+                        <action selector="selectStartDate:" destination="FEB-1j-IDs" id="bfO-OV-6lf"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="96765.600000000006" y="349.47526236881561"/>
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="40" height="40"/>
         <image name="bg" width="360" height="480"/>
         <image name="cross" width="43" height="43"/>
         <image name="drop-down-arrow" width="40" height="40"/>
+        <image name="menu" width="29" height="29"/>
         <image name="unselected" width="43" height="43"/>
     </resources>
 </document>

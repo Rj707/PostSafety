@@ -86,6 +86,16 @@ class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             revealViewController().revealToggle(animated: true)
             
         }
+        if indexPath.row==1
+        {
+            let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "FrontNavCont") as! UINavigationController
+            
+            // homeNavViewController is basically the Nav Controller of the rear VC of revealViewController, which is Dashboadr VC
+            revealViewController().frontViewController = vc
+            revealViewController().revealToggle(animated: true)
+            
+        }
         
         if indexPath.row==3
         {

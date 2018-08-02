@@ -16,6 +16,8 @@ class PSReceiveHomeViewController: UIViewController
     @IBOutlet weak var view3: UIView!
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view1: UIView!
+    @IBOutlet weak var menuButton: UIButton!
+    
     
     @IBOutlet weak var summaryStatisticsStackView: UIStackView!
     
@@ -24,6 +26,8 @@ class PSReceiveHomeViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.addMenuAction()
         
         if PSDataManager.sharedInstance.loggedInUser?.employeeType == "Reviewers"
         {
@@ -95,7 +99,21 @@ class PSReceiveHomeViewController: UIViewController
         self.navigationController?.popViewController(animated: true)
     }
     
+    func addMenuAction()
+    {
+        if self.revealViewController() != nil
+        {
+            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().revealToggle(_:)), for: .touchUpInside)
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+            let menuVC = revealViewController().rearViewController as? MenuViewController
+            
+            menuVC?.dashboardNavViewController = self.navigationController
+        }
+    }
+    
 
+    
     /*
     // MARK: - Navigation
 

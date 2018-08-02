@@ -10,7 +10,7 @@ import UIKit
 
 class PSSummaryFeedViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 {
-
+    @IBOutlet weak var menuButton:UIButton!
     @IBOutlet weak var summaryFeedTableView : UITableView!
     @IBOutlet weak var summaryFeedTitleLabel : UILabel!
     
@@ -23,7 +23,7 @@ class PSSummaryFeedViewController: UIViewController,UITableViewDataSource,UITabl
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+        self.addMenuAction()
         self.summaryFeedTableView.dataSource = self
         self.summaryFeedTableView.delegate = self
         summaryFeedTitleLabel.text =  summaryFeedTitle
@@ -144,6 +144,19 @@ class PSSummaryFeedViewController: UIViewController,UITableViewDataSource,UITabl
                     }
                     
             }, errorPopup: true)
+        }
+    }
+    
+    func addMenuAction()
+    {
+        if self.revealViewController() != nil
+        {
+            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().revealToggle(_:)), for: .touchUpInside)
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+            let menuVC = revealViewController().rearViewController as? MenuViewController
+            
+            menuVC?.dashboardNavViewController = self.navigationController
         }
     }
     

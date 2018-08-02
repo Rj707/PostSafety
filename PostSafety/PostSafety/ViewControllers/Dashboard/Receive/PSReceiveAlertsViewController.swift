@@ -14,6 +14,8 @@ class PSReceiveAlertsViewController: UIViewController
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view1: UIView!
     
+    @IBOutlet weak var menuButton:UIButton!
+    
     var alertsArray = [Any]()
     var companyId = 0
     override func viewDidLoad()
@@ -27,6 +29,7 @@ class PSReceiveAlertsViewController: UIViewController
         self.view2.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view3.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         
+        self.addMenuAction()
         
         if CEReachabilityManager.isReachable()
         {
@@ -109,6 +112,18 @@ class PSReceiveAlertsViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
+    func addMenuAction()
+    {
+        if self.revealViewController() != nil
+        {
+            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().revealToggle(_:)), for: .touchUpInside)
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+            let menuVC = revealViewController().rearViewController as? MenuViewController
+            
+            menuVC?.dashboardNavViewController = self.navigationController
+        }
+    }
 
     /*
     // MARK: - Navigation

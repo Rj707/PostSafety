@@ -8,8 +8,10 @@
 
 import UIKit
 
-class PSCategorySelectViewController: UIViewController {
+class PSCategorySelectViewController: UIViewController
+{
 
+    @IBOutlet weak var menuButton:UIButton!
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view3: UIView!
@@ -29,7 +31,7 @@ class PSCategorySelectViewController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+        self.addMenuAction()
         self.hazardLabel.text =  String(format: "%@%@%@%@", "Hazards ","(", String(summaryStatisticsDict["numberOfHazards"] as! Int),")")
         self.nearMissLabel.text = String(format: "%@%@%@%@", "NearMisses  ","(", String(summaryStatisticsDict["numberOfNearMisses"] as! Int),")")
         self.incidentLabel.text = String(format: "%@%@%@%@", "Incidents ","(", String(summaryStatisticsDict["numberOfIncidents"] as! Int),")")
@@ -105,6 +107,18 @@ class PSCategorySelectViewController: UIViewController {
                                                  animated: true)
     }
     
+    func addMenuAction()
+    {
+        if self.revealViewController() != nil
+        {
+            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().revealToggle(_:)), for: .touchUpInside)
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+            let menuVC = revealViewController().rearViewController as? MenuViewController
+            
+            menuVC?.dashboardNavViewController = self.navigationController
+        }
+    }
 
     /*
     // MARK: - Navigation
