@@ -10,7 +10,8 @@ import UIKit
 
 class PSSortReportsDialogViewController: UIViewController
 {
-
+    public var delegate:PSSortReportsDialogViewControllerDelegate!
+    
     @IBOutlet weak var view5: UIView!
     @IBOutlet weak var view4: UIView!
     @IBOutlet weak var view3: UIView!
@@ -55,7 +56,8 @@ class PSSortReportsDialogViewController: UIViewController
         self.view4.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -73,6 +75,14 @@ class PSSortReportsDialogViewController: UIViewController
     
     @IBAction func applyFiltersButtonTouched(_ sender: UIButton)
     {
+        var filterDictionary = NSDictionary.init()
+        
+        filterDictionary.setValue(self.reportTypeDDTextField.text, forKey: "ReportType")
+        filterDictionary.setValue(self.reportSenderDDTextField.text, forKey: "ReportedBy")
+        filterDictionary.setValue(self.reportStartDateDDTextField.text, forKey: "startdate")
+        filterDictionary.setValue(self.reportEndDateDDTextField.text, forKey: "enddate")
+        
+        self.delegate.applyFilters(filterData: filterDictionary)
         self.dismiss(animated: true)
         {
         }
@@ -182,6 +192,11 @@ class PSSortReportsDialogViewController: UIViewController
             }, errorPopup: true)
         }
     }
+    
+    func getEmployeeIDForEmployeeName(sender: String)-> String
+    {
+        return ""
+    }
 
     /*
     // MARK: - Navigation
@@ -193,4 +208,9 @@ class PSSortReportsDialogViewController: UIViewController
     }
     */
 
+}
+
+protocol PSSortReportsDialogViewControllerDelegate
+{
+    func applyFilters(filterData: NSDictionary)
 }

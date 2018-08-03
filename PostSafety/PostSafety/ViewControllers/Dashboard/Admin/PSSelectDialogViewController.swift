@@ -15,30 +15,75 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
     @IBOutlet weak var selectionButton:UIButton!
     @IBOutlet weak var searchBar:UISearchBar!
     @IBOutlet weak var selectionLabel:UILabel!
-    var selectDialogArray = ["a", "b", "c","d", "e", "f","g", "h", "i"]
-    var selectedPeopleArray = ["", "", "","", "", "","", "", ""]
-    
+    var reportSenderArray = [String]()
+    var reportSenderDetailArray = [Any]()
+    var selectedPeopleArray = [String]()
+    var companyId = 0
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
         self.selectDialogTableView.dataSource = self
         self.selectDialogTableView.delegate = self
-        
-        
+        self.getAllEmployees()
         searchBar.backgroundColor = UIColor.clear
         searchBar.backgroundImage = UIImage()
         searchBar.isTranslucent = true
-//        searchBar.layer.borderWidth = 2.0
-//        searchBar.layer.borderColor = UIColor.brown.cgColor
-//        searchBar.layer.cornerRadius = 15.0
-//        searchBar.barTintColor = UIColor(red: 255 / 255.0, green: 246 / 255.0, blue: 241 / 255.0, alpha: 1.0)
-//        searchBar.backgroundColor = UIColor.clear
+
     }
 
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getAllEmployees()
+    {
+        if CEReachabilityManager.isReachable()
+        {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Senders")
+            companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
+            PSAPIManager.sharedInstance.listAllEmployeesFor(companyId: String(companyId), success:
+                { (dic) in
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    let tempArray = dic["array"] as! [Any]
+                    
+                    for checklistDict in tempArray
+                    {
+                        if let tempDict = checklistDict as? [String: Any]
+                        {
+                            self.reportSenderDetailArray.append(tempDict)
+                        }
+                    }
+                    
+                    for i in 0...self.reportSenderDetailArray.count-1
+                    {
+                        var item = NSDictionary()
+                        item = self.reportSenderDetailArray[i] as! NSDictionary
+                        let name = item["employeeFullName"]
+                        self.reportSenderArray.append(name as! String)
+                        self.selectedPeopleArray.append("")
+                    }
+                    
+                    self.selectDialogTableView.reloadData()
+                    print(self.reportSenderDetailArray)
+                    
+            }, failure:
+                { (error:NSError,statusCode:Int) in
+                    
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    if(statusCode==404)
+                    {
+                        PSUserInterfaceManager.showAlert(title: "Senders", message: ApiResultFailureMessage.InvalidEmailPassword)
+                    }
+                    else
+                    {
+                        
+                    }
+                    
+            }, errorPopup: true)
+        }
     }
     
     // MARK: - IBActions
@@ -49,14 +94,15 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
 //        if selectionButton.titleLabel?.text == "  Select All"
         {
             self.selectionLabel.text = "Unselect All"
-            selectedPeopleArray = ["a", "b", "c","d", "e", "f","g", "h", "i"]
+            selectedPeopleArray = self.reportSenderArray
             self.selectionButton.setImage(UIImage.init(named: "selected"), for: UIControlState.normal)
 //            self.selectionButton.setTitle("  Unselect All", for: UIControlState.normal)
         }
         else
         {
             self.selectionLabel.text = "Select All"
-            selectedPeopleArray = ["", "", "","", "", "","", "", ""]
+            selectedPeopleArray = [String]()
+            self.configureSelectPeopleArray()
             self.selectionButton.setImage(UIImage.init(named: "unselected"), for: UIControlState.normal)
 //            self.selectionButton.setTitle("  Select All", for: UIControlState.normal)
         }
@@ -75,16 +121,16 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return selectDialogArray.count
+        return reportSenderArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         var cell:PSSelectDialogTableViewCell
         cell = tableView.dequeueReusableCell(withIdentifier: "SelectDialogCell", for: indexPath) as! PSSelectDialogTableViewCell
-        cell.selectionNameLabel?.text = selectDialogArray[indexPath.row]
+        cell.selectionNameLabel?.text = reportSenderArray[indexPath.row]
         
-        if selectDialogArray[indexPath.row] == selectedPeopleArray[indexPath.row]
+        if reportSenderArray[indexPath.row] == selectedPeopleArray[indexPath.row]
         {
             cell.selectionButton.setImage(UIImage.init(named: "selected"), for: UIControlState.normal)
         }
@@ -98,15 +144,23 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        if selectedPeopleArray.contains(selectDialogArray[indexPath.row])
+        if selectedPeopleArray.contains(reportSenderArray[indexPath.row])
         {
             selectedPeopleArray[indexPath.row] = ""
         }
         else
         {
-            selectedPeopleArray[indexPath.row] = selectDialogArray[indexPath.row]
+            selectedPeopleArray[indexPath.row] = reportSenderArray[indexPath.row]
         }
         tableView.reloadData()
+    }
+    
+    func configureSelectPeopleArray()
+    {
+        for _ in 0...self.reportSenderDetailArray.count-1
+        {
+            self.selectedPeopleArray.append("")
+        }
     }
     
     /*

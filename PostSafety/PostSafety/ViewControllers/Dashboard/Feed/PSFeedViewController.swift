@@ -14,7 +14,7 @@ enum FeedType :Int
 
 import UIKit
 
-class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
+class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,PSSortReportsDialogViewControllerDelegate
 
 {
     
@@ -84,20 +84,20 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: String(format: "%@%@", "Fetching ", self.feedTitle))
             companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
             PSAPIManager.sharedInstance.getInfoFor(companyId: String(companyId), route: route ,success:
-                { (dic) in
-                    PSUserInterfaceManager.sharedInstance.hideLoader()
-                    let tempArray = dic["array"] as! [Any]
-                    
-                    for checklistDict in tempArray
+            { (dic) in
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                let tempArray = dic["array"] as! [Any]
+                
+                for checklistDict in tempArray
+                {
+                    if let tempDict = checklistDict as? [String: Any]
                     {
-                        if let tempDict = checklistDict as? [String: Any]
-                        {
-                            self.feedArray.append(tempDict)
-                        }
+                        self.feedArray.append(tempDict)
                     }
-                    self.updatesAnnouncementsTableView.reloadData()
-                    //                    self.configureReportTypes()
-                    print(self.feedArray)
+                }
+                self.updatesAnnouncementsTableView.reloadData()
+                //                    self.configureReportTypes()
+                print(self.feedArray)
                     
             }, failure:
                 { (error:NSError,statusCode:Int) in
@@ -156,6 +156,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let dic = self.feedArray[indexPath.row] as! NSDictionary
+        PSDataManager.sharedInstance.reportId = dic["reportId"] as! Int
         print(Global.USERTYPE?.rawValue ?? "Global None")
         print(PSDataManager.sharedInstance.loggedInUser?.userType?.rawValue ?? "PSDataManager None")
         print(PSDataManager.sharedInstance.loggedInUser?.userTypeByRole ?? "PSDataManager RoleNone")
@@ -226,6 +227,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         termsOfUseVC = storyBoard.instantiateViewController(withIdentifier: "PSSortReportsDialogViewController") as! PSSortReportsDialogViewController
         termsOfUseVC.view.backgroundColor = UIColor.clear
         termsOfUseVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        termsOfUseVC.delegate = self
         //        self.view.backgroundColor = UIColor.clear
         //        self.modalPresentationStyle = UIModalPresentationStyle.currentContext
         self.present(termsOfUseVC, animated: true)
@@ -246,6 +248,13 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
             
             menuVC?.dashboardNavViewController = self.navigationController
         }
+    }
+    
+    //MARK: - PSSortReportsDialogViewControllerDelegate
+    
+    func applyFilters(filterData: NSDictionary)
+    {
+        
     }
 
     /*

@@ -6,6 +6,7 @@ class PSDataManager: NSObject
     var realm: Realm!
     var report: PSReport?
     var loggedInUser: PSUser?
+    var reportId = 0
     {
 //        set(user)
 //        {
@@ -38,7 +39,7 @@ class PSDataManager: NSObject
 //        loggedInUser = Constants.USER_DEFAULTS.value(forKey: "User") as! PSUser?
         
         self.report = PSReport.init()
-        
+        self.reportId = 0
         if(!(realm != nil))
         {
             realm = try! Realm()

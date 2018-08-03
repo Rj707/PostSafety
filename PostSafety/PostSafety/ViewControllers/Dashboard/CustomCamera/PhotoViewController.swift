@@ -36,8 +36,10 @@ class PhotoViewController: UIViewController
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	override func viewDidLoad() {
+	override func viewDidLoad()
+    {
 		super.viewDidLoad()
+        
 		self.view.backgroundColor = UIColor.gray
 		let backgroundImageView = UIImageView(frame: view.frame)
 		backgroundImageView.contentMode = UIViewContentMode.scaleAspectFit

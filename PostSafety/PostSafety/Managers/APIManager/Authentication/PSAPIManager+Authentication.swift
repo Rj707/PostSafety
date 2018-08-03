@@ -35,4 +35,11 @@ extension PSAPIManager
     {
         authenticationManagerAPI.UpdateEmployees(employeeID: employeeID,oldPassword: oldPassword,NewPassword: NewPassword, success: success, failure: failure,errorPopup: errorPopup)
     }
+    
+    func closeReportWith(ReportId: String,
+                         success:@escaping DefaultArrayResultAPISuccessClosure,
+                         failure:@escaping DefaultAPIFailureClosure, errorPopup: Bool)
+    {
+        authenticationManagerAPI.closeReportWith(ReportId: ReportId, success: success, failure: failure, errorPopup: true)
+    }
 }

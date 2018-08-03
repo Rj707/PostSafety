@@ -53,5 +53,20 @@ class PSAuthenticationAPIManager: PSAPIManagerBase
         
         self.postRequestWith(route: route, parameters: parameters, success: success, failure: failure, errorPopup: errorPopup)
     }
+    
+    func closeReportWith(ReportId: String,
+                      success:@escaping DefaultArrayResultAPISuccessClosure,
+                      failure:@escaping DefaultAPIFailureClosure, errorPopup: Bool)
+    {
+        
+        let parameters: [String] =
+            [
+                ReportId,
+            ]
+        
+        let route: URL = GETURLforPS(route: Route.CloseReport.rawValue, parameters: parameters )!
+        
+        self.getRequestWith(route: route, parameters: parameters, success: success, failure: failure, errorPopup: errorPopup)
+    }
 
 }

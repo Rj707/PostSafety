@@ -8,15 +8,18 @@
 
 import UIKit
 
-class PSCloseReportViewController: UIViewController {
-
-    override func viewDidLoad() {
+class PSCloseReportViewController: UIViewController
+{
+    var ReportId = 0
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -28,6 +31,65 @@ class PSCloseReportViewController: UIViewController {
     {
         self.dismiss(animated: true)
         {
+            
+        }
+    }
+    
+    @IBAction func closeReportButtonTouched(_ sender: UIButton)
+    {
+        self.closeReport()
+    }
+    
+    func closeReport ()
+    {
+        if CEReachabilityManager.isReachable()
+        {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Closing Report")
+            ReportId = (PSDataManager.sharedInstance.reportId)
+            PSAPIManager.sharedInstance.closeReportWith(ReportId:String(ReportId), success:
+            { (dic) in
+                
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                
+                if dic["SUCCESS"] as! String == "Done"
+                {
+                    
+                    let alertController = UIAlertController(title: "Closing Report", message: "You have successfully closed the report", preferredStyle: .alert)
+                    let alertActionCancel = UIAlertAction(title: "OK", style: .cancel)
+                    { (action) in
+                        
+                        self.presentingViewController?.presentingViewController?.dismiss(animated: true)
+                        {
+                            
+                        }
+                    }
+                    alertController.addAction(alertActionCancel)
+                    self.present(alertController, animated: true, completion: nil)
+                    
+                    
+                }
+
+                
+                
+            } , failure:
+                
+                {
+                    (error:NSError,statusCode:Int) in
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    if(statusCode==404)
+                    {
+                        PSUserInterfaceManager.showAlert(title: "Closing Report", message: ApiResultFailureMessage.InvalidEmailPassword)
+                    }
+                    else
+                    {
+                        
+                    }
+                    
+            }, errorPopup: true)
+        }
+        else
+        {
+            PSUserInterfaceManager.showAlert(title: "Closing Report", message: ApiErrorMessage.NoNetwork)
         }
     }
     

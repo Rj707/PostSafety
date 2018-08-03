@@ -128,7 +128,7 @@ class PSReportAPIManager: PSAPIManagerBase
         let parameters: [String:Any] =
             [
                 "CompanyId":companyId,
-                ]
+            ]
         
         let route: URL = GETURLfor(route: Route.LocationsList.rawValue, parameters: parameters )!
         
@@ -183,6 +183,29 @@ class PSReportAPIManager: PSAPIManagerBase
             ]
         
         let route: URL = GETURLfor(route: Route.ListEmployees.rawValue, parameters: parameters )!
+        
+        self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
+    }
+    
+    func getReportsFor(CompanyId: String,
+                       ReportType: String,
+                       ReportedBy: String,
+                       startdate: String,
+                       enddate: String,
+                       success:@escaping DefaultArrayResultAPISuccessClosure,
+                       failure:@escaping DefaultAPIFailureClosure,
+                       errorPopup: Bool)
+    {
+        let parameters: [String:Any] =
+            [
+                "CompanyId":CompanyId,
+                "ReportType":ReportType,
+                "ReportedBy":ReportedBy,
+                "startdate":startdate,
+                "enddate":enddate,
+            ]
+        
+        let route: URL = GETURLfor(route: Route.Reports.rawValue, parameters: parameters )!
         
         self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
     }

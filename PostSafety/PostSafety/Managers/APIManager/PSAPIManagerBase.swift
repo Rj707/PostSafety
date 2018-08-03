@@ -194,6 +194,15 @@ class PSAPIManagerBase: NSObject
                         ]
                     success(parameters as Dictionary<String, AnyObject>)
                 }
+                else if let jsonResponse = response.result.value as? String
+                {
+                    // added this check for close report API
+                    let parameters: [String:Any] =
+                        [
+                            "SUCCESS":jsonResponse,
+                        ]
+                    success(parameters as Dictionary<String, AnyObject>)
+                }
                 else
                 {
                     var finalArray:[Any] = []
