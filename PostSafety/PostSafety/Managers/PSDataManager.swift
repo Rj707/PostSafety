@@ -5,8 +5,8 @@ class PSDataManager: NSObject
     static let sharedInstance = PSDataManager()
     var realm: Realm!
     var report: PSReport?
-    var loggedInUser: PSUser?
     var reportId = 0
+    var loggedInUser: PSUser?
     {
 //        set(user)
 //        {

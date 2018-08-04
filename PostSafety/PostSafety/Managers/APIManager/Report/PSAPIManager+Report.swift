@@ -13,7 +13,7 @@ extension PSAPIManager
         reportManagerAPI.createReportForIncidentTypeID(typeID: typeID, EmployeeID:EmployeeID , success: success, failure: failure,errorPopup: errorPopup)
     }
     
-    func getReportsFor(companyId: String,
+    func getReportsForOld(companyId: String,
                                        success:@escaping DefaultArrayResultAPISuccessClosure,
                                        failure:@escaping DefaultAPIFailureClosure,
                                        errorPopup: Bool)

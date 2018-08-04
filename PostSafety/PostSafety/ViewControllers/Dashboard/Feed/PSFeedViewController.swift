@@ -206,16 +206,15 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     @IBAction func announcementsViewTouched(_ sender: UITapGestureRecognizer)
     {
-//        self.announcementView.backgroundColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0)
-//        
-//        self.type = FeedType(rawValue: 0)
+//      self.announcementView.backgroundColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0)
+//      self.type = FeedType(rawValue: 0)
         self.updatesAnnouncementsTableView.reloadData()
     }
     
     @IBAction func sharedReportsViewTouched(_ sender: UITapGestureRecognizer)
     {
-//    self.sharedreportView.backgroundColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0)
-//        self.type = FeedType(rawValue: 1)
+//      self.sharedreportView.backgroundColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0)
+//      self.type = FeedType(rawValue: 1)
         self.updatesAnnouncementsTableView.reloadData()
     }
     
@@ -252,9 +251,46 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     //MARK: - PSSortReportsDialogViewControllerDelegate
     
-    func applyFilters(filterData: NSDictionary)
+    func applyFilters(filterData: NSMutableDictionary)
     {
-        
+        if CEReachabilityManager.isReachable()
+        {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: String(format: "%@%@", "Fetching ", self.feedTitle))
+            companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
+            
+            PSAPIManager.sharedInstance.getReportsFor(CompanyId: String(companyId), ReportType: filterData.value(forKey: "ReportType") as! String, ReportedBy: filterData.value(forKey: "ReportedBy") as! String, startdate: filterData.value(forKey: "startdate") as! String, enddate: filterData.value(forKey: "enddate") as! String, success:
+            { (dic) in
+                
+                self.feedArray = [Any]()
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                let tempArray = dic["array"] as! [Any]
+                
+                for checklistDict in tempArray
+                {
+                    if let tempDict = checklistDict as? [String: Any]
+                    {
+                        self.feedArray.append(tempDict)
+                    }
+                }
+                self.updatesAnnouncementsTableView.reloadData()
+                //                    self.configureReportTypes()
+                print(self.feedArray)
+                
+            }, failure:
+            { (error, statusCode) in
+                
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                if(statusCode==404)
+                {
+                    PSUserInterfaceManager.showAlert(title: "Fetching", message: ApiResultFailureMessage.InvalidEmailPassword)
+                }
+                else
+                {
+                    
+                }
+                
+            }, errorPopup: true)
+        }
     }
 
     /*
