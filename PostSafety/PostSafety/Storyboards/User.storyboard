@@ -586,6 +586,11 @@
                                                     <constraint firstItem="tq3-uZ-vpT" firstAttribute="leading" secondItem="IWI-QZ-Qvu" secondAttribute="trailing" constant="16" id="gQ4-8K-iPi"/>
                                                     <constraint firstItem="IWI-QZ-Qvu" firstAttribute="centerY" secondItem="riV-m6-gQB" secondAttribute="centerY" id="kqh-4c-ryg"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.corenrRadius">
+                                                        <integer key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J1B-iH-JYG">
                                                 <rect key="frame" x="104.5" y="-12" width="165" height="68"/>

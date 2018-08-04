@@ -14,7 +14,9 @@ enum FeedType :Int
 
 import UIKit
 
-class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,PSSortReportsDialogViewControllerDelegate
+
+
+class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,PSSortReportsDialogViewControllerDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate
 
 {
     
@@ -95,6 +97,8 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
                         self.feedArray.append(tempDict)
                     }
                 }
+                self.updatesAnnouncementsTableView.emptyDataSetSource = self
+                self.updatesAnnouncementsTableView.emptyDataSetDelegate = self
                 self.updatesAnnouncementsTableView.reloadData()
                 //                    self.configureReportTypes()
                 print(self.feedArray)
@@ -291,6 +295,22 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
                 
             }, errorPopup: true)
         }
+    }
+    
+    //MARK: - DZNEmptyDataSetSource
+    
+    func image(forEmptyDataSet scrollView: UIScrollView?) -> UIImage?
+    {
+        return UIImage(named: "no_data")
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView?) -> NSAttributedString?
+    {
+        let myString = "No Data found!"
+//        let attributes = [NSFontAttributeName : UIFont.systemFont(ofSize: 19.0),NSForegroundColorAttributeName : UIColor(red: 255, green: 75, blue: 1, alpha: 1.0) ]
+        let attributes = [NSFontAttributeName : UIFont.systemFont(ofSize: 19.0),NSForegroundColorAttributeName : UIColor.red ]
+        let myAttrString = NSAttributedString(string: myString, attributes: attributes)
+        return myAttrString
     }
 
     /*
