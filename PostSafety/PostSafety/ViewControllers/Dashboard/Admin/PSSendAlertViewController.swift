@@ -8,9 +8,15 @@
 
 import UIKit
 
-class PSSendAlertViewController: UIViewController
+class PSSendAlertViewController: UIViewController,PSSelectDialogViewControllerDelegate
 {
+    
+    @IBOutlet weak var toTextField:UITextField!
     @IBOutlet weak var menuButton:UIButton!
+    var reportSenderArray = [NSMutableDictionary]()
+    var EmployeeID = 0
+    var ReportID = 0
+    
     
     override func viewDidLoad()
     {
@@ -32,6 +38,11 @@ class PSSendAlertViewController: UIViewController
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func sendButtonTouched(_ sender: UIButton)
+    {
+        self.sendReport()
+    }
+    
     @IBAction func toTextFieldTouched(_ sender: UITapGestureRecognizer)
     {
         self.definesPresentationContext = true;
@@ -39,6 +50,7 @@ class PSSendAlertViewController: UIViewController
         selectDialogVC = self.storyboard?.instantiateViewController(withIdentifier: "PSSelectDialogViewController") as! PSSelectDialogViewController
         selectDialogVC.view.backgroundColor = UIColor.clear
         selectDialogVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        selectDialogVC.delegate = self
         //        self.view.backgroundColor = UIColor.clear
         //        self.modalPresentationStyle = UIModalPresentationStyle.currentContext
         self.present(selectDialogVC, animated: true)
@@ -58,6 +70,79 @@ class PSSendAlertViewController: UIViewController
             
             menuVC?.dashboardNavViewController = self.navigationController
         }
+    }
+    
+    func sendReport()
+    {
+        if CEReachabilityManager.isReachable()
+        {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Sending Reports")
+//            EmployeeID = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
+            ReportID = (PSDataManager.sharedInstance.reportId)
+            PSAPIManager.sharedInstance.sendReportsWith(ReportID: String(ReportID), EmployeeID: String(EmployeeID), success:
+            { (dic) in
+                
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                
+                if dic["SUCCESS"] as! String == "Done"
+                {
+                    
+                }
+                
+                let alertController = UIAlertController(title: "Sending Report", message: "You have successfully Sent the report", preferredStyle: .alert)
+                let alertActionCancel = UIAlertAction(title: "OK", style: .cancel)
+                { (action) in
+                    
+                    self.navigationController?.popViewController(animated: true)
+                    self.navigationController?.presentingViewController?.dismiss(animated: true)
+                    {
+                        
+                    }
+                }
+                alertController.addAction(alertActionCancel)
+                self.present(alertController, animated: true, completion: nil)
+                    
+            },
+                                                            failure:
+            { (
+                error:NSError,statusCode:Int) in
+                
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                if(statusCode==404)
+                {
+                    PSUserInterfaceManager.showAlert(title: "Sending Reports", message: ApiResultFailureMessage.InvalidEmailPassword)
+                }
+                else
+                {
+                    
+                }
+                    
+            }, errorPopup: true)
+        }
+    }
+    
+    //MARK: - PSSelectDialogViewControllerDelegate
+    
+    func reportSendersSelected(senders: [NSMutableDictionary])
+    {
+//        reporterDict.setValue(employeeName, forKey: "employeeFullName")
+//        reporterDict.setValue(employeeId, forKey: "employeeId")
+        
+        self.reportSenderArray = senders
+        self.configureSenders()
+    }
+    
+    func configureSenders()
+    {
+        for i in 0...self.reportSenderArray.count-1
+        {
+            var reporterDict = NSMutableDictionary.init()
+            reporterDict = reportSenderArray[i]
+            
+            toTextField.text = toTextField.text! + String(format: "%@%@", reporterDict["employeeFullName"] as! String, ",")
+            EmployeeID = reporterDict["employeeId"] as! Int
+        }
+        
     }
     
     /*

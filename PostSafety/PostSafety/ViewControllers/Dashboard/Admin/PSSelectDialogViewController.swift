@@ -10,15 +10,19 @@ import UIKit
 
 class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 {
+    public var delegate:PSSelectDialogViewControllerDelegate!
     
     @IBOutlet weak var selectDialogTableView:UITableView!
     @IBOutlet weak var selectionButton:UIButton!
     @IBOutlet weak var searchBar:UISearchBar!
     @IBOutlet weak var selectionLabel:UILabel!
+    
+    var reportSenderArrayNew = [NSMutableDictionary]()
     var reportSenderArray = [String]()
     var reportSenderDetailArray = [Any]()
     var selectedPeopleArray = [String]()
     var companyId = 0
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -61,8 +65,8 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
                     {
                         var item = NSDictionary()
                         item = self.reportSenderDetailArray[i] as! NSDictionary
-                        let name = item["employeeFullName"]
-                        self.reportSenderArray.append(name as! String)
+                        let name = item["employeeId"] as! Int
+                        self.reportSenderArray.append(String(name))
                         self.selectedPeopleArray.append("")
                     }
                     
@@ -117,6 +121,14 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
         }
     }
     
+    @IBAction func doneButtonTouched(_ sender: UIButton)
+    {
+        self.delegate.reportSendersSelected(senders: self.reportSenderArrayNew)
+        self.dismiss(animated: true)
+        {
+        }
+    }
+    
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -129,7 +141,7 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
         var cell:PSSelectDialogTableViewCell
         cell = tableView.dequeueReusableCell(withIdentifier: "SelectDialogCell", for: indexPath) as! PSSelectDialogTableViewCell
         cell.selectionNameLabel?.text = reportSenderArray[indexPath.row]
-        
+        cell.selectionNameLabel?.text = self.getReporterNameFromEmployeeID(employeeID: reportSenderArray[indexPath.row])
         if reportSenderArray[indexPath.row] == selectedPeopleArray[indexPath.row]
         {
             cell.selectionButton.setImage(UIImage.init(named: "selected"), for: UIControlState.normal)
@@ -152,6 +164,7 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
         {
             selectedPeopleArray[indexPath.row] = reportSenderArray[indexPath.row]
         }
+        
         tableView.reloadData()
     }
     
@@ -161,6 +174,29 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
         {
             self.selectedPeopleArray.append("")
         }
+    }
+    
+    func getReporterNameFromEmployeeID(employeeID:String) -> String
+    {
+        self.reportSenderArrayNew = [NSMutableDictionary]()
+        for i in 0...self.reportSenderDetailArray.count-1
+        {
+            var item = NSDictionary()
+            item = self.reportSenderDetailArray[i] as! NSDictionary
+            let employeeId = item["employeeId"] as! Int
+            if String(employeeId) == employeeID
+            {
+                let employeeName = item["employeeFullName"]
+                
+                let reporterDict = NSMutableDictionary.init()
+                reporterDict.setValue(employeeName, forKey: "employeeFullName")
+                reporterDict.setValue(employeeId, forKey: "employeeId")
+                self.reportSenderArrayNew.append(reporterDict)
+                
+                return employeeName as! String
+            }
+        }
+        return ""
     }
     
     /*
@@ -173,4 +209,9 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
     }
     */
 
+}
+
+protocol PSSelectDialogViewControllerDelegate
+{
+    func reportSendersSelected(senders: [NSMutableDictionary])
 }

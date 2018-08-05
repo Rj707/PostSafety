@@ -108,6 +108,15 @@ extension PSAPIManager
         reportManagerAPI.getReportsFor(CompanyId: CompanyId,ReportType: ReportType,ReportedBy: ReportedBy,startdate: startdate,enddate: enddate,success: success, failure: failure,errorPopup: errorPopup)
     }
     
+    func sendReportsWith(ReportID: String,
+                         EmployeeID: String,
+                         success:@escaping DefaultArrayResultAPISuccessClosure,
+                         failure:@escaping DefaultAPIFailureClosure,
+                         errorPopup: Bool)
+    {
+        reportManagerAPI.sendReportsWith(ReportID: ReportID,EmployeeID: EmployeeID,success: success, failure: failure,errorPopup: errorPopup)
+    }
+    
     
 //    http://postsafety.anadeemus.ca/api/UpdateReport/?ReportId=10000&LocationId=10008&Title=CriticalIncident&Details=whywhere
     

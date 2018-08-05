@@ -29,7 +29,6 @@ class PSReportOverviewViewController: UIViewController
        
         // Do any additional setup after loading the view.
         
-        
         self.timeLable.text = self.reportOverviewDict["date"] is NSNull ? "None" : self.reportOverviewDict["date"] as! String
         self.dateLable.text = self.reportOverviewDict["date"] is NSNull ? "None" : self.reportOverviewDict["date"] as! String
         self.reporterLable.text = self.reportOverviewDict["reportedBy"] is NSNull ? "None" : String(self.reportOverviewDict["reportedBy"] as! Int)

@@ -587,7 +587,7 @@
                                                     <constraint firstItem="IWI-QZ-Qvu" firstAttribute="centerY" secondItem="riV-m6-gQB" secondAttribute="centerY" id="kqh-4c-ryg"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.corenrRadius">
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="4"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
