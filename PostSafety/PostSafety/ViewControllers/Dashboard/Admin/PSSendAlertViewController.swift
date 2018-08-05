@@ -13,6 +13,7 @@ class PSSendAlertViewController: UIViewController,PSSelectDialogViewControllerDe
     
     @IBOutlet weak var toTextField:UITextField!
     @IBOutlet weak var menuButton:UIButton!
+    @IBOutlet weak var sendButton:UIButton!
     var reportSenderArray = [NSMutableDictionary]()
     var EmployeeID = 0
     var ReportID = 0
@@ -130,6 +131,8 @@ class PSSendAlertViewController: UIViewController,PSSelectDialogViewControllerDe
         
         self.reportSenderArray = senders
         self.configureSenders()
+        self.sendButton.isUserInteractionEnabled = true
+        self.sendButton.isEnabled = true
     }
     
     func configureSenders()

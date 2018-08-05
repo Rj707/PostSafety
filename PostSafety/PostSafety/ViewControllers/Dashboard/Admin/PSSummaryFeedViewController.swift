@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PSSummaryFeedViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
+class PSSummaryFeedViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate
 {
     @IBOutlet weak var menuButton:UIButton!
     @IBOutlet weak var summaryFeedTableView : UITableView!
@@ -23,6 +23,7 @@ class PSSummaryFeedViewController: UIViewController,UITableViewDataSource,UITabl
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.summaryFeedTableView.tableFooterView = UIView.init()
         self.addMenuAction()
         self.summaryFeedTableView.dataSource = self
         self.summaryFeedTableView.delegate = self
@@ -127,6 +128,8 @@ class PSSummaryFeedViewController: UIViewController,UITableViewDataSource,UITabl
                         self.summaryFeedArray.append(tempDict)
                     }
                 }
+                self.summaryFeedTableView.emptyDataSetSource = self as! DZNEmptyDataSetSource
+                self.summaryFeedTableView.emptyDataSetDelegate = self as! DZNEmptyDataSetDelegate
                 self.summaryFeedTableView.reloadData()
                 print(self.summaryFeedArray)
                 
@@ -158,6 +161,22 @@ class PSSummaryFeedViewController: UIViewController,UITableViewDataSource,UITabl
             
             menuVC?.dashboardNavViewController = self.navigationController
         }
+    }
+    
+    //MARK: - DZNEmptyDataSetSource
+    
+    func image(forEmptyDataSet scrollView: UIScrollView?) -> UIImage?
+    {
+        return UIImage(named: "no_data")
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView?) -> NSAttributedString?
+    {
+        let myString = "No Data found!"
+        //        let attributes = [NSFontAttributeName : UIFont.systemFont(ofSize: 19.0),NSForegroundColorAttributeName : UIColor(red: 255, green: 75, blue: 1, alpha: 1.0) ]
+        let attributes = [NSFontAttributeName : UIFont.systemFont(ofSize: 19.0),NSForegroundColorAttributeName : UIColor.red ]
+        let myAttrString = NSAttributedString(string: myString, attributes: attributes)
+        return myAttrString
     }
     
     /*

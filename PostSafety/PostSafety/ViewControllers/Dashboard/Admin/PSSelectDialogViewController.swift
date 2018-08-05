@@ -123,7 +123,10 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
     
     @IBAction func doneButtonTouched(_ sender: UIButton)
     {
-        self.delegate.reportSendersSelected(senders: self.reportSenderArrayNew)
+        if self.delegate != nil
+        {
+            self.delegate.reportSendersSelected(senders: self.reportSenderArrayNew)
+        }
         self.dismiss(animated: true)
         {
         }
