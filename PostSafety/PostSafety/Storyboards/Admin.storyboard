@@ -831,6 +831,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="jef-ym-pQB"/>
                     <connections>
+                        <outlet property="doneButton" destination="w9X-UA-ASg" id="zGj-vG-oUM"/>
                         <outlet property="searchBar" destination="piJ-42-use" id="aSy-dH-98i"/>
                         <outlet property="selectDialogTableView" destination="vPs-2f-QXx" id="1Zp-ux-1nB"/>
                         <outlet property="selectionButton" destination="Scc-kB-yP7" id="8rb-rf-MI7"/>

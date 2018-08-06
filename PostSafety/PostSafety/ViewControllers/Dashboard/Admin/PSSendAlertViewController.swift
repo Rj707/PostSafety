@@ -126,9 +126,6 @@ class PSSendAlertViewController: UIViewController,PSSelectDialogViewControllerDe
     
     func reportSendersSelected(senders: [NSMutableDictionary])
     {
-//        reporterDict.setValue(employeeName, forKey: "employeeFullName")
-//        reporterDict.setValue(employeeId, forKey: "employeeId")
-        
         self.reportSenderArray = senders
         self.configureSenders()
         self.sendButton.isUserInteractionEnabled = true

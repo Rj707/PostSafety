@@ -14,6 +14,7 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
     
     @IBOutlet weak var selectDialogTableView:UITableView!
     @IBOutlet weak var selectionButton:UIButton!
+    @IBOutlet weak var doneButton:UIButton!
     @IBOutlet weak var searchBar:UISearchBar!
     @IBOutlet weak var selectionLabel:UILabel!
     
@@ -22,6 +23,8 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
     var reportSenderDetailArray = [Any]()
     var selectedPeopleArray = [String]()
     var companyId = 0
+    var EmployeeID = 0
+    var ReportID = 0
     
     override func viewDidLoad()
     {
@@ -34,6 +37,14 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
         searchBar.backgroundImage = UIImage()
         searchBar.isTranslucent = true
 
+        if self.delegate != nil
+        {
+            self.doneButton.setTitle("Done", for: .normal)
+        }
+        else
+        {
+            self.doneButton.setTitle("Share Report", for: .normal)
+        }
     }
 
     override func didReceiveMemoryWarning()
@@ -65,8 +76,8 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
                     {
                         var item = NSDictionary()
                         item = self.reportSenderDetailArray[i] as! NSDictionary
-                        let name = item["employeeId"] as! Int
-                        self.reportSenderArray.append(String(name))
+                        let employeeId = item["employeeId"] as! Int
+                        self.reportSenderArray.append(String(employeeId))
                         self.selectedPeopleArray.append("")
                     }
                     
@@ -95,20 +106,17 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
     @IBAction func selectAllButtonTouched(_ sender: UITapGestureRecognizer)
     {
         if selectionButton.imageView?.image == (UIImage.init(named: "unselected"))
-//        if selectionButton.titleLabel?.text == "  Select All"
         {
             self.selectionLabel.text = "Unselect All"
             selectedPeopleArray = self.reportSenderArray
             self.selectionButton.setImage(UIImage.init(named: "selected"), for: UIControlState.normal)
-//            self.selectionButton.setTitle("  Unselect All", for: UIControlState.normal)
         }
         else
         {
             self.selectionLabel.text = "Select All"
             selectedPeopleArray = [String]()
-            self.configureSelectPeopleArray()
+            self.configureSelectedPeopleArrayWithEmptyObjects()
             self.selectionButton.setImage(UIImage.init(named: "unselected"), for: UIControlState.normal)
-//            self.selectionButton.setTitle("  Select All", for: UIControlState.normal)
         }
         
         selectDialogTableView.reloadData()
@@ -123,13 +131,48 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
     
     @IBAction func doneButtonTouched(_ sender: UIButton)
     {
+        self.self.reportSenderArrayNew = self.configureSelectedPeopleArrayForSelectedContacts()
         if self.delegate != nil
         {
             self.delegate.reportSendersSelected(senders: self.reportSenderArrayNew)
+            self.dismiss(animated: true)
+            {
+            }
         }
-        self.dismiss(animated: true)
+        else
         {
+            if self.reportSenderArrayNew.count>0
+            {
+                let alertController = UIAlertController(title: "Share Report", message: "Are you sure you want to share report with the Selected Contact", preferredStyle: .alert)
+                
+                let alertActionNo = UIAlertAction(title: "No", style: .cancel)
+                { (action) in
+                    
+                }
+                let alertActionYes = UIAlertAction(title: "Yes", style: .default)
+                { (action) in
+                    
+                    self.EmployeeID = self.reportSenderArrayNew[0].value(forKey: "employeeId") as! Int
+                    self.sendReport()
+                }
+                alertController.addAction(alertActionNo)
+                alertController.addAction(alertActionYes)
+                self.present(alertController, animated: true, completion: nil)
+            }
+            else
+            {
+                let alertController = UIAlertController(title: "Share Report", message: "Please first select any contact from the list", preferredStyle: .alert)
+                
+                let alertActionNo = UIAlertAction(title: "Ok", style: .cancel)
+                { (action) in
+                    
+                }
+            
+                alertController.addAction(alertActionNo)
+                self.present(alertController, animated: true, completion: nil)
+            }
         }
+        
     }
     
     // MARK: - UITableViewDataSource
@@ -171,7 +214,9 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
         tableView.reloadData()
     }
     
-    func configureSelectPeopleArray()
+    // MARK: - Private
+    
+    func configureSelectedPeopleArrayWithEmptyObjects()
     {
         for _ in 0...self.reportSenderDetailArray.count-1
         {
@@ -179,9 +224,45 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
         }
     }
     
+    func configureSelectedPeopleArrayForSelectedContacts() -> [NSMutableDictionary]
+    {
+        self.reportSenderArrayNew = [NSMutableDictionary]()
+        for i in 0...self.selectedPeopleArray.count-1
+        {
+            
+            let employeeID = self.selectedPeopleArray[i]
+            if employeeID == ""
+            {}
+            else
+            {
+                for j in 0...self.reportSenderDetailArray.count-1
+                {
+                    var item = NSDictionary()
+                    item = self.reportSenderDetailArray[j] as! NSDictionary
+                    let employeeId = item["employeeId"] as! Int
+                    
+                    if String(employeeId) == employeeID
+                    {
+                        let employeeName = item["employeeFullName"]
+                        let reporterDict = NSMutableDictionary.init()
+                        reporterDict.setValue(employeeName, forKey: "employeeFullName")
+                        reporterDict.setValue(employeeId, forKey: "employeeId")
+                        self.reportSenderArrayNew.append(reporterDict)
+                        
+                    }
+                }
+            }
+        }
+        
+        return self.reportSenderArrayNew
+    }
+    
+    
+    
     func getReporterNameFromEmployeeID(employeeID:String) -> String
     {
         self.reportSenderArrayNew = [NSMutableDictionary]()
+        
         for i in 0...self.reportSenderDetailArray.count-1
         {
             var item = NSDictionary()
@@ -200,6 +281,56 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
             }
         }
         return ""
+    }
+    
+    // MARK: - APIs
+    
+    func sendReport()
+    {
+        if CEReachabilityManager.isReachable()
+        {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Sending Reports")
+            //            EmployeeID = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
+            ReportID = (PSDataManager.sharedInstance.reportId)
+            PSAPIManager.sharedInstance.sendReportsWith(ReportID: String(ReportID), EmployeeID: String(EmployeeID), success:
+            { (dic) in
+                
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                
+                if dic["SUCCESS"] as! String == "Done"
+                {
+                    
+                }
+                
+                let alertController = UIAlertController(title: "Sharing Report", message: "You have successfully Shared the report", preferredStyle: .alert)
+                let alertActionCancel = UIAlertAction(title: "OK", style: .cancel)
+                { (action) in
+                    
+                    self.presentingViewController?.presentingViewController?.dismiss(animated: true)
+                    {
+                        
+                    }
+                }
+                alertController.addAction(alertActionCancel)
+                self.present(alertController, animated: true, completion: nil)
+                    
+            },
+                                                        failure:
+                { (
+                    error:NSError,statusCode:Int) in
+                    
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    if(statusCode==404)
+                    {
+                        PSUserInterfaceManager.showAlert(title: "Sharing Reports", message: ApiResultFailureMessage.InvalidEmailPassword)
+                    }
+                    else
+                    {
+                        
+                    }
+                    
+            }, errorPopup: true)
+        }
     }
     
     /*
