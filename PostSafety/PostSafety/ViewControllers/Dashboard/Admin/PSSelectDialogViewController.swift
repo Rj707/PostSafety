@@ -26,6 +26,8 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
     var EmployeeID = 0
     var ReportID = 0
     
+    var shareReport = 0
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -37,7 +39,8 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
         searchBar.backgroundImage = UIImage()
         searchBar.isTranslucent = true
 
-        if self.delegate != nil
+        
+        if self.shareReport == 0
         {
             self.doneButton.setTitle("Done", for: .normal)
         }
@@ -134,9 +137,16 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
         self.self.reportSenderArrayNew = self.configureSelectedPeopleArrayForSelectedContacts()
         if self.delegate != nil
         {
-            self.delegate.reportSendersSelected(senders: self.reportSenderArrayNew)
-            self.dismiss(animated: true)
+            if self.reportSenderArrayNew.count>0
             {
+                self.delegate.reportSendersSelected(senders: self.reportSenderArrayNew)
+                self.dismiss(animated: true)
+                {
+                }
+            }
+            else
+            {
+                
             }
         }
         else

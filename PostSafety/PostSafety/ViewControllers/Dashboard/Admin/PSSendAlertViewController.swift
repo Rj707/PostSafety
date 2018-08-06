@@ -52,6 +52,7 @@ class PSSendAlertViewController: UIViewController,PSSelectDialogViewControllerDe
         selectDialogVC.view.backgroundColor = UIColor.clear
         selectDialogVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         selectDialogVC.delegate = self
+        selectDialogVC.shareReport = 0
         //        self.view.backgroundColor = UIColor.clear
         //        self.modalPresentationStyle = UIModalPresentationStyle.currentContext
         self.present(selectDialogVC, animated: true)

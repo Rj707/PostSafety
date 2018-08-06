@@ -37,6 +37,7 @@ class PSReportActionPopupViewController: UIViewController {
         selectDialogVC = self.storyboard?.instantiateViewController(withIdentifier: "PSSelectDialogViewController") as! PSSelectDialogViewController
         selectDialogVC.view.backgroundColor = UIColor.clear
         selectDialogVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        selectDialogVC.shareReport = 1
         //        self.view.backgroundColor = UIColor.clear
         //        self.modalPresentationStyle = UIModalPresentationStyle.currentContext
         self.present(selectDialogVC, animated: true)
