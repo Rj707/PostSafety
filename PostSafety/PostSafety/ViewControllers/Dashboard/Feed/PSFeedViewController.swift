@@ -160,12 +160,13 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let dic = self.feedArray[indexPath.row] as! NSDictionary
-        PSDataManager.sharedInstance.reportId = dic["reportId"] as! Int
+        
         print(Global.USERTYPE?.rawValue ?? "Global None")
         print(PSDataManager.sharedInstance.loggedInUser?.userType?.rawValue ?? "PSDataManager None")
         print(PSDataManager.sharedInstance.loggedInUser?.userTypeByRole ?? "PSDataManager RoleNone")
         if PSDataManager.sharedInstance.loggedInUser?.userTypeByRole == UserType.UserTypeAdmin.rawValue && feedTitle == "Reports"
         {
+            PSDataManager.sharedInstance.reportId = dic["reportId"] as! Int
             let storyboard = UIStoryboard(name: "User", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PSReportPostViewController") as! PSReportPostViewController
             vc.reportPostDict = self.feedArray[indexPath.row] as! NSDictionary
@@ -174,6 +175,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         }
         else if PSDataManager.sharedInstance.loggedInUser?.userTypeByRole == UserType.UserTypeNormal.rawValue && feedTitle == "Reports"
         {
+            PSDataManager.sharedInstance.reportId = dic["reportId"] as! Int
             let storyboard = UIStoryboard(name: "User", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PSReportPostViewController") as! PSReportPostViewController
             vc.reportPostDict = self.feedArray[indexPath.row] as! NSDictionary

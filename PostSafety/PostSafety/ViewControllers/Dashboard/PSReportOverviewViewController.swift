@@ -36,7 +36,7 @@ class PSReportOverviewViewController: UIViewController
         self.typeLable.text = self.reportOverviewDict["incidentType"] is NSNull ? "None" : String(self.reportOverviewDict["incidentType"] as! Int)
         self.subCategoryLable.text = self.reportOverviewDict["subCatagoryId"] is NSNull ? "None" : String(self.reportOverviewDict["subCatagoryId"] as! Int)
         self.categoryLable.text = self.reportOverviewDict["catagoryId"] is NSNull ? "None" : String(self.reportOverviewDict["catagoryId"] as! Int)
-        self.reporterPhoneNumberLable.text = self.reportOverviewDict["reportedByNavigation"] is NSNull ? "None" : self.reportOverviewDict["reportedByNavigation"] as! String
+//        self.reporterPhoneNumberLable.text = self.reportOverviewDict["reportedByNavigation"] is NSNull ? "None" : self.reportOverviewDict["reportedByNavigation"] as! String
     }
 
     override func didReceiveMemoryWarning()
