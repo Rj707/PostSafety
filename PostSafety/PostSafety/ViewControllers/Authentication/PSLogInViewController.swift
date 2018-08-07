@@ -21,7 +21,7 @@ class PSLogInViewController: UIViewController
     {
         super.viewDidLoad()
         
-        self.phoneNumberTextField?.text = "4038709552"
+        self.phoneNumberTextField?.text = "123456"
         self.passowrdTextField?.text = "123456"
         
         var text: NSMutableAttributedString? = nil

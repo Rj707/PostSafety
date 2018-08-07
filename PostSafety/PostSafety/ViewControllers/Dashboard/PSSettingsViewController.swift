@@ -17,7 +17,7 @@ class PSSettingsViewController: UIViewController
     @IBOutlet weak var passwordTextField:UITextField?
     @IBOutlet weak var confirmPasswordTextField:UITextField?
     @IBOutlet weak var phoneNumberTextField:UITextField?
-    
+    var EmployeeID = 0
     
     override func viewDidLoad()
     {
@@ -37,9 +37,69 @@ class PSSettingsViewController: UIViewController
     
     @IBAction func backButtonTouched(_ sender: UIButton)
     {
-        var array = self.navigationController?.viewControllers
         self.navigationController?.popViewController(animated: true)
        
+    }
+    
+    @IBAction func saveChangesButtonTouched(_ sender: UIButton)
+    {
+        if self.passwordTextField?.text == ""
+        {
+            
+        }
+        else if self.confirmPasswordTextField?.text == ""
+        {
+            
+        }
+        else if PSDataManager.sharedInstance.loggedInUser?.password != self.passwordTextField?.text
+        {
+            let alertController = UIAlertController(title: "Updating Password", message: "The old password is incorrect", preferredStyle: .alert)
+            let alertActionCancel = UIAlertAction(title: "OK", style: .cancel)
+            { (action) in
+                
+            }
+            alertController.addAction(alertActionCancel)
+            self.present(alertController, animated: true, completion: nil)
+        }
+        else if CEReachabilityManager.isReachable()
+        {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Updating Password")
+            EmployeeID = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
+            PSAPIManager.sharedInstance.UpdateEmployees(employeeID: String(EmployeeID), oldPassword: (self.passwordTextField?.text)!, NewPassword: (self.confirmPasswordTextField?.text)!,
+            success:
+            {
+                (dic) in
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                
+                let alertController = UIAlertController(title: "Updating Password", message: "You have successfully Updated your password", preferredStyle: .alert)
+                let alertActionCancel = UIAlertAction(title: "OK", style: .cancel)
+                { (action) in
+                        self.navigationController?.popViewController(animated: true)
+                }
+                alertController.addAction(alertActionCancel)
+                self.present(alertController, animated: true, completion: nil)
+                
+                
+            }, failure:
+            {
+                (error, statusCode) in
+                
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                if(statusCode==404)
+                {
+                    PSUserInterfaceManager.showAlert(title: "Updating Password", message: ApiResultFailureMessage.InvalidEmailPassword)
+                }
+                else
+                {
+                    
+                }
+                
+            }, errorPopup: true)
+        }
+        else
+        {
+            
+        }
     }
     
     override func didReceiveMemoryWarning()
