@@ -14,7 +14,7 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
     @IBOutlet weak var categoryNameLabel: UILabel!
     @IBOutlet weak var locationNameLabel: UILabel!
     @IBOutlet weak var reportTypleLabel: UILabel!
-    
+    @IBOutlet weak var subCategoryNameLabel: UILabel!
     @IBOutlet weak var decriptionTextView: IQTextView!
     @IBOutlet weak var decriptionTextViewContainer: UIView!
     @IBOutlet weak var backgroundView: UIView!
@@ -24,14 +24,34 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
     {
         super.viewDidLoad()
 
-        print(Global.REPORT?.reportType ?? "Type")
-        print(Global.REPORT?.reportLocation ?? "Location")
-        print(Global.REPORT?.reportCategory ?? "Category")
-        print(Global.REPORT?.reportSubcategory ?? "Subcategory")
+        print(PSDataManager.sharedInstance.report?.reportType ?? "Type")
+        print(PSDataManager.sharedInstance.report?.reportLocation ?? "Location")
+        print(PSDataManager.sharedInstance.report?.reportCategory ?? "Category")
+        print(PSDataManager.sharedInstance.report?.reportSubcategory ?? "Subcategory")
         
-        reportTypleLabel.text=Global.REPORT?.reportType
-        locationNameLabel.text=Global.REPORT?.reportLocation
-        categoryNameLabel.text=Global.REPORT?.reportCategory
+        print(String((PSDataManager.sharedInstance.report?.reportType?.filter { !"\n\t\r".contains($0) })!))
+        
+        
+        reportTypleLabel.text = String(format: "Post type: <%@>", (PSDataManager.sharedInstance.report?.reportType)!)
+        locationNameLabel.text = String(format: "Category: <%@>", (PSDataManager.sharedInstance.report?.reportLocation)!)
+        categoryNameLabel.text = String(format: "Post Location: <%@>", (PSDataManager.sharedInstance.report?.reportCategory)!)
+        
+        if PSDataManager.sharedInstance.report?.reportType == "Incident"
+        {
+            subCategoryNameLabel.isHidden =  false
+            subCategoryNameLabel.text = String(format: "Subcategory: <%@>", (PSDataManager.sharedInstance.report?.reportSubcategory)!)
+        }
+        else if PSDataManager.sharedInstance.report?.reportType == "NearMiss"
+        {
+            subCategoryNameLabel.isHidden =  false
+            subCategoryNameLabel.text = String(format: "PSI?: <%@>", (PSDataManager.sharedInstance.report?.isReportPSI)!)
+        }
+        else
+        {
+            subCategoryNameLabel.isHidden =  true
+        }
+        
+        
         
         self.backgroundView.layer.borderWidth=1
         self.backgroundView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor

@@ -146,7 +146,15 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
             }
             else
             {
+                let alertController = UIAlertController(title: "Send Alert", message: "Please first select any contact from the list", preferredStyle: .alert)
                 
+                let alertActionNo = UIAlertAction(title: "Ok", style: .cancel)
+                { (action) in
+                    
+                }
+                
+                alertController.addAction(alertActionNo)
+                self.present(alertController, animated: true, completion: nil)
             }
         }
         else

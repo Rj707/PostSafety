@@ -30,6 +30,7 @@ class PSChecklist: NSObject
 class PSChecklistDetail: NSObject
 {
     @objc dynamic var checklistDetailsId = 0
+    @objc dynamic var subChecklistDetailsId = 0
     @objc dynamic var checklistId = 0
     @objc dynamic var name : String?
     @objc dynamic var checklist : String?
@@ -39,6 +40,7 @@ class PSChecklistDetail: NSObject
         let checklistDetail = PSChecklistDetail.init()
         checklistDetail.checklistId = dict["checklistId"] as! Int
         checklistDetail.checklistDetailsId = dict["checklistDetailsId"] as! Int
+//        checklistDetail.subChecklistDetailsId = dict["subChecklistDetailsId"] as! Int
         checklistDetail.name = dict["name"] as? String
         checklistDetail.checklist = dict["checklist"] as? String
         return checklistDetail

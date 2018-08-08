@@ -19,5 +19,13 @@ extension PSAPIManager
         checklistManagerAPI.getChecklistDetailsWith(checkListID:checkListID, success: success, failure: failure,errorPopup: errorPopup)
     }
     
+    func getSubCategoriesWith(CatagoryID:String,
+                              success:@escaping DefaultArrayResultAPISuccessClosure,
+                              failure:@escaping DefaultAPIFailureClosure,
+                              errorPopup: Bool)
+    {
+        checklistManagerAPI.getSubCategoriesWith(CatagoryID: CatagoryID, success: success, failure: failure, errorPopup: errorPopup)
+    }
+    
     
 }

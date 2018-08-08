@@ -8,11 +8,12 @@
 
 import UIKit
 
-class PSSelectLocationViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
+class PSSelectLocationViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate
 {
     @IBOutlet weak var locationTableView: UITableView!
     @IBOutlet weak var backgroundView: UIView!
    
+    @IBOutlet weak var pageControl : UIPageControl!
     
     var locationsArray = [Any]()
     var companyId = 0
@@ -22,10 +23,20 @@ class PSSelectLocationViewController: UIViewController,UITableViewDelegate,UITab
     {
         super.viewDidLoad()
         
-        
         self.getLocationsforReport()
         self.backgroundView.layer.borderWidth=1
         self.backgroundView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        
+        if PSDataManager.sharedInstance.report?.reportType == "Hazard" || PSDataManager.sharedInstance.report?.reportType == "NearMiss"
+        {
+            pageControl.numberOfPages = 2
+            pageControl.currentPage = 1
+        }
+        else if PSDataManager.sharedInstance.report?.reportType == "Incident"
+        {
+            pageControl.numberOfPages = 3
+            pageControl.currentPage = 2
+        }
 
     }
 
@@ -51,6 +62,8 @@ class PSSelectLocationViewController: UIViewController,UITableViewDelegate,UITab
                 self.locationTableView.delegate = self
 //                self.configureLocations()
                 print(self.locationsArray)
+                self.locationTableView.emptyDataSetSource = self as DZNEmptyDataSetSource
+                self.locationTableView.emptyDataSetDelegate = self as DZNEmptyDataSetDelegate
                 self.locationTableView.reloadData()
                 
             }, failure:
@@ -96,7 +109,7 @@ class PSSelectLocationViewController: UIViewController,UITableViewDelegate,UITab
         var cell:PSCategoryTableViewCell
         cell = tableView.dequeueReusableCell(withIdentifier: "PSCategoryTableViewCell") as! PSCategoryTableViewCell
         let dic = self.locationsArray[indexPath.row] as! NSDictionary
-        cell.categoryTitleLabel.text = dic["branchAddress"] as? String
+        cell.categoryTitleLabel.text = dic["branchAddress"] as? String ?? "No Address"
         cell.data = self.locationsArray[indexPath.row] as! NSDictionary
         //        cell.contentView.layer.borderWidth=1
         //        cell.contentView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
@@ -107,7 +120,7 @@ class PSSelectLocationViewController: UIViewController,UITableViewDelegate,UITab
     {
         var cell:PSCategoryTableViewCell
         cell = tableView.cellForRow(at: indexPath) as! PSCategoryTableViewCell
-        Global.REPORT?.reportLocation = cell.data["branchAddress"] as? String
+        PSDataManager.sharedInstance.report?.reportLocation = cell.data["branchAddress"] as? String ?? "No Address"
         self.performSegue(withIdentifier: "toReportSummaryFromLocation", sender: cell.data["branchId"])
     }
     
@@ -118,6 +131,22 @@ class PSSelectLocationViewController: UIViewController,UITableViewDelegate,UITab
     {
         let summaryVC = segue.destination as! PSReportSummaryViewController
         summaryVC.locationID = sender as! Int
+    }
+    
+    //MARK: - DZNEmptyDataSetSource
+    
+    func image(forEmptyDataSet scrollView: UIScrollView?) -> UIImage?
+    {
+        return UIImage(named: "no_data")
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView?) -> NSAttributedString?
+    {
+        let myString = "No Data found!"
+        //        let attributes = [NSFontAttributeName : UIFont.systemFont(ofSize: 19.0),NSForegroundColorAttributeName : UIColor(red: 255, green: 75, blue: 1, alpha: 1.0) ]
+        let attributes = [NSFontAttributeName : UIFont.systemFont(ofSize: 19.0),NSForegroundColorAttributeName : UIColor.red ]
+        let myAttrString = NSAttributedString(string: myString, attributes: attributes)
+        return myAttrString
     }
  
 

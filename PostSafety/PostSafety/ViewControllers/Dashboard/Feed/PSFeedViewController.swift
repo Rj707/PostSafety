@@ -19,6 +19,8 @@ import UIKit
 class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,PSSortReportsDialogViewControllerDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate
 
 {
+    @IBOutlet weak var unOpenedLabel: UILabel!
+    @IBOutlet weak var archivedLabel: UILabel!
     
     @IBOutlet weak var unOpenedView: UIView!
     @IBOutlet weak var archivedView: UIView!
@@ -34,12 +36,16 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     @IBOutlet weak var feedTitleLabel: UILabel!
     @IBOutlet weak var menuButton:UIButton!
     
-    var feedTitle: String = ""
-    var route: String = ""
-    var companyId = 0
     var type : FeedType!
     var feedArray = [Any]()
     var feedArray2 = Array<Any>()
+    
+    var feedTitle: String = ""
+    var reportType: String = ""
+    var route: String = ""
+    var companyId = 0
+    var EmployeeID = 0
+    
     
     override func viewDidLoad()
     {
@@ -54,22 +60,43 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         if PSDataManager.sharedInstance.loggedInUser?.userTypeByRole == UserType.UserTypeAdmin.rawValue && feedTitle == "Reports"
         {
+            // User is Admin and Section is Reports/Posts
             self.filterReportsView.isHidden = false
             self.reportsStackView.isHidden = false
+            
+            self.reportType = "SharedReports"
+            self.getSharedReports()
         }
         else
         {
+            // Either User is not Admin or Section is not Reports/Posts
             self.filterReportsView.isHidden = true
             self.reportsStackView.isHidden = true
+            
+            if feedTitle == "Reports"
+            {
+                self.reportType = "SharedReports"
+                self.getSharedReports()
+            }
         }
         
         if feedTitle == "Alerts" || feedTitle == "Announcements" || feedTitle == "Safety Updates"
         {
-            
+            unOpenedLabel.text = "New & Unopened (3)"
+            archivedLabel.text = "Archived"
         }
         else
         {
-            self.getInfoFor()
+            unOpenedLabel.text = "Shared Posts"
+            archivedLabel.text = "My Posts"
+            
+            if feedTitle == "Training" || feedTitle == "Policies/Procedures"
+            {
+                unOpenedLabel.text = "New & Unopened (3)"
+                archivedLabel.text = "Archived"
+               self.getInfoFor()
+            }
+            
         }
     }
 
@@ -120,6 +147,48 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         }
     }
     
+    func getSharedReports()
+    {
+        if CEReachabilityManager.isReachable()
+        {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: String(format: "%@%@", "Fetching ", "Posts"))
+            EmployeeID = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
+            PSAPIManager.sharedInstance.getSharedReportsFor(EmployeeID: String(EmployeeID), Type: reportType ,success:
+            { (dic) in
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                let tempArray = dic["array"] as! [Any]
+                
+                for checklistDict in tempArray
+                {
+                    if let tempDict = checklistDict as? [String: Any]
+                    {
+                        self.feedArray.append(tempDict)
+                    }
+                }
+                self.updatesAnnouncementsTableView.emptyDataSetSource = self
+                self.updatesAnnouncementsTableView.emptyDataSetDelegate = self
+                self.updatesAnnouncementsTableView.reloadData()
+                //                    self.configureReportTypes()
+                print(self.feedArray)
+                    
+            },
+                                                   failure:
+                { (error:NSError,statusCode:Int) in
+                    
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    if(statusCode==404)
+                    {
+                        PSUserInterfaceManager.showAlert(title: "Fetching Posts", message: ApiResultFailureMessage.InvalidEmailPassword)
+                    }
+                    else
+                    {
+                        
+                    }
+                    
+            }, errorPopup: true)
+        }
+    }
+    
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -138,20 +207,26 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         {
             cell = tableView.dequeueReusableCell(withIdentifier: "SharedReportsCell", for: indexPath) as! PSFeedTableViewCell
         }
+        
         let dic = self.feedArray[indexPath.row] as! NSDictionary
-        cell.titleLabel.text = dic["title"] as? String
+        
+        cell.titleLabel.text = dic["title"] as? String ?? "No Data from DB"
         
         if self.feedTitle == "Reports"
         {
             cell.dateLabel.text = dic["date"] as? String
+            cell.timeLabel.text = dic["time"] as? String
+//            cell.dateLabel.text = self.getDateString(fromDateTime: (dic["date"] as? String)!)
         }
         else if self.feedTitle == "Training"
         {
             cell.dateLabel.text = dic["dateTimePosted"] as? String
+//            cell.dateLabel.text = self.getDateString(fromDateTime: (dic["dateTimePosted"] as? String)!)
         }
         else if self.feedTitle == "Policies/Procedures"
         {
             cell.dateLabel.text = dic["dateTimePosted"] as? String
+//            cell.dateLabel.text = self.getDateString(fromDateTime: (dic["dateTimePosted"] as? String)!)
         }
         
         return cell
@@ -170,6 +245,8 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
             let storyboard = UIStoryboard(name: "User", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PSReportPostViewController") as! PSReportPostViewController
             vc.reportPostDict = self.feedArray[indexPath.row] as! NSDictionary
+            vc.postTitle =  (self.feedArray[indexPath.row] as! NSDictionary).value(forKey: "title") is NSNull ? "No Data" : (self.feedArray[indexPath.row] as! NSDictionary).value(forKey: "title") as!
+            String
             navigationController?.pushViewController(vc,
                                                      animated: true)
         }
@@ -179,6 +256,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
             let storyboard = UIStoryboard(name: "User", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PSReportPostViewController") as! PSReportPostViewController
             vc.reportPostDict = self.feedArray[indexPath.row] as! NSDictionary
+            vc.postTitle =  (self.feedArray[indexPath.row] as! NSDictionary).value(forKey: "title") is NSNull ? "No Data" : (self.feedArray[indexPath.row] as! NSDictionary).value(forKey: "title") as! String
             navigationController?.pushViewController(vc,
                                                      animated: true)
         }
@@ -210,18 +288,60 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func announcementsViewTouched(_ sender: UITapGestureRecognizer)
+    @IBAction func unOpenedViewTouched(_ sender: UITapGestureRecognizer)
+    {
+        //      self.announcementView.backgroundColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0)
+        //      self.type = FeedType(rawValue: 0)
+        
+//        unOpenedLabel.text = "Shared Posts"
+        if unOpenedLabel.text == "Shared Posts"
+        {
+            self.reportType = "SharedReports"
+            self.getSharedReports()
+        }
+        else
+        {
+            print("unOpened")
+        }
+        
+    }
+    
+    @IBAction func archivedViewTouched(_ sender: UITapGestureRecognizer)
     {
 //      self.announcementView.backgroundColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0)
 //      self.type = FeedType(rawValue: 0)
-        self.updatesAnnouncementsTableView.reloadData()
+        if archivedLabel.text == "My Posts"
+        {
+            self.reportType = "MyReports"
+            self.getSharedReports()
+        }
+        else
+        {
+            print("archived")
+        }
     }
     
     @IBAction func sharedReportsViewTouched(_ sender: UITapGestureRecognizer)
     {
 //      self.sharedreportView.backgroundColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0)
 //      self.type = FeedType(rawValue: 1)
-        self.updatesAnnouncementsTableView.reloadData()
+        self.reportType = "SharedReports"
+        self.getSharedReports()
+    }
+    
+    @IBAction func myReportsViewTouched(_ sender: UITapGestureRecognizer)
+    {
+        //      self.announcementView.backgroundColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0)
+        //      self.type = FeedType(rawValue: 0)
+        self.reportType = "MyReports"
+        self.getSharedReports()
+    }
+    
+    @IBAction func allReportsViewTouched(_ sender: UITapGestureRecognizer)
+    {
+        //      self.sharedreportView.backgroundColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0)
+        //      self.type = FeedType(rawValue: 1)
+        self.getInfoFor()
     }
     
     @IBAction func filterReportsGestureTouched(sender: UITapGestureRecognizer)
@@ -314,7 +434,24 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         let myAttrString = NSAttributedString(string: myString, attributes: attributes)
         return myAttrString
     }
-
+    
+    func getDateString(fromDateTime dateTime: String) -> String
+    {
+        let dateFormatterDB = DateFormatter()
+        dateFormatterDB.dateFormat = "yyyyy-MM-dd'T'HH:mm:ssZ"
+        
+        let dateFormatterApp = DateFormatter()
+        dateFormatterApp.dateFormat = "MMM dd,yyyy"
+        
+        print(dateFormatterDB.date(from: dateTime)! as NSDate )
+        
+        let date: NSDate? = dateFormatterDB.date(from: dateTime)! as NSDate
+        
+        print(dateFormatterApp.string(from: date! as Date))
+        
+        return dateFormatterApp.string(from: date! as Date)
+    }
+//MMM d, yyyy
     /*
     // MARK: - Navigation
 

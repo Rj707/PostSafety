@@ -150,6 +150,11 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
     
     // MARK: IBActions
     
+    @IBAction func backButtonTouched(_ sender: UITapGestureRecognizer)
+    {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func cameraSwitchTapped(_ sender: Any)
     {
         switchCamera()
@@ -239,6 +244,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
                         let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController
                         vc.checklistId = self.checkList.checkList
                         vc.cheklistDetailsArray = self.checkList.checklistDetails["checklistDetails"] as! [Any]
+                        self.progressView.setProgress(Float(0), animated: true)
                         self.navigationController?.pushViewController(vc,
                                                                       animated: true)
                     }
@@ -263,7 +269,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
                     
                     self.progressView.setProgress(Float(prog), animated: true)
                     
-            }, errorPopup: true)
+                }, errorPopup: true)
         }
         else
         {

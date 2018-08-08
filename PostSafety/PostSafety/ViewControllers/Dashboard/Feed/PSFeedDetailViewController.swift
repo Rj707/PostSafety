@@ -22,7 +22,7 @@ class PSFeedDetailViewController: UIViewController
 
         self.addMenuAction()
         self.feedDetailTitleLabel.text = self.feedDict["title"] as? String
-        self.feedDetailTextView.text = self.feedDict["details"] is NSNull ? "" : self.feedDict["details"] as! String
+        self.feedDetailTextView.text = self.feedDict["details"] is NSNull ? "No Data" : self.feedDict["details"] as! String
         self.feedDetailAttachmentButton.setTitle(self.feedDict["pictureUrl"] as? String, for: UIControlState.normal)
     }
 

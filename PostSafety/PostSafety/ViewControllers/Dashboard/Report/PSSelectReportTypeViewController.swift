@@ -152,11 +152,11 @@ class PSSelectReportTypeViewController: UIViewController
     @IBAction func incidentGestureTapped(_ sender: Any)
     {
         PSDataManager.sharedInstance.report?.reportType = "Incident"
-        PSDataManager.sharedInstance.report?.incidentType = self.label2.tag
+        PSDataManager.sharedInstance.report?.incidentType = self.label3.tag
         
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
-        vc.incidentTypeID = self.label2.tag
+        vc.incidentTypeID = self.label3.tag
         vc.employeeID = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
         vc.checkList = self.setCheckListForReporType(reportType: vc.incidentTypeID)
         navigationController?.pushViewController(vc,
@@ -166,11 +166,11 @@ class PSSelectReportTypeViewController: UIViewController
     @IBAction func nearMisstGestureTapped(_ sender: Any)
     {
         PSDataManager.sharedInstance.report?.reportType = "NearMiss"
-        PSDataManager.sharedInstance.report?.incidentType = self.label3.tag
+        PSDataManager.sharedInstance.report?.incidentType = self.label2.tag
         
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
-        vc.incidentTypeID = self.label3.tag
+        vc.incidentTypeID = self.label2.tag
         vc.employeeID = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
         vc.checkList = self.setCheckListForReporType(reportType: vc.incidentTypeID)
         navigationController?.pushViewController(vc,

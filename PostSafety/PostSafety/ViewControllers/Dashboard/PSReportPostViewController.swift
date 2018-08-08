@@ -10,16 +10,21 @@ import UIKit
 
 class PSReportPostViewController: UIViewController
 {
+    @IBOutlet weak var reportImageView:UIImageView!
     @IBOutlet weak var reportActionsContainer:UIView!
     @IBOutlet weak var menuButton:UIButton!
+    @IBOutlet weak var postTitleLabel:UILabel!
+    
     var reportPostDict = NSDictionary.init()
+    var postTitle = ""
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
         self.addMenuAction()
         // Do any additional setup after loading the view.
-        
+        postTitleLabel.text = postTitle
         if PSDataManager.sharedInstance.loggedInUser?.userTypeByRole == UserType.UserTypeAdmin.rawValue
         {
             self.reportActionsContainer.isHidden = false
@@ -28,6 +33,59 @@ class PSReportPostViewController: UIViewController
         {
             self.reportActionsContainer.isHidden = true
         }
+        
+        if reportPostDict["fileName"]  is NSNull
+        {
+            
+        }
+        else
+        {
+            print(reportPostDict["fileName"] ?? "")
+//            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Loading Image")
+//            PSAPIManager.sharedInstance.getDataFromUrl(url: URL.init(string: String(format: "http://postsafety.anadeemus.ca/UploadImages/%@", "10113_3.jpg"))!)
+//            { (data, response, error) in
+//
+//                PSUserInterfaceManager.sharedInstance.hideLoader()
+//                if error ==  nil
+//                {
+//                    DispatchQueue.main.async
+//                    {
+//                        _ = UIImage(data: data!)
+//                        self.reportImageView.image = UIImage(data: data!)
+//                    }
+//                }
+//            }
+            
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Loading Image")
+            PSAPIManager.sharedInstance.getDataFromUrl(url: URL.init(string: String(format: "http://postsafety.anadeemus.ca/UploadImages/%@", reportPostDict["fileName"] as! String))!)
+            { (data, response, error) in
+                
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                
+                if error ==  nil
+                {
+                    DispatchQueue.main.async
+                    {
+                        _ = UIImage(data: data!)
+                        if (UIImage(data: data!) != nil)
+                        {
+                           self.reportImageView.image = UIImage(data: data!)
+                        }
+                        else
+                        {
+                            print("None")
+                            PSUserInterfaceManager.showAlert(title: "Loading Image", message: "Something went wrong while loading Image")
+                        }
+                        
+                    }
+                }
+                else
+                {
+                    PSUserInterfaceManager.showAlert(title: "Loading Image", message: "Something went wrong while loading Image")
+                }
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning()

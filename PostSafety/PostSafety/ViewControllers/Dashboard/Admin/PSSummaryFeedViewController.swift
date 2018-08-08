@@ -128,8 +128,8 @@ class PSSummaryFeedViewController: UIViewController,UITableViewDataSource,UITabl
                         self.summaryFeedArray.append(tempDict)
                     }
                 }
-                self.summaryFeedTableView.emptyDataSetSource = self as! DZNEmptyDataSetSource
-                self.summaryFeedTableView.emptyDataSetDelegate = self as! DZNEmptyDataSetDelegate
+                self.summaryFeedTableView.emptyDataSetSource = self as DZNEmptyDataSetSource
+                self.summaryFeedTableView.emptyDataSetDelegate = self as DZNEmptyDataSetDelegate
                 self.summaryFeedTableView.reloadData()
                 print(self.summaryFeedArray)
                 

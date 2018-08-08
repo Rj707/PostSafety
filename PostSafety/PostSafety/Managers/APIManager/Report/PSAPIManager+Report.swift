@@ -38,6 +38,15 @@ extension PSAPIManager
         reportManagerAPI.getInfoFor(companyId: companyId, route: route ,success: success, failure: failure,errorPopup: errorPopup)
     }
     
+    func getSharedReportsFor(EmployeeID: String,
+                    Type: String,
+                    success:@escaping DefaultArrayResultAPISuccessClosure,
+                    failure:@escaping DefaultAPIFailureClosure,
+                    errorPopup: Bool)
+    {
+        reportManagerAPI.getSharedReportsFor(EmployeeID: EmployeeID, Type: Type ,success: success, failure: failure,errorPopup: errorPopup)
+    }
+    
     func uploadImageFor(ReportId: String,
                         Type: String,
                         data: Data,
@@ -115,6 +124,16 @@ extension PSAPIManager
                          errorPopup: Bool)
     {
         reportManagerAPI.sendReportsWith(ReportID: ReportID,EmployeeID: EmployeeID,success: success, failure: failure,errorPopup: errorPopup)
+    }
+    
+    func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ())
+    {
+        URLSession.shared.dataTask(with: url)
+        { data, response, error in
+            
+            completion(data, response, error)
+            
+        }.resume()
     }
     
     

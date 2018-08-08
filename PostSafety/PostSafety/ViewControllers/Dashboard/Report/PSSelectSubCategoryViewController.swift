@@ -8,28 +8,40 @@
 
 import UIKit
 
-class PSSelectSubCategoryViewController: UIViewController
+class PSSelectSubCategoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 {
 
     @IBOutlet weak var backgroundView: UIView!
+    
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view3: UIView!
     @IBOutlet weak var view4: UIView!
     
+    @IBOutlet weak var pageControl : UIPageControl!
+    
+    @IBOutlet weak var subCategoryTableView: UITableView!
+    
+    var subCategoriesArray = [Any]()
+    var CatagoryID = 0
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
-        self.view1.layer.borderWidth=1
-        self.view2.layer.borderWidth=1
-        self.view3.layer.borderWidth=1
-        self.view4.layer.borderWidth=1
+        
+         if PSDataManager.sharedInstance.report?.reportType == "Incident"
+        {
+            pageControl.numberOfPages = 3
+            pageControl.currentPage = 1
+        }
+        
+        self.getSubCategories()
+
+        self.subCategoryTableView.dataSource = self as UITableViewDataSource
+        self.subCategoryTableView.delegate = self as UITableViewDelegate
+        
         self.backgroundView.layer.borderWidth=1
-        self.view1.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
-        self.view2.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
-        self.view3.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
-        self.view4.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.backgroundView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
     }
 
@@ -72,6 +84,78 @@ class PSSelectSubCategoryViewController: UIViewController
         
         self.performSegue(withIdentifier: "toReportSummaryFromSubcategory", sender: (Any).self)
         
+    }
+    
+    // MARK: - UITableViewDataSource
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return self.subCategoriesArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        var cell:PSCategoryTableViewCell
+        cell = tableView.dequeueReusableCell(withIdentifier: "PSCategoryTableViewCell") as! PSCategoryTableViewCell
+        let dic = self.subCategoriesArray[indexPath.row] as! NSDictionary
+        cell.categoryTitleLabel.text = dic["name"] as? String
+        cell.data = self.subCategoriesArray[indexPath.row] as! NSDictionary
+        //        cell.contentView.layer.borderWidth=1
+        //        cell.contentView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        var cell:PSCategoryTableViewCell
+        cell = tableView.cellForRow(at: indexPath) as! PSCategoryTableViewCell
+        PSDataManager.sharedInstance.report?.reportSubcategory = cell.data["name"] as? String
+        
+        self.performSegue(withIdentifier: "toReportSummaryFromSubcategory", sender: (Any).self)
+    }
+    
+    // MARK: - APIs
+    
+    func getSubCategories()
+    {
+        if CEReachabilityManager.isReachable()
+        {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching SubCategories")
+            PSAPIManager.sharedInstance.checklistManagerAPI.getSubCategoriesWith(CatagoryID: String(CatagoryID),
+                                                                                    success:
+            { (dic:Dictionary<String,Any>) in
+                
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                let tempArray = dic["array"] as! [Any]
+                
+                for checklistDetailDict in tempArray
+                {
+                    if let tempDict = checklistDetailDict as? [String: Any]
+                    {
+                        
+                        self.subCategoriesArray.append(tempDict)
+                    }
+                }
+                
+                print(self.subCategoriesArray)
+                self.subCategoryTableView.reloadData()
+            },
+                                                                                    failure:
+            { (error, statusCode) in
+                
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                if(statusCode==404)
+                {
+                    PSUserInterfaceManager.showAlert(title: "Fetching SubCategories", message: ApiResultFailureMessage.InvalidEmailPassword)
+                }
+                else
+                {
+                    
+                }
+                
+                
+            }, errorPopup: true)
+        }
     }
     
     /*

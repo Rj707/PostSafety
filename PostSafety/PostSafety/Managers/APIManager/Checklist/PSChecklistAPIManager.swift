@@ -33,4 +33,21 @@ class PSChecklistAPIManager: PSAPIManagerBase
         
         self.getRequestWith(route: route, parameters: parameters, success: success, failure: failure, errorPopup: errorPopup)
     }
+    
+    
+    func getSubCategoriesWith(CatagoryID:String,
+                              success:@escaping DefaultArrayResultAPISuccessClosure,
+                              failure:@escaping DefaultAPIFailureClosure,
+                              errorPopup: Bool)
+    {
+        
+        let parameters: [String:Any] =
+            [
+                "CatagoryID":CatagoryID,
+            ]
+        
+        let route: URL = GETURLfor(route: Route.SubCategory.rawValue, parameters: parameters )!
+        
+        self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
+    }
 }

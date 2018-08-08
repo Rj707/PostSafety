@@ -13,6 +13,7 @@ class PSSelectCategoryViewController: UIViewController,UITableViewDelegate,UITab
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var categoryTableView: UITableView!
+    @IBOutlet weak var pageControl : UIPageControl!
     
     var nextViewController : UIViewController!
     var cheklistDetailsArray = [Any]()
@@ -21,9 +22,21 @@ class PSSelectCategoryViewController: UIViewController,UITableViewDelegate,UITab
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        if PSDataManager.sharedInstance.report?.reportType == "Hazard" || PSDataManager.sharedInstance.report?.reportType == "NearMiss"
+        {
+            pageControl.numberOfPages = 2
+            pageControl.currentPage = 0
+        }
+        else if PSDataManager.sharedInstance.report?.reportType == "Incident"
+        {
+            pageControl.numberOfPages = 3
+            pageControl.currentPage = 0
+        }
+        
         self.categoryTableView.dataSource = self
         self.categoryTableView.delegate = self
-        Global.REPORT?.categoryID = self.checklistId
+        PSDataManager.sharedInstance.report?.categoryID = self.checklistId
         self.backgroundView.layer.borderWidth=1
         self.backgroundView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         
@@ -41,7 +54,7 @@ class PSSelectCategoryViewController: UIViewController,UITableViewDelegate,UITab
     {
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         
-        switch Global.REPORT?.reportType
+        switch PSDataManager.sharedInstance.report?.reportType
         {
         case "Hazard":
             nextViewController = storyboard.instantiateViewController(withIdentifier: "PSSelectLocationViewController") as! PSSelectLocationViewController
@@ -131,7 +144,13 @@ class PSSelectCategoryViewController: UIViewController,UITableViewDelegate,UITab
     {
         var cell:PSCategoryTableViewCell
         cell = tableView.cellForRow(at: indexPath) as! PSCategoryTableViewCell
-        Global.REPORT?.reportCategory = cell.data["name"] as? String
+        PSDataManager.sharedInstance.report?.reportCategory = cell.data["name"] as? String
+        
+        if PSDataManager.sharedInstance.report?.reportType == "Incident"
+        {
+            let vc =   nextViewController as! PSSelectSubCategoryViewController
+            vc.CatagoryID = (cell.data["checklistDetailsId"] as? Int)!
+        }
         navigationController?.pushViewController(nextViewController,
                                                  animated: true)
     }

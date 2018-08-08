@@ -21,6 +21,8 @@ enum Route: String
     case ListEmployees      = "/api/Employees/"
     case CloseReport        = "/api/CloseReport"
     case SendReports        = "/api/SendReports/"
+    case SubCategory        = "/api/SubChecklistDetails/"
+    case SharedReports      = "/api/SharedReports/"
     
     func url() -> String
     {
