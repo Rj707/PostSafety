@@ -111,8 +111,6 @@ class PSSelectLocationViewController: UIViewController,UITableViewDelegate,UITab
         let dic = self.locationsArray[indexPath.row] as! NSDictionary
         cell.categoryTitleLabel.text = dic["branchName"] as? String ?? "No Address"
         cell.data = self.locationsArray[indexPath.row] as! NSDictionary
-        //        cell.contentView.layer.borderWidth=1
-        //        cell.contentView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         return cell
     }
     

@@ -60,7 +60,14 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         self.type = FeedType.init(rawValue: 0)
         self.updatesAnnouncementsTableView.dataSource = self
         self.updatesAnnouncementsTableView.delegate = self
+        
         self.feedTitleLabel.text = self.feedTitle
+        
+        if  feedTitle == "Reports"
+        {
+            self.feedTitleLabel.text = "Posts"
+        }
+        
         
         if PSDataManager.sharedInstance.loggedInUser?.userTypeByRole == UserType.UserTypeAdmin.rawValue && feedTitle == "Reports"
         {
@@ -110,6 +117,8 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - APIs
+    
     func getInfoFor()
     {
         if CEReachabilityManager.isReachable()
@@ -155,7 +164,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     {
         if CEReachabilityManager.isReachable()
         {
-            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: String(format: "%@%@", "Fetching ", "Posts"))
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: String(format: "%@%@", "Fetching ", self.reportType))
             EmployeeID = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
             PSAPIManager.sharedInstance.getSharedReportsFor(EmployeeID: String(EmployeeID), Type: reportType ,success:
             { (dic) in
@@ -214,7 +223,14 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         let dic = self.feedArray[indexPath.row] as! NSDictionary
         
-        cell.titleLabel.text = String(format: "%@ : %@", (dic["incidentType"] as? String)!,(dic["catagory"] as? String)!)
+        if self.feedTitle == "Reports"
+        {
+            cell.titleLabel.text = String(format: "%@ : %@", (dic["incidentType"] as? String)!,(dic["catagory"] as? String)!)
+        }
+        else
+        {
+            cell.titleLabel.text = dic["title"] as? String
+        }
         
         if self.feedTitle == "Reports"
         {
@@ -224,10 +240,18 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         else if self.feedTitle == "Training"
         {
             cell.dateLabel.text = dic["dateTimePosted"] as? String
+            
+            cell.dateLabel.text = PSUserInterfaceManager.sharedInstance.getDateString(fromDateTime: (dic["dateTimePosted"] as? String)!, dateTimeFormat: "yyyy-MM-dd'T'HH:mm:ss")
+           
+            cell.timeLabel.text = PSUserInterfaceManager.sharedInstance.getTimeString(fromDateTime: (dic["dateTimePosted"] as? String)!, dateTimeFormat: "yyyy-MM-dd'T'HH:mm:ss")
         }
         else if self.feedTitle == "Policies/Procedures"
         {
             cell.dateLabel.text = dic["dateTimePosted"] as? String
+            
+            cell.dateLabel.text = PSUserInterfaceManager.sharedInstance.getDateString(fromDateTime: (dic["dateTimePosted"] as? String)!, dateTimeFormat: "yyyy-MM-dd'T'HH:mm:ss")
+            
+            cell.timeLabel.text = PSUserInterfaceManager.sharedInstance.getTimeString(fromDateTime: (dic["dateTimePosted"] as? String)!, dateTimeFormat: "yyyy-MM-dd'T'HH:mm:ss")
         }
         
         return cell
@@ -342,6 +366,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         self.myReportsLabel.textColor = UIColor.black
         self.sharedReportsLabel.textColor = UIColor.white
         
+        self.feedArray = [Any]()
         self.reportType = "SharedReports"
         self.getSharedReports()
     }
@@ -356,6 +381,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         self.myReportsLabel.textColor = UIColor.white
         self.sharedReportsLabel.textColor = UIColor.black
         
+        self.feedArray = [Any]()
         self.reportType = "MyReports"
         self.getSharedReports()
     }
@@ -370,6 +396,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         self.myReportsLabel.textColor = UIColor.black
         self.sharedReportsLabel.textColor = UIColor.black
         
+        self.feedArray = [Any]()
         self.getInfoFor()
     }
     
@@ -428,7 +455,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
                     }
                 }
                 self.updatesAnnouncementsTableView.reloadData()
-                //                    self.configureReportTypes()
+                
                 print(self.feedArray)
                 
             }, failure:
@@ -458,29 +485,54 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     func title(forEmptyDataSet scrollView: UIScrollView?) -> NSAttributedString?
     {
         let myString = "No Data found!"
-//        let attributes = [NSFontAttributeName : UIFont.systemFont(ofSize: 19.0),NSForegroundColorAttributeName : UIColor(red: 255, green: 75, blue: 1, alpha: 1.0) ]
         let attributes = [NSFontAttributeName : UIFont.systemFont(ofSize: 19.0),NSForegroundColorAttributeName : UIColor.red ]
         let myAttrString = NSAttributedString(string: myString, attributes: attributes)
         return myAttrString
     }
     
-    func getDateString(fromDateTime dateTime: String) -> String
+    func getDateString(fromDateTime dateTime:String) -> String
     {
-        let dateFormatterDB = DateFormatter()
-        dateFormatterDB.dateFormat = "yyyyy-MM-dd'T'HH:mm:ssZ"
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         
-        let dateFormatterApp = DateFormatter()
-        dateFormatterApp.dateFormat = "MMM dd,yyyy"
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "MMM dd,yyyy"
         
-        print(dateFormatterDB.date(from: dateTime)! as NSDate )
+        if let date = dateFormatterGet.date(from: dateTime)
+        {
+            print(dateFormatterPrint.string(from: date))
+            return dateFormatterPrint.string(from: date)
+        }
+        else
+        {
+            print("There was an error decoding the string")
+        }
         
-        let date: NSDate? = dateFormatterDB.date(from: dateTime)! as NSDate
-        
-        print(dateFormatterApp.string(from: date! as Date))
-        
-        return dateFormatterApp.string(from: date! as Date)
+        return ""
     }
-//MMM d, yyyy
+    
+    func getTimeString(fromDateTime dateTime:String) -> String
+    {
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "h:mm a"
+        
+        if let date = dateFormatterGet.date(from: dateTime)
+        {
+            print(dateFormatterPrint.string(from: date))
+            return dateFormatterPrint.string(from: date)
+        }
+        else
+        {
+            print("There was an error decoding the string")
+        }
+        
+        return ""
+    }
+    
+    
     /*
     // MARK: - Navigation
 

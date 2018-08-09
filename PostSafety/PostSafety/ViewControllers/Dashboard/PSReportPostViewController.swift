@@ -41,20 +41,6 @@ class PSReportPostViewController: UIViewController
         else
         {
             print(reportPostDict["fileName"] ?? "")
-//            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Loading Image")
-//            PSAPIManager.sharedInstance.getDataFromUrl(url: URL.init(string: String(format: "http://postsafety.anadeemus.ca/UploadImages/%@", "10113_3.jpg"))!)
-//            { (data, response, error) in
-//
-//                PSUserInterfaceManager.sharedInstance.hideLoader()
-//                if error ==  nil
-//                {
-//                    DispatchQueue.main.async
-//                    {
-//                        _ = UIImage(data: data!)
-//                        self.reportImageView.image = UIImage(data: data!)
-//                    }
-//                }
-//            }
             
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Loading Image")
             PSAPIManager.sharedInstance.getDataFromUrl(url: URL.init(string: String(format: "http://postsafety.anadeemus.ca/UploadImages/%@", reportPostDict["fileName"] as! String))!)

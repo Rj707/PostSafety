@@ -18,7 +18,7 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view1: UIView!
     
-    @IBOutlet weak var reportCategoryDDTextField: IQDropDownTextField!
+    @IBOutlet weak var reportLocationDDTextField: IQDropDownTextField!
     @IBOutlet weak var reportSenderDDTextField: IQDropDownTextField!
     @IBOutlet weak var reportTypeDDTextField: IQDropDownTextField!
     @IBOutlet weak var reportStartDateDDTextField: UITextField!
@@ -27,7 +27,8 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
     var datePickerStart : UIDatePicker!
     var datePickerEnd : UIDatePicker!
     
-    var reportCategoryArray = ["Category 1", "Category 2", "Category 3","Category 4"]
+    var reportLocationArray = [Any]()
+    var reportLocationAddressArray = [Any]()
     var reportSenderArray = [String]()
     var reportTypeArray = ["Hazard", "Near Miss", "Incident","Emergency"]
     var reportSenderDetailArray = [Any]()
@@ -40,18 +41,19 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
         super.viewDidLoad()
         
         self.getAllEmployees()
+        self.getLocationsforReport()
         
-//        reportCategoryDDTextField.dropDownMode = IQDropDownModeDatePicker
-        
+        reportLocationDDTextField.dataSource = self
+        reportLocationDDTextField.delegate = self
         reportTypeDDTextField.dataSource = self
         reportTypeDDTextField.delegate = self
         reportSenderDDTextField.dataSource = self
         reportSenderDDTextField.delegate = self
         
+        reportLocationDDTextField.isOptionalDropDown = false
         reportSenderDDTextField.isOptionalDropDown = false
         reportTypeDDTextField.isOptionalDropDown = false
         
-//        reportSenderDDTextField.itemList = reportSenderArray
         reportTypeDDTextField.itemList = reportTypeArray
         
         self.view1.layer.borderWidth = 1
@@ -88,19 +90,23 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
         let filterDictionary = NSMutableDictionary.init()
         if self.reportTypeDDTextField.selectedItem == ""
         {
-            
+            PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Select Post type")
+        }
+        else if self.reportLocationDDTextField.selectedItem == ""
+        {
+            PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Select Post Location")
         }
         else if self.reportSenderDDTextField.selectedItem == ""
         {
-            
+            PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Select Post Sender")
         }
         else if self.reportStartDateDDTextField.text == ""
         {
-            
+            PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Select Post Start Date")
         }
         else if self.reportEndDateDDTextField.text == ""
         {
-            
+            PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Select Post End Date")
         }
         else
         {
@@ -116,7 +122,7 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
             filterDictionary.setValue(self.reportSenderDDTextField.selectedItem, forKey: "ReportedBy")
             filterDictionary.setValue(self.reportStartDateDDTextField.text, forKey: "startdate")
             filterDictionary.setValue(self.reportEndDateDDTextField.text, forKey: "enddate")
-            
+            filterDictionary.setValue(String(self.branchIdForSelctedRow(row: self.reportLocationDDTextField.selectedRow)), forKey: "branchId")
             self.delegate.applyFilters(filterData: filterDictionary)
             self.dismiss(animated: true)
             {
@@ -186,6 +192,8 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
         present(alertController, animated: true)
     }
     
+    // MARK: - APIs
+    
     func getAllEmployees()
     {
         if CEReachabilityManager.isReachable()
@@ -233,9 +241,56 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
         }
     }
     
-    func getEmployeeIDForEmployeeName(sender: String)-> String
+    func getLocationsforReport() -> Void
     {
-        return ""
+        if CEReachabilityManager.isReachable()
+        {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Locations")
+            companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
+            PSAPIManager.sharedInstance.getLocationsFor(companyId: String(companyId) ,success:
+            { (dic) in
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                let tempArray = dic["array"] as! [Any]
+                
+                for checklistDict in tempArray
+                {
+                    if let tempDict = checklistDict as? [String: Any]
+                    {
+                        self.reportLocationArray.append(tempDict)
+                    }
+                }
+                
+                for i in 0...self.reportLocationArray.count-1
+                {
+                    var tempDict = self.reportLocationArray[i] as? [String: Any]
+                    self.reportLocationAddressArray.append(tempDict!["branchName"] ?? "No Branch Address")
+                }
+               
+                
+                self.reportLocationDDTextField.itemList = self.reportLocationAddressArray as? [String]
+                    
+            }, failure:
+                
+                {
+                    (error:NSError,statusCode:Int) in
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    if(statusCode==404)
+                    {
+                        PSUserInterfaceManager.showAlert(title: "Locations", message: ApiResultFailureMessage.InvalidEmailPassword)
+                    }
+                    else
+                    {
+                        
+                    }
+                    
+            }, errorPopup: true)
+        }
+    }
+    
+    func branchIdForSelctedRow(row: Int)-> Int
+    {
+        var tempDict = self.reportLocationArray[row] as! [String:Any]
+        return tempDict["branchId"] as! Int
     }
 
     /*

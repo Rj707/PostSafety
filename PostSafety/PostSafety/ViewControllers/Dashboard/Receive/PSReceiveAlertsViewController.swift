@@ -93,6 +93,8 @@ class PSReceiveAlertsViewController: UIViewController
         let storyboard = UIStoryboard(name: "User", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedViewController") as! PSFeedViewController
         vc.feedTitle = "Announcements"
+        let resultPredicate = NSPredicate(format: "type = %@", "Announcement")
+        vc.feedArray = (self.alertsArray as NSArray).filtered(using: resultPredicate)
         navigationController?.pushViewController(vc,
                                                  animated: true)
     }

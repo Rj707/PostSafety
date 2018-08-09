@@ -23,6 +23,7 @@ class PSSettingsViewController: UIViewController
     {
         super.viewDidLoad()
 
+        phoneNumberTextField?.text = PSDataManager.sharedInstance.loggedInUser?.phone
         self.passwordTextFieldContainer?.layer.borderWidth = 2
         self.passwordTextFieldContainer?.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.confirmPasswordTextFieldContainer?.layer.borderWidth = 2

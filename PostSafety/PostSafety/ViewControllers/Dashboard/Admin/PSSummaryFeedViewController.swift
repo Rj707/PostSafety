@@ -59,8 +59,13 @@ class PSSummaryFeedViewController: UIViewController,UITableViewDataSource,UITabl
         cell = tableView.dequeueReusableCell(withIdentifier: "SummaryFeedCell", for: indexPath) as! PSFeedTableViewCell
         
         let dic = self.summaryFeedArray[indexPath.row] as! NSDictionary
-        cell.titleLabel.text = dic["title"] as? String
-        cell.dateLabel.text = dic["date"] as? String
+    
+        var subDict = dic["incidentType"] as? [String:Any]
+        cell.titleLabel.text = String(format: "%@ : %@", (subDict!["typeName"] as? String)!,"")
+        
+        cell.dateLabel.text = PSUserInterfaceManager.sharedInstance.getDateString(fromDateTime: (dic["date"] as? String)!,dateTimeFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS")
+//        cell.dateLabel.text = (dic["date"] as? String)!
+        cell.timeLabel.text = PSUserInterfaceManager.sharedInstance.getTimeString(fromDateTime: (dic["date"] as? String)!,dateTimeFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS")
         
         return cell
     }
@@ -107,6 +112,8 @@ class PSSummaryFeedViewController: UIViewController,UITableViewDataSource,UITabl
 //        }
         
     }
+    
+    //MARK: - APIs
     
     func getSummaryStatsDetail()
     {

@@ -30,8 +30,10 @@ class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         {
             realm = try! Realm()
         }
+        
         menuIdentifiers.append("userProfileCell")
         menuIdentifiers.append("paymentCell")
+        
 //        menuIdentifiers.append("helpCell")
 //        menuIdentifiers.append("logoutCell")
         
@@ -53,6 +55,7 @@ class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         if indexPath.row == 0
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: menuIdentifiers[indexPath.row], for: indexPath) as! MenuTopCell
+            cell.usernameLbl.text = PSDataManager.sharedInstance.loggedInUser?.employeeFullName
             return cell
         }
         else

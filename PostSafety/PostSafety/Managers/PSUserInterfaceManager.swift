@@ -258,6 +258,51 @@ class PSUserInterfaceManager:NSObject
         ACProgressHUD.shared.hideHUD()
     }
     
+    func getDateString(fromDateTime dateTime:String, dateTimeFormat:String) -> String
+    {
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+        dateFormatterGet.dateFormat = dateTimeFormat
+        
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "MMM dd,yyyy"
+        
+        if let date = dateFormatterGet.date(from: dateTime)
+        {
+            print(dateFormatterPrint.string(from: date))
+            return dateFormatterPrint.string(from: date)
+        }
+        else
+        {
+            print("There was an error decoding the string")
+        }
+        
+        return ""
+    }
+    
+    func getTimeString(fromDateTime dateTime:String, dateTimeFormat:String) -> String
+    {
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatterGet.dateFormat = dateTimeFormat
+
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "h:mm a"
+        
+        if let date = dateFormatterGet.date(from: dateTime)
+        {
+            print(dateFormatterPrint.string(from: date))
+            return dateFormatterPrint.string(from: date)
+        }
+        else
+        {
+            print("There was an error decoding the string")
+        }
+        
+        return ""
+    }
+    
     
 //    static func markNotificationRead(notificationId: String)
 //    {

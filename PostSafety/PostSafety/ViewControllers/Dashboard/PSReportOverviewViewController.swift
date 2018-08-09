@@ -8,8 +8,9 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import MessageUI
 
-class PSReportOverviewViewController: UIViewController
+class PSReportOverviewViewController: UIViewController,MFMessageComposeViewControllerDelegate
 {
 
     var reportOverviewDict = NSDictionary.init()
@@ -54,6 +55,64 @@ class PSReportOverviewViewController: UIViewController
         }
     }
     
+    @IBAction func phoneNumberGestureTapped(_ sender: Any)
+    {
+        let alertController = UIAlertController(title: "Report Overview", message: "Do you want to make a call or message to sender", preferredStyle: .alert)
+        let alertActionCall = UIAlertAction(title: "Call", style: .default)
+        { (action) in
+            
+            var phone = self.reporterPhoneNumberLable.text
+            phone = phone?.removingWhitespaces()
+            var newPhone = ""
+            for i in (phone?.characters)!
+            {
+                switch (i)
+                {
+                    case "0","1","2","3","4","5","6","7","8","9" : newPhone = newPhone + String(i)
+                    default : print("Removed invalid character.")
+                }
+            }
+
+            if let url = URL(string:"tel://\(String(describing: newPhone))"), UIApplication.shared.canOpenURL(url)
+            {
+                UIApplication.shared.openURL(url)
+            }
+            else
+            {
+               print("Issue")
+            }
+        }
+        alertController.addAction(alertActionCall)
+        let alertActionMessage = UIAlertAction(title: "Message", style: .default)
+        { (action) in
+            
+            if (MFMessageComposeViewController.canSendText())
+            {
+                let controller = MFMessageComposeViewController()
+                controller.body = "Message Body"
+                controller.recipients = [self.reporterPhoneNumberLable.text] as? [String]
+                controller.messageComposeDelegate = self
+                DispatchQueue.main.async
+                {
+                    self.present(controller, animated: true, completion: nil)
+                }
+                
+            }
+            
+        }
+        alertController.addAction(alertActionMessage)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult)
+    {
+        //... handle sms screen actions
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    
+
+    
     /*
     // MARK: - Navigation
 
@@ -64,4 +123,12 @@ class PSReportOverviewViewController: UIViewController
     }
     */
 
+}
+
+extension String
+{
+    func removingWhitespaces() -> String
+    {
+        return components(separatedBy: .whitespaces).joined()
+    }
 }
