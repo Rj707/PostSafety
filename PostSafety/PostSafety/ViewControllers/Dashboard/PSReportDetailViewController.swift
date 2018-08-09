@@ -12,10 +12,11 @@ class PSReportDetailViewController: UIViewController
 {
     var reportDetailsDict = NSDictionary.init()
     @IBOutlet weak var reportDetailsLable: UILabel!
+    @IBOutlet weak var reportDetailsTextView: UITextView!
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.reportDetailsLable.text = self.reportDetailsDict["details"] is NSNull ? "None" : self.reportDetailsDict["details"] as! String
+        self.reportDetailsTextView.text = self.reportDetailsDict["details"] is NSNull ? "None" : self.reportDetailsDict["details"] as! String
         // Do any additional setup after loading the view.
     }
 

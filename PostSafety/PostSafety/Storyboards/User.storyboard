@@ -81,8 +81,8 @@
                                                                     <outletCollection property="gestureRecognizers" destination="aT9-Rw-fpx" appends="YES" id="Nnj-D1-reU"/>
                                                                 </connections>
                                                             </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Reports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0J-80-8ll">
-                                                                <rect key="frame" x="98" y="43" width="180" height="36"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Posts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0J-80-8ll">
+                                                                <rect key="frame" x="113.5" y="43" width="149.5" height="36"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                                 <color key="textColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -782,13 +782,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Protocol for Near Miss Reports" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0BZ-gO-STX">
-                                                    <rect key="frame" x="106.5" y="38.5" width="260.5" height="67"/>
+                                                    <rect key="frame" x="106.5" y="37.5" width="260.5" height="67"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="January 18th, 2018" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZmN-bf-0YC">
-                                                    <rect key="frame" x="106.5" y="105.5" width="108" height="14.5"/>
+                                                    <rect key="frame" x="106.5" y="104.5" width="108" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -882,14 +882,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="IiN-Zi-QZD"/>
                     <connections>
+                        <outlet property="allReportsLabel" destination="iGb-ex-Mcv" id="aRf-7F-jeA"/>
                         <outlet property="allReportsView" destination="xkE-2W-mMp" id="P7n-Am-a5f"/>
                         <outlet property="archivedLabel" destination="W8H-Ip-Pte" id="4cF-2x-5gg"/>
                         <outlet property="archivedView" destination="Vku-TE-Mx0" id="YOj-Nb-EPg"/>
                         <outlet property="feedTitleLabel" destination="Qmw-8F-EmD" id="0aI-3c-TsA"/>
                         <outlet property="filterReportsView" destination="Gby-Nw-44X" id="yVu-hV-MNb"/>
                         <outlet property="menuButton" destination="R4J-bU-eFb" id="daW-Nk-MbG"/>
+                        <outlet property="myReportsLabel" destination="6D7-V1-Rhd" id="kd7-Io-N6w"/>
                         <outlet property="myReportsView" destination="Ipu-wT-32n" id="b5R-oi-bAc"/>
                         <outlet property="reportsStackView" destination="LM7-8Y-Uql" id="xXg-9I-bZY"/>
+                        <outlet property="sharedReportsLabel" destination="etJ-79-CRb" id="Ubw-et-qOi"/>
                         <outlet property="sharedReportsView" destination="ayH-yY-8wh" id="6DV-vr-Koc"/>
                         <outlet property="unOpenedLabel" destination="Foa-aT-gdh" id="eYn-yK-FKm"/>
                         <outlet property="unOpenedView" destination="qe2-bG-IrW" id="uHD-2A-RKb"/>

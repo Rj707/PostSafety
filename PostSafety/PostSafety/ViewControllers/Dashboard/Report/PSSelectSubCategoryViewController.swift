@@ -57,35 +57,7 @@ class PSSelectSubCategoryViewController: UIViewController,UITableViewDelegate,UI
     {
         self.navigationController?.popViewController(animated: true)
     }
-    
-    @IBAction func subCategoryOneGestureTapped(_ sender: Any)
-    {
-        Global.REPORT?.reportSubcategory = "Subcategory 1"
         
-        self.performSegue(withIdentifier: "toReportSummaryFromSubcategory", sender: (Any).self)
-    }
-    @IBAction func subCategoryTwoGestureTapped(_ sender: Any)
-    {
-        Global.REPORT?.reportSubcategory = "Subcategory 2"
-        
-        self.performSegue(withIdentifier: "toReportSummaryFromSubcategory", sender: (Any).self)
-        
-    }
-    @IBAction func subCategoryThreeGestureTapped(_ sender: Any)
-    {
-        Global.REPORT?.reportSubcategory = "Subcategory 3"
-        
-        self.performSegue(withIdentifier: "toReportSummaryFromSubcategory", sender: (Any).self)
-        
-    }
-    @IBAction func subCategoryFourGestureTapped(_ sender: Any)
-    {
-        Global.REPORT?.reportSubcategory = "Subcategory 4"
-        
-        self.performSegue(withIdentifier: "toReportSummaryFromSubcategory", sender: (Any).self)
-        
-    }
-    
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int

@@ -29,13 +29,13 @@ class PSReportOverviewViewController: UIViewController
        
         // Do any additional setup after loading the view.
         
-        self.timeLable.text = self.reportOverviewDict["date"] is NSNull ? "None" : self.reportOverviewDict["date"] as! String
+        self.timeLable.text = self.reportOverviewDict["time"] is NSNull ? "None" : self.reportOverviewDict["time"] as! String
         self.dateLable.text = self.reportOverviewDict["date"] is NSNull ? "None" : self.reportOverviewDict["date"] as! String
-        self.reporterLable.text = self.reportOverviewDict["reportedBy"] is NSNull ? "None" : String(self.reportOverviewDict["reportedBy"] as! Int)
+        self.reporterLable.text = self.reportOverviewDict["reportedBy"] is NSNull ? "None" : self.reportOverviewDict["reportedBy"] as! String
         self.locationLable.text = self.reportOverviewDict["location"] is NSNull ? "None" : self.reportOverviewDict["location"] as! String
-        self.typeLable.text = self.reportOverviewDict["incidentType"] is NSNull ? "None" : String(self.reportOverviewDict["incidentType"] as! Int)
-        self.subCategoryLable.text = self.reportOverviewDict["subCatagoryId"] is NSNull ? "None" : String(self.reportOverviewDict["subCatagoryId"] as! Int)
-        self.categoryLable.text = self.reportOverviewDict["catagoryId"] is NSNull ? "None" : String(self.reportOverviewDict["catagoryId"] as! Int)
+        self.typeLable.text = self.reportOverviewDict["incidentType"] is NSNull ? "None" : self.reportOverviewDict["incidentType"] as! String
+        self.subCategoryLable.text = self.reportOverviewDict["subCatagory"] is NSNull ? "None" : self.reportOverviewDict["subCatagory"] as! String
+        self.categoryLable.text = self.reportOverviewDict["catagory"] is NSNull ? "None" : self.reportOverviewDict["catagory"] as! String
 //        self.reporterPhoneNumberLable.text = self.reportOverviewDict["reportedByNavigation"] is NSNull ? "None" : self.reportOverviewDict["reportedByNavigation"] as! String
     }
 

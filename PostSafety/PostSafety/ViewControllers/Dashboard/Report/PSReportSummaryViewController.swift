@@ -29,22 +29,22 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
         print(PSDataManager.sharedInstance.report?.reportCategory ?? "Category")
         print(PSDataManager.sharedInstance.report?.reportSubcategory ?? "Subcategory")
         
-        print(String((PSDataManager.sharedInstance.report?.reportType?.filter { !"\n\t\r".contains($0) })!))
+//        print(String((PSDataManager.sharedInstance.report?.reportType?.filter { !"\n\t\r".contains($0) })!))
         
         
-        reportTypleLabel.text = String(format: "Post type: <%@>", (PSDataManager.sharedInstance.report?.reportType)!)
-        locationNameLabel.text = String(format: "Category: <%@>", (PSDataManager.sharedInstance.report?.reportLocation)!)
-        categoryNameLabel.text = String(format: "Post Location: <%@>", (PSDataManager.sharedInstance.report?.reportCategory)!)
+        reportTypleLabel.text = String(format: "Post Type: %@", (PSDataManager.sharedInstance.report?.reportType)!)
+        locationNameLabel.text = String(format: "Post Location: %@", (PSDataManager.sharedInstance.report?.reportLocation)!)
+        categoryNameLabel.text = String(format: "Category: %@", (PSDataManager.sharedInstance.report?.reportCategory)!)
         
         if PSDataManager.sharedInstance.report?.reportType == "Incident"
         {
             subCategoryNameLabel.isHidden =  false
-            subCategoryNameLabel.text = String(format: "Subcategory: <%@>", (PSDataManager.sharedInstance.report?.reportSubcategory)!)
+            subCategoryNameLabel.text = String(format: "Subcategory: %@", (PSDataManager.sharedInstance.report?.reportSubcategory)!)
         }
         else if PSDataManager.sharedInstance.report?.reportType == "NearMiss"
         {
             subCategoryNameLabel.isHidden =  false
-            subCategoryNameLabel.text = String(format: "PSI?: <%@>", (PSDataManager.sharedInstance.report?.isReportPSI)!)
+            subCategoryNameLabel.text = String(format: "PSI?: %@", (PSDataManager.sharedInstance.report?.isReportPSI)!)
         }
         else
         {
@@ -78,12 +78,12 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
         if CEReachabilityManager.isReachable()
         {
             var report = PSReport.init()
-            report = Global.REPORT!
+            report = PSDataManager.sharedInstance.report!
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Updating Report")
             PSAPIManager.sharedInstance.updateReportFor(ReportId: String(report.reportID), LocationId: String(locationID), Title: "", Details: self.decriptionTextView.text, CatagoryId: String(report.categoryID), SubCatagory: "0", success:
             { (dict) in
                 PSUserInterfaceManager.sharedInstance.hideLoader()
-                Global.REPORT = PSReport.init()
+                PSDataManager.sharedInstance.report = PSReport.init()
                 self.performSegue(withIdentifier: "toReportConfirmFromSummary", sender: (Any).self)
                 
             },

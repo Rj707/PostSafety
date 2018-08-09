@@ -142,6 +142,7 @@ class PSSelectCategoryViewController: UIViewController,UITableViewDelegate,UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
+        self.setNextViewController()
         var cell:PSCategoryTableViewCell
         cell = tableView.cellForRow(at: indexPath) as! PSCategoryTableViewCell
         PSDataManager.sharedInstance.report?.reportCategory = cell.data["name"] as? String
@@ -151,6 +152,8 @@ class PSSelectCategoryViewController: UIViewController,UITableViewDelegate,UITab
             let vc =   nextViewController as! PSSelectSubCategoryViewController
             vc.CatagoryID = (cell.data["checklistDetailsId"] as? Int)!
         }
+        
+        PSDataManager.sharedInstance.report?.categoryID = (cell.data["checklistDetailsId"] as? Int)!
         navigationController?.pushViewController(nextViewController,
                                                  animated: true)
     }

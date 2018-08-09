@@ -48,7 +48,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         self.employeeID = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
         if self.incidentTypeID == 0
         {
-            self.incidentTypeID = (Global.REPORT?.incidentType)!
+            self.incidentTypeID = (PSDataManager.sharedInstance.report?.incidentType)!
         }
         else{}
         self.createReport()
@@ -180,6 +180,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
     {
         if CEReachabilityManager.isReachable()
         {
+            
             self.progressView.isHidden = false
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Uploading Video")
             PSAPIManager.sharedInstance.uploadImageFor(ReportId: String(self.reportID), Type: "Video", data:videoData , success:
@@ -231,9 +232,12 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         if CEReachabilityManager.isReachable()
         {
             self.progressView.isHidden = false
+            let image = UIImage(data: imageData)
+            
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Uploading Image")
-            PSAPIManager.sharedInstance.uploadImageFor(ReportId: String(self.reportID), Type: "Image", data:imageData , success:
+            PSAPIManager.sharedInstance.uploadImageFor(ReportId: String(self.reportID), Type: "Image", data:(image?.jpeg(UIImage.JPEGQuality.low))! , success:
                 { (dic) in
+                    
                     self.progressView.isHidden = true
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     print(Global.REPORT?.reportType ?? "No Type Found")
@@ -293,7 +297,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     print(dic["ReportID"] ?? "")
                     self.reportID = dic["ReportID"] as! Int
-                    Global.REPORT?.reportID = dic["ReportID"] as! Int
+                    PSDataManager.sharedInstance.report?.reportID = dic["ReportID"] as! Int
             } ,
                                                                       failure:
                 
@@ -338,5 +342,26 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         let seconds = Int(time) % 60
         
         return String(format:"%02d:%02d:%02d", hours, minutes, seconds)
+    }
+}
+
+extension UIImage
+{
+    enum JPEGQuality: CGFloat
+    {
+        case lowest  = 0
+        case low     = 0.25
+        case medium  = 0.5
+        case high    = 0.75
+        case highest = 1
+    }
+    
+    /// Returns the data for the specified image in JPEG format.
+    /// If the image object’s underlying image data has been purged, calling this function forces that data to be reloaded into memory.
+    /// - returns: A data object containing the JPEG data, or nil if there was a problem generating the data. This function may return nil if the image has no data or if the underlying CGImageRef contains data in an unsupported bitmap format.
+    
+    func jpeg(_ quality: JPEGQuality) -> Data?
+    {
+        return UIImageJPEGRepresentation(self, quality.rawValue)
     }
 }

@@ -22,6 +22,10 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     @IBOutlet weak var unOpenedLabel: UILabel!
     @IBOutlet weak var archivedLabel: UILabel!
     
+    @IBOutlet weak var sharedReportsLabel: UILabel!
+    @IBOutlet weak var myReportsLabel: UILabel!
+    @IBOutlet weak var allReportsLabel: UILabel!
+    
     @IBOutlet weak var unOpenedView: UIView!
     @IBOutlet weak var archivedView: UIView!
     
@@ -210,23 +214,20 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         let dic = self.feedArray[indexPath.row] as! NSDictionary
         
-        cell.titleLabel.text = dic["title"] as? String ?? "No Data from DB"
+        cell.titleLabel.text = String(format: "%@ : %@", (dic["incidentType"] as? String)!,(dic["catagory"] as? String)!)
         
         if self.feedTitle == "Reports"
         {
             cell.dateLabel.text = dic["date"] as? String
             cell.timeLabel.text = dic["time"] as? String
-//            cell.dateLabel.text = self.getDateString(fromDateTime: (dic["date"] as? String)!)
         }
         else if self.feedTitle == "Training"
         {
             cell.dateLabel.text = dic["dateTimePosted"] as? String
-//            cell.dateLabel.text = self.getDateString(fromDateTime: (dic["dateTimePosted"] as? String)!)
         }
         else if self.feedTitle == "Policies/Procedures"
         {
             cell.dateLabel.text = dic["dateTimePosted"] as? String
-//            cell.dateLabel.text = self.getDateString(fromDateTime: (dic["dateTimePosted"] as? String)!)
         }
         
         return cell
@@ -235,6 +236,8 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let dic = self.feedArray[indexPath.row] as! NSDictionary
+        var cell:PSFeedTableViewCell
+        cell = tableView.cellForRow(at: indexPath) as! PSFeedTableViewCell
         
         print(Global.USERTYPE?.rawValue ?? "Global None")
         print(PSDataManager.sharedInstance.loggedInUser?.userType?.rawValue ?? "PSDataManager None")
@@ -245,8 +248,8 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
             let storyboard = UIStoryboard(name: "User", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PSReportPostViewController") as! PSReportPostViewController
             vc.reportPostDict = self.feedArray[indexPath.row] as! NSDictionary
-            vc.postTitle =  (self.feedArray[indexPath.row] as! NSDictionary).value(forKey: "title") is NSNull ? "No Data" : (self.feedArray[indexPath.row] as! NSDictionary).value(forKey: "title") as!
-            String
+            vc.postTitle =  cell.titleLabel.text!
+            
             navigationController?.pushViewController(vc,
                                                      animated: true)
         }
@@ -256,7 +259,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
             let storyboard = UIStoryboard(name: "User", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PSReportPostViewController") as! PSReportPostViewController
             vc.reportPostDict = self.feedArray[indexPath.row] as! NSDictionary
-            vc.postTitle =  (self.feedArray[indexPath.row] as! NSDictionary).value(forKey: "title") is NSNull ? "No Data" : (self.feedArray[indexPath.row] as! NSDictionary).value(forKey: "title") as! String
+            vc.postTitle =  cell.titleLabel.text!
             navigationController?.pushViewController(vc,
                                                      animated: true)
         }
@@ -290,12 +293,15 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     @IBAction func unOpenedViewTouched(_ sender: UITapGestureRecognizer)
     {
-        //      self.announcementView.backgroundColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0)
-        //      self.type = FeedType(rawValue: 0)
+        self.unOpenedView.backgroundColor=UIColor.init(red: 255/255.0, green: 75/255.0, blue: 1/255.0, alpha: 1.0)
+        self.archivedView.backgroundColor=UIColor.white
         
-//        unOpenedLabel.text = "Shared Posts"
+        self.unOpenedLabel.textColor = UIColor.white
+        self.archivedLabel.textColor = UIColor.black
+        
         if unOpenedLabel.text == "Shared Posts"
         {
+            self.feedArray = [Any]()
             self.reportType = "SharedReports"
             self.getSharedReports()
         }
@@ -308,10 +314,15 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     @IBAction func archivedViewTouched(_ sender: UITapGestureRecognizer)
     {
-//      self.announcementView.backgroundColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0)
-//      self.type = FeedType(rawValue: 0)
+        self.archivedView.backgroundColor=UIColor.init(red: 255/255.0, green: 75/255.0, blue: 1/255.0, alpha: 1.0)
+        self.unOpenedView.backgroundColor=UIColor.white
+        
+        self.unOpenedLabel.textColor = UIColor.black
+        self.archivedLabel.textColor = UIColor.white
+        
         if archivedLabel.text == "My Posts"
         {
+            self.feedArray = [Any]()
             self.reportType = "MyReports"
             self.getSharedReports()
         }
@@ -323,24 +334,42 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     @IBAction func sharedReportsViewTouched(_ sender: UITapGestureRecognizer)
     {
-//      self.sharedreportView.backgroundColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0)
-//      self.type = FeedType(rawValue: 1)
+        self.sharedReportsView.backgroundColor=UIColor.init(red: 255/255.0, green: 75/255.0, blue: 1/255.0, alpha: 1.0)
+        self.myReportsView.backgroundColor=UIColor.white
+        self.allReportsView.backgroundColor=UIColor.white
+        
+        self.allReportsLabel.textColor = UIColor.black
+        self.myReportsLabel.textColor = UIColor.black
+        self.sharedReportsLabel.textColor = UIColor.white
+        
         self.reportType = "SharedReports"
         self.getSharedReports()
     }
     
     @IBAction func myReportsViewTouched(_ sender: UITapGestureRecognizer)
     {
-        //      self.announcementView.backgroundColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0)
-        //      self.type = FeedType(rawValue: 0)
+        self.myReportsView.backgroundColor=UIColor.init(red: 255/255.0, green: 75/255.0, blue: 1/255.0, alpha: 1.0)
+        self.sharedReportsView.backgroundColor=UIColor.white
+        self.allReportsView.backgroundColor=UIColor.white
+        
+        self.allReportsLabel.textColor = UIColor.black
+        self.myReportsLabel.textColor = UIColor.white
+        self.sharedReportsLabel.textColor = UIColor.black
+        
         self.reportType = "MyReports"
         self.getSharedReports()
     }
     
     @IBAction func allReportsViewTouched(_ sender: UITapGestureRecognizer)
     {
-        //      self.sharedreportView.backgroundColor=UIColor.init(red: 255/255.0, green: 37/255.0, blue: 1/255.0, alpha: 1.0)
-        //      self.type = FeedType(rawValue: 1)
+        self.allReportsView.backgroundColor=UIColor.init(red: 255/255.0, green: 75/255.0, blue: 1/255.0, alpha: 1.0)
+        self.sharedReportsView.backgroundColor=UIColor.white
+        self.myReportsView.backgroundColor=UIColor.white
+        
+        self.allReportsLabel.textColor = UIColor.white
+        self.myReportsLabel.textColor = UIColor.black
+        self.sharedReportsLabel.textColor = UIColor.black
+        
         self.getInfoFor()
     }
     

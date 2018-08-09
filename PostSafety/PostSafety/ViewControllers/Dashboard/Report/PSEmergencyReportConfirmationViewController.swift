@@ -23,10 +23,10 @@ class PSEmergencyReportConfirmationViewController: UIViewController {
         if CEReachabilityManager.isReachable()
         {
             var report = PSReport.init()
-            report = Global.REPORT!
+            report = PSDataManager.sharedInstance.report!
             PSAPIManager.sharedInstance.updateReportFor(ReportId: String(report.reportID), LocationId: String(0), Title: "", Details: "", CatagoryId: String(report.categoryID), SubCatagory: "0", success:
             { (dict) in
-                    Global.REPORT = PSReport.init()
+                    PSDataManager.sharedInstance.report = PSReport.init()
                     self.performSegue(withIdentifier: "toReportConfirmFromSummary", sender: (Any).self)
                     
             },

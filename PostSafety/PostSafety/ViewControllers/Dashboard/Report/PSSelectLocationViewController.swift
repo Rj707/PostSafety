@@ -109,7 +109,7 @@ class PSSelectLocationViewController: UIViewController,UITableViewDelegate,UITab
         var cell:PSCategoryTableViewCell
         cell = tableView.dequeueReusableCell(withIdentifier: "PSCategoryTableViewCell") as! PSCategoryTableViewCell
         let dic = self.locationsArray[indexPath.row] as! NSDictionary
-        cell.categoryTitleLabel.text = dic["branchAddress"] as? String ?? "No Address"
+        cell.categoryTitleLabel.text = dic["branchName"] as? String ?? "No Address"
         cell.data = self.locationsArray[indexPath.row] as! NSDictionary
         //        cell.contentView.layer.borderWidth=1
         //        cell.contentView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
@@ -120,7 +120,7 @@ class PSSelectLocationViewController: UIViewController,UITableViewDelegate,UITab
     {
         var cell:PSCategoryTableViewCell
         cell = tableView.cellForRow(at: indexPath) as! PSCategoryTableViewCell
-        PSDataManager.sharedInstance.report?.reportLocation = cell.data["branchAddress"] as? String ?? "No Address"
+        PSDataManager.sharedInstance.report?.reportLocation = cell.data["branchName"] as? String ?? "No Address"
         self.performSegue(withIdentifier: "toReportSummaryFromLocation", sender: cell.data["branchId"])
     }
     

@@ -32,8 +32,8 @@ class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         }
         menuIdentifiers.append("userProfileCell")
         menuIdentifiers.append("paymentCell")
-        menuIdentifiers.append("helpCell")
-        menuIdentifiers.append("logoutCell")
+//        menuIdentifiers.append("helpCell")
+//        menuIdentifiers.append("logoutCell")
         
         self.menuTableView.separatorStyle = .none
     }
@@ -99,20 +99,25 @@ class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
         if indexPath.row==3
         {
-            if PSDataManager.sharedInstance.isUserLoggedIn()
-            {
-                try! realm.write
-                {
-                    realm.delete(Global.DATA_MANAGER.loggedInUser!)
-                }
-            }
             
-            var rootVC : UIViewController?
-            rootVC = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "PSLogInNavigationController")
-          
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.window?.rootViewController = rootVC
         }
+    }
+    
+    @IBAction func logoutGestureTapped(_ sender: UITapGestureRecognizer)
+    {
+        if PSDataManager.sharedInstance.isUserLoggedIn()
+        {
+            try! realm.write
+            {
+                realm.delete(Global.DATA_MANAGER.loggedInUser!)
+            }
+        }
+        
+        var rootVC : UIViewController?
+        rootVC = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "PSLogInNavigationController")
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = rootVC
     }
     
     

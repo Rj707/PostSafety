@@ -27,7 +27,7 @@ class PSEmergencyInstructionsViewController: UIViewController
 
     @IBAction func takeVideoButtonTouched(_ sender: Any)
     {
-        Global.REPORT?.reportType = "Emergency"
+        PSDataManager.sharedInstance.report?.reportType = "Emergency"
         
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
