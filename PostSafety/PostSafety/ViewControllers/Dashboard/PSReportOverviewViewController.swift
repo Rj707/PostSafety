@@ -38,6 +38,17 @@ class PSReportOverviewViewController: UIViewController,MFMessageComposeViewContr
         self.subCategoryLable.text = self.reportOverviewDict["subCatagory"] is NSNull ? "None" : self.reportOverviewDict["subCatagory"] as! String
         self.categoryLable.text = self.reportOverviewDict["catagory"] is NSNull ? "None" : self.reportOverviewDict["catagory"] as! String
         self.reporterPhoneNumberLable.text = self.reportOverviewDict["reportedByNumber"] is NSNull ? "None" : self.reportOverviewDict["reportedByNumber"] as! String
+        
+        
+        self.timeLable.text = self.reportOverviewDict["time"] as! String == "" ? "N/A" : self.reportOverviewDict["time"] as! String
+        self.dateLable.text = self.reportOverviewDict["date"] as! String == "" ? "N/A" : self.reportOverviewDict["date"] as! String
+        self.reporterLable.text = self.reportOverviewDict["reportedBy"] as! String == "" ? "N/A" : self.reportOverviewDict["reportedBy"] as! String
+        self.locationLable.text = self.reportOverviewDict["location"] as! String == "" ? "N/A" : self.reportOverviewDict["location"] as! String
+        self.typeLable.text = self.reportOverviewDict["incidentType"] as! String == "" ? "N/A" : self.reportOverviewDict["incidentType"] as! String
+        self.subCategoryLable.text = self.reportOverviewDict["subCatagory"] as! String == "" ? "N/A" : self.reportOverviewDict["subCatagory"] as! String
+        self.categoryLable.text = self.reportOverviewDict["catagory"] as! String == "" ? "N/A" : self.reportOverviewDict["catagory"] as! String
+        self.reporterPhoneNumberLable.text = self.reportOverviewDict["reportedByNumber"] as! String == "" ? "N/A" : self.reportOverviewDict["reportedByNumber"] as! String
+        
     }
 
     override func didReceiveMemoryWarning()
