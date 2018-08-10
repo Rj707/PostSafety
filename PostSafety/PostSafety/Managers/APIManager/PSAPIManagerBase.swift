@@ -537,7 +537,7 @@ class PSAPIManagerBase: NSObject
             {
                 if let data = imageData
                 {
-                    multipartFormData.append(data, withName: "image", fileName: "image.png", mimeType: "image/png")
+                    multipartFormData.append(data, withName: "video", fileName: "video.mp4", mimeType: "video/mp4")
                 }
             }
             
