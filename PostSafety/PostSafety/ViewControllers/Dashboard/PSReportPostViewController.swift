@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+import AVKit
 
 class PSReportPostViewController: UIViewController
 {
@@ -14,17 +16,20 @@ class PSReportPostViewController: UIViewController
     @IBOutlet weak var reportActionsContainer:UIView!
     @IBOutlet weak var menuButton:UIButton!
     @IBOutlet weak var postTitleLabel:UILabel!
+    @IBOutlet weak var playVideoButton:UIButton!
+    @IBOutlet weak var playVideoContainer:UIView!
     
     var reportPostDict = NSDictionary.init()
     var postTitle = ""
-    
+    var videoURL = URL.init(string: "")
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
         self.addMenuAction()
-        // Do any additional setup after loading the view.
+        
         postTitleLabel.text = postTitle
+        
         if PSDataManager.sharedInstance.loggedInUser?.userTypeByRole == UserType.UserTypeAdmin.rawValue
         {
             self.reportActionsContainer.isHidden = false
@@ -34,7 +39,12 @@ class PSReportPostViewController: UIViewController
             self.reportActionsContainer.isHidden = true
         }
         
-        if reportPostDict["fileName"]  is NSNull
+        if reportPostDict["fileType"] as! String == "Video"
+        {
+            self.downloadThumbnail(WithURL: URL.init(string: String(format: "%@%@", reportPostDict["url"] as! String,reportPostDict["fileName"] as! String))!)
+
+        }
+        else if reportPostDict["fileName"]  is NSNull
         {
             
         }
@@ -42,37 +52,11 @@ class PSReportPostViewController: UIViewController
         {
             print(reportPostDict["fileName"] ?? "")
             
-            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Loading Image")
-            PSAPIManager.sharedInstance.getDataFromUrl(url: URL.init(string: String(format: "http://postsafety.anadeemus.ca/UploadImages/%@", reportPostDict["fileName"] as! String))!)
-            { (data, response, error) in
-                
-                PSUserInterfaceManager.sharedInstance.hideLoader()
-                
-                if error ==  nil
-                {
-                    DispatchQueue.main.async
-                    {
-                        _ = UIImage(data: data!)
-                        if (UIImage(data: data!) != nil)
-                        {
-                           self.reportImageView.image = UIImage(data: data!)
-                        }
-                        else
-                        {
-                            print("None")
-                            PSUserInterfaceManager.showAlert(title: "Loading Image", message: "Something went wrong while loading Image")
-                        }
-                        
-                    }
-                }
-                else
-                {
-                    PSUserInterfaceManager.showAlert(title: "Loading Image", message: "Something went wrong while loading Image")
-                }
-            }
+            self.downloadReportImage()
         }
         
     }
+    
 
     override func didReceiveMemoryWarning()
     {
@@ -80,8 +64,109 @@ class PSReportPostViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Private
+    
+    func downloadReportImage()
+    {
+        PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Loading Image")
+        PSAPIManager.sharedInstance.getDataFromUrl(url: URL.init(string: String(format: "http://postsafety.anadeemus.ca/UploadImages/%@", reportPostDict["fileName"] as! String))!)
+        { (data, response, error) in
+            
+            PSUserInterfaceManager.sharedInstance.hideLoader()
+            
+            if error ==  nil
+            {
+                DispatchQueue.main.async
+                {
+                    _ = UIImage(data: data!)
+                    if (UIImage(data: data!) != nil)
+                    {
+                        self.reportImageView.image = UIImage(data: data!)
+                    }
+                    else
+                    {
+                        print("None")
+                        PSUserInterfaceManager.showAlert(title: "Loading Image", message: "Something went wrong while loading Image")
+                    }
+                }
+            }
+            else
+            {
+                PSUserInterfaceManager.showAlert(title: "Loading Image", message: "Something went wrong while loading Image")
+            }
+        }
+    }
+    
+    func downloadThumbnail(WithURL url:URL) -> Void
+    {
+        PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Loading Video")
+        self.videoURL = url
+        
+        DispatchQueue.global().async
+        {
+            let asset = AVAsset(url: url)
+            let assetImgGenerate : AVAssetImageGenerator = AVAssetImageGenerator(asset: asset)
+            assetImgGenerate.appliesPreferredTrackTransform = true
+            let time = CMTimeMake(1, 2)
+            let img = try? assetImgGenerate.copyCGImage(at: time, actualTime: nil)
+            if img != nil
+            {
+                let frameImg  = UIImage(cgImage: img!)
+                DispatchQueue.main.async(execute:
+                {
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    self.reportImageView.image = frameImg
+                })
+            }
+            else
+            {
+                DispatchQueue.main.async(execute:
+                {
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    self.reportImageView.image = UIImage.init(named: "no-thumbnail.jpg")
+                    self.playVideoButton.isHidden = false
+                    self.playVideoContainer.isHidden = false
+                })
+                
+            }
+        }
+        
+    }
+    
+    func createThumbnailOfVideoFromRemoteUrl(url: String) -> UIImage?
+    {
+        let asset = AVAsset(url: URL(string: url)!)
+        let assetImgGenerate = AVAssetImageGenerator(asset: asset)
+        assetImgGenerate.appliesPreferredTrackTransform = true
+        //Can set this to improve performance if target size is known before hand
+        //assetImgGenerate.maximumSize = CGSize(width,height)
+        let time = CMTimeMakeWithSeconds(1.0, 600)
+        do
+        {
+            let img = try assetImgGenerate.copyCGImage(at: time, actualTime: nil)
+            let thumbnail = UIImage(cgImage: img)
+            return thumbnail
+        }
+        catch
+        {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+    
     
     // MARK: - IBActions
+    
+    @IBAction func playVideoGestureTapped(_ sender: Any)
+    {
+        let player = AVPlayer(url: self.videoURL!)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        self.present(playerViewController, animated: true)
+        {
+            playerViewController.player!.play()
+        }
+    }
     
     @IBAction func backButtonTouched(_ sender: UIButton)
     {
