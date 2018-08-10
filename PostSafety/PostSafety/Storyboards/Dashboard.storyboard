@@ -844,12 +844,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xtd-7X-X0o">
-                                        <rect key="frame" x="55.5" y="20" width="211" height="44"/>
+                                        <rect key="frame" x="54.5" y="20" width="211" height="44"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mei-DF-jC7">
                                                 <rect key="frame" x="16" y="7" width="178.5" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" red="0.87279921770000002" green="0.42015409469999998" blue="0.25148180129999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -1081,7 +1081,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvJ-4N-E6B">
                                 <rect key="frame" x="74" y="27" width="172" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="0.87279921770000002" green="0.42015409469999998" blue="0.25148180129999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eyc-tq-hP6">
@@ -1642,19 +1642,23 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u6n-gQ-g6a" userLabel="Nav Bar">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AST-SU-VEi">
-                                        <rect key="frame" x="27.5" y="20" width="266" height="44"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AST-SU-VEi">
+                                        <rect key="frame" x="35.5" y="20" width="250" height="44"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Select Subcategory" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvI-Qd-mSa">
-                                                <rect key="frame" x="16" y="7" width="234" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Subcategory" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvI-Qd-mSa">
+                                                <rect key="frame" x="16" y="7" width="218" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" red="0.87279921770095825" green="0.42015409469604492" blue="0.2514818012714386" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="fvI-Qd-mSa" secondAttribute="trailing" constant="16" id="CKz-qV-1nV"/>
+                                            <constraint firstItem="fvI-Qd-mSa" firstAttribute="leading" secondItem="AST-SU-VEi" secondAttribute="leading" constant="16" id="DNk-c3-Hvo"/>
+                                            <constraint firstAttribute="bottom" secondItem="fvI-Qd-mSa" secondAttribute="bottom" constant="7" id="L9h-Le-7m0"/>
                                             <constraint firstItem="fvI-Qd-mSa" firstAttribute="centerY" secondItem="AST-SU-VEi" secondAttribute="centerY" id="oJ2-oB-n2r"/>
+                                            <constraint firstItem="fvI-Qd-mSa" firstAttribute="top" secondItem="AST-SU-VEi" secondAttribute="top" constant="7" id="pF1-E7-dkr"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYa-Cx-g59">
@@ -1673,6 +1677,7 @@
                                     <constraint firstItem="AST-SU-VEi" firstAttribute="top" secondItem="u6n-gQ-g6a" secondAttribute="top" constant="20" id="21M-Xu-nr5"/>
                                     <constraint firstAttribute="height" constant="64" id="3Xm-vM-xgB"/>
                                     <constraint firstItem="XYa-Cx-g59" firstAttribute="top" secondItem="u6n-gQ-g6a" secondAttribute="top" constant="20" id="4F3-4H-V70"/>
+                                    <constraint firstItem="AST-SU-VEi" firstAttribute="centerY" secondItem="XYa-Cx-g59" secondAttribute="centerY" id="Cav-4s-QUd"/>
                                     <constraint firstItem="fvI-Qd-mSa" firstAttribute="centerY" secondItem="XYa-Cx-g59" secondAttribute="centerY" id="DvG-WN-5VA"/>
                                     <constraint firstAttribute="bottom" secondItem="AST-SU-VEi" secondAttribute="bottom" id="PCg-bL-Hyb"/>
                                     <constraint firstAttribute="bottom" secondItem="XYa-Cx-g59" secondAttribute="bottom" id="TAs-GP-cNP"/>

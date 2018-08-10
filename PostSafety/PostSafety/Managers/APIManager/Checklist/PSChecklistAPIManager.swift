@@ -7,15 +7,15 @@ class PSChecklistAPIManager: PSAPIManagerBase
     func getAllChecklists(success:@escaping DefaultArrayResultAPISuccessClosure,
                           failure:@escaping DefaultAPIFailureClosure, errorPopup: Bool)
     {
-        
-        let parameters: [String] =
+        let CompanyID = PSDataManager.sharedInstance.loggedInUser?.companyId
+        let parameters: [String:Any] =
         [
-            
+            "CompanyID":CompanyID ?? ""
         ]
         
-        let route: URL = GETURLforPS(route: Route.Checklist.rawValue, parameters: parameters )!
+        let route: URL = GETURLfor(route: Route.IncidentCompany.rawValue, parameters: parameters )!
         
-        self.getRequestWith(route: route, parameters: parameters, success: success, failure: failure, errorPopup: errorPopup)
+        self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
     }
     
     func getChecklistDetailsWith(checkListID:String,
