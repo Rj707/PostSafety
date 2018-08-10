@@ -38,6 +38,14 @@ extension PSAPIManager
         reportManagerAPI.getInfoFor(companyId: companyId, route: route ,success: success, failure: failure,errorPopup: errorPopup)
     }
     
+    func getAllReportsFor(companyId: String,
+                    success:@escaping DefaultArrayResultAPISuccessClosure,
+                    failure:@escaping DefaultAPIFailureClosure,
+                    errorPopup: Bool)
+    {
+        reportManagerAPI.getAllReportsFor(companyId: companyId, success: success, failure: failure,errorPopup: errorPopup)
+    }
+    
     func getSharedReportsFor(EmployeeID: String,
                     Type: String,
                     success:@escaping DefaultArrayResultAPISuccessClosure,
