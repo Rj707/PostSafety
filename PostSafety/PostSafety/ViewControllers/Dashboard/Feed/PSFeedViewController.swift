@@ -160,6 +160,47 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         }
     }
     
+    func getAllReports()
+    {
+        if CEReachabilityManager.isReachable()
+        {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: String(format: "%@%@", "Fetching ", self.feedTitle))
+            companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
+            PSAPIManager.sharedInstance.getAllReportsFor(companyId: String(companyId), success:
+                { (dic) in
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    let tempArray = dic["array"] as! [Any]
+                    
+                    for checklistDict in tempArray
+                    {
+                        if let tempDict = checklistDict as? [String: Any]
+                        {
+                            self.feedArray.append(tempDict)
+                        }
+                    }
+                    self.updatesAnnouncementsTableView.emptyDataSetSource = self
+                    self.updatesAnnouncementsTableView.emptyDataSetDelegate = self
+                    self.updatesAnnouncementsTableView.reloadData()
+                    //                    self.configureReportTypes()
+                    print(self.feedArray)
+                    
+            }, failure:
+                { (error:NSError,statusCode:Int) in
+                    
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    if(statusCode==404)
+                    {
+                        PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiResultFailureMessage.InvalidEmailPassword)
+                    }
+                    else
+                    {
+                        
+                    }
+                    
+            }, errorPopup: true)
+        }
+    }
+    
     func getSharedReports()
     {
         if CEReachabilityManager.isReachable()
@@ -266,6 +307,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         print(Global.USERTYPE?.rawValue ?? "Global None")
         print(PSDataManager.sharedInstance.loggedInUser?.userType?.rawValue ?? "PSDataManager None")
         print(PSDataManager.sharedInstance.loggedInUser?.userTypeByRole ?? "PSDataManager RoleNone")
+        
         if PSDataManager.sharedInstance.loggedInUser?.userTypeByRole == UserType.UserTypeAdmin.rawValue && feedTitle == "Reports"
         {
             PSDataManager.sharedInstance.reportId = dic["reportId"] as! Int
@@ -273,9 +315,15 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
             let vc = storyboard.instantiateViewController(withIdentifier: "PSReportPostViewController") as! PSReportPostViewController
             vc.reportPostDict = self.feedArray[indexPath.row] as! NSDictionary
             vc.postTitle =  cell.titleLabel.text!
-            
-            navigationController?.pushViewController(vc,
+            if dic["fileName"] is NSNull
+            {
+                
+            }
+            else
+            {
+                navigationController?.pushViewController(vc,
                                                      animated: true)
+            }
         }
         else if PSDataManager.sharedInstance.loggedInUser?.userTypeByRole == UserType.UserTypeNormal.rawValue && feedTitle == "Reports"
         {
@@ -397,7 +445,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         self.sharedReportsLabel.textColor = UIColor.black
         
         self.feedArray = [Any]()
-        self.getInfoFor()
+        self.getAllReports()
     }
     
     @IBAction func filterReportsGestureTouched(sender: UITapGestureRecognizer)

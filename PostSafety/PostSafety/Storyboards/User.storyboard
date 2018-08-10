@@ -1101,7 +1101,7 @@
                                 <rect key="frame" x="24" y="142" width="327" height="286"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMx-XE-MvK">
-                                <rect key="frame" x="24" y="452" width="327" height="44"/>
+                                <rect key="frame" x="24" y="448" width="327" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfR-Fz-368">
                                         <rect key="frame" x="16" y="11.5" width="110" height="21"/>
@@ -1135,7 +1135,7 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovL-Fp-Urg">
-                                <rect key="frame" x="24" y="512" width="327" height="44"/>
+                                <rect key="frame" x="24" y="508" width="327" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDX-AA-atY">
                                         <rect key="frame" x="16" y="11.5" width="91" height="21"/>
@@ -1165,7 +1165,7 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EPt-Bz-RfF">
-                                <rect key="frame" x="24" y="572" width="327" height="44"/>
+                                <rect key="frame" x="24" y="568" width="327" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Actions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjc-h5-brs">
                                         <rect key="frame" x="16" y="11.5" width="96" height="21"/>
@@ -1209,11 +1209,25 @@
                                     <action selector="backButtonTouched:" destination="KTp-hF-yJE" eventType="touchUpInside" id="aaq-Vv-xl6"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0y7-gz-mdn">
+                                <rect key="frame" x="155" y="340" width="64" height="64"/>
+                                <state key="normal" image="play"/>
+                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcG-uu-FaT">
+                                <rect key="frame" x="131" y="340" width="112" height="88"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Uvj-8B-8bM" appends="YES" id="6G7-nJ-pP1"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="0y7-gz-mdn" firstAttribute="bottom" secondItem="FDZ-p1-1uA" secondAttribute="bottom" constant="-24" id="4dO-yL-CLY"/>
                             <constraint firstItem="EPt-Bz-RfF" firstAttribute="leading" secondItem="ovL-Fp-Urg" secondAttribute="leading" id="79z-ol-s3Q"/>
                             <constraint firstItem="ovL-Fp-Urg" firstAttribute="height" secondItem="UMx-XE-MvK" secondAttribute="height" id="7w5-lI-IW8"/>
+                            <constraint firstItem="0y7-gz-mdn" firstAttribute="leading" secondItem="bcG-uu-FaT" secondAttribute="leading" constant="24" id="8a7-O6-Lv0"/>
                             <constraint firstItem="ovL-Fp-Urg" firstAttribute="leading" secondItem="UMx-XE-MvK" secondAttribute="leading" id="9f8-Ep-19o"/>
                             <constraint firstItem="zcP-HJ-bca" firstAttribute="top" secondItem="p9K-s6-8yy" secondAttribute="bottom" constant="24" id="BCf-xN-RuN"/>
                             <constraint firstItem="p9K-s6-8yy" firstAttribute="leading" secondItem="jjx-7u-ijq" secondAttribute="leading" id="Ft2-Hw-YFF"/>
@@ -1222,29 +1236,35 @@
                             <constraint firstItem="LWD-HY-wCO" firstAttribute="leading" secondItem="p9K-s6-8yy" secondAttribute="leading" id="NpM-8r-HTI"/>
                             <constraint firstItem="5Ns-4N-Cfp" firstAttribute="width" secondItem="aCm-LL-SKc" secondAttribute="width" id="QvF-p3-QSx"/>
                             <constraint firstItem="LWD-HY-wCO" firstAttribute="bottom" secondItem="p9K-s6-8yy" secondAttribute="bottom" id="Rbl-86-bLT"/>
+                            <constraint firstItem="0y7-gz-mdn" firstAttribute="trailing" secondItem="bcG-uu-FaT" secondAttribute="trailing" constant="-24" id="ZYC-hE-Khm"/>
                             <constraint firstItem="EPt-Bz-RfF" firstAttribute="top" secondItem="ovL-Fp-Urg" secondAttribute="bottom" constant="16" id="ad5-gd-YGa"/>
                             <constraint firstItem="Pmj-oE-dvv" firstAttribute="trailing" secondItem="FDZ-p1-1uA" secondAttribute="trailing" constant="24" id="cCz-jt-OfQ"/>
+                            <constraint firstItem="0y7-gz-mdn" firstAttribute="centerX" secondItem="FDZ-p1-1uA" secondAttribute="centerX" id="eQ3-G1-4QK"/>
                             <constraint firstItem="FDZ-p1-1uA" firstAttribute="height" secondItem="jjx-7u-ijq" secondAttribute="height" multiplier="3/7" id="eWR-yn-K1k"/>
                             <constraint firstItem="FDZ-p1-1uA" firstAttribute="top" secondItem="zcP-HJ-bca" secondAttribute="bottom" constant="24" id="ekM-hS-YzV"/>
                             <constraint firstItem="EPt-Bz-RfF" firstAttribute="trailing" secondItem="ovL-Fp-Urg" secondAttribute="trailing" id="fWB-EU-Klt"/>
                             <constraint firstItem="ovL-Fp-Urg" firstAttribute="top" secondItem="UMx-XE-MvK" secondAttribute="bottom" constant="16" id="heQ-eE-Pl3"/>
                             <constraint firstItem="UMx-XE-MvK" firstAttribute="trailing" secondItem="FDZ-p1-1uA" secondAttribute="trailing" id="q5Z-Hq-BRT"/>
                             <constraint firstItem="Pmj-oE-dvv" firstAttribute="bottom" secondItem="1mv-QS-YEv" secondAttribute="bottom" constant="8" id="qMP-1N-06Y"/>
+                            <constraint firstItem="0y7-gz-mdn" firstAttribute="top" secondItem="bcG-uu-FaT" secondAttribute="top" id="qfd-pk-08h"/>
                             <constraint firstItem="ovL-Fp-Urg" firstAttribute="trailing" secondItem="UMx-XE-MvK" secondAttribute="trailing" id="qo4-Zh-Cb2"/>
                             <constraint firstItem="wUw-G4-ozg" firstAttribute="height" secondItem="aCm-LL-SKc" secondAttribute="height" id="qvt-Le-NyV"/>
                             <constraint firstItem="5Ns-4N-Cfp" firstAttribute="height" secondItem="aCm-LL-SKc" secondAttribute="height" id="rDM-Xa-byO"/>
                             <constraint firstItem="1mv-QS-YEv" firstAttribute="centerX" secondItem="jjx-7u-ijq" secondAttribute="centerX" id="rd4-eG-usR"/>
                             <constraint firstItem="UMx-XE-MvK" firstAttribute="leading" secondItem="FDZ-p1-1uA" secondAttribute="leading" id="tcO-i1-TZT"/>
+                            <constraint firstItem="bcG-uu-FaT" firstAttribute="bottom" secondItem="FDZ-p1-1uA" secondAttribute="bottom" id="vgt-ge-BB0"/>
                             <constraint firstItem="FDZ-p1-1uA" firstAttribute="leading" secondItem="Pmj-oE-dvv" secondAttribute="leading" constant="24" id="w2a-0M-S4L"/>
                             <constraint firstItem="p9K-s6-8yy" firstAttribute="top" secondItem="jjx-7u-ijq" secondAttribute="top" id="wFC-XJ-PqS"/>
                             <constraint firstItem="Pmj-oE-dvv" firstAttribute="trailing" secondItem="p9K-s6-8yy" secondAttribute="trailing" id="wNs-hL-LnZ"/>
-                            <constraint firstItem="UMx-XE-MvK" firstAttribute="top" secondItem="FDZ-p1-1uA" secondAttribute="bottom" constant="24" id="zo7-C6-Pvo"/>
+                            <constraint firstItem="UMx-XE-MvK" firstAttribute="top" secondItem="FDZ-p1-1uA" secondAttribute="bottom" constant="20" id="zo7-C6-Pvo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pmj-oE-dvv"/>
                     </view>
                     <navigationItem key="navigationItem" id="Itg-rU-hBq"/>
                     <connections>
                         <outlet property="menuButton" destination="LWD-HY-wCO" id="FYO-V9-Pns"/>
+                        <outlet property="playVideoButton" destination="0y7-gz-mdn" id="A3d-aq-sRR"/>
+                        <outlet property="playVideoContainer" destination="bcG-uu-FaT" id="SRJ-gO-LwB"/>
                         <outlet property="postTitleLabel" destination="zcP-HJ-bca" id="6Rf-LZ-NQl"/>
                         <outlet property="reportActionsContainer" destination="EPt-Bz-RfF" id="sG4-PB-L4t"/>
                         <outlet property="reportImageView" destination="FDZ-p1-1uA" id="d0L-W9-hoC"/>
@@ -1266,8 +1286,13 @@
                         <action selector="reportActionsGestureTapped:" destination="KTp-hF-yJE" id="ubY-CX-u3a"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="Uvj-8B-8bM">
+                    <connections>
+                        <action selector="playVideoGestureTapped:" destination="KTp-hF-yJE" id="LR0-en-Sr9"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3238" y="958"/>
+            <point key="canvasLocation" x="3237.5999999999999" y="957.57121439280365"/>
         </scene>
     </scenes>
     <resources>
@@ -1275,5 +1300,6 @@
         <image name="bg" width="360" height="480"/>
         <image name="drop-down-arrow" width="40" height="40"/>
         <image name="menu" width="29" height="29"/>
+        <image name="play" width="64" height="64"/>
     </resources>
 </document>

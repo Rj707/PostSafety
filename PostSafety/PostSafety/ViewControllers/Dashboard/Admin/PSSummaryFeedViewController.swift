@@ -60,56 +60,18 @@ class PSSummaryFeedViewController: UIViewController,UITableViewDataSource,UITabl
         
         let dic = self.summaryFeedArray[indexPath.row] as! NSDictionary
     
-        var subDict = dic["incidentType"] as? [String:Any]
-        cell.titleLabel.text = String(format: "%@ : %@", (subDict!["typeName"] as? String)!,"")
+        cell.titleLabel.text = String(format: "%@ : %@", (dic["incidentType"] as? String)!,(dic["catagory"] as? String)!)
         
-        cell.dateLabel.text = PSUserInterfaceManager.sharedInstance.getDateString(fromDateTime: (dic["date"] as? String)!,dateTimeFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS")
-//        cell.dateLabel.text = (dic["date"] as? String)!
-        cell.timeLabel.text = PSUserInterfaceManager.sharedInstance.getTimeString(fromDateTime: (dic["date"] as? String)!,dateTimeFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS")
-        
+//        cell.dateLabel.text = PSUserInterfaceManager.sharedInstance.getDateString(fromDateTime: (dic["date"] as? String)!,dateTimeFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS")
+//        cell.timeLabel.text = PSUserInterfaceManager.sharedInstance.getTimeString(fromDateTime: (dic["date"] as? String)!,dateTimeFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS")
+        cell.dateLabel.text = dic["date"] as? String
+        cell.timeLabel.text = dic["time"] as? String
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-//        let dic = self.summaryFeedArray[indexPath.row] as! NSDictionary
-//        print(Global.USERTYPE?.rawValue ?? "Global None")
-//        print(PSDataManager.sharedInstance.loggedInUser?.userType?.rawValue ?? "PSDataManager None")
-//        print(PSDataManager.sharedInstance.loggedInUser?.userTypeByRole ?? "PSDataManager RoleNone")
-//        if PSDataManager.sharedInstance.loggedInUser?.userTypeByRole == UserType.UserTypeAdmin.rawValue && feedTitle == "Reports"
-//        {
-//            let storyboard = UIStoryboard(name: "User", bundle: nil)
-//            let vc = storyboard.instantiateViewController(withIdentifier: "PSReportPostViewController") as! PSReportPostViewController
-//            vc.reportPostDict = self.summaryFeedArray[indexPath.row] as! NSDictionary
-//            navigationController?.pushViewController(vc,
-//                                                     animated: true)
-//        }
-//        else if PSDataManager.sharedInstance.loggedInUser?.userTypeByRole == UserType.UserTypeNormal.rawValue && feedTitle == "Reports"
-//        {
-//            let storyboard = UIStoryboard(name: "User", bundle: nil)
-//            let vc = storyboard.instantiateViewController(withIdentifier: "PSReportPostViewController") as! PSReportPostViewController
-//            vc.reportPostDict = self.summaryFeedArray[indexPath.row] as! NSDictionary
-//            navigationController?.pushViewController(vc,
-//                                                     animated: true)
-//        }
-//        else
-//        {
-//            let storyboard = UIStoryboard(name: "User", bundle: nil)
-//            let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedDetailViewController") as! PSFeedDetailViewController
-//            //            vc.feedDetailTitle = self.feedTitleLabel.text!
-//            if dic["title"] is NSNull
-//            {
-//                vc.feedDetailTitle = "None"
-//            }
-//            else
-//            {
-//                vc.feedDetailTitle = (dic["title"] as? String)!
-//            }
-//
-//            vc.feedDict = dic
-//            navigationController?.pushViewController(vc,
-//                                                     animated: true)
-//        }
+
         
     }
     
