@@ -23,7 +23,7 @@ class PSReportOverviewViewController: UIViewController,MFMessageComposeViewContr
     @IBOutlet weak var timeLable: UILabel!
     @IBOutlet weak var reporterLable: UILabel!
     @IBOutlet weak var reporterPhoneNumberLable: UILabel!
-    
+    var alertController = UIAlertController()
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -37,7 +37,7 @@ class PSReportOverviewViewController: UIViewController,MFMessageComposeViewContr
         self.typeLable.text = self.reportOverviewDict["incidentType"] is NSNull ? "None" : self.reportOverviewDict["incidentType"] as! String
         self.subCategoryLable.text = self.reportOverviewDict["subCatagory"] is NSNull ? "None" : self.reportOverviewDict["subCatagory"] as! String
         self.categoryLable.text = self.reportOverviewDict["catagory"] is NSNull ? "None" : self.reportOverviewDict["catagory"] as! String
-//        self.reporterPhoneNumberLable.text = self.reportOverviewDict["reportedByNavigation"] is NSNull ? "None" : self.reportOverviewDict["reportedByNavigation"] as! String
+        self.reporterPhoneNumberLable.text = self.reportOverviewDict["reportedByNumber"] is NSNull ? "None" : self.reportOverviewDict["reportedByNumber"] as! String
     }
 
     override func didReceiveMemoryWarning()
@@ -57,7 +57,8 @@ class PSReportOverviewViewController: UIViewController,MFMessageComposeViewContr
     
     @IBAction func phoneNumberGestureTapped(_ sender: Any)
     {
-        let alertController = UIAlertController(title: "Report Overview", message: "Do you want to make a call or message to sender", preferredStyle: .alert)
+        alertController = UIAlertController(title: "Post Overview", message: "Do you want to make a call or message to sender", preferredStyle: .alert)
+        
         let alertActionCall = UIAlertAction(title: "Call", style: .default)
         { (action) in
             
@@ -100,8 +101,15 @@ class PSReportOverviewViewController: UIViewController,MFMessageComposeViewContr
             }
             
         }
+        
         alertController.addAction(alertActionMessage)
-        self.present(alertController, animated: true, completion: nil)
+        
+        self.present(alertController, animated: true)
+        {
+            var arrayof = self.alertController.view.superview?.subviews
+            self.alertController.view.superview?.isUserInteractionEnabled = true
+            self.alertController.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.alertControllerBackgroundTapped)))
+        }
     }
     
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult)
@@ -110,7 +118,11 @@ class PSReportOverviewViewController: UIViewController,MFMessageComposeViewContr
         controller.dismiss(animated: true, completion: nil)
     }
     
-    
+
+    func alertControllerBackgroundTapped()
+    {
+        self.alertController.dismiss(animated: true, completion: nil)
+    }
 
     
     /*

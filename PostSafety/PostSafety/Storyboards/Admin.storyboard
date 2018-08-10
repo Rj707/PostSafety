@@ -209,6 +209,7 @@
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="4FZ-DE-QQx" firstAttribute="width" secondItem="4YX-zc-eoj" secondAttribute="width" multiplier="0.92" id="LVr-fD-PpO"/>
                                     <constraint firstItem="3Pc-Qq-l2j" firstAttribute="top" secondItem="4YX-zc-eoj" secondAttribute="top" constant="20" id="OWP-xD-nDz"/>
