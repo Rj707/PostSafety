@@ -17,7 +17,9 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
     @IBOutlet weak var view3: UIView!
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view1: UIView!
+    @IBOutlet weak var view0: UIView!
     
+    @IBOutlet weak var reportStatusDDTextField: IQDropDownTextField!
     @IBOutlet weak var reportLocationDDTextField: IQDropDownTextField!
     @IBOutlet weak var reportSenderDDTextField: IQDropDownTextField!
     @IBOutlet weak var reportTypeDDTextField: IQDropDownTextField!
@@ -31,6 +33,7 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
     var reportLocationAddressArray = [Any]()
     var reportSenderArray = [String]()
     var reportTypeArray = ["Hazard", "Near Miss", "Incident","Emergency"]
+    var reportStatusArray = ["Open Posts", "Closed Posts", "All Posts"]
     var reportSenderDetailArray = [Any]()
 
     var companyId = 0
@@ -53,14 +56,18 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
         reportLocationDDTextField.isOptionalDropDown = false
         reportSenderDDTextField.isOptionalDropDown = false
         reportTypeDDTextField.isOptionalDropDown = false
+        reportStatusDDTextField.isOptionalDropDown = false
         
         reportTypeDDTextField.itemList = reportTypeArray
+        reportStatusDDTextField.itemList = reportStatusArray
         
         self.view1.layer.borderWidth = 1
         self.view2.layer.borderWidth = 1
         self.view3.layer.borderWidth = 1
         self.view4.layer.borderWidth = 1
         self.view5.layer.borderWidth = 1
+        self.view0.layer.borderWidth = 1
+        self.view0.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view5.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view1.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view2.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor

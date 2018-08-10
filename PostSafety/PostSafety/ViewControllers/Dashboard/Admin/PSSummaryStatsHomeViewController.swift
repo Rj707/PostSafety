@@ -29,7 +29,7 @@ class PSSummaryStatsHomeViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.addMenuAction()
+//        self.addMenuAction()
         self.getSummaryStatsCount()
         self.yesterdayView.layer.borderWidth=2
         self.monthView.layer.borderWidth=2

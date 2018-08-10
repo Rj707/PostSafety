@@ -14,16 +14,42 @@ class PSFeedDetailViewController: UIViewController
     @IBOutlet weak var feedDetailTitleLabel: UILabel!
     @IBOutlet weak var feedDetailTextView: UITextView!
     @IBOutlet weak var feedDetailAttachmentButton: UIButton!
+    
     var feedDetailTitle: String = ""
+    var feedTitle: String = ""
     var feedDict = NSDictionary.init()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
         self.addMenuAction()
+        
         self.feedDetailTitleLabel.text = self.feedDict["title"] as? String
         self.feedDetailTextView.text = self.feedDict["details"] is NSNull ? "No Data" : self.feedDict["details"] as! String
-        self.feedDetailAttachmentButton.setTitle(self.feedDict["pictureUrl"] as? String, for: UIControlState.normal)
+        
+        if feedTitle == "Alert" || feedTitle == "Announcement"
+        {
+            if self.feedDict["pictureUrl"] is NSNull
+            {
+                self.feedDetailAttachmentButton.isHidden = true
+            }
+            else
+            {
+                self.feedDetailAttachmentButton.isHidden = false
+                self.feedDetailAttachmentButton.setTitle(self.feedDict["pictureUrl"] as? String, for: UIControlState.normal)
+            }
+        }
+        else if self.feedDict["pictureUrl"] is NSNull
+        {
+            self.feedDetailAttachmentButton.isHidden = true
+        }
+        else
+        {
+            self.feedDetailAttachmentButton.isHidden = false
+            self.feedDetailAttachmentButton.setTitle(self.feedDict["fileName"] as? String, for: UIControlState.normal)
+        }
+        
     }
 
     override func didReceiveMemoryWarning()

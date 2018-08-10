@@ -31,7 +31,7 @@ class PSCategorySelectViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.addMenuAction()
+//        self.addMenuAction()juni
         self.hazardLabel.text =  String(format: "%@%@%@%@", "Hazards ","(", String(summaryStatisticsDict["numberOfHazards"] as! Int),")")
         self.nearMissLabel.text = String(format: "%@%@%@%@", "NearMisses  ","(", String(summaryStatisticsDict["numberOfNearMisses"] as! Int),")")
         self.incidentLabel.text = String(format: "%@%@%@%@", "Incidents ","(", String(summaryStatisticsDict["numberOfIncidents"] as! Int),")")

@@ -343,9 +343,11 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
             if dic["title"] is NSNull
             {
                 vc.feedDetailTitle = "None"
+                vc.feedTitle = dic["type"] as! String
             }
             else
             {
+                vc.feedTitle = dic["type"] as! String
                 vc.feedDetailTitle = (dic["title"] as? String)!
             }
             
