@@ -18,7 +18,7 @@ class PSFeedDetailViewController: UIViewController
     var feedDetailTitle: String = ""
     var feedTitle: String = ""
     var feedDict = NSDictionary.init()
-    
+    var attachmentString : String = ""
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -38,6 +38,7 @@ class PSFeedDetailViewController: UIViewController
             {
                 self.feedDetailAttachmentButton.isHidden = false
                 self.feedDetailAttachmentButton.setTitle(self.feedDict["pictureUrl"] as? String, for: UIControlState.normal)
+                attachmentString = (self.feedDict["pictureUrl"] as? String)!
             }
         }
         else if self.feedDict["pictureUrl"] is NSNull
@@ -48,6 +49,7 @@ class PSFeedDetailViewController: UIViewController
         {
             self.feedDetailAttachmentButton.isHidden = false
             self.feedDetailAttachmentButton.setTitle(self.feedDict["fileName"] as? String, for: UIControlState.normal)
+            attachmentString = (self.feedDict["fileName"] as? String)!
         }
         
     }
@@ -63,6 +65,16 @@ class PSFeedDetailViewController: UIViewController
     @IBAction func backButtonTouched(_ sender: UIButton)
     {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func attachmentButtonTouched(_ sender: UIButton)
+    {
+        let storyboard = UIStoryboard(name: "User", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSAttachmentViewController") as! PSAttachmentViewController
+        vc.attachmentString = attachmentString
+        vc.modalPresentationStyle = .popover
+        vc.modalTransitionStyle = .coverVertical
+        self.present(vc, animated: true, completion: nil)
     }
     
     func addMenuAction()

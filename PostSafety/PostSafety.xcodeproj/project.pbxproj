@@ -26,6 +26,7 @@
 		184EC78420DC078A0089348C /* PSNoConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184EC78320DC078A0089348C /* PSNoConnectionViewController.swift */; };
 		184EC78620DC0FB70089348C /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184EC78520DC0FB70089348C /* User.storyboard */; };
 		184EC78820DC1ED40089348C /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184EC78720DC1ED40089348C /* Admin.storyboard */; };
+		18623B9E211E1319000994B2 /* PSAttachmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18623B9D211E1319000994B2 /* PSAttachmentViewController.swift */; };
 		18AD08D220DF74020096A910 /* PSReceiveHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD08D120DF74020096A910 /* PSReceiveHomeViewController.swift */; };
 		18AD08D420DF74410096A910 /* PSReceiveAlertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD08D320DF74410096A910 /* PSReceiveAlertsViewController.swift */; };
 		18AD08D620DF74B70096A910 /* PSReportPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD08D520DF74B70096A910 /* PSReportPostViewController.swift */; };
@@ -126,6 +127,7 @@
 		184EC78320DC078A0089348C /* PSNoConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSNoConnectionViewController.swift; sourceTree = "<group>"; };
 		184EC78520DC0FB70089348C /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
 		184EC78720DC1ED40089348C /* Admin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
+		18623B9D211E1319000994B2 /* PSAttachmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSAttachmentViewController.swift; sourceTree = "<group>"; };
 		18AD08D120DF74020096A910 /* PSReceiveHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReceiveHomeViewController.swift; sourceTree = "<group>"; };
 		18AD08D320DF74410096A910 /* PSReceiveAlertsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReceiveAlertsViewController.swift; sourceTree = "<group>"; };
 		18AD08D520DF74B70096A910 /* PSReportPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReportPostViewController.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				A16142D920AC11CD00421414 /* PSFeedDetailViewController.swift */,
 				A16142D720AC11BD00421414 /* PSFeedViewController.swift */,
 				18161A5620F10F5800C0C3BF /* PSFeedTableViewCell.swift */,
+				18623B9D211E1319000994B2 /* PSAttachmentViewController.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -772,6 +775,7 @@
 				1811261920BDE52900ABA494 /* PSAPIManager+Checklist.swift in Sources */,
 				A11DF69220D8F0FF0079D861 /* MenuViewController.swift in Sources */,
 				18FDED3D20B04F2A009CBA0B /* SwiftyCamViewControllerDelegate.swift in Sources */,
+				18623B9E211E1319000994B2 /* PSAttachmentViewController.swift in Sources */,
 				1812E69920B8A50C00E484C6 /* PSUser.swift in Sources */,
 				C409874120DED30900081069 /* PSSummaryFeedViewController.swift in Sources */,
 				A124938620C128C700B38DEF /* PSChecklist.swift in Sources */,

@@ -985,17 +985,20 @@
                                 <state key="normal" image="menu"/>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KT6-qq-NiT">
-                                <rect key="frame" x="24" y="142" width="327" height="348"/>
+                                <rect key="frame" x="24" y="142" width="327" height="377"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xel-ee-F9U">
-                                <rect key="frame" x="24" y="506" width="184" height="57"/>
+                                <rect key="frame" x="24" y="535" width="155" height="28"/>
                                 <state key="normal" title="Attachment.pdf" image="attachment">
                                     <color key="titleColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="attachmentButtonTouched:" destination="o0c-DC-IER" eventType="touchUpInside" id="wPo-Ro-uZJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XY3-Pg-ce3">
                                 <rect key="frame" x="87.5" y="579" width="200" height="40"/>
@@ -1045,6 +1048,45 @@
                 <tapGestureRecognizer id="t7J-Dl-84I"/>
             </objects>
             <point key="canvasLocation" x="3238" y="1881"/>
+        </scene>
+        <!--Attachment View Controller-->
+        <scene sceneID="YKR-qs-MAX">
+            <objects>
+                <viewController storyboardIdentifier="PSAttachmentViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bX5-hP-raA" customClass="PSAttachmentViewController" customModule="PostSafety" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dTQ-Gi-zXZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="center" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahZ-t1-uqX">
+                                <rect key="frame" x="0.0" y="111.5" width="375" height="444.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CdB-Kx-3R6">
+                                <rect key="frame" x="316" y="32" width="43" height="43"/>
+                                <state key="normal" image="cross"/>
+                                <connections>
+                                    <action selector="dismissWebView" destination="bX5-hP-raA" eventType="touchUpInside" id="qwz-PJ-fT4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ahZ-t1-uqX" firstAttribute="height" secondItem="dTQ-Gi-zXZ" secondAttribute="height" multiplier="2/3" id="3bd-A1-2td"/>
+                            <constraint firstItem="CdB-Kx-3R6" firstAttribute="top" secondItem="qaQ-fA-1cV" secondAttribute="top" constant="12" id="930-gg-VvR"/>
+                            <constraint firstItem="ahZ-t1-uqX" firstAttribute="leading" secondItem="qaQ-fA-1cV" secondAttribute="leading" id="ABv-Q8-6fh"/>
+                            <constraint firstItem="ahZ-t1-uqX" firstAttribute="centerY" secondItem="dTQ-Gi-zXZ" secondAttribute="centerY" id="g1g-Pc-i7q"/>
+                            <constraint firstItem="qaQ-fA-1cV" firstAttribute="trailing" secondItem="CdB-Kx-3R6" secondAttribute="trailing" constant="16" id="hVO-Qe-NJc"/>
+                            <constraint firstItem="ahZ-t1-uqX" firstAttribute="trailing" secondItem="qaQ-fA-1cV" secondAttribute="trailing" id="xwT-lr-K62"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qaQ-fA-1cV"/>
+                    </view>
+                    <connections>
+                        <outlet property="attachmentWebView" destination="ahZ-t1-uqX" id="cWf-OE-MfW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UP1-xI-K0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4071" y="1881"/>
         </scene>
         <!--Report Post View Controller-->
         <scene sceneID="G7D-LT-KHe">
@@ -1296,8 +1338,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="attachment" width="57" height="57"/>
+        <image name="attachment" width="28" height="28"/>
         <image name="bg" width="360" height="480"/>
+        <image name="cross" width="43" height="43"/>
         <image name="drop-down-arrow" width="40" height="40"/>
         <image name="menu" width="29" height="29"/>
         <image name="play" width="64" height="64"/>
