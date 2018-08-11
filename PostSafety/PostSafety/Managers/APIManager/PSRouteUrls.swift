@@ -2,27 +2,41 @@ enum Route: String
 {
     case Register           = "/api/register"
     case Login              = "/api/EmployeesLogin"
+    case UpdateEmployees    = "/api/UpdateEmployees"
+    case ListEmployees      = "/api/Employees/"
+    
     case IncidentCompany    = "/api/IncidentCompany/"
     case ChecklistDetails   = "/api/ChecklistDetails"
-    case Reports            = "/api/ReportsAPI"
-    case CreateReport       = "/api/CreateReport/"
     case SingleChecklist    = "/api/Checklists"
-    case UpdateEmployees    = "/api/UpdateEmployees"
-    case UploadImage        = "/api/UploadImage/"
-    case UpdateReport       = "/api/UpdateReport/"
-    case LocationsList      = "/api/LocationsList/"
     
-    case Notifications      = "/api/NotificationsAPI"
     case AllReports         = "/api/AllReports/"
-    case PolicyProcedures   = "/api/PolicyAndProcedures/"
-    case Trainings          = "/api/Trainings/"
-    case SummaryStatsCount  = "/api/SummaryReportsCount/"
-    case SummaryStatsDetail = "/api/SummaryStatiticsReports/"
-    case ListEmployees      = "/api/Employees/"
+    case Reports            = "/api/ReportsAPI"
+    case SharedReports      = "/api/SharedReports/"
+    
+    case CreateReport       = "/api/CreateReport/"
+    case UpdateReport       = "/api/UpdateReport/"
+    
     case CloseReport        = "/api/CloseReport"
     case SendReports        = "/api/SendReports/"
+    
+    case UploadImage        = "/api/UploadImage/"
+    
+    case LocationsList      = "/api/LocationsList/"
     case SubCategory        = "/api/SubChecklistDetails/"
-    case SharedReports      = "/api/SharedReports/"
+    
+    case Notifications      = "/api/NotificationsAPI"
+    case SafetyUpdates      = "/api/SafetyUpdates"
+    case Trainings          = "/api/Trainings/"
+    case PolicyProcedures   = "/api/PolicyAndProcedures/"
+    
+    case SummaryStatsCount  = "/api/SummaryReportsCount/"
+    case SummaryStatsDetail = "/api/SummaryStatiticsReports/"
+    
+    case ReportRead         = "/api/ReportIsRead"
+    case SafetyUpdatesRead  = "/api/SafetyUpdatesIsRead"
+    case TrainingIsRead     = "/api/TrainingIsRead/"
+    case NotificationIsRead = "/api/NotificationIsRead/"
+    case ProcedurePolicyRead = "/api/ProcedureNPolicyIsRead/"
     
     func url() -> String
     {

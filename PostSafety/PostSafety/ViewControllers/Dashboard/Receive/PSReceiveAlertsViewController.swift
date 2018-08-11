@@ -101,9 +101,17 @@ class PSReceiveAlertsViewController: UIViewController
     
     @IBAction func safetyUpdatesGestureTapped(_ sender: Any)
     {
+//        let storyboard = UIStoryboard(name: "User", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedViewController") as! PSFeedViewController
+//        vc.feedTitle = "Safety Updates"
+//        navigationController?.pushViewController(vc,
+//                                                 animated: true)
+        
+        
         let storyboard = UIStoryboard(name: "User", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedViewController") as! PSFeedViewController
         vc.feedTitle = "Safety Updates"
+        vc.route = Route.SafetyUpdates.rawValue
         navigationController?.pushViewController(vc,
                                                  animated: true)
     }

@@ -19,6 +19,7 @@ class PSFeedDetailViewController: UIViewController
     var feedTitle: String = ""
     var feedDict = NSDictionary.init()
     var attachmentString : String = ""
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -28,7 +29,51 @@ class PSFeedDetailViewController: UIViewController
         self.feedDetailTitleLabel.text = self.feedDict["title"] as? String
         self.feedDetailTextView.text = self.feedDict["details"] is NSNull ? "No Data" : self.feedDict["details"] as! String
         
-        if feedTitle == "Alert" || feedTitle == "Announcement"
+        switch feedTitle
+        {
+            case "Alerts":
+            
+                let ID = feedDict["notificationId"]
+                let route = Route.NotificationIsRead.rawValue
+                self.archiveGetInfosFor(ID: ID as! String, route: route)
+                
+            break
+            
+            case "Announcements":
+                let ID = feedDict["notificationId"]
+                let route = Route.NotificationIsRead.rawValue
+                self.archiveGetInfosFor(ID: ID as! String, route: route)
+            
+            break
+            
+            case "Training":
+                let ID = feedDict["traningId"]
+                let route = Route.TrainingIsRead.rawValue
+                self.archiveGetInfosFor(ID: ID as! String, route: route)
+            
+            break
+            
+            case "Policies/Procedures":
+                let ID = feedDict["id"]
+
+                let route = Route.ProcedurePolicyRead.rawValue
+                self.archiveGetInfosFor(ID: ID as! String, route: route)
+            
+            break
+            
+            case "Safety Updates":
+                let ID = feedDict["safetyId"]
+                let route = Route.SafetyUpdatesRead.rawValue
+                self.archiveGetInfosFor(ID: ID as! String, route: route)
+            
+            break
+            
+            default:
+                print("")
+        }
+        
+        
+        if feedTitle == "Alerts" || feedTitle == "Announcements"
         {
             if self.feedDict["pictureUrl"] is NSNull
             {
@@ -87,6 +132,52 @@ class PSFeedDetailViewController: UIViewController
             let menuVC = revealViewController().rearViewController as? MenuViewController
             
             menuVC?.dashboardNavViewController = self.navigationController
+        }
+    }
+    
+    func archiveGetInfosFor(ID:String, route:String)
+    {
+        if CEReachabilityManager.isReachable()
+        {
+//            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: String(format: "%@%@", "Archiving ", self.feedTitle))
+            let companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
+            PSAPIManager.sharedInstance.archiveGetInfoFor(companyId: String(companyId), ID: ID, route:route  ,success:
+            { (dic) in
+                
+//                PSUserInterfaceManager.sharedInstance.hideLoader()
+                
+//                let tempArray = dic["array"] as! [Any]
+//
+//                for checklistDict in tempArray
+//                {
+//                    if let tempDict = checklistDict as? [String: Any]
+//                    {
+//                        if tempDict["isRead"] as! Int == 0
+//                        {
+//                            self.feedArray.append(tempDict)
+//                        }
+//                        else
+//                        {
+//                            print("Alread Read")
+//                        }
+//                    }
+//                }
+                
+                    
+            }, failure:
+                { (error:NSError,statusCode:Int) in
+                    
+//                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    if(statusCode==404)
+                    {
+                        PSUserInterfaceManager.showAlert(title: "Archiving", message: ApiResultFailureMessage.InvalidEmailPassword)
+                    }
+                    else
+                    {
+                        
+                    }
+                    
+            }, errorPopup: true)
         }
     }
     

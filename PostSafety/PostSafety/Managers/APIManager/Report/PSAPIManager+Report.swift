@@ -145,6 +145,16 @@ extension PSAPIManager
         }.resume()
     }
     
+    func archiveGetInfoFor(companyId: String,
+                           ID: String,
+                           route: String,
+                           success:@escaping DefaultArrayResultAPISuccessClosure,
+                           failure:@escaping DefaultAPIFailureClosure,
+                           errorPopup: Bool)
+    {
+        reportManagerAPI.archiveGetInfoFor(companyId: companyId, ID:ID, route:route, success: success, failure: failure, errorPopup: true)
+    }
+    
     
 //    http://postsafety.anadeemus.ca/api/UpdateReport/?ReportId=10000&LocationId=10008&Title=CriticalIncident&Details=whywhere
     

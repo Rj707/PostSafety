@@ -62,10 +62,11 @@ class PSReportAPIManager: PSAPIManagerBase
                     failure:@escaping DefaultAPIFailureClosure,
                     errorPopup: Bool)
     {
-        
+        let EmployeeId = PSDataManager.sharedInstance.loggedInUser?.employeeId
         let parameters: [String:Any] =
             [
                 "CompanyId":companyId,
+                "EmployeeId":EmployeeId ?? "",
             ]
         
         let route: URL = GETURLfor(route: route, parameters: parameters )!
@@ -266,21 +267,24 @@ class PSReportAPIManager: PSAPIManagerBase
         self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
     }
     
-//    func archiveGetInfoFor(companyId: String,
-//                          success:@escaping DefaultArrayResultAPISuccessClosure,
-//                          failure:@escaping DefaultAPIFailureClosure,
-//                          errorPopup: Bool)
-//    {
-//
-//        let parameters: [String:Any] =
-//            [
-//                "CompanyId":companyId,
-//            ]
-//
-//        let route: URL = GETURLfor(route: Route.Reports.rawValue, parameters: parameters )!
-//
-//        self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
-//    }
+    func archiveGetInfoFor(companyId: String,
+                           ID: String,
+                           route: String,
+                          success:@escaping DefaultArrayResultAPISuccessClosure,
+                          failure:@escaping DefaultAPIFailureClosure,
+                          errorPopup: Bool)
+    {
+
+        let parameters: [String:Any] =
+            [
+                "CompanyId":companyId,
+                "ID":ID,
+            ]
+
+        let route: URL = GETURLfor(route: route, parameters: parameters )!
+        
+        self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
+    }
     
 }
 

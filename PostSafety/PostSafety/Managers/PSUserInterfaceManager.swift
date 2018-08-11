@@ -261,8 +261,8 @@ class PSUserInterfaceManager:NSObject
     func getDateString(fromDateTime dateTime:String, dateTimeFormat:String) -> String
     {
         let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+//        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+//        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
         dateFormatterGet.dateFormat = dateTimeFormat
         
         let dateFormatterPrint = DateFormatter()
@@ -284,7 +284,7 @@ class PSUserInterfaceManager:NSObject
     func getTimeString(fromDateTime dateTime:String, dateTimeFormat:String) -> String
     {
         let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+//        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         dateFormatterGet.dateFormat = dateTimeFormat
 
         let dateFormatterPrint = DateFormatter()

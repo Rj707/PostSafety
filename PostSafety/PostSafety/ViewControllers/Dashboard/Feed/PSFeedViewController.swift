@@ -8,8 +8,8 @@
 
 enum FeedType :Int
 {
-    case Announcement
-    case SharedReports
+    case FeedTypeUnOpened
+    case FeedTypeArchived
 }
 
 import UIKit
@@ -42,7 +42,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     var type : FeedType!
     var feedArray = [Any]()
-    var feedArray2 = Array<Any>()
+    var archivedArray = [Any]()
     
     var feedTitle: String = ""
     var reportType: String = ""
@@ -91,9 +91,9 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
             }
         }
         
-        if feedTitle == "Alerts" || feedTitle == "Announcements" || feedTitle == "Safety Updates"
+        if feedTitle == "Alerts" || feedTitle == "Announcements"
         {
-            unOpenedLabel.text = "New & Unopened (3)"
+            unOpenedLabel.text = "New & Unopened"
             archivedLabel.text = "Archived"
         }
         else
@@ -101,9 +101,9 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
             unOpenedLabel.text = "Shared Posts"
             archivedLabel.text = "My Posts"
             
-            if feedTitle == "Training" || feedTitle == "Policies/Procedures"
+            if feedTitle == "Training" || feedTitle == "Policies/Procedures" || feedTitle == "Safety Updates"
             {
-                unOpenedLabel.text = "New & Unopened (3)"
+                unOpenedLabel.text = "New & Unopened"
                 archivedLabel.text = "Archived"
                self.getInfoFor()
             }
@@ -127,6 +127,8 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
             companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
             PSAPIManager.sharedInstance.getInfoFor(companyId: String(companyId), route: route ,success:
             { (dic) in
+                
+                self.archivedArray = [Any] ()
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 let tempArray = dic["array"] as! [Any]
                 
@@ -134,15 +136,33 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
                 {
                     if let tempDict = checklistDict as? [String: Any]
                     {
-                        self.feedArray.append(tempDict)
+                        if tempDict["isRead"] as! Int == 0
+                        {
+                            self.feedArray.append(tempDict)
+                        }
+                        else
+                        {
+                            self.archivedArray.append(tempDict)
+                            print("Alread Read")
+                        }
                     }
                 }
+                
+                if self.type!.rawValue == FeedType.FeedTypeArchived.rawValue
+                {
+                   self.feedArray = self.archivedArray
+                }
+                else
+                {
+                    self.unOpenedLabel.text = String(format: "%@ (%@)", "New & Unopened",String(self.feedArray.count))
+                }
+                
                 self.updatesAnnouncementsTableView.emptyDataSetSource = self
                 self.updatesAnnouncementsTableView.emptyDataSetDelegate = self
                 self.updatesAnnouncementsTableView.reloadData()
-                //                    self.configureReportTypes()
+                
                 print(self.feedArray)
-                    
+                
             }, failure:
                 { (error:NSError,statusCode:Int) in
                     
@@ -268,14 +288,8 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         var cell:PSFeedTableViewCell
-        if self.type.rawValue == 0
-        {
-            cell = tableView.dequeueReusableCell(withIdentifier: "AnnouncementCell", for: indexPath) as! PSFeedTableViewCell
-        }
-        else
-        {
-            cell = tableView.dequeueReusableCell(withIdentifier: "SharedReportsCell", for: indexPath) as! PSFeedTableViewCell
-        }
+        
+        cell = tableView.dequeueReusableCell(withIdentifier: "AnnouncementCell", for: indexPath) as! PSFeedTableViewCell
         
         let dic = self.feedArray[indexPath.row] as! NSDictionary
         
@@ -304,19 +318,19 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         }
         else if self.feedTitle == "Training"
         {
-            cell.dateLabel.text = dic["dateTimePosted"] as? String
+            cell.dateLabel.text = dic["createdDate"] as? String
+            cell.timeLabel.text = dic["createdTime"] as? String
             
-            cell.dateLabel.text = PSUserInterfaceManager.sharedInstance.getDateString(fromDateTime: (dic["dateTimePosted"] as? String)!, dateTimeFormat: "yyyy-MM-dd'T'HH:mm:ss")
-           
-            cell.timeLabel.text = PSUserInterfaceManager.sharedInstance.getTimeString(fromDateTime: (dic["dateTimePosted"] as? String)!, dateTimeFormat: "yyyy-MM-dd'T'HH:mm:ss")
         }
         else if self.feedTitle == "Policies/Procedures"
         {
-            cell.dateLabel.text = dic["dateTimePosted"] as? String
-            
-            cell.dateLabel.text = PSUserInterfaceManager.sharedInstance.getDateString(fromDateTime: (dic["dateTimePosted"] as? String)!, dateTimeFormat: "yyyy-MM-dd'T'HH:mm:ss")
-            
-            cell.timeLabel.text = PSUserInterfaceManager.sharedInstance.getTimeString(fromDateTime: (dic["dateTimePosted"] as? String)!, dateTimeFormat: "yyyy-MM-dd'T'HH:mm:ss")
+            cell.dateLabel.text = dic["createdDate"] as? String
+            cell.timeLabel.text = dic["createdTime"] as? String
+        }
+        else if self.feedTitle == "Safety Updates"
+        {
+            cell.dateLabel.text = dic["createdDate"] as? String
+            cell.timeLabel.text = dic["createdTime"] as? String
         }
         
         return cell
@@ -361,9 +375,10 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         }
         else
         {
+            // Feed Detail contains Alerts/Announcements/Safety Updates/Trainings/Policies&Procedures
+            
             let storyboard = UIStoryboard(name: "User", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedDetailViewController") as! PSFeedDetailViewController
-//            vc.feedDetailTitle = self.feedTitleLabel.text!
             if dic["title"] is NSNull
             {
                 vc.feedDetailTitle = "None"
@@ -371,7 +386,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
             }
             else
             {
-                vc.feedTitle = dic["type"] as! String
+                vc.feedTitle = self.feedTitle
                 vc.feedDetailTitle = (dic["title"] as? String)!
             }
             
@@ -405,7 +420,33 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         }
         else
         {
-            print("unOpened")
+            self.feedArray = [Any]()
+            self.type = FeedType(rawValue: FeedType.FeedTypeUnOpened.rawValue)
+            switch feedTitle
+            {
+            case "Alerts":
+                self.getInfoFor()
+                break
+                
+            case "Announcements":
+                self.getInfoFor()
+                break
+                
+            case "Training":
+                self.getInfoFor()
+                break
+                
+            case "Policies/Procedures":
+                self.getInfoFor()
+                break
+                
+            case "Safety Updates":
+                self.getInfoFor()
+                break
+                
+            default:
+                print("")
+            }
         }
         
     }
@@ -426,7 +467,33 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         }
         else
         {
-            print("archived")
+            self.feedArray = [Any]()
+            self.type = FeedType(rawValue: FeedType.FeedTypeArchived.rawValue)
+            switch feedTitle
+            {
+                case "Alerts":
+                    self.getInfoFor()
+                    break
+                
+                case "Announcements":
+                    self.getInfoFor()
+                    break
+                
+                case "Training":
+                    self.getInfoFor()
+                    break
+                
+                case "Policies/Procedures":
+                    self.getInfoFor()
+                    break
+                
+                case "Safety Updates":
+                    self.getInfoFor()
+                    break
+                
+                default:
+                    print("")
+            }
         }
     }
     
