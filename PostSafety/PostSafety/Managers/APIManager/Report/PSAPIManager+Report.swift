@@ -72,11 +72,12 @@ extension PSAPIManager
                          Details: String,
                          CatagoryId: String,
                          SubCatagory: String,
+                         IsPSI:NSNumber,
                          success:@escaping DefaultArrayResultAPISuccessClosure,
                          failure:@escaping DefaultAPIFailureClosure,
                          errorPopup: Bool)
     {
-        reportManagerAPI.updateReportFor(ReportId: ReportId,LocationId: LocationId,Title: Title,Details: Details,CatagoryId: CatagoryId,SubCatagory: SubCatagory,success: success, failure: failure,errorPopup: errorPopup)
+        reportManagerAPI.updateReportFor(ReportId: ReportId,LocationId: LocationId,Title: Title,Details: Details,CatagoryId: CatagoryId,SubCatagory: SubCatagory, IsPSI:IsPSI, success: success, failure: failure,errorPopup: errorPopup)
     }
     
     func getLocationsFor(companyId: String,

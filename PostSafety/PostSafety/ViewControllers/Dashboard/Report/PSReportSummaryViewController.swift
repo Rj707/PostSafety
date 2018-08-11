@@ -19,8 +19,10 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
     @IBOutlet weak var decriptionTextViewContainer: UIView!
     @IBOutlet weak var backgroundView: UIView!
     var locationID = 0
+    var IsPSI : NSNumber = 0
     
     override func viewDidLoad()
+        
     {
         super.viewDidLoad()
 
@@ -31,10 +33,11 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
         
 //        print(String((PSDataManager.sharedInstance.report?.reportType?.filter { !"\n\t\r".contains($0) })!))
         
-        
         reportTypleLabel.text = String(format: "Post Type: %@", (PSDataManager.sharedInstance.report?.reportType)!)
         locationNameLabel.text = String(format: "Post Location: %@", (PSDataManager.sharedInstance.report?.reportLocation)!)
         categoryNameLabel.text = String(format: "Category: %@", (PSDataManager.sharedInstance.report?.reportCategory)!)
+        
+        IsPSI = NSNumber.init(booleanLiteral: false)
         
         if PSDataManager.sharedInstance.report?.reportType == "Incident"
         {
@@ -45,6 +48,14 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
         {
             subCategoryNameLabel.isHidden =  false
             subCategoryNameLabel.text = String(format: "PSI?: %@", (PSDataManager.sharedInstance.report?.isReportPSI)!)
+            if PSDataManager.sharedInstance.report?.isReportPSI == "Yes"
+            {
+                IsPSI = NSNumber.init(booleanLiteral: true)
+            }
+            else
+            {
+                IsPSI = NSNumber.init(booleanLiteral: false)
+            }
         }
         else
         {
@@ -80,7 +91,7 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
             var report = PSReport.init()
             report = PSDataManager.sharedInstance.report!
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Updating Report")
-            PSAPIManager.sharedInstance.updateReportFor(ReportId: String(report.reportID), LocationId: String(locationID), Title: "", Details: self.decriptionTextView.text, CatagoryId: String(report.categoryID), SubCatagory: "0", success:
+            PSAPIManager.sharedInstance.updateReportFor(ReportId: String(report.reportID), LocationId: String(locationID), Title: "", Details: self.decriptionTextView.text, CatagoryId: String(report.categoryID), SubCatagory: "0", IsPSI: self.IsPSI, success:
             { (dict) in
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 PSDataManager.sharedInstance.report = PSReport.init()

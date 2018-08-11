@@ -135,6 +135,7 @@ class PSReportAPIManager: PSAPIManagerBase
                          Details: String,
                          CatagoryId: String,
                          SubCatagory: String,
+                         IsPSI:NSNumber,
                          success:@escaping DefaultArrayResultAPISuccessClosure,
                          failure:@escaping DefaultAPIFailureClosure,
                          errorPopup: Bool)
@@ -147,6 +148,7 @@ class PSReportAPIManager: PSAPIManagerBase
                 "Details":Details,
                 "CatagoryId":CatagoryId,
                 "SubCatagory":SubCatagory,
+                "IsPSI":IsPSI,
             ]
         
         let route: URL = GETURLfor(route: Route.UpdateReport.rawValue, parameters: parameters )!
@@ -263,6 +265,22 @@ class PSReportAPIManager: PSAPIManagerBase
         
         self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
     }
+    
+//    func archiveGetInfoFor(companyId: String,
+//                          success:@escaping DefaultArrayResultAPISuccessClosure,
+//                          failure:@escaping DefaultAPIFailureClosure,
+//                          errorPopup: Bool)
+//    {
+//
+//        let parameters: [String:Any] =
+//            [
+//                "CompanyId":companyId,
+//            ]
+//
+//        let route: URL = GETURLfor(route: Route.Reports.rawValue, parameters: parameters )!
+//
+//        self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
+//    }
     
 }
 

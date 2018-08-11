@@ -11,36 +11,16 @@ import UIKit
 class PSEmergencyReportConfirmationViewController: UIViewController {
 
     @IBOutlet weak var confirmationContainer:UIView!
+    public var delegate:PSEmergencyReportConfirmationViewControllerDelegate!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
 //        self.confirmationContainer.layer.borderWidth=2
 //        self.confirmationContainer.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
-        
-        if CEReachabilityManager.isReachable()
-        {
-            var report = PSReport.init()
-            report = PSDataManager.sharedInstance.report!
-            PSAPIManager.sharedInstance.updateReportFor(ReportId: String(report.reportID), LocationId: String(0), Title: "", Details: "", CatagoryId: String(report.categoryID), SubCatagory: "0", success:
-            { (dict) in
-                    PSDataManager.sharedInstance.report = PSReport.init()
-                    self.performSegue(withIdentifier: "toReportConfirmFromSummary", sender: (Any).self)
-                    
-            },
-                                                        failure:
-            { (error, stausCode) in
-                    
-            }, errorPopup: true)
-            
-            
-        }
-        else
-        {
-            self.performSegue(withIdentifier: "toNoInternetFromSummary", sender: (Any).self)
-        }
         
     }
     
@@ -54,11 +34,31 @@ class PSEmergencyReportConfirmationViewController: UIViewController {
     
     @IBAction func call911ButtonTouched(_ sender: UIButton)
     {
+        var phone = "911"
+        phone = phone.removingWhitespaces()
+        var newPhone = ""
+        for i in (phone.characters)
+        {
+            switch (i)
+            {
+            case "0","1","2","3","4","5","6","7","8","9" : newPhone = newPhone + String(i)
+            default : print("Removed invalid character.")
+            }
+        }
         
+        if let url = URL(string:"tel://\(String(describing: newPhone))"), UIApplication.shared.canOpenURL(url)
+        {
+            UIApplication.shared.openURL(url)
+        }
+        else
+        {
+            print("Issue")
+        }
     }
     
     @IBAction func takeAnotherVideoButtonTouched(_ sender: UIButton)
     {
+        
         if let viewControllers = self.navigationController?.viewControllers
         {
             for viewController in viewControllers
@@ -66,6 +66,7 @@ class PSEmergencyReportConfirmationViewController: UIViewController {
                 // some process
                 if viewController is TakePhotoVideoViewController
                 {
+                    self.delegate.takeAnotherVideoForEmergency()
                     self.navigationController?.popToViewController(viewController, animated: true)
                     return
                 }
@@ -75,6 +76,7 @@ class PSEmergencyReportConfirmationViewController: UIViewController {
     
     @IBAction func returnToDashboardButtonTouched(_ sender: UIButton)
     {
+        PSDataManager.sharedInstance.report = PSReport.init()
         if let viewControllers = self.navigationController?.viewControllers
         {
             for viewController in viewControllers
@@ -100,4 +102,9 @@ class PSEmergencyReportConfirmationViewController: UIViewController {
     }
     */
 
+}
+
+protocol PSEmergencyReportConfirmationViewControllerDelegate
+{
+    func takeAnotherVideoForEmergency()
 }

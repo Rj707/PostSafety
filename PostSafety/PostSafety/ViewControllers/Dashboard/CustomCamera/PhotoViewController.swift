@@ -63,7 +63,12 @@ class PhotoViewController: UIViewController
     func send()
     {
         dismiss(animated: true, completion: nil)
-        self.delegate.sendPhoto(imageData:UIImageJPEGRepresentation(self.backgroundImage,1)!)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)
+        { // in half a second...
+            print("Are we there yet?")
+            self.delegate.sendPhoto(imageData:UIImageJPEGRepresentation(self.backgroundImage,1)!)
+        }
+        
     }
 }
 

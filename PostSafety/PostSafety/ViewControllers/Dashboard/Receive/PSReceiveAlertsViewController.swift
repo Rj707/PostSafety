@@ -33,7 +33,7 @@ class PSReceiveAlertsViewController: UIViewController
         
         if CEReachabilityManager.isReachable()
         {
-            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Reports")
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Posts")
             companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
             PSAPIManager.sharedInstance.getNotificationsFor(companyId: String(companyId), success:
             { (dic) in

@@ -164,7 +164,13 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     {
         if CEReachabilityManager.isReachable()
         {
-            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: String(format: "%@%@", "Fetching ", self.feedTitle))
+            var typeOfFetch = self.feedTitle
+            if self.feedTitle == "Reports"
+            {
+                typeOfFetch = "All Posts"
+            }
+            
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: String(format: "%@%@", "Fetching ", typeOfFetch))
             companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
             PSAPIManager.sharedInstance.getAllReportsFor(companyId: String(companyId), success:
                 { (dic) in
@@ -205,7 +211,16 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     {
         if CEReachabilityManager.isReachable()
         {
-            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: String(format: "%@%@", "Fetching ", self.reportType))
+            var typeOfFetch = self.reportType
+            if self.reportType == "SharedReports"
+            {
+                typeOfFetch = "Shared Posts"
+            }
+            else if self.reportType == "MyReports"
+            {
+                typeOfFetch = "My Posts"
+            }
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: String(format: "%@%@", "Fetching ", typeOfFetch))
             EmployeeID = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
             PSAPIManager.sharedInstance.getSharedReportsFor(EmployeeID: String(EmployeeID), Type: reportType ,success:
             { (dic) in
@@ -266,6 +281,15 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         if self.feedTitle == "Reports"
         {
+            if dic["incidentType"] as? String == "Emergency"
+            {
+                cell.titleLabel.textColor = UIColor.init(red: 255/255.0, green: 75/255.0, blue: 1/255.0, alpha: 1.0)
+            }
+            else
+            {
+                cell.titleLabel.textColor = UIColor.black
+            }
+            
             cell.titleLabel.text = String(format: "%@ : %@", (dic["incidentType"] as? String)!,(dic["catagory"] as? String)!)
         }
         else

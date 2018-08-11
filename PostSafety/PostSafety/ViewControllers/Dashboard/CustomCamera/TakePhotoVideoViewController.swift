@@ -9,7 +9,7 @@
 import UIKit
 
 
-class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewControllerDelegate,PhotoViewControllerDelegate,VideoViewControllerDelegate
+class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewControllerDelegate,PhotoViewControllerDelegate,VideoViewControllerDelegate,PSEmergencyReportConfirmationViewControllerDelegate
 {
 
     @IBOutlet weak var captureButton: SwiftyRecordButton!
@@ -255,11 +255,11 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
                     }
                     else
                     {
-                        
-                        let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-                        let vc = storyboard.instantiateViewController(withIdentifier: "PSEmergencyReportConfirmationViewController") as! PSEmergencyReportConfirmationViewController
-                        self.navigationController?.pushViewController(vc,
-                                                                      animated: true)
+                        self.updateEmergencyReport()
+//                        let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+//                        let vc = storyboard.instantiateViewController(withIdentifier: "PSEmergencyReportConfirmationViewController") as! PSEmergencyReportConfirmationViewController
+//                        self.navigationController?.pushViewController(vc,
+//                                                                      animated: true)
                     }
                     
             }, failure:
@@ -282,7 +282,58 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         }
     }
     
+    func takeAnotherVideoForEmergency()
+    {
+        if self.incidentTypeID == 0
+        {
+            self.incidentTypeID = (PSDataManager.sharedInstance.report?.incidentType)!
+        }
+        
+        self.createReport()
+    }
+    
     // MARK: APIs
+    
+    func updateEmergencyReport()
+    {
+        if CEReachabilityManager.isReachable()
+        {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Updating Report")
+            var report = PSReport.init()
+            report = PSDataManager.sharedInstance.report!
+            PSAPIManager.sharedInstance.updateReportFor(ReportId: String(report.reportID), LocationId: String(0), Title: "N/A", Details: "N/A", CatagoryId: String(report.categoryID), SubCatagory: "0", IsPSI: NSNumber.init(booleanLiteral: false), success:
+            { (dict) in
+                
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                //                http://postsafety.anadeemus.ca/api/UpdateReport/?SubCatagory=0&Details=&CatagoryId=0&Title=&IsPSI=0&ReportId=10411&LocationId=0
+                
+                let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "PSEmergencyReportConfirmationViewController") as! PSEmergencyReportConfirmationViewController
+                vc.delegate = self
+                self.navigationController?.pushViewController(vc,
+                                                              animated: true)
+                    
+            },
+                                                        failure:
+            { (error, stausCode) in
+                
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                PSUserInterfaceManager.showAlert(title: "Something went wrong", message: error.localizedDescription)
+                
+            }, errorPopup: true)
+            
+            
+        }
+        else
+        {
+            
+            let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "PSNoConnectionViewController") as! PSNoConnectionViewController
+            self.navigationController?.pushViewController(vc,
+                                                          animated: true)
+//            self.performSegue(withIdentifier: "toNoInternetFromSummary", sender: (Any).self)
+        }
+    }
     
     func createReport() -> Void
     {
@@ -293,27 +344,27 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
             PSAPIManager.sharedInstance.createReportForIncidentTypeID(typeID: String(self.incidentTypeID),
                                                                       EmployeeID: String(self.employeeID),
                                                                       success:
-                { (dic) in
+            { (dic) in
                     
-                    PSUserInterfaceManager.sharedInstance.hideLoader()
-                    print(dic["ReportID"] ?? "")
-                    self.reportID = dic["ReportID"] as! Int
-                    PSDataManager.sharedInstance.report?.reportID = dic["ReportID"] as! Int
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                print(dic["ReportID"] ?? "")
+                self.reportID = dic["ReportID"] as! Int
+                PSDataManager.sharedInstance.report?.reportID = dic["ReportID"] as! Int
             } ,
                                                                       failure:
                 
+            {
+                (error:NSError,statusCode:Int) in
+                
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                if(statusCode==404)
                 {
-                    (error:NSError,statusCode:Int) in
+                    PSUserInterfaceManager.showAlert(title: "Login", message: ApiResultFailureMessage.InvalidEmailPassword)
+                }
+                else
+                {
                     
-                    PSUserInterfaceManager.sharedInstance.hideLoader()
-                    if(statusCode==404)
-                    {
-                        PSUserInterfaceManager.showAlert(title: "Login", message: ApiResultFailureMessage.InvalidEmailPassword)
-                    }
-                    else
-                    {
-                        
-                    }
+                }
                     
             }, errorPopup: true)
         }
