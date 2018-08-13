@@ -39,7 +39,7 @@ class PSAttachmentViewController: UIViewController,UIWebViewDelegate
     
     @IBAction func dismissWebView()
     {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     public func webViewDidStartLoad(_ webView: UIWebView)

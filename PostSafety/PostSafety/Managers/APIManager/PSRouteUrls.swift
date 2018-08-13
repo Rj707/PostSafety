@@ -24,7 +24,7 @@ enum Route: String
     case LocationsList      = "/api/LocationsList/"
     case SubCategory        = "/api/SubChecklistDetails/"
     
-    case Notifications      = "/api/NotificationsAPI"
+    case Notifications      = "/api/Notifications"
     case SafetyUpdates      = "/api/SafetyUpdates"
     case Trainings          = "/api/Trainings/"
     case PolicyProcedures   = "/api/PolicyAndProcedures/"

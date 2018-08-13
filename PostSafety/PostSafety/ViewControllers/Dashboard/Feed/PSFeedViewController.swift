@@ -123,7 +123,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         }
         else if feedTitle == "Announcements" || feedTitle == "Alerts"
         {
-            
+            self.getAlerts()
         }
     }
 
@@ -142,40 +142,51 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Notifications")
             companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
             PSAPIManager.sharedInstance.getNotificationsFor(companyId: String(companyId), success:
-                { (dic) in
-                    
-                    self.archivedArray = [Any] ()
-                    PSUserInterfaceManager.sharedInstance.hideLoader()
-                    let tempArray = dic["array"] as! [Any]
-                    
-                    for checklistDict in tempArray
+            { (dic) in
+                
+                self.archivedArray = [Any] ()
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                var tempArray = dic["array"] as! [Any]
+                
+                if self.feedTitle == "Announcements"
+                {
+                    let resultPredicate = NSPredicate(format: "type = %@", "Announcement")
+                    tempArray = (tempArray as NSArray).filtered(using: resultPredicate)
+                }
+                else if self.feedTitle == "Alerts"
+                {
+                    let resultPredicate = NSPredicate(format: "type = %@", "Alert")
+                    tempArray = (tempArray as NSArray).filtered(using: resultPredicate)
+                }
+                
+                for checklistDict in tempArray
+                {
+                    if let tempDict = checklistDict as? [String: Any]
                     {
-                        if let tempDict = checklistDict as? [String: Any]
+                        if tempDict["isRead"] as! Int == 0
                         {
-                            if tempDict["isRead"] as! Int == 0
-                            {
-                                self.feedArray.append(tempDict)
-                            }
-                            else
-                            {
-                                self.archivedArray.append(tempDict)
-                                print("Alread Read")
-                            }
+                            self.feedArray.append(tempDict)
+                        }
+                        else
+                        {
+                            self.archivedArray.append(tempDict)
+                            print("Alread Read")
                         }
                     }
-                    
-                    if self.type!.rawValue == FeedType.FeedTypeArchived.rawValue
-                    {
-                        self.feedArray = self.archivedArray
-                    }
-                    else
-                    {
-                        self.unOpenedLabel.text = String(format: "%@ (%@)", "New & Unopened",String(self.feedArray.count))
-                    }
-                    
-                    self.updatesAnnouncementsTableView.emptyDataSetSource = self
-                    self.updatesAnnouncementsTableView.emptyDataSetDelegate = self
-                    self.updatesAnnouncementsTableView.reloadData()
+                }
+                
+                if self.type!.rawValue == FeedType.FeedTypeArchived.rawValue
+                {
+                    self.feedArray = self.archivedArray
+                }
+                else
+                {
+                    self.unOpenedLabel.text = String(format: "%@ (%@)", "New & Unopened",String(self.feedArray.count))
+                }
+                
+                self.updatesAnnouncementsTableView.emptyDataSetSource = self
+                self.updatesAnnouncementsTableView.emptyDataSetDelegate = self
+                self.updatesAnnouncementsTableView.reloadData()
                     
                     
             }, failure:
@@ -502,11 +513,11 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
             switch feedTitle
             {
             case "Alerts":
-                self.getInfoFor()
+                self.getAlerts()
                 break
                 
             case "Announcements":
-                self.getInfoFor()
+                self.getAlerts()
                 break
                 
             case "Training":
@@ -549,11 +560,11 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
             switch feedTitle
             {
                 case "Alerts":
-                    self.getInfoFor()
+                    self.getAlerts()
                     break
                 
                 case "Announcements":
-                    self.getInfoFor()
+                    self.getAlerts()
                     break
                 
                 case "Training":

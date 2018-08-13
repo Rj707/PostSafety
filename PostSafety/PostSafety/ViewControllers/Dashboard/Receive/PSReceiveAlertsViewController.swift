@@ -31,42 +31,42 @@ class PSReceiveAlertsViewController: UIViewController
         
         self.addMenuAction()
         
-        if CEReachabilityManager.isReachable()
-        {
-            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Notifications")
-            companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
-            PSAPIManager.sharedInstance.getNotificationsFor(companyId: String(companyId), success:
-            { (dic) in
-                PSUserInterfaceManager.sharedInstance.hideLoader()
-                let tempArray = dic["array"] as! [Any]
-                
-                for checklistDict in tempArray
-                {
-                    if let tempDict = checklistDict as? [String: Any]
-                    {
-                        self.alertsArray.append(tempDict)
-                    }
-                }
-                
-                //                    self.configureReportTypes()
-                print(self.alertsArray)
-                
-            }, failure:
-            { (error:NSError,statusCode:Int) in
-            
-                PSUserInterfaceManager.sharedInstance.hideLoader()
-                if(statusCode==404)
-                {
-                    
-                    PSUserInterfaceManager.showAlert(title: "Fetching Notifications", message: ApiErrorMessage.ErrorOccured)
-                }
-                else
-                {
-                    
-                }
-                
-            }, errorPopup: true)
-        }
+//        if CEReachabilityManager.isReachable()
+//        {
+//            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Notifications")
+//            companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
+//            PSAPIManager.sharedInstance.getNotificationsFor(companyId: String(companyId), success:
+//            { (dic) in
+//                PSUserInterfaceManager.sharedInstance.hideLoader()
+//                let tempArray = dic["array"] as! [Any]
+//                
+//                for checklistDict in tempArray
+//                {
+//                    if let tempDict = checklistDict as? [String: Any]
+//                    {
+//                        self.alertsArray.append(tempDict)
+//                    }
+//                }
+//                
+//                //                    self.configureReportTypes()
+//                print(self.alertsArray)
+//                
+//            }, failure:
+//            { (error:NSError,statusCode:Int) in
+//            
+//                PSUserInterfaceManager.sharedInstance.hideLoader()
+//                if(statusCode==404)
+//                {
+//                    
+//                    PSUserInterfaceManager.showAlert(title: "Fetching Notifications", message: ApiErrorMessage.ErrorOccured)
+//                }
+//                else
+//                {
+//                    
+//                }
+//                
+//            }, errorPopup: true)
+//        }
     }
     
     // MARK: - IBActions

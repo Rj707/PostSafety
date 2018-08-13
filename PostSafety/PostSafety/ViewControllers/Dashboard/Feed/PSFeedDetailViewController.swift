@@ -114,12 +114,25 @@ class PSFeedDetailViewController: UIViewController
     
     @IBAction func attachmentButtonTouched(_ sender: UIButton)
     {
-        let storyboard = UIStoryboard(name: "User", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PSAttachmentViewController") as! PSAttachmentViewController
-        vc.attachmentString = attachmentString
-        vc.modalPresentationStyle = .popover
-        vc.modalTransitionStyle = .coverVertical
-        self.present(vc, animated: true, completion: nil)
+//        let storyboard = UIStoryboard(name: "User", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "PSAttachmentViewController") as! PSAttachmentViewController
+//        vc.attachmentString = attachmentString
+//        vc.modalPresentationStyle = .popover
+//        vc.modalTransitionStyle = .coverVertical
+//        self.present(vc, animated: true, completion: nil)
+        
+        let VC = storyboard?.instantiateViewController(withIdentifier: "PSAttachmentViewController") as? PSAttachmentViewController
+        let transition = CATransition()
+        transition.duration = 0.1
+        transition.type = kCATransitionFade
+        transition.subtype = kCATransitionFromBottom
+        VC?.attachmentString = attachmentString
+        navigationController?.view.layer.add(transition, forKey: kCATransition)
+        if let aVC = VC
+        {
+            navigationController?.pushViewController(aVC, animated: false)
+        }
+        
     }
     
     func addMenuAction()
