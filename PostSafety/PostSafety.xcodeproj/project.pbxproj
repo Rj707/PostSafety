@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		180D495820B9DA070023101D /* CEReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 180D495720B9DA070023101D /* CEReachabilityManager.m */; };
 		180E43DC211CC6A50091A20C /* no-thumbnail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 180E43DB211CC6A50091A20C /* no-thumbnail.jpg */; };
+		180EACD8211F65DB005402FB /* default-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 180EACD7211F65DB005402FB /* default-thumb.jpg */; };
 		1811261920BDE52900ABA494 /* PSAPIManager+Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1811261820BDE52900ABA494 /* PSAPIManager+Checklist.swift */; };
 		1811261B20BDE60300ABA494 /* PSChecklistAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1811261A20BDE60300ABA494 /* PSChecklistAPIManager.swift */; };
 		1812E68A20B8A32100E484C6 /* PSAPIManager+Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68820B8A32100E484C6 /* PSAPIManager+Authentication.swift */; };
@@ -110,6 +111,7 @@
 		180D495620B9DA070023101D /* CEReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEReachabilityManager.h; sourceTree = "<group>"; };
 		180D495720B9DA070023101D /* CEReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEReachabilityManager.m; sourceTree = "<group>"; };
 		180E43DB211CC6A50091A20C /* no-thumbnail.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "no-thumbnail.jpg"; sourceTree = "<group>"; };
+		180EACD7211F65DB005402FB /* default-thumb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "default-thumb.jpg"; sourceTree = "<group>"; };
 		1811261820BDE52900ABA494 /* PSAPIManager+Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PSAPIManager+Checklist.swift"; sourceTree = "<group>"; };
 		1811261A20BDE60300ABA494 /* PSChecklistAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSChecklistAPIManager.swift; sourceTree = "<group>"; };
 		1812E68820B8A32100E484C6 /* PSAPIManager+Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PSAPIManager+Authentication.swift"; sourceTree = "<group>"; };
@@ -508,6 +510,7 @@
 				A1F156B020AABFF60049DB21 /* Info.plist */,
 				180D495520B9DA060023101D /* PostSafety-Bridging-Header.h */,
 				181FA62A20FB4BF600F9F674 /* 480x480.jpg */,
+				180EACD7211F65DB005402FB /* default-thumb.jpg */,
 				180E43DB211CC6A50091A20C /* no-thumbnail.jpg */,
 			);
 			path = PostSafety;
@@ -677,6 +680,7 @@
 				A15BECE520AEEB560081BC25 /* CameraOverLay.xib in Resources */,
 				184EC78820DC1ED40089348C /* Admin.storyboard in Resources */,
 				180E43DC211CC6A50091A20C /* no-thumbnail.jpg in Resources */,
+				180EACD8211F65DB005402FB /* default-thumb.jpg in Resources */,
 				184EC78620DC0FB70089348C /* User.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

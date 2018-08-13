@@ -118,7 +118,7 @@ class PSSelectSubCategoryViewController: UIViewController,UITableViewDelegate,UI
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 if(statusCode==404)
                 {
-                    PSUserInterfaceManager.showAlert(title: "Fetching SubCategories", message: ApiResultFailureMessage.InvalidEmailPassword)
+                    PSUserInterfaceManager.showAlert(title: "Fetching SubCategories", message: ApiErrorMessage.ErrorOccured)
                 }
                 else
                 {

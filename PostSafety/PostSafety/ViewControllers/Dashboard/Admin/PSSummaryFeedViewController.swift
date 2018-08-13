@@ -108,7 +108,7 @@ class PSSummaryFeedViewController: UIViewController,UITableViewDataSource,UITabl
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     if(statusCode==404)
                     {
-                        PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiResultFailureMessage.InvalidEmailPassword)
+                        PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiErrorMessage.ErrorOccured)
                     }
                     else
                     {

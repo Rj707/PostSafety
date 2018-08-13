@@ -136,7 +136,7 @@ class PSReportAPIManager: PSAPIManagerBase
                          Details: String,
                          CatagoryId: String,
                          SubCatagory: String,
-                         IsPSI:NSNumber,
+                         IsPSI:Bool,
                          success:@escaping DefaultArrayResultAPISuccessClosure,
                          failure:@escaping DefaultAPIFailureClosure,
                          errorPopup: Bool)
@@ -229,6 +229,7 @@ class PSReportAPIManager: PSAPIManagerBase
     func getReportsFor(CompanyId: String,
                        ReportType: String,
                        ReportedBy: String,
+                       Status:Bool,
                        startdate: String,
                        enddate: String,
                        success:@escaping DefaultArrayResultAPISuccessClosure,
@@ -240,6 +241,7 @@ class PSReportAPIManager: PSAPIManagerBase
                 "CompanyId":CompanyId,
                 "ReportType":ReportType,
                 "ReportedBy":ReportedBy,
+                "Status":Status,
                 "startdate":startdate,
                 "enddate":enddate,
             ]
@@ -267,7 +269,7 @@ class PSReportAPIManager: PSAPIManagerBase
         self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
     }
     
-    func archiveGetInfoFor(companyId: String,
+    func archiveGetInfoFor(EmployeeId: String,
                            ID: String,
                            route: String,
                           success:@escaping DefaultArrayResultAPISuccessClosure,
@@ -277,7 +279,7 @@ class PSReportAPIManager: PSAPIManagerBase
 
         let parameters: [String:Any] =
             [
-                "CompanyId":companyId,
+                "EmployeeId":EmployeeId,
                 "ID":ID,
             ]
 

@@ -46,6 +46,7 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
         }
         else if PSDataManager.sharedInstance.report?.reportType == "NearMiss"
         {
+            reportTypleLabel.text = "Near Miss"
             subCategoryNameLabel.isHidden =  false
             subCategoryNameLabel.text = String(format: "PSI?: %@", (PSDataManager.sharedInstance.report?.isReportPSI)!)
             if PSDataManager.sharedInstance.report?.isReportPSI == "Yes"
@@ -91,7 +92,7 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
             var report = PSReport.init()
             report = PSDataManager.sharedInstance.report!
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Updating Report")
-            PSAPIManager.sharedInstance.updateReportFor(ReportId: String(report.reportID), LocationId: String(locationID), Title: "", Details: self.decriptionTextView.text, CatagoryId: String(report.categoryID), SubCatagory: "0", IsPSI: self.IsPSI, success:
+            PSAPIManager.sharedInstance.updateReportFor(ReportId: String(report.reportID), LocationId: String(locationID), Title: "", Details: self.decriptionTextView.text, CatagoryId: String(report.categoryID), SubCatagory: "0", IsPSI: self.IsPSI as! Bool, success:
             { (dict) in
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 PSDataManager.sharedInstance.report = PSReport.init()
@@ -115,17 +116,12 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
     
     public func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
     {
-        textView.text = ""
+        
         return true
     }
     
     public func textViewShouldEndEditing(_ textView: UITextView) -> Bool
     {
-        if textView.text == ""
-        {
-            textView.text = "Enter additional details"
-        }
-        
         return true
     }
     

@@ -18,11 +18,13 @@ class PSReportOverviewViewController: UIViewController,MFMessageComposeViewContr
     @IBOutlet weak var typeLable: UILabel!
     @IBOutlet weak var categoryLable: UILabel!
     @IBOutlet weak var subCategoryLable: UILabel!
+    @IBOutlet weak var isPSILable: UILabel!
     @IBOutlet weak var locationLable: UILabel!
     @IBOutlet weak var dateLable: UILabel!
     @IBOutlet weak var timeLable: UILabel!
     @IBOutlet weak var reporterLable: UILabel!
     @IBOutlet weak var reporterPhoneNumberLable: UILabel!
+    
     var alertController = UIAlertController()
     override func viewDidLoad()
     {
@@ -30,18 +32,36 @@ class PSReportOverviewViewController: UIViewController,MFMessageComposeViewContr
        
         // Do any additional setup after loading the view.
         
-        self.timeLable.text = self.reportOverviewDict["time"] is NSNull ? "None" : self.reportOverviewDict["time"] as! String
-        self.dateLable.text = self.reportOverviewDict["date"] is NSNull ? "None" : self.reportOverviewDict["date"] as! String
-        self.reporterLable.text = self.reportOverviewDict["reportedBy"] is NSNull ? "None" : self.reportOverviewDict["reportedBy"] as! String
-        self.locationLable.text = self.reportOverviewDict["location"] is NSNull ? "None" : self.reportOverviewDict["location"] as! String
-        self.typeLable.text = self.reportOverviewDict["incidentType"] is NSNull ? "None" : self.reportOverviewDict["incidentType"] as! String
-        self.subCategoryLable.text = self.reportOverviewDict["subCatagory"] is NSNull ? "None" : self.reportOverviewDict["subCatagory"] as! String
-        self.categoryLable.text = self.reportOverviewDict["catagory"] is NSNull ? "None" : self.reportOverviewDict["catagory"] as! String
-        self.reporterPhoneNumberLable.text = self.reportOverviewDict["reportedByNumber"] is NSNull ? "None" : self.reportOverviewDict["reportedByNumber"] as! String
+        if self.reportOverviewDict["isPsi"] is NSNull
+        {
+            self.isPSILable.text = "N/A"
+        }
+        else
+        {
+            if reportOverviewDict["isPsi"] as! Bool == true
+            {
+                self.isPSILable.text = "Yes"
+            }
+            else
+            {
+                self.isPSILable.text = "No"
+            }
+        }
+        
+        self.timeLable.text = self.reportOverviewDict["time"] is NSNull ? "N/A" : self.reportOverviewDict["time"] as! String
+        self.dateLable.text = self.reportOverviewDict["date"] is NSNull ? "N/A" : self.reportOverviewDict["date"] as! String
+//        self.isPSILable.text = self.reportOverviewDict["isPsi"] is NSNull ? "N/A" : self.reportOverviewDict["isPsi"] as! String
+        self.reporterLable.text = self.reportOverviewDict["reportedBy"] is NSNull ? "N/A" : self.reportOverviewDict["reportedBy"] as! String
+        self.locationLable.text = self.reportOverviewDict["location"] is NSNull ? "N/A" : self.reportOverviewDict["location"] as! String
+        self.typeLable.text = self.reportOverviewDict["incidentType"] is NSNull ? "N/A" : self.reportOverviewDict["incidentType"] as! String
+        self.subCategoryLable.text = self.reportOverviewDict["subCatagory"] is NSNull ? "N/A" : self.reportOverviewDict["subCatagory"] as! String
+        self.categoryLable.text = self.reportOverviewDict["catagory"] is NSNull ? "N/A" : self.reportOverviewDict["catagory"] as! String
+        self.reporterPhoneNumberLable.text = self.reportOverviewDict["reportedByNumber"] is NSNull ? "N/A" : self.reportOverviewDict["reportedByNumber"] as! String
         
         
         self.timeLable.text = self.reportOverviewDict["time"] as! String == "" ? "N/A" : self.reportOverviewDict["time"] as! String
         self.dateLable.text = self.reportOverviewDict["date"] as! String == "" ? "N/A" : self.reportOverviewDict["date"] as! String
+//        self.isPSILable.text = self.reportOverviewDict["isPsi"] as! String == "" ? "N/A" : self.reportOverviewDict["isPsi"] as! String
         self.reporterLable.text = self.reportOverviewDict["reportedBy"] as! String == "" ? "N/A" : self.reportOverviewDict["reportedBy"] as! String
         self.locationLable.text = self.reportOverviewDict["location"] as! String == "" ? "N/A" : self.reportOverviewDict["location"] as! String
         self.typeLable.text = self.reportOverviewDict["incidentType"] as! String == "" ? "N/A" : self.reportOverviewDict["incidentType"] as! String

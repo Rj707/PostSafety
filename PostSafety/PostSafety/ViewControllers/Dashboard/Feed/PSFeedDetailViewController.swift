@@ -33,38 +33,38 @@ class PSFeedDetailViewController: UIViewController
         {
             case "Alerts":
             
-                let ID = feedDict["notificationId"]
+                let ID = feedDict["notificationId"] as! NSNumber
                 let route = Route.NotificationIsRead.rawValue
-                self.archiveGetInfosFor(ID: ID as! String, route: route)
+                self.archiveGetInfosFor(ID: ID.stringValue, route: route)
                 
             break
             
             case "Announcements":
-                let ID = feedDict["notificationId"]
+                let ID = feedDict["notificationId"] as! NSNumber
                 let route = Route.NotificationIsRead.rawValue
-                self.archiveGetInfosFor(ID: ID as! String, route: route)
+                self.archiveGetInfosFor(ID: ID.stringValue, route: route)
             
             break
             
             case "Training":
-                let ID = feedDict["traningId"]
+                let ID = feedDict["traningId"] as! NSNumber
                 let route = Route.TrainingIsRead.rawValue
-                self.archiveGetInfosFor(ID: ID as! String, route: route)
+                self.archiveGetInfosFor(ID: ID.stringValue , route: route)
             
             break
             
             case "Policies/Procedures":
-                let ID = feedDict["id"]
+                let ID = feedDict["id"] as! NSNumber
 
                 let route = Route.ProcedurePolicyRead.rawValue
-                self.archiveGetInfosFor(ID: ID as! String, route: route)
+                self.archiveGetInfosFor(ID: ID.stringValue, route: route)
             
             break
             
             case "Safety Updates":
-                let ID = feedDict["safetyId"]
+                let ID = feedDict["safetyId"] as! NSNumber
                 let route = Route.SafetyUpdatesRead.rawValue
-                self.archiveGetInfosFor(ID: ID as! String, route: route)
+                self.archiveGetInfosFor(ID: ID.stringValue, route: route)
             
             break
             
@@ -140,8 +140,8 @@ class PSFeedDetailViewController: UIViewController
         if CEReachabilityManager.isReachable()
         {
 //            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: String(format: "%@%@", "Archiving ", self.feedTitle))
-            let companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
-            PSAPIManager.sharedInstance.archiveGetInfoFor(companyId: String(companyId), ID: ID, route:route  ,success:
+            let EmployeeId = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
+            PSAPIManager.sharedInstance.archiveGetInfoFor(EmployeeId : String(EmployeeId), ID: ID, route:route  ,success:
             { (dic) in
                 
 //                PSUserInterfaceManager.sharedInstance.hideLoader()
@@ -170,7 +170,7 @@ class PSFeedDetailViewController: UIViewController
 //                    PSUserInterfaceManager.sharedInstance.hideLoader()
                     if(statusCode==404)
                     {
-                        PSUserInterfaceManager.showAlert(title: "Archiving", message: ApiResultFailureMessage.InvalidEmailPassword)
+                        PSUserInterfaceManager.showAlert(title: "Archiving", message: ApiErrorMessage.ErrorOccured)
                     }
                     else
                     {

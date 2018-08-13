@@ -33,7 +33,7 @@ class PSReceiveAlertsViewController: UIViewController
         
         if CEReachabilityManager.isReachable()
         {
-            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Posts")
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Notifications")
             companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
             PSAPIManager.sharedInstance.getNotificationsFor(companyId: String(companyId), success:
             { (dic) in
@@ -57,7 +57,8 @@ class PSReceiveAlertsViewController: UIViewController
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 if(statusCode==404)
                 {
-                    PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiResultFailureMessage.InvalidEmailPassword)
+                    
+                    PSUserInterfaceManager.showAlert(title: "Fetching Notifications", message: ApiErrorMessage.ErrorOccured)
                 }
                 else
                 {
@@ -66,8 +67,6 @@ class PSReceiveAlertsViewController: UIViewController
                 
             }, errorPopup: true)
         }
-            
-        
     }
     
     // MARK: - IBActions

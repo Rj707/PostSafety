@@ -72,7 +72,7 @@ extension PSAPIManager
                          Details: String,
                          CatagoryId: String,
                          SubCatagory: String,
-                         IsPSI:NSNumber,
+                         IsPSI:Bool,
                          success:@escaping DefaultArrayResultAPISuccessClosure,
                          failure:@escaping DefaultAPIFailureClosure,
                          errorPopup: Bool)
@@ -117,13 +117,14 @@ extension PSAPIManager
     func getReportsFor(CompanyId: String,
                       ReportType: String,
                       ReportedBy: String,
+                          Status:Bool,
                        startdate: String,
                          enddate: String,
                          success:@escaping DefaultArrayResultAPISuccessClosure,
                          failure:@escaping DefaultAPIFailureClosure,
                       errorPopup: Bool)
     {
-        reportManagerAPI.getReportsFor(CompanyId: CompanyId,ReportType: ReportType,ReportedBy: ReportedBy,startdate: startdate,enddate: enddate,success: success, failure: failure,errorPopup: errorPopup)
+        reportManagerAPI.getReportsFor(CompanyId: CompanyId,ReportType: ReportType,ReportedBy: ReportedBy, Status:Status, startdate: startdate,enddate: enddate,success: success, failure: failure,errorPopup: errorPopup)
     }
     
     func sendReportsWith(ReportID: String,
@@ -145,14 +146,14 @@ extension PSAPIManager
         }.resume()
     }
     
-    func archiveGetInfoFor(companyId: String,
+    func archiveGetInfoFor(EmployeeId: String,
                            ID: String,
                            route: String,
                            success:@escaping DefaultArrayResultAPISuccessClosure,
                            failure:@escaping DefaultAPIFailureClosure,
                            errorPopup: Bool)
     {
-        reportManagerAPI.archiveGetInfoFor(companyId: companyId, ID:ID, route:route, success: success, failure: failure, errorPopup: true)
+        reportManagerAPI.archiveGetInfoFor(EmployeeId: EmployeeId, ID:ID, route:route, success: success, failure: failure, errorPopup: true)
     }
     
     

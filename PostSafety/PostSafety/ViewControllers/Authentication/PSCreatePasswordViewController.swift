@@ -58,7 +58,7 @@ class PSCreatePasswordViewController: UIViewController
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 if(statusCode==404)
                 {
-                    PSUserInterfaceManager.showAlert(title: "Create Password", message: ApiResultFailureMessage.InvalidEmailPassword)
+                    PSUserInterfaceManager.showAlert(title: "Create Password", message: ApiErrorMessage.ErrorOccured)
                 }
                 else
                 {

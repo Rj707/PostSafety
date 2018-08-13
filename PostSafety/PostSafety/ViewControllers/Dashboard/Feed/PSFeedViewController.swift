@@ -105,8 +105,24 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
             {
                 unOpenedLabel.text = "New & Unopened"
                 archivedLabel.text = "Archived"
-               self.getInfoFor()
+//               self.getInfoFor()
             }
+            
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        if feedTitle == "Training" || feedTitle == "Policies/Procedures" || feedTitle == "Safety Updates"
+        {
+            self.feedArray = [Any]()
+            self.archivedArray = [Any]()
+            self.getInfoFor()
+        }
+        else if feedTitle == "Announcements" || feedTitle == "Alerts"
+        {
             
         }
     }
@@ -118,6 +134,67 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     }
     
     // MARK: - APIs
+    
+    func getAlerts()
+    {
+        if CEReachabilityManager.isReachable()
+        {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Notifications")
+            companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
+            PSAPIManager.sharedInstance.getNotificationsFor(companyId: String(companyId), success:
+                { (dic) in
+                    
+                    self.archivedArray = [Any] ()
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    let tempArray = dic["array"] as! [Any]
+                    
+                    for checklistDict in tempArray
+                    {
+                        if let tempDict = checklistDict as? [String: Any]
+                        {
+                            if tempDict["isRead"] as! Int == 0
+                            {
+                                self.feedArray.append(tempDict)
+                            }
+                            else
+                            {
+                                self.archivedArray.append(tempDict)
+                                print("Alread Read")
+                            }
+                        }
+                    }
+                    
+                    if self.type!.rawValue == FeedType.FeedTypeArchived.rawValue
+                    {
+                        self.feedArray = self.archivedArray
+                    }
+                    else
+                    {
+                        self.unOpenedLabel.text = String(format: "%@ (%@)", "New & Unopened",String(self.feedArray.count))
+                    }
+                    
+                    self.updatesAnnouncementsTableView.emptyDataSetSource = self
+                    self.updatesAnnouncementsTableView.emptyDataSetDelegate = self
+                    self.updatesAnnouncementsTableView.reloadData()
+                    
+                    
+            }, failure:
+                { (error:NSError,statusCode:Int) in
+                    
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    if(statusCode==404)
+                    {
+                        
+                        PSUserInterfaceManager.showAlert(title: "Fetching Notifications", message: ApiErrorMessage.ErrorOccured)
+                    }
+                    else
+                    {
+                        
+                    }
+                    
+            }, errorPopup: true)
+        }
+    }
     
     func getInfoFor()
     {
@@ -169,7 +246,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     if(statusCode==404)
                     {
-                        PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiResultFailureMessage.InvalidEmailPassword)
+                        PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiErrorMessage.ErrorOccured)
                     }
                     else
                     {
@@ -216,7 +293,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     if(statusCode==404)
                     {
-                        PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiResultFailureMessage.InvalidEmailPassword)
+                        PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiErrorMessage.ErrorOccured)
                     }
                     else
                     {
@@ -267,7 +344,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     if(statusCode==404)
                     {
-                        PSUserInterfaceManager.showAlert(title: "Fetching Posts", message: ApiResultFailureMessage.InvalidEmailPassword)
+                        PSUserInterfaceManager.showAlert(title: "Fetching Posts", message: ApiErrorMessage.ErrorOccured)
                     }
                     else
                     {
@@ -581,7 +658,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: String(format: "%@%@", "Fetching ", self.feedTitle))
             companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
             
-            PSAPIManager.sharedInstance.getReportsFor(CompanyId: String(companyId), ReportType: filterData.value(forKey: "ReportType") as! String, ReportedBy: filterData.value(forKey: "ReportedBy") as! String, startdate: filterData.value(forKey: "startdate") as! String, enddate: filterData.value(forKey: "enddate") as! String, success:
+            PSAPIManager.sharedInstance.getReportsFor(CompanyId: String(companyId), ReportType: filterData.value(forKey: "ReportType") as! String, ReportedBy: filterData.value(forKey: "ReportedBy") as! String, Status: (filterData.value(forKey: "Status") != nil), startdate: filterData.value(forKey: "startdate") as! String, enddate: filterData.value(forKey: "enddate") as! String, success:
             { (dic) in
                 
                 self.feedArray = [Any]()
@@ -605,7 +682,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 if(statusCode==404)
                 {
-                    PSUserInterfaceManager.showAlert(title: "Fetching", message: ApiResultFailureMessage.InvalidEmailPassword)
+                    PSUserInterfaceManager.showAlert(title: "Fetching", message: ApiErrorMessage.ErrorOccured)
                 }
                 else
                 {

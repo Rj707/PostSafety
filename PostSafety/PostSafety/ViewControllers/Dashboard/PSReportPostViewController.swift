@@ -18,10 +18,13 @@ class PSReportPostViewController: UIViewController
     @IBOutlet weak var postTitleLabel:UILabel!
     @IBOutlet weak var playVideoButton:UIButton!
     @IBOutlet weak var playVideoContainer:UIView!
+    @IBOutlet weak var videoPlayerView:UIView!
     
     var reportPostDict = NSDictionary.init()
     var postTitle = ""
     var videoURL = URL.init(string: "")
+    var player = AVPlayer()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -101,7 +104,7 @@ class PSReportPostViewController: UIViewController
     {
         PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Loading Video")
         self.videoURL = url
-        
+//        self.videoURL = URL.init(string: "http://techslides.com/demos/sample-videos/small.mp4")
         DispatchQueue.global().async
         {
             let asset = AVAsset(url: url)
@@ -116,6 +119,9 @@ class PSReportPostViewController: UIViewController
                 {
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     self.reportImageView.image = frameImg
+                    self.playVideoButton.isHidden = false
+                    self.playVideoButton.setImage(UIImage.init(named: "play"), for: .normal)
+                    self.playVideoContainer.isHidden = false
                 })
             }
             else
@@ -123,13 +129,24 @@ class PSReportPostViewController: UIViewController
                 DispatchQueue.main.async(execute:
                 {
                     PSUserInterfaceManager.sharedInstance.hideLoader()
-                    self.reportImageView.image = UIImage.init(named: "no-thumbnail.jpg")
+                    self.reportImageView.image = UIImage.init(named: "default-thumb.jpg")
+                    self.playVideoButton.setImage(UIImage.init(named: ""), for: .normal)
                     self.playVideoButton.isHidden = false
                     self.playVideoContainer.isHidden = false
                 })
                 
             }
+            
+//            let videoURL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")
+//            self.videoURL = videoURL
+//            self.player = AVPlayer(url: self.videoURL!)
+//            let playerLayer = AVPlayerLayer(player: self.player)
+//            playerLayer.frame = self.videoPlayerView.frame
+//            self.videoPlayerView.layer.addSublayer(playerLayer)
+//            self.player.play()
+            
         }
+        
         
     }
     

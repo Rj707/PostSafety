@@ -95,7 +95,11 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
     @IBAction func applyFiltersButtonTouched(_ sender: UIButton)
     {
         let filterDictionary = NSMutableDictionary.init()
-        if self.reportTypeDDTextField.selectedItem == ""
+         if self.reportStatusDDTextField.selectedItem == ""
+        {
+            PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Select Post Status")
+        }
+        else if self.reportTypeDDTextField.selectedItem == ""
         {
             PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Select Post type")
         }
@@ -129,6 +133,19 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
             filterDictionary.setValue(self.reportSenderDDTextField.selectedItem, forKey: "ReportedBy")
             filterDictionary.setValue(self.reportStartDateDDTextField.text, forKey: "startdate")
             filterDictionary.setValue(self.reportEndDateDDTextField.text, forKey: "enddate")
+            if self.reportStatusDDTextField.selectedItem == "Open Posts"
+            {
+                filterDictionary.setValue(NSNumber.init(value: true), forKey: "Status")
+            }
+            else if self.reportStatusDDTextField.selectedItem == "Closed Posts"
+            {
+                filterDictionary.setValue(NSNumber.init(value: false), forKey: "Status")
+            }
+            else
+            {
+                filterDictionary.setValue("", forKey: "Status")
+            }
+            
             filterDictionary.setValue(String(self.branchIdForSelctedRow(row: self.reportLocationDDTextField.selectedRow)), forKey: "branchId")
             self.delegate.applyFilters(filterData: filterDictionary)
             self.dismiss(animated: true)
@@ -237,7 +254,7 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     if(statusCode==404)
                     {
-                        PSUserInterfaceManager.showAlert(title: "Senders", message: ApiResultFailureMessage.InvalidEmailPassword)
+                        PSUserInterfaceManager.showAlert(title: "Senders", message: ApiErrorMessage.ErrorOccured)
                     }
                     else
                     {
@@ -283,7 +300,7 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     if(statusCode==404)
                     {
-                        PSUserInterfaceManager.showAlert(title: "Locations", message: ApiResultFailureMessage.InvalidEmailPassword)
+                        PSUserInterfaceManager.showAlert(title: "Locations", message: ApiErrorMessage.ErrorOccured)
                     }
                     else
                     {

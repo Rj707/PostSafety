@@ -112,7 +112,7 @@ class PSSendAlertViewController: UIViewController,PSSelectDialogViewControllerDe
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 if(statusCode==404)
                 {
-                    PSUserInterfaceManager.showAlert(title: "Sending Reports", message: ApiResultFailureMessage.InvalidEmailPassword)
+                    PSUserInterfaceManager.showAlert(title: "Sending Reports", message: ApiErrorMessage.ErrorOccured)
                 }
                 else
                 {

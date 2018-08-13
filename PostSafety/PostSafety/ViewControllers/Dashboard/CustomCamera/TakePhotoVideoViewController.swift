@@ -199,11 +199,11 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
                     }
                     else
                     {
-                        
-                        let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-                        let vc = storyboard.instantiateViewController(withIdentifier: "PSEmergencyReportConfirmationViewController") as! PSEmergencyReportConfirmationViewController
-                        self.navigationController?.pushViewController(vc,
-                                                                      animated: true)
+                        self.updateEmergencyReport()
+//                        let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+//                        let vc = storyboard.instantiateViewController(withIdentifier: "PSEmergencyReportConfirmationViewController") as! PSEmergencyReportConfirmationViewController
+//                        self.navigationController?.pushViewController(vc,
+//                                                                      animated: true)
                     }
                     
             }, failure:
@@ -301,7 +301,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Updating Report")
             var report = PSReport.init()
             report = PSDataManager.sharedInstance.report!
-            PSAPIManager.sharedInstance.updateReportFor(ReportId: String(report.reportID), LocationId: String(0), Title: "N/A", Details: "N/A", CatagoryId: String(report.categoryID), SubCatagory: "0", IsPSI: NSNumber.init(booleanLiteral: false), success:
+            PSAPIManager.sharedInstance.updateReportFor(ReportId: String(report.reportID), LocationId: String(0), Title: "N/A", Details: "N/A", CatagoryId: String(report.categoryID), SubCatagory: "0", IsPSI: NSNumber.init(booleanLiteral: false) as! Bool, success:
             { (dict) in
                 
                 PSUserInterfaceManager.sharedInstance.hideLoader()
@@ -359,7 +359,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 if(statusCode==404)
                 {
-                    PSUserInterfaceManager.showAlert(title: "Login", message: ApiResultFailureMessage.InvalidEmailPassword)
+                    PSUserInterfaceManager.showAlert(title: "Login", message: ApiErrorMessage.ErrorOccured)
                 }
                 else
                 {

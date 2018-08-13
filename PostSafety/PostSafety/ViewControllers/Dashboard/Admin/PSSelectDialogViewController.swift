@@ -93,7 +93,7 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     if(statusCode==404)
                     {
-                        PSUserInterfaceManager.showAlert(title: "Senders", message: ApiResultFailureMessage.InvalidEmailPassword)
+                        PSUserInterfaceManager.showAlert(title: "Senders", message: ApiErrorMessage.ErrorOccured)
                     }
                     else
                     {
@@ -340,7 +340,7 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     if(statusCode==404)
                     {
-                        PSUserInterfaceManager.showAlert(title: "Sharing Reports", message: ApiResultFailureMessage.InvalidEmailPassword)
+                        PSUserInterfaceManager.showAlert(title: "Sharing Reports", message: ApiErrorMessage.ErrorOccured)
                     }
                     else
                     {

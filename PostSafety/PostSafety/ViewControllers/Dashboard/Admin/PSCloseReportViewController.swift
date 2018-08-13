@@ -78,7 +78,7 @@ class PSCloseReportViewController: UIViewController
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     if(statusCode==404)
                     {
-                        PSUserInterfaceManager.showAlert(title: "Closing Report", message: ApiResultFailureMessage.InvalidEmailPassword)
+                        PSUserInterfaceManager.showAlert(title: "Closing Report", message: ApiErrorMessage.ErrorOccured)
                     }
                     else
                     {

@@ -16,7 +16,7 @@ class PSReportDetailViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.reportDetailsTextView.text = self.reportDetailsDict["details"] is NSNull ? "None" : self.reportDetailsDict["details"] as! String
+        self.reportDetailsTextView.text = self.reportDetailsDict["details"] is NSNull ? "N/A" : self.reportDetailsDict["details"] as! String
         // Do any additional setup after loading the view.
     }
 

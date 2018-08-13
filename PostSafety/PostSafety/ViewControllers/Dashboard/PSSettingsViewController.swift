@@ -88,7 +88,7 @@ class PSSettingsViewController: UIViewController
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 if(statusCode==404)
                 {
-                    PSUserInterfaceManager.showAlert(title: "Updating Password", message: ApiResultFailureMessage.InvalidEmailPassword)
+                    PSUserInterfaceManager.showAlert(title: "Updating Password", message: ApiErrorMessage.ErrorOccured)
                 }
                 else
                 {
