@@ -409,7 +409,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
             cell.dateLabel.text = dic["createdDate"] as? String
             cell.timeLabel.text = dic["createdTime"] as? String
         }
-        
+        cell.titleLabel.text =  cell.titleLabel.text?.components(separatedBy: .newlines).joined()
         return cell
     }
     

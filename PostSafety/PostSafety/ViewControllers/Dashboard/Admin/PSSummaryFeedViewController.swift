@@ -61,9 +61,7 @@ class PSSummaryFeedViewController: UIViewController,UITableViewDataSource,UITabl
         let dic = self.summaryFeedArray[indexPath.row] as! NSDictionary
     
         cell.titleLabel.text = String(format: "%@ : %@", (dic["incidentType"] as? String)!,(dic["catagory"] as? String)!)
-        
-//        cell.dateLabel.text = PSUserInterfaceManager.sharedInstance.getDateString(fromDateTime: (dic["date"] as? String)!,dateTimeFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS")
-//        cell.timeLabel.text = PSUserInterfaceManager.sharedInstance.getTimeString(fromDateTime: (dic["date"] as? String)!,dateTimeFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS")
+        cell.titleLabel.text =  cell.titleLabel.text?.components(separatedBy: .newlines).joined()
         cell.dateLabel.text = dic["date"] as? String
         cell.timeLabel.text = dic["time"] as? String
         return cell
@@ -71,8 +69,18 @@ class PSSummaryFeedViewController: UIViewController,UITableViewDataSource,UITabl
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-
+        let dic = self.summaryFeedArray[indexPath.row] as! NSDictionary
         
+        var cell:PSFeedTableViewCell
+        cell = tableView.cellForRow(at: indexPath) as! PSFeedTableViewCell
+        
+        PSDataManager.sharedInstance.reportId = dic["reportId"] as! Int
+        let storyboard = UIStoryboard(name: "User", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSReportPostViewController") as! PSReportPostViewController
+        vc.reportPostDict = self.summaryFeedArray[indexPath.row] as! NSDictionary
+        vc.postTitle =  cell.titleLabel.text!
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
     }
     
     //MARK: - APIs
