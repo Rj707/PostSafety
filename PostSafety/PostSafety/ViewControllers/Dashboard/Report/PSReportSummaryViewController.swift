@@ -46,7 +46,7 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
         }
         else if PSDataManager.sharedInstance.report?.reportType == "NearMiss"
         {
-            reportTypleLabel.text = "Near Miss"
+            reportTypleLabel.text = "Post Type: Near Miss"
             subCategoryNameLabel.isHidden =  false
             subCategoryNameLabel.text = String(format: "PSI?: %@", (PSDataManager.sharedInstance.report?.isReportPSI)!)
             if PSDataManager.sharedInstance.report?.isReportPSI == "Yes"
