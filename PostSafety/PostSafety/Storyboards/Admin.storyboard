@@ -915,7 +915,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="248" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vz-VD-oP3">
                                                 <rect key="frame" x="16.5" y="54.5" width="287" height="86"/>
-                                                <string key="text">I affirm that i have investigated this report according to my compnay's policies and procedure and that I am authorized to close the report.</string>
+                                                <string key="text">I affirm that I have investigated this post according to my company’s policies and procedures and that I am authorized to close the post.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
