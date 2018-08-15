@@ -7,6 +7,7 @@ class PSDataManager: NSObject
     var report: PSReport?
     var reportId = 0
     var isRememberMe = 0
+    var companyLocationsArray = [Any]()
     var loggedInUser: PSUser?
     {
 //        set(user)
@@ -48,6 +49,7 @@ class PSDataManager: NSObject
         self.report = PSReport.init()
         self.reportId = 0
         self.isRememberMe = 0
+        self.companyLocationsArray = [Any]()
         if(!(realm != nil))
         {
             realm = try! Realm()

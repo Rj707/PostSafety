@@ -16,7 +16,9 @@ class PSLogInViewController: UIViewController
     @IBOutlet weak var passowrdTextField : UITextField?
     @IBOutlet weak var termsLabel : UILabel?
     @IBOutlet weak var rememberMeSwitch : UISwitch?
-
+    
+    var locationsArray = [Any]()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -58,7 +60,7 @@ class PSLogInViewController: UIViewController
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Logging In")
             PSAPIManager.sharedInstance.authenticateUserWith(email: (self.phoneNumberTextField?.text)!, password: (self.passowrdTextField?.text)!, success:
             { (dic) in
-                PSUserInterfaceManager.sharedInstance.hideLoader()
+//                PSUserInterfaceManager.sharedInstance.hideLoader()
                 
                 var user : PSUser?
                 user = PSUser.init()
@@ -86,14 +88,17 @@ class PSLogInViewController: UIViewController
                 {
                     Global.USERTYPE? = UserType(rawValue: 0)!
                 }
-                if user?.passwordChanged == 0
-                {
-                    self.performSegue(withIdentifier: "NavigateToCreatePassword", sender: Any?.self)
-                }
-                else
-                {
-                    self.performSegue(withIdentifier: "NavigateToDashboard", sender: Any?.self)
-                }
+                
+                self.getLocationsforReport()
+                
+//                if user?.passwordChanged == 0
+//                {
+//                    self.performSegue(withIdentifier: "NavigateToCreatePassword", sender: Any?.self)
+//                }
+//                else
+//                {
+//                    self.performSegue(withIdentifier: "NavigateToDashboard", sender: Any?.self)
+//                }
                 
             } , failure:
                 
@@ -138,6 +143,53 @@ class PSLogInViewController: UIViewController
         print(sender.selectedSegmentIndex)
         Global.USERTYPE? = UserType(rawValue: sender.selectedSegmentIndex)!
         print(Global.USERTYPE ?? "UserType")
+    }
+    
+    func getLocationsforReport() -> Void
+    {
+        if CEReachabilityManager.isReachable()
+        {
+//            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Locations")
+            let companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
+            PSAPIManager.sharedInstance.getLocationsFor(companyId: String(companyId) ,success:
+                { (dic) in
+                    
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    let tempArray = dic["array"] as! [Any]
+                    
+                    for checklistDict in tempArray
+                    {
+                        if let tempDict = checklistDict as? [String: Any]
+                        {
+                            self.locationsArray.append(tempDict)
+                        }
+                    }
+                    PSDataManager.sharedInstance.companyLocationsArray = self.locationsArray
+                    if PSDataManager.sharedInstance.loggedInUser?.passwordChanged == 0
+                    {
+                        self.performSegue(withIdentifier: "NavigateToCreatePassword", sender: Any?.self)
+                    }
+                    else
+                    {
+                        self.performSegue(withIdentifier: "NavigateToDashboard", sender: Any?.self)
+                    }
+                    
+            }, failure:
+                
+                {
+                    (error:NSError,statusCode:Int) in
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    if(statusCode==404)
+                    {
+                        PSUserInterfaceManager.showAlert(title: "Locations", message: ApiErrorMessage.ErrorOccured)
+                    }
+                    else
+                    {
+                        
+                    }
+                    
+            }, errorPopup: true)
+        }
     }
     
     /*

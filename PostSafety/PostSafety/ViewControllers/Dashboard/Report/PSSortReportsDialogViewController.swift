@@ -45,7 +45,7 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
         super.viewDidLoad()
         
         self.getAllEmployees()
-        self.getLocationsforReport()
+//        self.getLocationsforReport()
         
         reportLocationDDTextField.dataSource = self
         reportLocationDDTextField.delegate = self
@@ -61,6 +61,17 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
         
         reportTypeDDTextField.itemList = reportTypeArray
         reportStatusDDTextField.itemList = reportStatusArray
+        
+        self.reportLocationArray = PSDataManager.sharedInstance.companyLocationsArray
+        for i in 0...self.reportLocationArray.count-1
+        {
+            var tempDict = self.reportLocationArray[i] as? [String: Any]
+            self.reportLocationAddressArray.append(tempDict!["branchName"] ?? "No Branch Address")
+        }
+        
+        self.reportLocationAddressArray.insert("All", at: 0)
+        self.reportLocationDDTextField.itemList = self.reportLocationAddressArray as? [String]
+        
         
         self.view1.layer.borderWidth = 1
         self.view2.layer.borderWidth = 1
