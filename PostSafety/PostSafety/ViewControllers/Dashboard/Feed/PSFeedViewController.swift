@@ -359,7 +359,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
                     }
                     else
                     {
-                        
+                        PSUserInterfaceManager.showAlert(title: "Fetching Posts", message: error.localizedDescription)
                     }
                     
             }, errorPopup: true)
