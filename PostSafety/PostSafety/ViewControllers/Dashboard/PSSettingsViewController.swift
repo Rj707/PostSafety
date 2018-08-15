@@ -46,15 +46,19 @@ class PSSettingsViewController: UIViewController
     {
         if self.passwordTextField?.text == ""
         {
-            
+            PSUserInterfaceManager.showAlert(title: "Reset Password", message: FieldsErrorMessage.EmptyPassword)
         }
         else if self.confirmPasswordTextField?.text == ""
         {
-            
+            PSUserInterfaceManager.showAlert(title: "Reset Password", message: FieldsErrorMessage.NewPassword)
+        }
+        else if self.confirmPasswordTextField?.text == PSDataManager.sharedInstance.loggedInUser?.password
+        {
+            PSUserInterfaceManager.showAlert(title: "Reset Password", message: FieldsErrorMessage.NewOldPasswordMatch)
         }
         else if PSDataManager.sharedInstance.loggedInUser?.password != self.passwordTextField?.text
         {
-            let alertController = UIAlertController(title: "Updating Password", message: "The old password is incorrect", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Reset Password", message: "The old password is incorrect", preferredStyle: .alert)
             let alertActionCancel = UIAlertAction(title: "OK", style: .cancel)
             { (action) in
                 
@@ -64,7 +68,7 @@ class PSSettingsViewController: UIViewController
         }
         else if CEReachabilityManager.isReachable()
         {
-            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Updating Password")
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Reset Password")
             EmployeeID = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
             PSAPIManager.sharedInstance.UpdateEmployees(employeeID: String(EmployeeID), oldPassword: (self.passwordTextField?.text)!, NewPassword: (self.confirmPasswordTextField?.text)!,
             success:
@@ -72,7 +76,7 @@ class PSSettingsViewController: UIViewController
                 (dic) in
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 
-                let alertController = UIAlertController(title: "Updating Password", message: "You have successfully Updated your password", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Reset Password", message: "You have successfully Updated your password", preferredStyle: .alert)
                 let alertActionCancel = UIAlertAction(title: "OK", style: .cancel)
                 { (action) in
                         self.navigationController?.popViewController(animated: true)

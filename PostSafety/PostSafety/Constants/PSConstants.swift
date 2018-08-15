@@ -55,6 +55,7 @@ struct FieldsErrorMessage
     static let PasswordMisMatch     = NSLocalizedString("Passwords do not match.", comment: "")
     static let EmptyPhoneNumber     = NSLocalizedString("Please enter your phone number.", comment: "")
     static let EmptyPassword        = NSLocalizedString("Please enter your password", comment: "")
+    static let NewPassword          = NSLocalizedString("Please enter your new password", comment: "")
 }
 
 struct PopupMessage
