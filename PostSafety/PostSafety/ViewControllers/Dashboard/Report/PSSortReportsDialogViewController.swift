@@ -135,9 +135,20 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
             print(self.reportStartDateDDTextField.text ?? "")
             print(self.reportEndDateDDTextField.text ?? "")
             
+            if reportTypeDDTextField.selectedItem == "All"
+            {
+                
+            }
+            if reportLocationDDTextField.selectedItem == "All"
+            {
+                
+            }
+            if reportSenderDDTextField.selectedItem == "All"
+            {
+                
+            }
             
             filterDictionary["ReportType"] = self.reportTypeDDTextField.selectedItem
-            
             filterDictionary.setValue(self.reportTypeDDTextField.selectedItem, forKey: "ReportType")
             filterDictionary.setValue(self.reportSenderDDTextField.selectedItem, forKey: "ReportedBy")
             filterDictionary.setValue(self.reportStartDateDDTextField.text, forKey: "startdate")
@@ -155,7 +166,24 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
                 filterDictionary.setValue("", forKey: "Status")
             }
             
-            filterDictionary.setValue(String(self.branchIdForSelctedRow(row: self.reportLocationDDTextField.selectedRow)), forKey: "branchId")
+            if reportTypeDDTextField.selectedItem == "All"
+            {
+                filterDictionary.setValue("", forKey: "ReportType")
+            }
+            if reportSenderDDTextField.selectedItem == "All"
+            {
+                filterDictionary.setValue("", forKey: "ReportedBy")
+            }
+            
+            if reportLocationDDTextField.selectedItem == "All"
+            {
+                filterDictionary.setValue("", forKey: "branchId")
+            }
+            else
+            {
+                filterDictionary.setValue(String(self.branchIdForSelctedRow(row: self.reportLocationDDTextField.selectedRow)), forKey: "branchId")
+            }
+        
             self.delegate.applyFilters(filterData: filterDictionary)
             self.dismiss(animated: true)
             {
