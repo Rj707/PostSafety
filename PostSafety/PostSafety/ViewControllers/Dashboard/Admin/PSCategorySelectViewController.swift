@@ -66,7 +66,7 @@ class PSCategorySelectViewController: UIViewController
     {
         let storyboard = UIStoryboard(name: "Admin", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryFeedViewController") as! PSSummaryFeedViewController
-        summaryStatisticsTitle += "Hazard"
+        summaryStatisticsTitle += "Hazards"
         vc.summaryFeedTitle += summaryStatisticsTitle
         vc.DateType = self.DateType
         vc.IncidentType = "Hazard"
@@ -77,7 +77,7 @@ class PSCategorySelectViewController: UIViewController
     {
         let storyboard = UIStoryboard(name: "Admin", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryFeedViewController") as! PSSummaryFeedViewController
-        summaryStatisticsTitle += "Near Miss"
+        summaryStatisticsTitle += "Near Misses"
         vc.summaryFeedTitle += summaryStatisticsTitle
         vc.DateType = self.DateType
         vc.IncidentType = "NearMiss"
@@ -88,7 +88,7 @@ class PSCategorySelectViewController: UIViewController
     {
         let storyboard = UIStoryboard(name: "Admin", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryFeedViewController") as! PSSummaryFeedViewController
-        summaryStatisticsTitle += "Incident"
+        summaryStatisticsTitle += "Incidents"
         vc.summaryFeedTitle += summaryStatisticsTitle
         vc.DateType = self.DateType
         vc.IncidentType = "Incident"
@@ -99,7 +99,7 @@ class PSCategorySelectViewController: UIViewController
     {
         let storyboard = UIStoryboard(name: "Admin", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryFeedViewController") as! PSSummaryFeedViewController
-        summaryStatisticsTitle += "Emergency"
+        summaryStatisticsTitle += "Emergencies"
         vc.summaryFeedTitle += summaryStatisticsTitle
         vc.DateType = self.DateType
         vc.IncidentType = "Emergency"
