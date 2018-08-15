@@ -32,7 +32,7 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
     var reportLocationArray = [Any]()
     var reportLocationAddressArray = [Any]()
     var reportSenderArray = [String]()
-    var reportTypeArray = ["Hazard", "Near Miss", "Incident","Emergency"]
+    var reportTypeArray = ["All","Hazard", "Near Miss", "Incident","Emergency"]
     var reportStatusArray = ["Open Posts", "Closed Posts", "All Posts"]
     var reportSenderDetailArray = [Any]()
 
@@ -244,7 +244,7 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
                         let name = item["employeeFullName"]
                         self.reportSenderArray.append(name as! String)
                     }
-                    
+                    self.reportSenderArray.insert("All", at: 0)
                     self.reportSenderDDTextField.itemList = self.reportSenderArray
                     print(self.reportSenderDetailArray)
                     
@@ -290,7 +290,7 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
                     self.reportLocationAddressArray.append(tempDict!["branchName"] ?? "No Branch Address")
                 }
                
-                
+                self.reportLocationAddressArray.insert("All", at: 0)
                 self.reportLocationDDTextField.itemList = self.reportLocationAddressArray as? [String]
                     
             }, failure:
