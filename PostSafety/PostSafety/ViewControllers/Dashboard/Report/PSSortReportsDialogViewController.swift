@@ -45,6 +45,7 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
         super.viewDidLoad()
         
         self.getAllEmployees()
+        
 //        self.getLocationsforReport()
         
         reportLocationDDTextField.dataSource = self

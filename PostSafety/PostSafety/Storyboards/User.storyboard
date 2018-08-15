@@ -988,11 +988,11 @@
                                 <rect key="frame" x="24" y="158" width="327" height="361"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xel-ee-F9U">
-                                <rect key="frame" x="24" y="535" width="155" height="28"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xel-ee-F9U">
+                                <rect key="frame" x="24" y="535" width="327" height="28"/>
                                 <state key="normal" title="Attachment.pdf" image="attachment">
                                     <color key="titleColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -1015,8 +1015,8 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rdr-tL-JFM">
-                                <rect key="frame" x="24" y="129" width="54" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <rect key="frame" x="24" y="126" width="62" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1038,6 +1038,7 @@
                             <constraint firstItem="lvS-19-pMc" firstAttribute="top" secondItem="YIk-Ii-RNX" secondAttribute="bottom" constant="24" id="nXK-82-mVf"/>
                             <constraint firstItem="YIk-Ii-RNX" firstAttribute="leading" secondItem="A0g-id-Kqx" secondAttribute="leading" id="ndo-24-52j"/>
                             <constraint firstItem="XY3-Pg-ce3" firstAttribute="centerX" secondItem="A0g-id-Kqx" secondAttribute="centerX" id="t7S-eN-XeE"/>
+                            <constraint firstItem="vYW-9A-Rq8" firstAttribute="trailing" secondItem="xel-ee-F9U" secondAttribute="trailing" constant="24" id="uwX-fo-u2n"/>
                             <constraint firstItem="vYW-9A-Rq8" firstAttribute="trailing" secondItem="YIk-Ii-RNX" secondAttribute="trailing" id="vbz-VV-E6P"/>
                             <constraint firstItem="YIk-Ii-RNX" firstAttribute="top" secondItem="A0g-id-Kqx" secondAttribute="top" id="yDh-wC-rPv"/>
                         </constraints>
