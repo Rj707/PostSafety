@@ -24,8 +24,9 @@ class PSUser : Object
     @objc dynamic var employeeType : String?
     @objc dynamic var passwordChanged = 0
     @objc dynamic var userTypeByRole = 0
+    @objc dynamic var isReviewer = 0
     var userType : UserType?
-
+    
     override class func primaryKey() -> String?
     {
         return "employeeId"
@@ -58,6 +59,7 @@ class PSUser : Object
         }
         
         user.passwordChanged = dict["passwordChanged"] as! Int
+        user.isReviewer = dict["isReviewer"] as! Int
         return user
     }
     

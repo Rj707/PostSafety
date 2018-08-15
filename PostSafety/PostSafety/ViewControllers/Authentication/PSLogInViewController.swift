@@ -91,15 +91,6 @@ class PSLogInViewController: UIViewController
                 
                 self.getLocationsforReport()
                 
-//                if user?.passwordChanged == 0
-//                {
-//                    self.performSegue(withIdentifier: "NavigateToCreatePassword", sender: Any?.self)
-//                }
-//                else
-//                {
-//                    self.performSegue(withIdentifier: "NavigateToDashboard", sender: Any?.self)
-//                }
-                
             } , failure:
                 
             {
@@ -111,7 +102,7 @@ class PSLogInViewController: UIViewController
                 }
                 else
                 {
-                    
+                    PSUserInterfaceManager.showAlert(title: "Login", message: error.localizedDescription)
                 }
                     
             }, errorPopup: true)
@@ -138,13 +129,6 @@ class PSLogInViewController: UIViewController
         }
     }
     
-    @IBAction func userTypeSegmentValueChanged(sender: UISegmentedControl)
-    {
-        print(sender.selectedSegmentIndex)
-        Global.USERTYPE? = UserType(rawValue: sender.selectedSegmentIndex)!
-        print(Global.USERTYPE ?? "UserType")
-    }
-    
     func getLocationsforReport() -> Void
     {
         if CEReachabilityManager.isReachable()
@@ -163,6 +147,7 @@ class PSLogInViewController: UIViewController
                         self.locationsArray.append(tempDict)
                     }
                 }
+                
                 PSDataManager.sharedInstance.companyLocationsArray = self.locationsArray
                 
                 if PSDataManager.sharedInstance.loggedInUser?.passwordChanged == 0
@@ -179,6 +164,16 @@ class PSLogInViewController: UIViewController
             {
                 (error:NSError,statusCode:Int) in
                 PSUserInterfaceManager.sharedInstance.hideLoader()
+                
+                if PSDataManager.sharedInstance.loggedInUser?.passwordChanged == 0
+                {
+                    self.performSegue(withIdentifier: "NavigateToCreatePassword", sender: Any?.self)
+                }
+                else
+                {
+                    self.performSegue(withIdentifier: "NavigateToDashboard", sender: Any?.self)
+                }
+                
                 if(statusCode==404)
                 {
                     PSUserInterfaceManager.showAlert(title: "Locations", message: ApiErrorMessage.ErrorOccured)

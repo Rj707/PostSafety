@@ -190,7 +190,7 @@ class PSFeedDetailViewController: UIViewController
                     }
                     else
                     {
-                        
+                        PSUserInterfaceManager.showAlert(title: "Archiving", message: error.localizedDescription)
                     }
                     
             }, errorPopup: true)

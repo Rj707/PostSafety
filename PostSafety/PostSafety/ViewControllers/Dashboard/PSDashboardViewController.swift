@@ -80,7 +80,7 @@ class PSDashboardViewController: UIViewController
                     }
                     else
                     {
-                        
+                        PSUserInterfaceManager.showAlert(title: "Locations", message: error.localizedDescription)
                     }
                     
             }, errorPopup: true)

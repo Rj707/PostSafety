@@ -307,11 +307,11 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     if(statusCode==404)
                     {
-                        PSUserInterfaceManager.showAlert(title: "Senders", message: ApiErrorMessage.ErrorOccured)
+                        PSUserInterfaceManager.showAlert(title: "Fetching Senders", message: ApiErrorMessage.ErrorOccured)
                     }
                     else
                     {
-                        
+                        PSUserInterfaceManager.showAlert(title: "Fetching Senders", message: error.localizedDescription)
                     }
                     
             }, errorPopup: true)
@@ -353,11 +353,11 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     if(statusCode==404)
                     {
-                        PSUserInterfaceManager.showAlert(title: "Locations", message: ApiErrorMessage.ErrorOccured)
+                        PSUserInterfaceManager.showAlert(title: "Fetching Locations", message: ApiErrorMessage.ErrorOccured)
                     }
                     else
                     {
-                        
+                        PSUserInterfaceManager.showAlert(title: "Fetching Locations", message: error.localizedDescription)
                     }
                     
             }, errorPopup: true)

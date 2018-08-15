@@ -75,11 +75,11 @@ class PSSelectLocationViewController: UIViewController,UITableViewDelegate,UITab
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 if(statusCode==404)
                 {
-                    PSUserInterfaceManager.showAlert(title: "Locations", message: ApiErrorMessage.ErrorOccured)
+                    PSUserInterfaceManager.showAlert(title: "Fetching Locations", message: ApiErrorMessage.ErrorOccured)
                 }
                 else
                 {
-                    
+                    PSUserInterfaceManager.showAlert(title: "Fetching Locations", message: error.localizedDescription)
                 }
                 
             }, errorPopup: true)

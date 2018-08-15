@@ -62,7 +62,7 @@ class PSCreatePasswordViewController: UIViewController
                 }
                 else
                 {
-                    
+                    PSUserInterfaceManager.showAlert(title: "Create Password", message: error.localizedDescription)
                 }
                 
             }, errorPopup: true)

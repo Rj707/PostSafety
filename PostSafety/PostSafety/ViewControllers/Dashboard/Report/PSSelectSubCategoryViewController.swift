@@ -126,7 +126,7 @@ class PSSelectSubCategoryViewController: UIViewController,UITableViewDelegate,UI
                 }
                 else
                 {
-                    
+                    PSUserInterfaceManager.showAlert(title: "Fetching SubCategories", message: error.localizedDescription)
                 }
                 
                 

@@ -92,11 +92,11 @@ class PSSettingsViewController: UIViewController
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 if(statusCode==404)
                 {
-                    PSUserInterfaceManager.showAlert(title: "Updating Password", message: ApiErrorMessage.ErrorOccured)
+                    PSUserInterfaceManager.showAlert(title: "Reset Password", message: ApiErrorMessage.ErrorOccured)
                 }
                 else
                 {
-                    
+                    PSUserInterfaceManager.showAlert(title: "Reset Password", message: error.localizedDescription)
                 }
                 
             }, errorPopup: true)

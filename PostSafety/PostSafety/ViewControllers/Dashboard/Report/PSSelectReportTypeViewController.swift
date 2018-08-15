@@ -63,11 +63,11 @@ class PSSelectReportTypeViewController: UIViewController
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 if(statusCode==404)
                 {
-                    PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiErrorMessage.ErrorOccured)
+                    PSUserInterfaceManager.showAlert(title: "Fetching Incident Types", message: ApiErrorMessage.ErrorOccured)
                 }
                 else
                 {
-
+                    PSUserInterfaceManager.showAlert(title: "Fetching Incident Types", message: error.localizedDescription)
                 }
 
             }, errorPopup: true)

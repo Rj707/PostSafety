@@ -363,11 +363,11 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 if(statusCode==404)
                 {
-                    PSUserInterfaceManager.showAlert(title: "Login", message: ApiErrorMessage.ErrorOccured)
+                    PSUserInterfaceManager.showAlert(title: "Creating Report", message: ApiErrorMessage.ErrorOccured)
                 }
                 else
                 {
-                    
+                    PSUserInterfaceManager.showAlert(title: "Creating Report", message: error.localizedDescription)
                 }
                     
             }, errorPopup: true)

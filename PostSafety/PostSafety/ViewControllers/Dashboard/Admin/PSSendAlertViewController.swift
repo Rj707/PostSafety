@@ -116,7 +116,7 @@ class PSSendAlertViewController: UIViewController,PSSelectDialogViewControllerDe
                 }
                 else
                 {
-                    
+                    PSUserInterfaceManager.showAlert(title: "Sending Reports", message: error.localizedDescription)
                 }
                     
             }, errorPopup: true)

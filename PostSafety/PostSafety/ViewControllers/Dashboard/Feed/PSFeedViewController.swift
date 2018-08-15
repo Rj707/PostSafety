@@ -200,7 +200,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
                     }
                     else
                     {
-                        
+                        PSUserInterfaceManager.showAlert(title: "Fetching Notifications", message: error.localizedDescription)
                     }
                     
             }, errorPopup: true)
@@ -257,11 +257,11 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     if(statusCode==404)
                     {
-                        PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiErrorMessage.ErrorOccured)
+                        PSUserInterfaceManager.showAlert(title: String(format: "%@%@", "Fetching ", self.feedTitle), message: ApiErrorMessage.ErrorOccured)
                     }
                     else
                     {
-                        
+                        PSUserInterfaceManager.showAlert(title: String(format: "%@%@", "Fetching ", self.feedTitle), message: error.localizedDescription)
                     }
                     
             }, errorPopup: true)
@@ -304,11 +304,11 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     if(statusCode==404)
                     {
-                        PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiErrorMessage.ErrorOccured)
+                        PSUserInterfaceManager.showAlert(title: String(format: "%@%@", "Fetching ", typeOfFetch), message: ApiErrorMessage.ErrorOccured)
                     }
                     else
                     {
-                        
+                        PSUserInterfaceManager.showAlert(title: String(format: "%@%@", "Fetching ", typeOfFetch), message: error.localizedDescription)
                     }
                     
             }, errorPopup: true)
@@ -355,11 +355,11 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     if(statusCode==404)
                     {
-                        PSUserInterfaceManager.showAlert(title: "Fetching Posts", message: ApiErrorMessage.ErrorOccured)
+                        PSUserInterfaceManager.showAlert(title: String(format: "%@%@", "Fetching ", typeOfFetch), message: ApiErrorMessage.ErrorOccured)
                     }
                     else
                     {
-                        PSUserInterfaceManager.showAlert(title: "Fetching Posts", message: error.localizedDescription)
+                        PSUserInterfaceManager.showAlert(title: String(format: "%@%@", "Fetching ", typeOfFetch), message: error.localizedDescription)
                     }
                     
             }, errorPopup: true)
@@ -693,11 +693,11 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 if(statusCode==404)
                 {
-                    PSUserInterfaceManager.showAlert(title: "Fetching", message: ApiErrorMessage.ErrorOccured)
+                    PSUserInterfaceManager.showAlert(title:  String(format: "%@%@", "Fetching ", self.feedTitle), message: ApiErrorMessage.ErrorOccured)
                 }
                 else
                 {
-                    
+                    PSUserInterfaceManager.showAlert(title:  String(format: "%@%@", "Fetching ", self.feedTitle), message: error.localizedDescription)
                 }
                 
             }, errorPopup: true)

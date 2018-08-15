@@ -116,11 +116,11 @@ class PSSummaryFeedViewController: UIViewController,UITableViewDataSource,UITabl
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     if(statusCode==404)
                     {
-                        PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiErrorMessage.ErrorOccured)
+                        PSUserInterfaceManager.showAlert(title: "Fetching Statistics Detail", message: ApiErrorMessage.ErrorOccured)
                     }
                     else
                     {
-                        
+                        PSUserInterfaceManager.showAlert(title: "Fetching Statistics Detail", message: error.localizedDescription)
                     }
                     
             }, errorPopup: true)

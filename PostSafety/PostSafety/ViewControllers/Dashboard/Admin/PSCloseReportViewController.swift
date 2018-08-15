@@ -82,7 +82,7 @@ class PSCloseReportViewController: UIViewController
                     }
                     else
                     {
-                        
+                        PSUserInterfaceManager.showAlert(title: "Closing Report", message: error.localizedDescription)
                     }
                     
             }, errorPopup: true)

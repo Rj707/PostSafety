@@ -93,11 +93,11 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     if(statusCode==404)
                     {
-                        PSUserInterfaceManager.showAlert(title: "Senders", message: ApiErrorMessage.ErrorOccured)
+                        PSUserInterfaceManager.showAlert(title: "Fetching Senders", message: ApiErrorMessage.ErrorOccured)
                     }
                     else
                     {
-                        
+                        PSUserInterfaceManager.showAlert(title: "Fetching Senders", message: error.localizedDescription)
                     }
                     
             }, errorPopup: true)
