@@ -35,7 +35,8 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
     var reportTypeArray = ["All","Hazard", "Near Miss", "Incident","Emergency"]
     var reportStatusArray = ["Open Posts", "Closed Posts", "All Posts"]
     var reportSenderDetailArray = [Any]()
-
+    var date1 = Date()
+    var date2 = Date()
     var companyId = 0
     var cheklistArray = [Any]()
     
@@ -119,6 +120,14 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
         {
             PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Select Post End Date")
         }
+        else if date1 == date2
+        {
+            PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Start Date should be smaller than End Date")
+        }
+        else if date1 > date2
+        {
+            PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Start Date should be smaller than End Date")
+        }
         else
         {
             print(self.reportTypeDDTextField.selectedItem ?? "")
@@ -163,6 +172,7 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
         let picker = UIDatePicker()
         picker.datePickerMode = .date
         alertController.view.addSubview(picker)
+        
         let alertActionCancel = UIAlertAction(title: "Cancel", style: .cancel)
         { (action) in
             
@@ -175,8 +185,10 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
             dateFormatterGet.timeZone = TimeZone.current
             
             self.reportStartDateDDTextField.text = dateFormatterGet.string(from: picker.date)
+            self.date1 = dateFormatterGet.date(from: self.reportStartDateDDTextField.text!)!
             alertController.dismiss(animated: true, completion: nil)
         }
+        
         alertController.addAction(alertActionCancel)
         alertController.addAction(alertActionOK)
         
@@ -205,6 +217,7 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
             dateFormatterGet.timeZone = TimeZone.current
     
             self.reportEndDateDDTextField.text = dateFormatterGet.string(from: picker.date)
+            self.date2 = dateFormatterGet.date(from: self.reportEndDateDDTextField.text!)!
             alertController.dismiss(animated: true, completion: nil)
         }
         alertController.addAction(alertActionCancel)
@@ -222,7 +235,7 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
     {
         if CEReachabilityManager.isReachable()
         {
-            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Senders")
+//            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Senders")
             companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
             PSAPIManager.sharedInstance.listAllEmployeesFor(companyId: String(companyId), success:
                 { (dic) in
@@ -269,7 +282,7 @@ class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDel
     {
         if CEReachabilityManager.isReachable()
         {
-            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Locations")
+//            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Locations")
             companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
             PSAPIManager.sharedInstance.getLocationsFor(companyId: String(companyId) ,success:
             { (dic) in
