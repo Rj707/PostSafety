@@ -26,6 +26,9 @@ class PSFeedDetailViewController: UIViewController
 
         self.addMenuAction()
         
+        self.feedDetailTextView.layer.borderWidth=1
+        self.feedDetailTextView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        
         self.feedDetailTitleLabel.text = self.feedDict["title"] as? String
         self.feedDetailTextView.text = self.feedDict["details"] is NSNull ? "No Data" : self.feedDict["details"] as! String
         

@@ -985,7 +985,7 @@
                                 <state key="normal" image="menu"/>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KT6-qq-NiT">
-                                <rect key="frame" x="24" y="142" width="327" height="377"/>
+                                <rect key="frame" x="24" y="158" width="327" height="361"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1014,14 +1014,22 @@
                                     <action selector="backButtonTouched:" destination="o0c-DC-IER" eventType="touchUpInside" id="mCi-di-gNI"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rdr-tL-JFM">
+                                <rect key="frame" x="24" y="129" width="54" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lvS-19-pMc" firstAttribute="centerX" secondItem="A0g-id-Kqx" secondAttribute="centerX" id="5NB-B1-Ye4"/>
                             <constraint firstItem="xel-ee-F9U" firstAttribute="top" secondItem="KT6-qq-NiT" secondAttribute="bottom" constant="16" id="E5v-ot-6cc"/>
                             <constraint firstItem="vYW-9A-Rq8" firstAttribute="bottom" secondItem="XY3-Pg-ce3" secondAttribute="bottom" constant="48" id="ILi-vs-ZSu"/>
+                            <constraint firstItem="KT6-qq-NiT" firstAttribute="top" secondItem="Rdr-tL-JFM" secondAttribute="bottom" constant="8" id="NZe-Ap-ClL"/>
+                            <constraint firstItem="KT6-qq-NiT" firstAttribute="leading" secondItem="Rdr-tL-JFM" secondAttribute="leading" id="QFK-ue-Jtv"/>
                             <constraint firstItem="KT6-qq-NiT" firstAttribute="leading" secondItem="vYW-9A-Rq8" secondAttribute="leading" constant="24" id="TdR-ug-QiH"/>
-                            <constraint firstItem="KT6-qq-NiT" firstAttribute="top" secondItem="lvS-19-pMc" secondAttribute="bottom" constant="24" id="VGx-qE-6LM"/>
+                            <constraint firstItem="KT6-qq-NiT" firstAttribute="top" secondItem="lvS-19-pMc" secondAttribute="bottom" constant="40" id="VGx-qE-6LM"/>
                             <constraint firstItem="fFe-BE-qHO" firstAttribute="leading" secondItem="YIk-Ii-RNX" secondAttribute="leading" id="eVb-zV-KyU"/>
                             <constraint firstItem="fFe-BE-qHO" firstAttribute="bottom" secondItem="YIk-Ii-RNX" secondAttribute="bottom" id="hpj-Gd-t5P"/>
                             <constraint firstItem="xel-ee-F9U" firstAttribute="leading" secondItem="KT6-qq-NiT" secondAttribute="leading" id="kSw-6Z-pdO"/>
