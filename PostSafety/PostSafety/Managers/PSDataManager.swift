@@ -6,6 +6,7 @@ class PSDataManager: NSObject
     var realm: Realm!
     var report: PSReport?
     var reportId = 0
+    var isRememberMe = 0
     var loggedInUser: PSUser?
     {
 //        set(user)
@@ -23,9 +24,15 @@ class PSDataManager: NSObject
             
             try!  self.realm.write()
             {
-//                self.realm.add(self.loggedInUser!)
-                self.realm.add(self.loggedInUser!, update: true)
-                print(loggedInUser?.password ?? "")
+                if self.isRememberMe == 0
+                {
+                    
+                }
+                else
+                {
+                    self.realm.add(self.loggedInUser!, update: true)
+                    print(loggedInUser?.emailId ?? "")
+                }
             }
             
         }
@@ -40,14 +47,16 @@ class PSDataManager: NSObject
         
         self.report = PSReport.init()
         self.reportId = 0
+        self.isRememberMe = 0
         if(!(realm != nil))
         {
             realm = try! Realm()
         }
+        
         loggedInUser = realm.objects(PSUser.self).first
+        
         if(loggedInUser == nil)
         {
-            
         }
         else
         {
@@ -62,7 +71,9 @@ class PSDataManager: NSObject
         {
             realm = try! Realm()
         }
+        
         let results = realm.objects(PSUser.self)
+        
         if(results.count>0)
         {
             return true

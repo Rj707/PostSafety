@@ -41,6 +41,8 @@ class PSLogInViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - IBAction
+    
     @IBAction func loginButtonTouched()
     {
         if (self.phoneNumberTextField?.text?.isEmpty)!
@@ -60,16 +62,20 @@ class PSLogInViewController: UIViewController
                 
                 var user : PSUser?
                 user = PSUser.init()
+                
                 user = user?.initWithDictionary(dict: dic as NSDictionary)
                 
                 if (self.rememberMeSwitch?.isOn)!
                 {
-                    print("ON")
+                    PSDataManager.sharedInstance.isRememberMe = 1
+                    print("isRememberMe ON")
                     PSDataManager.sharedInstance.loggedInUser = user
                 }
                 else
                 {
-                    print("Off")
+                    PSDataManager.sharedInstance.isRememberMe = 0
+                    print("isRememberMe Off")
+                    PSDataManager.sharedInstance.loggedInUser = user
                 }
                 
                 if user?.employeeType == "Reviewers"
@@ -125,12 +131,6 @@ class PSLogInViewController: UIViewController
         {
             
         }
-        
-//        self.definesPresentationContext = true; //self is presenting view controller
-//        presentedController.view.backgroundColor = [YOUR_COLOR with alpha OR clearColor]
-//        presentedController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-//
-//        [self presentViewController:presentedController animated:YES completion:nil];
     }
     
     @IBAction func userTypeSegmentValueChanged(sender: UISegmentedControl)
