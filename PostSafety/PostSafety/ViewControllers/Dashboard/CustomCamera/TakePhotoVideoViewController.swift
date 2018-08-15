@@ -80,6 +80,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didBeginRecordingVideo camera: SwiftyCamViewController.CameraSelection)
     {
+        self.counter = 0.0
         timeLabel.text = "00:00:00"
         timeLabel.isHidden = false
         self.startTimer()
@@ -185,39 +186,41 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
             self.progressView.isHidden = false
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Uploading Video")
             PSAPIManager.sharedInstance.uploadImageFor(ReportId: String(self.reportID), Type: "Video", data:videoData , success:
-                { (dic) in
-                    self.progressView.isHidden = true
-                    PSUserInterfaceManager.sharedInstance.hideLoader()
-                    if PSDataManager.sharedInstance.report?.reportType != "Emergency"
-                    {
-                        let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-                        let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController
-                        vc.checklistId = self.checkList.checkList
-                        vc.cheklistDetailsArray = self.checkList.checklistDetails["checklistDetails"] as! [Any]
-                        self.navigationController?.pushViewController(vc,
-                                                                      animated: true)
-                    }
-                    else
-                    {
-                        self.updateEmergencyReport()
-//                        let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-//                        let vc = storyboard.instantiateViewController(withIdentifier: "PSEmergencyReportConfirmationViewController") as! PSEmergencyReportConfirmationViewController
-//                        self.navigationController?.pushViewController(vc,
-//                                                                      animated: true)
-                    }
+            { (dic) in
+                self.progressView.isHidden = true
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                if PSDataManager.sharedInstance.report?.reportType != "Emergency"
+                {
+                    let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController
+                    vc.checklistId = self.checkList.checkList
+                    vc.cheklistDetailsArray = self.checkList.checklistDetails["checklistDetails"] as! [Any]
+                    self.progressView.setProgress(Float(0), animated: true)
+//                    self.timeLabel.text = "00:00:00"
+                    self.timer.invalidate()
+                    self.navigationController?.pushViewController(vc,
+                                                                  animated: true)
+                }
+                else
+                {
+                    self.progressView.setProgress(Float(0), animated: true)
+//                    self.timeLabel.text = "00:00:00"
+                    self.timer.invalidate()
+                    self.updateEmergencyReport()
+                }
                     
             }, failure:
                 
-                { (error:NSError,statusCode:Int) in
-                    
-                    PSUserInterfaceManager.sharedInstance.hideLoader()
-                    self.progressView.isHidden = true
+            { (error:NSError,statusCode:Int) in
+                
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                self.progressView.isHidden = true
             },
                progress:
-                {
-                    (prog:Double) in
-                    
-                    self.progressView.setProgress(Float(prog), animated: true)
+            {
+                (prog:Double) in
+                
+                self.progressView.setProgress(Float(prog), animated: true)
                     
             }, errorPopup: true)
         }
@@ -237,44 +240,45 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
             
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Uploading Image")
             PSAPIManager.sharedInstance.uploadImageFor(ReportId: String(self.reportID), Type: "Image", data:(image?.jpeg(UIImage.JPEGQuality.low))! , success:
-                { (dic) in
-                    
-                    self.progressView.isHidden = true
-                    PSUserInterfaceManager.sharedInstance.hideLoader()
-                    print(Global.REPORT?.reportType ?? "No Type Found")
-                    print(PSDataManager.sharedInstance.report?.reportType ?? "No Type Found")
-                    if PSDataManager.sharedInstance.report?.reportType != "Emergency"
-                    {
-                        let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-                        let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController
-                        vc.checklistId = self.checkList.checkList
-                        vc.cheklistDetailsArray = self.checkList.checklistDetails["checklistDetails"] as! [Any]
-                        self.progressView.setProgress(Float(0), animated: true)
-                        self.navigationController?.pushViewController(vc,
-                                                                      animated: true)
-                    }
-                    else
-                    {
-                        self.updateEmergencyReport()
-//                        let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-//                        let vc = storyboard.instantiateViewController(withIdentifier: "PSEmergencyReportConfirmationViewController") as! PSEmergencyReportConfirmationViewController
-//                        self.navigationController?.pushViewController(vc,
-//                                                                      animated: true)
-                    }
+            { (dic) in
+                
+                self.progressView.isHidden = true
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                print(Global.REPORT?.reportType ?? "No Type Found")
+                print(PSDataManager.sharedInstance.report?.reportType ?? "No Type Found")
+                if PSDataManager.sharedInstance.report?.reportType != "Emergency"
+                {
+                    let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController
+                    vc.checklistId = self.checkList.checkList
+                    vc.cheklistDetailsArray = self.checkList.checklistDetails["checklistDetails"] as! [Any]
+                    self.progressView.setProgress(Float(0), animated: true)
+//                    self.timeLabel.text = "00:00:00"
+                    self.timer.invalidate()
+                    self.navigationController?.pushViewController(vc,
+                                                                  animated: true)
+                }
+                else
+                {
+                    self.progressView.setProgress(Float(0), animated: true)
+//                    self.timeLabel.text = "00:00:00"
+                    self.timer.invalidate()
+                    self.updateEmergencyReport()
+                }
                     
             }, failure:
                 
-                { (error:NSError,statusCode:Int) in
-                    self.progressView.isHidden = true
-                    PSUserInterfaceManager.sharedInstance.hideLoader()
+            { (error:NSError,statusCode:Int) in
+                self.progressView.isHidden = true
+                PSUserInterfaceManager.sharedInstance.hideLoader()
                     
             }, progress:
-                {
-                    (prog:Double) in
-                    
-                    self.progressView.setProgress(Float(prog), animated: true)
-                    
-                }, errorPopup: true)
+            {
+                (prog:Double) in
+                
+                self.progressView.setProgress(Float(prog), animated: true)
+                
+            }, errorPopup: true)
         }
         else
         {
