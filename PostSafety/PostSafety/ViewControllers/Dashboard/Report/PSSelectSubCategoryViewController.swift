@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PSSelectSubCategoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
+class PSSelectSubCategoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate
 {
 
     @IBOutlet weak var backgroundView: UIView!
@@ -83,7 +83,7 @@ class PSSelectSubCategoryViewController: UIViewController,UITableViewDelegate,UI
         cell = tableView.cellForRow(at: indexPath) as! PSCategoryTableViewCell
         PSDataManager.sharedInstance.report?.reportSubcategory = cell.data["name"] as? String
         
-        self.performSegue(withIdentifier: "toReportSummaryFromSubcategory", sender: (Any).self)
+        self.performSegue(withIdentifier: "toReportLocationFromSubcategory", sender: (Any).self)
     }
     
     // MARK: - APIs
@@ -110,6 +110,8 @@ class PSSelectSubCategoryViewController: UIViewController,UITableViewDelegate,UI
                 }
                 
                 print(self.subCategoriesArray)
+                self.subCategoryTableView.emptyDataSetSource = self as DZNEmptyDataSetSource
+                self.subCategoryTableView.emptyDataSetDelegate = self as DZNEmptyDataSetDelegate
                 self.subCategoryTableView.reloadData()
             },
                                                                                     failure:
@@ -128,6 +130,22 @@ class PSSelectSubCategoryViewController: UIViewController,UITableViewDelegate,UI
                 
             }, errorPopup: true)
         }
+    }
+    
+    //MARK: - DZNEmptyDataSetSource
+    
+    func image(forEmptyDataSet scrollView: UIScrollView?) -> UIImage?
+    {
+        return UIImage(named: "no_data")
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView?) -> NSAttributedString?
+    {
+        let myString = "No Data found!"
+        //        let attributes = [NSFontAttributeName : UIFont.systemFont(ofSize: 19.0),NSForegroundColorAttributeName : UIColor(red: 255, green: 75, blue: 1, alpha: 1.0) ]
+        let attributes = [NSFontAttributeName : UIFont.systemFont(ofSize: 19.0),NSForegroundColorAttributeName : UIColor.red ]
+        let myAttrString = NSAttributedString(string: myString, attributes: attributes)
+        return myAttrString
     }
     
     /*

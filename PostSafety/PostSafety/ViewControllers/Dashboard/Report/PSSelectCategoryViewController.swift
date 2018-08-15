@@ -58,9 +58,9 @@ class PSSelectCategoryViewController: UIViewController,UITableViewDelegate,UITab
         {
         case "Hazard":
             nextViewController = storyboard.instantiateViewController(withIdentifier: "PSSelectLocationViewController") as! PSSelectLocationViewController
-        case "NearMiss":
-            nextViewController = storyboard.instantiateViewController(withIdentifier: "PSPotentiallySeriousIncidentViewController") as! PSPotentiallySeriousIncidentViewController
         case "Incident":
+            nextViewController = storyboard.instantiateViewController(withIdentifier: "PSSelectLocationViewController") as! PSSelectLocationViewController
+        case "NearMiss":
             nextViewController = storyboard.instantiateViewController(withIdentifier: "PSSelectSubCategoryViewController") as! PSSelectSubCategoryViewController
         default:
             print("")
@@ -147,7 +147,7 @@ class PSSelectCategoryViewController: UIViewController,UITableViewDelegate,UITab
         cell = tableView.cellForRow(at: indexPath) as! PSCategoryTableViewCell
         PSDataManager.sharedInstance.report?.reportCategory = cell.data["name"] as? String
         
-        if PSDataManager.sharedInstance.report?.reportType == "Incident"
+        if PSDataManager.sharedInstance.report?.reportType == "NearMiss"
         {
             let vc =   nextViewController as! PSSelectSubCategoryViewController
             vc.CatagoryID = (cell.data["checklistDetailsId"] as? Int)!
