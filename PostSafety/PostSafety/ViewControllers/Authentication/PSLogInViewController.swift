@@ -149,44 +149,44 @@ class PSLogInViewController: UIViewController
     {
         if CEReachabilityManager.isReachable()
         {
-//            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Locations")
             let companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
             PSAPIManager.sharedInstance.getLocationsFor(companyId: String(companyId) ,success:
-                { (dic) in
-                    
-                    PSUserInterfaceManager.sharedInstance.hideLoader()
-                    let tempArray = dic["array"] as! [Any]
-                    
-                    for checklistDict in tempArray
+            { (dic) in
+                
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                let tempArray = dic["array"] as! [Any]
+                
+                for checklistDict in tempArray
+                {
+                    if let tempDict = checklistDict as? [String: Any]
                     {
-                        if let tempDict = checklistDict as? [String: Any]
-                        {
-                            self.locationsArray.append(tempDict)
-                        }
+                        self.locationsArray.append(tempDict)
                     }
-                    PSDataManager.sharedInstance.companyLocationsArray = self.locationsArray
-                    if PSDataManager.sharedInstance.loggedInUser?.passwordChanged == 0
-                    {
-                        self.performSegue(withIdentifier: "NavigateToCreatePassword", sender: Any?.self)
-                    }
-                    else
-                    {
-                        self.performSegue(withIdentifier: "NavigateToDashboard", sender: Any?.self)
-                    }
+                }
+                PSDataManager.sharedInstance.companyLocationsArray = self.locationsArray
+                
+                if PSDataManager.sharedInstance.loggedInUser?.passwordChanged == 0
+                {
+                    self.performSegue(withIdentifier: "NavigateToCreatePassword", sender: Any?.self)
+                }
+                else
+                {
+                    self.performSegue(withIdentifier: "NavigateToDashboard", sender: Any?.self)
+                }
                     
             }, failure:
                 
+            {
+                (error:NSError,statusCode:Int) in
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                if(statusCode==404)
                 {
-                    (error:NSError,statusCode:Int) in
-                    PSUserInterfaceManager.sharedInstance.hideLoader()
-                    if(statusCode==404)
-                    {
-                        PSUserInterfaceManager.showAlert(title: "Locations", message: ApiErrorMessage.ErrorOccured)
-                    }
-                    else
-                    {
-                        
-                    }
+                    PSUserInterfaceManager.showAlert(title: "Locations", message: ApiErrorMessage.ErrorOccured)
+                }
+                else
+                {
+                    
+                }
                     
             }, errorPopup: true)
         }

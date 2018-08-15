@@ -15,15 +15,13 @@ class PSDashboardViewController: UIViewController
     @IBOutlet weak var receiveContainer:UIView!
     @IBOutlet weak var reportContainer:UIView!
     
+    var locationsArray = [Any]()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-//        self.receiveContainer.layer.borderWidth=1
-//        self.receiveContainer.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
-//        self.reportContainer.layer.borderWidth=1
-//        self.reportContainer.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         
-        
+        self.getLocationsforReport()
         
         self.addMenuAction()
     }
@@ -50,6 +48,44 @@ class PSDashboardViewController: UIViewController
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func getLocationsforReport() -> Void
+    {
+        if CEReachabilityManager.isReachable()
+        {
+            let companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
+            PSAPIManager.sharedInstance.getLocationsFor(companyId: String(companyId) ,success:
+            { (dic) in
+                
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                let tempArray = dic["array"] as! [Any]
+                
+                for checklistDict in tempArray
+                {
+                    if let tempDict = checklistDict as? [String: Any]
+                    {
+                        self.locationsArray.append(tempDict)
+                    }
+                }
+                PSDataManager.sharedInstance.companyLocationsArray = self.locationsArray
+                    
+            }, failure:
+                
+                {
+                    (error:NSError,statusCode:Int) in
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    if(statusCode==404)
+                    {
+                        PSUserInterfaceManager.showAlert(title: "Locations", message: ApiErrorMessage.ErrorOccured)
+                    }
+                    else
+                    {
+                        
+                    }
+                    
+            }, errorPopup: true)
+        }
+    }
     
     func addMenuAction()
     {
