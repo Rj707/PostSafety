@@ -30,7 +30,7 @@ class PSSelectSubCategoryViewController: UIViewController,UITableViewDelegate,UI
         super.viewDidLoad()
 
         
-         if PSDataManager.sharedInstance.report?.reportType == "Incident"
+         if PSDataManager.sharedInstance.report?.reportType == "NearMiss"
         {
             pageControl.numberOfPages = 3
             pageControl.currentPage = 1
@@ -72,8 +72,7 @@ class PSSelectSubCategoryViewController: UIViewController,UITableViewDelegate,UI
         let dic = self.subCategoriesArray[indexPath.row] as! NSDictionary
         cell.categoryTitleLabel.text = dic["name"] as? String
         cell.data = self.subCategoriesArray[indexPath.row] as! NSDictionary
-        //        cell.contentView.layer.borderWidth=1
-        //        cell.contentView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        
         return cell
     }
     
@@ -81,9 +80,12 @@ class PSSelectSubCategoryViewController: UIViewController,UITableViewDelegate,UI
     {
         var cell:PSCategoryTableViewCell
         cell = tableView.cellForRow(at: indexPath) as! PSCategoryTableViewCell
+        
         PSDataManager.sharedInstance.report?.reportSubcategory = cell.data["name"] as? String
         
-        self.performSegue(withIdentifier: "toReportLocationFromSubcategory", sender: (Any).self)
+        let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSPotentiallySeriousIncidentViewController") as! PSPotentiallySeriousIncidentViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: - APIs

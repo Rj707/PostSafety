@@ -97,17 +97,25 @@ class PSSelectReportTypeViewController: UIViewController
             {
                 
                 case 1  :
+                print(item.typeName ?? "")
                 self.label4.text = item.typeName
                 self.label4.tag = item.incidentType
+                break
                 case 2  :
+                print(item.typeName ?? "")
                 self.label1.text = item.typeName
                 self.label1.tag = item.incidentType
+                break
                 case 3  :
-                self.label2.text = item.typeName
-                self.label2.tag = item.incidentType
-                default :
+                print(item.typeName ?? "")
                 self.label3.text = item.typeName
                 self.label3.tag = item.incidentType
+                break
+                default :
+                print(item.typeName ?? "")
+                self.label2.text = item.typeName
+                self.label2.tag = item.incidentType
+                break
             }
         }
     }

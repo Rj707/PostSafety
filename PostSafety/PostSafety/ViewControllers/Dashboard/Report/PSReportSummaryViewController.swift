@@ -15,6 +15,8 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
     @IBOutlet weak var locationNameLabel: UILabel!
     @IBOutlet weak var reportTypleLabel: UILabel!
     @IBOutlet weak var subCategoryNameLabel: UILabel!
+    @IBOutlet weak var isPSILabel: UILabel!
+    
     @IBOutlet weak var decriptionTextView: IQTextView!
     @IBOutlet weak var decriptionTextViewContainer: UIView!
     @IBOutlet weak var backgroundView: UIView!
@@ -41,14 +43,16 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
         
         if PSDataManager.sharedInstance.report?.reportType == "Incident"
         {
-            subCategoryNameLabel.isHidden =  false
-            subCategoryNameLabel.text = String(format: "Subcategory: %@", (PSDataManager.sharedInstance.report?.reportSubcategory)!)
+            subCategoryNameLabel.isHidden =  true
+            isPSILabel.isHidden =  true
         }
         else if PSDataManager.sharedInstance.report?.reportType == "NearMiss"
         {
             reportTypleLabel.text = "Post Type: Near Miss"
             subCategoryNameLabel.isHidden =  false
-            subCategoryNameLabel.text = String(format: "PSI?: %@", (PSDataManager.sharedInstance.report?.isReportPSI)!)
+            isPSILabel.isHidden =  false
+            isPSILabel.text = String(format: "PSI?: %@", (PSDataManager.sharedInstance.report?.isReportPSI)!)
+            subCategoryNameLabel.text = String(format: "Subcategory: %@", (PSDataManager.sharedInstance.report?.reportSubcategory)!)
             if PSDataManager.sharedInstance.report?.isReportPSI == "Yes"
             {
                 IsPSI = NSNumber.init(booleanLiteral: true)
@@ -61,7 +65,14 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
         else
         {
             subCategoryNameLabel.isHidden =  true
+            isPSILabel.isHidden =  true
         }
+        
+        reportTypleLabel.text = reportTypleLabel.text?.components(separatedBy: .newlines).joined()
+        locationNameLabel.text = locationNameLabel.text?.components(separatedBy: .newlines).joined()
+        categoryNameLabel.text = categoryNameLabel.text?.components(separatedBy: .newlines).joined()
+        isPSILabel.text = isPSILabel.text?.components(separatedBy: .newlines).joined()
+        subCategoryNameLabel.text = subCategoryNameLabel.text?.components(separatedBy: .newlines).joined()
         
         
         

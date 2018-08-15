@@ -23,12 +23,12 @@ class PSSelectCategoryViewController: UIViewController,UITableViewDelegate,UITab
     {
         super.viewDidLoad()
         
-        if PSDataManager.sharedInstance.report?.reportType == "Hazard" || PSDataManager.sharedInstance.report?.reportType == "NearMiss"
+        if PSDataManager.sharedInstance.report?.reportType == "Hazard" || PSDataManager.sharedInstance.report?.reportType == "Incident"
         {
             pageControl.numberOfPages = 2
             pageControl.currentPage = 0
         }
-        else if PSDataManager.sharedInstance.report?.reportType == "Incident"
+        else if PSDataManager.sharedInstance.report?.reportType == "NearMiss"
         {
             pageControl.numberOfPages = 3
             pageControl.currentPage = 0
@@ -135,8 +135,6 @@ class PSSelectCategoryViewController: UIViewController,UITableViewDelegate,UITab
         let dic = self.cheklistDetailsArray[indexPath.row] as! NSDictionary
         cell.categoryTitleLabel.text = dic["name"] as? String
         cell.data = self.cheklistDetailsArray[indexPath.row] as! NSDictionary
-//        cell.contentView.layer.borderWidth=1
-//        cell.contentView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         return cell
     }
     

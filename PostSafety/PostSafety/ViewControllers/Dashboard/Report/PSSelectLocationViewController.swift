@@ -27,12 +27,12 @@ class PSSelectLocationViewController: UIViewController,UITableViewDelegate,UITab
         self.backgroundView.layer.borderWidth=1
         self.backgroundView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         
-        if PSDataManager.sharedInstance.report?.reportType == "Hazard" || PSDataManager.sharedInstance.report?.reportType == "NearMiss"
+        if PSDataManager.sharedInstance.report?.reportType == "Hazard" || PSDataManager.sharedInstance.report?.reportType == "Incident"
         {
             pageControl.numberOfPages = 2
             pageControl.currentPage = 1
         }
-        else if PSDataManager.sharedInstance.report?.reportType == "Incident"
+        else if PSDataManager.sharedInstance.report?.reportType == "NearMiss"
         {
             pageControl.numberOfPages = 3
             pageControl.currentPage = 2
@@ -58,6 +58,8 @@ class PSSelectLocationViewController: UIViewController,UITableViewDelegate,UITab
                         self.locationsArray.append(tempDict)
                     }
                 }
+                
+                PSDataManager.sharedInstance.companyLocationsArray = self.locationsArray
                 self.locationTableView.dataSource = self
                 self.locationTableView.delegate = self
 //                self.configureLocations()
