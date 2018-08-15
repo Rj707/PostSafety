@@ -29,7 +29,7 @@ class PSReceiveHomeViewController: UIViewController
         
         self.addMenuAction()
         
-        if PSDataManager.sharedInstance.loggedInUser?.employeeType == "Reviewers"
+        if PSDataManager.sharedInstance.loggedInUser?.employeeType == "Admin"
         {
             self.summaryStatisticsStackView.isHidden = false
         }
