@@ -97,11 +97,11 @@ class PSLogInViewController: UIViewController
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 if(statusCode==404)
                 {
-                    PSUserInterfaceManager.showAlert(title: "Login", message: ApiErrorMessage.ErrorOccured)
+                    PSUserInterfaceManager.showAlert(title: "Login Failure", message: ApiResultFailureMessage.InvalidEmailPassword)
                 }
                 else
                 {
-                    PSUserInterfaceManager.showAlert(title: "Login", message: error.localizedDescription)
+                    PSUserInterfaceManager.showAlert(title: "Login Failure", message: error.localizedDescription)
                 }
                     
             }, errorPopup: true)

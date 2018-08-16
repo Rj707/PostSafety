@@ -73,15 +73,15 @@ class PSDashboardViewController: UIViewController
                 
                 {
                     (error:NSError,statusCode:Int) in
-                    PSUserInterfaceManager.sharedInstance.hideLoader()
-                    if(statusCode==404)
-                    {
-                        PSUserInterfaceManager.showAlert(title: "Locations", message: ApiErrorMessage.ErrorOccured)
-                    }
-                    else
-                    {
-                        PSUserInterfaceManager.showAlert(title: "Locations", message: error.localizedDescription)
-                    }
+//                    PSUserInterfaceManager.sharedInstance.hideLoader()
+//                    if(statusCode==404)
+//                    {
+//                        PSUserInterfaceManager.showAlert(title: "Locations", message: ApiErrorMessage.ErrorOccured)
+//                    }
+//                    else
+//                    {
+//                        PSUserInterfaceManager.showAlert(title: "Locations", message: error.localizedDescription)
+//                    }
                     
             }, errorPopup: true)
         }
