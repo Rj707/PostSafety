@@ -47,8 +47,8 @@ class PSSendAlertViewController: UIViewController,PSSelectDialogViewControllerDe
     @IBAction func toTextFieldTouched(_ sender: UITapGestureRecognizer)
     {
         self.definesPresentationContext = true;
-        let selectDialogVC : PSSelectDialogViewController
-        selectDialogVC = self.storyboard?.instantiateViewController(withIdentifier: "PSSelectDialogViewController") as! PSSelectDialogViewController
+        let selectDialogVC : PSShareReportViewController
+        selectDialogVC = self.storyboard?.instantiateViewController(withIdentifier: "PSShareReportViewController") as! PSShareReportViewController
         selectDialogVC.view.backgroundColor = UIColor.clear
         selectDialogVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         selectDialogVC.delegate = self

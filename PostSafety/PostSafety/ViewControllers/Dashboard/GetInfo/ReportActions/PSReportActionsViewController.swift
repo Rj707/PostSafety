@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PSReportActionPopupViewController: UIViewController {
+class PSReportActionsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +33,8 @@ class PSReportActionPopupViewController: UIViewController {
     @IBAction func shareReportButtonTouched(_ sender: UIButton)
     {
         self.definesPresentationContext = true;
-        let selectDialogVC : PSSelectDialogViewController
-        selectDialogVC = self.storyboard?.instantiateViewController(withIdentifier: "PSSelectDialogViewController") as! PSSelectDialogViewController
+        let selectDialogVC : PSShareReportViewController
+        selectDialogVC = self.storyboard?.instantiateViewController(withIdentifier: "PSShareReportViewController") as! PSShareReportViewController
         selectDialogVC.view.backgroundColor = UIColor.clear
         selectDialogVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         selectDialogVC.shareReport = 1

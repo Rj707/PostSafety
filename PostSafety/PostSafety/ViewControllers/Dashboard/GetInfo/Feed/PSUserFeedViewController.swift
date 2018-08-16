@@ -16,7 +16,7 @@ import UIKit
 
 
 
-class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,PSSortReportsDialogViewControllerDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate
+class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,PSSortReportsDialogViewControllerDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate
 
 {
     @IBOutlet weak var unOpenedLabel: UILabel!
@@ -438,7 +438,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         {
             PSDataManager.sharedInstance.reportId = dic["reportId"] as! Int
             let storyboard = UIStoryboard(name: "User", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "PSReportPostViewController") as! PSReportPostViewController
+            let vc = storyboard.instantiateViewController(withIdentifier: "PSPostedReportViewController") as! PSPostedReportViewController
             vc.reportPostDict = self.feedArray[indexPath.row] as! NSDictionary
             vc.postTitle =  cell.titleLabel.text!
             if dic["fileName"] is NSNull
@@ -455,7 +455,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
         {
             PSDataManager.sharedInstance.reportId = dic["reportId"] as! Int
             let storyboard = UIStoryboard(name: "User", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "PSReportPostViewController") as! PSReportPostViewController
+            let vc = storyboard.instantiateViewController(withIdentifier: "PSPostedReportViewController") as! PSPostedReportViewController
             vc.reportPostDict = self.feedArray[indexPath.row] as! NSDictionary
             vc.postTitle =  cell.titleLabel.text!
             navigationController?.pushViewController(vc,
@@ -466,7 +466,7 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
             // Feed Detail contains Alerts/Announcements/Safety Updates/Trainings/Policies&Procedures
             
             let storyboard = UIStoryboard(name: "User", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedDetailViewController") as! PSFeedDetailViewController
+            let vc = storyboard.instantiateViewController(withIdentifier: "PSUserFeedDetailViewController") as! PSUserFeedDetailViewController
             if dic["title"] is NSNull
             {
                 vc.feedDetailTitle = "None"
@@ -632,9 +632,9 @@ class PSFeedViewController: UIViewController,UITableViewDataSource,UITableViewDe
     @IBAction func filterReportsGestureTouched(sender: UITapGestureRecognizer)
     {
         self.definesPresentationContext = true;
-        let termsOfUseVC : PSSortReportsDialogViewController
+        let termsOfUseVC : PSFilterReportsViewController
         let storyBoard = UIStoryboard.init(name: "Admin", bundle: Bundle.main)
-        termsOfUseVC = storyBoard.instantiateViewController(withIdentifier: "PSSortReportsDialogViewController") as! PSSortReportsDialogViewController
+        termsOfUseVC = storyBoard.instantiateViewController(withIdentifier: "PSFilterReportsViewController") as! PSFilterReportsViewController
         termsOfUseVC.view.backgroundColor = UIColor.clear
         termsOfUseVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         termsOfUseVC.delegate = self

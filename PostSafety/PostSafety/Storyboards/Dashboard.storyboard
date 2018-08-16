@@ -2334,7 +2334,7 @@
                                     <constraint firstAttribute="width" constant="148" id="4vE-pk-QoU"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userProfileCell" rowHeight="138" id="o7K-JK-ceh" customClass="MenuTopCell" customModule="PostSafety" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userProfileCell" rowHeight="138" id="o7K-JK-ceh" customClass="MenuTopCell" customModule="PostSafety" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="148" height="138"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o7K-JK-ceh" id="pdQ-hQ-Ocu">
@@ -2387,7 +2387,7 @@
                                             <outlet property="usernameLbl" destination="3A2-8z-ebJ" id="LhU-Ap-ex2"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="paymentCell" rowHeight="55" id="2pN-Ob-0tX" customClass="MenuBottomCell" customModule="PostSafety" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="paymentCell" rowHeight="55" id="2pN-Ob-0tX" customClass="MenuBottomCell" customModule="PostSafety" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="166" width="148" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2pN-Ob-0tX" id="3dd-fz-o3G">
@@ -2421,75 +2421,6 @@
                                         <connections>
                                             <outlet property="rowTitleLbl" destination="xsn-2g-3pE" id="Hsc-zg-Rwr"/>
                                         </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="helpCell" rowHeight="55" id="FBr-cV-3Mt" customClass="MenuBottomCell" customModule="PostSafety" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="221" width="148" height="55"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FBr-cV-3Mt" id="aRO-81-bON">
-                                            <rect key="frame" x="0.0" y="0.0" width="148" height="54.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXT-x0-Mg2">
-                                                    <rect key="frame" x="0.0" y="0.0" width="148" height="54.5"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1OL-DD-ULn">
-                                                            <rect key="frame" x="74.5" y="27" width="0.0" height="0.0"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                                            <color key="textColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstItem="1OL-DD-ULn" firstAttribute="centerX" secondItem="lXT-x0-Mg2" secondAttribute="centerX" id="8qf-uF-UUI"/>
-                                                        <constraint firstItem="1OL-DD-ULn" firstAttribute="centerY" secondItem="lXT-x0-Mg2" secondAttribute="centerY" id="OoA-yg-RHK"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="lXT-x0-Mg2" secondAttribute="bottom" id="3sH-bo-zub"/>
-                                                <constraint firstItem="lXT-x0-Mg2" firstAttribute="leading" secondItem="aRO-81-bON" secondAttribute="leading" id="OD1-bX-Qjw"/>
-                                                <constraint firstAttribute="trailing" secondItem="lXT-x0-Mg2" secondAttribute="trailing" id="T8j-sP-L61"/>
-                                                <constraint firstItem="lXT-x0-Mg2" firstAttribute="top" secondItem="aRO-81-bON" secondAttribute="top" id="y7A-iw-R6G"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="rowTitleLbl" destination="1OL-DD-ULn" id="Rhb-D3-k9t"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="logoutCell" rowHeight="55" id="5Vv-11-mrf" customClass="MenuBottomCell" customModule="PostSafety" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="276" width="148" height="55"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Vv-11-mrf" id="lni-rG-j26">
-                                            <rect key="frame" x="0.0" y="0.0" width="148" height="54.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wqz-v1-GVV">
-                                                    <rect key="frame" x="0.0" y="0.0" width="148" height="54.5"/>
-                                                    <subviews>
-                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOk-wv-njs">
-                                                            <rect key="frame" x="46.5" y="12.5" width="56" height="30"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <state key="normal" title="  Logout">
-                                                                <color key="titleColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </state>
-                                                        </button>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstItem="KOk-wv-njs" firstAttribute="centerX" secondItem="Wqz-v1-GVV" secondAttribute="centerX" id="4hP-Ke-XuF"/>
-                                                        <constraint firstAttribute="width" constant="148" id="IYf-2v-CiC"/>
-                                                        <constraint firstItem="KOk-wv-njs" firstAttribute="centerY" secondItem="Wqz-v1-GVV" secondAttribute="centerY" id="Xhy-aK-ySO"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Wqz-v1-GVV" secondAttribute="trailing" id="Aby-Tt-rhE"/>
-                                                <constraint firstItem="Wqz-v1-GVV" firstAttribute="top" secondItem="lni-rG-j26" secondAttribute="top" id="BjH-Aa-7KX"/>
-                                                <constraint firstAttribute="bottom" secondItem="Wqz-v1-GVV" secondAttribute="bottom" id="b0P-eI-A4q"/>
-                                                <constraint firstItem="Wqz-v1-GVV" firstAttribute="leading" secondItem="lni-rG-j26" secondAttribute="leading" id="koP-Yx-nZw"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

@@ -1,33 +1,41 @@
 //
-//  VerifyCodeViewController.swift
+//  ReportDetailViewController.swift
 //  PostSafety
 //
-//  Created by Hafiz Saad on 16/05/2018.
+//  Created by Pasha on 18/05/2018.
 //  Copyright © 2018 Now Tel. All rights reserved.
 //
 
 import UIKit
 
-class PSVerifyCodeViewController: UIViewController {
-
-    override func viewDidLoad() {
+class PSPostedReportDetailViewController: UIViewController
+{
+    var reportDetailsDict = NSDictionary.init()
+    @IBOutlet weak var reportDetailsLable: UILabel!
+    @IBOutlet weak var reportDetailsTextView: UITextView!
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-
+        self.reportDetailsTextView.text = self.reportDetailsDict["details"] is NSNull ? "N/A" : self.reportDetailsDict["details"] as! String
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     // MARK: - IBActions
     
-    @IBAction func backButtonTouched(_ sender: UIButton)
+    @IBAction func crossButtonTouched(_ sender: UIButton)
     {
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true)
+        {
+            
+        }
     }
-
+    
     /*
     // MARK: - Navigation
 

@@ -10,7 +10,7 @@ import UIKit
 import IQKeyboardManagerSwift
 import MessageUI
 
-class PSReportOverviewViewController: UIViewController,MFMessageComposeViewControllerDelegate
+class PSPostedReportOverviewViewController: UIViewController,MFMessageComposeViewControllerDelegate
 {
 
     var reportOverviewDict = NSDictionary.init()

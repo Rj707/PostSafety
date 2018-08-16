@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
+class PSShareReportViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 {
     public var delegate:PSSelectDialogViewControllerDelegate!
     
@@ -202,8 +202,8 @@ class PSSelectDialogViewController: UIViewController,UITableViewDelegate,UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        var cell:PSSelectDialogTableViewCell
-        cell = tableView.dequeueReusableCell(withIdentifier: "SelectDialogCell", for: indexPath) as! PSSelectDialogTableViewCell
+        var cell:PSShareReportTableViewCell
+        cell = tableView.dequeueReusableCell(withIdentifier: "PSShareReportTableViewCell", for: indexPath) as! PSShareReportTableViewCell
         cell.selectionNameLabel?.text = reportSenderArray[indexPath.row]
         cell.selectionNameLabel?.text = self.getReporterNameFromEmployeeID(employeeID: reportSenderArray[indexPath.row])
         if reportSenderArray[indexPath.row] == selectedPeopleArray[indexPath.row]

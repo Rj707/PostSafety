@@ -1,5 +1,5 @@
 //
-//  PSReportPostViewController.swift
+//  PSPostedReportViewController.swift
 //  PostSafety
 //
 //  Created by Rayyan on 24/06/2018.
@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import AVKit
 
-class PSReportPostViewController: UIViewController
+class PSPostedReportViewController: UIViewController
 {
     @IBOutlet weak var reportImageView:UIImageView!
     @IBOutlet weak var reportActionsContainer:UIView!
@@ -193,9 +193,9 @@ class PSReportPostViewController: UIViewController
     @IBAction func reportOverviewGestureTapped(_ sender: Any)
     {
         self.definesPresentationContext = true;
-        let reportOverViewVC : PSReportOverviewViewController
+        let reportOverViewVC : PSPostedReportOverviewViewController
         let storyBoard = UIStoryboard.init(name: "Admin", bundle: Bundle.main)
-        reportOverViewVC = storyBoard.instantiateViewController(withIdentifier: "PSReportOverviewViewController") as! PSReportOverviewViewController
+        reportOverViewVC = storyBoard.instantiateViewController(withIdentifier: "PSPostedReportOverviewViewController") as! PSPostedReportOverviewViewController
         reportOverViewVC.reportOverviewDict = self.reportPostDict
         reportOverViewVC.view.backgroundColor = UIColor.clear
         reportOverViewVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
@@ -211,9 +211,9 @@ class PSReportPostViewController: UIViewController
     @IBAction func reportDetailsGestureTapped(_ sender: Any)
     {
         self.definesPresentationContext = true;
-        let reportDetailVC : PSReportDetailViewController
+        let reportDetailVC : PSPostedReportDetailViewController
         let storyBoard = UIStoryboard.init(name: "Admin", bundle: Bundle.main)
-        reportDetailVC = storyBoard.instantiateViewController(withIdentifier: "PSReportDetailViewController") as! PSReportDetailViewController
+        reportDetailVC = storyBoard.instantiateViewController(withIdentifier: "PSPostedReportDetailViewController") as! PSPostedReportDetailViewController
         reportDetailVC.reportDetailsDict = self.reportPostDict
         reportDetailVC.view.backgroundColor = UIColor.clear
         reportDetailVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext

@@ -27,15 +27,15 @@
 		184EC78420DC078A0089348C /* PSNoConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184EC78320DC078A0089348C /* PSNoConnectionViewController.swift */; };
 		184EC78620DC0FB70089348C /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184EC78520DC0FB70089348C /* User.storyboard */; };
 		184EC78820DC1ED40089348C /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184EC78720DC1ED40089348C /* Admin.storyboard */; };
-		18623B9E211E1319000994B2 /* PSAttachmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18623B9D211E1319000994B2 /* PSAttachmentViewController.swift */; };
-		18AD08D220DF74020096A910 /* PSReceiveHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD08D120DF74020096A910 /* PSReceiveHomeViewController.swift */; };
-		18AD08D420DF74410096A910 /* PSReceiveAlertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD08D320DF74410096A910 /* PSReceiveAlertsViewController.swift */; };
-		18AD08D620DF74B70096A910 /* PSReportPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD08D520DF74B70096A910 /* PSReportPostViewController.swift */; };
+		18623B9E211E1319000994B2 /* PSFeedAttachmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18623B9D211E1319000994B2 /* PSFeedAttachmentViewController.swift */; };
+		18AD08D220DF74020096A910 /* PSGetInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD08D120DF74020096A910 /* PSGetInfoViewController.swift */; };
+		18AD08D420DF74410096A910 /* PSAlertsAnnouncementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD08D320DF74410096A910 /* PSAlertsAnnouncementsViewController.swift */; };
+		18AD08D620DF74B70096A910 /* PSPostedReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD08D520DF74B70096A910 /* PSPostedReportViewController.swift */; };
 		18AD08D820DF855D0096A910 /* PSCloseReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD08D720DF855D0096A910 /* PSCloseReportViewController.swift */; };
-		18AD08DA20DFB33E0096A910 /* PSSelectDialogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD08D920DFB33E0096A910 /* PSSelectDialogTableViewCell.swift */; };
+		18AD08DA20DFB33E0096A910 /* PSShareReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD08D920DFB33E0096A910 /* PSShareReportTableViewCell.swift */; };
 		18BB7CDF20E00B7300E452AB /* PSEmergencyReportConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BB7CDE20E00B7300E452AB /* PSEmergencyReportConfirmationViewController.swift */; };
 		18C40C0D20E02A7600F5B380 /* IQDropDownTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C40C0C20E02A7600F5B380 /* IQDropDownTextField.m */; };
-		18C40C0F20E02BAC00F5B380 /* PSSortReportsDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C40C0E20E02BAC00F5B380 /* PSSortReportsDialogViewController.swift */; };
+		18C40C0F20E02BAC00F5B380 /* PSFilterReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C40C0E20E02BAC00F5B380 /* PSFilterReportsViewController.swift */; };
 		18C8FC2820E16291000E15CE /* PSSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8FC2720E16291000E15CE /* PSSettingsViewController.swift */; };
 		18EFDA8B20FE57E8009F0B9F /* PSCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EFDA8A20FE57E8009F0B9F /* PSCategoryTableViewCell.swift */; };
 		18FDED3A20B04F2A009CBA0B /* SwiftyCamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3620B04F2A009CBA0B /* SwiftyCamViewController.swift */; };
@@ -57,16 +57,14 @@
 		A15BECE520AEEB560081BC25 /* CameraOverLay.xib in Resources */ = {isa = PBXBuildFile; fileRef = A15BECE420AEEB550081BC25 /* CameraOverLay.xib */; };
 		A16142CE20AC108E00421414 /* PSLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142CD20AC108E00421414 /* PSLogInViewController.swift */; };
 		A16142D020AC10C400421414 /* PSCreatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142CF20AC10C400421414 /* PSCreatePasswordViewController.swift */; };
-		A16142D220AC10D300421414 /* PSVerifyCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D120AC10D300421414 /* PSVerifyCodeViewController.swift */; };
 		A16142D420AC10FC00421414 /* PSTermsOfUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D320AC10FC00421414 /* PSTermsOfUseViewController.swift */; };
 		A16142D620AC110A00421414 /* PSDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D520AC110A00421414 /* PSDashboardViewController.swift */; };
-		A16142D820AC11BD00421414 /* PSFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D720AC11BD00421414 /* PSFeedViewController.swift */; };
-		A16142DA20AC11CD00421414 /* PSFeedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D920AC11CD00421414 /* PSFeedDetailViewController.swift */; };
+		A16142D820AC11BD00421414 /* PSUserFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D720AC11BD00421414 /* PSUserFeedViewController.swift */; };
+		A16142DA20AC11CD00421414 /* PSUserFeedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142D920AC11CD00421414 /* PSUserFeedDetailViewController.swift */; };
 		A16142DC20AC11E600421414 /* PSSelectReportTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142DB20AC11E600421414 /* PSSelectReportTypeViewController.swift */; };
 		A16142DE20AC121400421414 /* TakePhotoVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142DD20AC121400421414 /* TakePhotoVideoViewController.swift */; };
 		A16142E020AC122700421414 /* PSSelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142DF20AC122700421414 /* PSSelectLocationViewController.swift */; };
 		A16142E220AC219B00421414 /* PSReportConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142E120AC219B00421414 /* PSReportConfirmationViewController.swift */; };
-		A16142E420AC335500421414 /* PSPersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142E320AC335500421414 /* PSPersonalInformationViewController.swift */; };
 		A1F156A520AABFF50049DB21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F156A420AABFF50049DB21 /* AppDelegate.swift */; };
 		A1F156AC20AABFF60049DB21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1F156AB20AABFF60049DB21 /* Assets.xcassets */; };
 		A1F156AF20AABFF60049DB21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F156AD20AABFF60049DB21 /* LaunchScreen.storyboard */; };
@@ -75,18 +73,17 @@
 		A1FF177120DBC3C700F06EAC /* PSPotentiallySeriousIncidentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FF177020DBC3C700F06EAC /* PSPotentiallySeriousIncidentViewController.swift */; };
 		A1FF177320DBC62300F06EAC /* PSSelectSubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FF177220DBC62300F06EAC /* PSSelectSubCategoryViewController.swift */; };
 		A1FF177520DBCCFF00F06EAC /* PSEmergencyInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FF177420DBCCFF00F06EAC /* PSEmergencyInstructionsViewController.swift */; };
-		C409873B20DED26400081069 /* PSSelectDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409873A20DED26400081069 /* PSSelectDialogViewController.swift */; };
+		C409873B20DED26400081069 /* PSShareReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409873A20DED26400081069 /* PSShareReportViewController.swift */; };
 		C409873D20DED27D00081069 /* PSSendAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409873C20DED27D00081069 /* PSSendAlertViewController.swift */; };
-		C409873F20DED2E200081069 /* PSReportActionPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409873E20DED2E200081069 /* PSReportActionPopupViewController.swift */; };
-		C409874120DED30900081069 /* PSSummaryFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409874020DED30900081069 /* PSSummaryFeedViewController.swift */; };
-		C409874320DED34700081069 /* PSCategorySelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409874220DED34700081069 /* PSCategorySelectViewController.swift */; };
-		C409874520DED38800081069 /* PSSummaryStatsHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409874420DED38800081069 /* PSSummaryStatsHomeViewController.swift */; };
+		C409873F20DED2E200081069 /* PSReportActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409873E20DED2E200081069 /* PSReportActionsViewController.swift */; };
+		C409874120DED30900081069 /* PSSummaryStatsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409874020DED30900081069 /* PSSummaryStatsFeedViewController.swift */; };
+		C409874320DED34700081069 /* PSSummaryStatsReportTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409874220DED34700081069 /* PSSummaryStatsReportTypeViewController.swift */; };
+		C409874520DED38800081069 /* PSSummaryStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409874420DED38800081069 /* PSSummaryStatsViewController.swift */; };
 		C4B0775E20C4090E00CCD778 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4B0775C20C4090E00CCD778 /* Authentication.storyboard */; };
 		C4E5A56220AE55960060898B /* PSSelectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56120AE55950060898B /* PSSelectCategoryViewController.swift */; };
-		C4E5A56420AE55E90060898B /* PSReportOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56320AE55E90060898B /* PSReportOverviewViewController.swift */; };
+		C4E5A56420AE55E90060898B /* PSPostedReportOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56320AE55E90060898B /* PSPostedReportOverviewViewController.swift */; };
 		C4E5A56620AE56050060898B /* PSReportSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56520AE56050060898B /* PSReportSummaryViewController.swift */; };
-		C4E5A56820AE56200060898B /* PSReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56720AE56200060898B /* PSReportDetailViewController.swift */; };
-		C4E5A56B20AE5BD50060898B /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56A20AE5BD50060898B /* CategoryTableViewCell.swift */; };
+		C4E5A56820AE56200060898B /* PSPostedReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5A56720AE56200060898B /* PSPostedReportDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,16 +126,16 @@
 		184EC78320DC078A0089348C /* PSNoConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSNoConnectionViewController.swift; sourceTree = "<group>"; };
 		184EC78520DC0FB70089348C /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
 		184EC78720DC1ED40089348C /* Admin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
-		18623B9D211E1319000994B2 /* PSAttachmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSAttachmentViewController.swift; sourceTree = "<group>"; };
-		18AD08D120DF74020096A910 /* PSReceiveHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReceiveHomeViewController.swift; sourceTree = "<group>"; };
-		18AD08D320DF74410096A910 /* PSReceiveAlertsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReceiveAlertsViewController.swift; sourceTree = "<group>"; };
-		18AD08D520DF74B70096A910 /* PSReportPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReportPostViewController.swift; sourceTree = "<group>"; };
+		18623B9D211E1319000994B2 /* PSFeedAttachmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSFeedAttachmentViewController.swift; sourceTree = "<group>"; };
+		18AD08D120DF74020096A910 /* PSGetInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSGetInfoViewController.swift; sourceTree = "<group>"; };
+		18AD08D320DF74410096A910 /* PSAlertsAnnouncementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSAlertsAnnouncementsViewController.swift; sourceTree = "<group>"; };
+		18AD08D520DF74B70096A910 /* PSPostedReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSPostedReportViewController.swift; sourceTree = "<group>"; };
 		18AD08D720DF855D0096A910 /* PSCloseReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSCloseReportViewController.swift; sourceTree = "<group>"; };
-		18AD08D920DFB33E0096A910 /* PSSelectDialogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSelectDialogTableViewCell.swift; sourceTree = "<group>"; };
+		18AD08D920DFB33E0096A910 /* PSShareReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSShareReportTableViewCell.swift; sourceTree = "<group>"; };
 		18BB7CDE20E00B7300E452AB /* PSEmergencyReportConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSEmergencyReportConfirmationViewController.swift; sourceTree = "<group>"; };
 		18C40C0B20E02A7600F5B380 /* IQDropDownTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQDropDownTextField.h; sourceTree = "<group>"; };
 		18C40C0C20E02A7600F5B380 /* IQDropDownTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQDropDownTextField.m; sourceTree = "<group>"; };
-		18C40C0E20E02BAC00F5B380 /* PSSortReportsDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSortReportsDialogViewController.swift; sourceTree = "<group>"; };
+		18C40C0E20E02BAC00F5B380 /* PSFilterReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSFilterReportsViewController.swift; sourceTree = "<group>"; };
 		18C8FC2720E16291000E15CE /* PSSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSettingsViewController.swift; sourceTree = "<group>"; };
 		18EFDA8A20FE57E8009F0B9F /* PSCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		18FDED3620B04F2A009CBA0B /* SwiftyCamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamViewController.swift; sourceTree = "<group>"; };
@@ -163,16 +160,14 @@
 		A15BECE420AEEB550081BC25 /* CameraOverLay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraOverLay.xib; sourceTree = "<group>"; };
 		A16142CD20AC108E00421414 /* PSLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSLogInViewController.swift; sourceTree = "<group>"; };
 		A16142CF20AC10C400421414 /* PSCreatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSCreatePasswordViewController.swift; sourceTree = "<group>"; };
-		A16142D120AC10D300421414 /* PSVerifyCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSVerifyCodeViewController.swift; sourceTree = "<group>"; };
 		A16142D320AC10FC00421414 /* PSTermsOfUseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSTermsOfUseViewController.swift; sourceTree = "<group>"; };
 		A16142D520AC110A00421414 /* PSDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSDashboardViewController.swift; sourceTree = "<group>"; };
-		A16142D720AC11BD00421414 /* PSFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSFeedViewController.swift; sourceTree = "<group>"; };
-		A16142D920AC11CD00421414 /* PSFeedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSFeedDetailViewController.swift; sourceTree = "<group>"; };
+		A16142D720AC11BD00421414 /* PSUserFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSUserFeedViewController.swift; sourceTree = "<group>"; };
+		A16142D920AC11CD00421414 /* PSUserFeedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSUserFeedDetailViewController.swift; sourceTree = "<group>"; };
 		A16142DB20AC11E600421414 /* PSSelectReportTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSelectReportTypeViewController.swift; sourceTree = "<group>"; };
 		A16142DD20AC121400421414 /* TakePhotoVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhotoVideoViewController.swift; sourceTree = "<group>"; };
 		A16142DF20AC122700421414 /* PSSelectLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSelectLocationViewController.swift; sourceTree = "<group>"; };
 		A16142E120AC219B00421414 /* PSReportConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReportConfirmationViewController.swift; sourceTree = "<group>"; };
-		A16142E320AC335500421414 /* PSPersonalInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSPersonalInformationViewController.swift; sourceTree = "<group>"; };
 		A1F156A120AABFF50049DB21 /* PostSafety.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostSafety.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F156A420AABFF50049DB21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1F156AB20AABFF60049DB21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -187,18 +182,17 @@
 		A1FF177020DBC3C700F06EAC /* PSPotentiallySeriousIncidentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSPotentiallySeriousIncidentViewController.swift; sourceTree = "<group>"; };
 		A1FF177220DBC62300F06EAC /* PSSelectSubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSelectSubCategoryViewController.swift; sourceTree = "<group>"; };
 		A1FF177420DBCCFF00F06EAC /* PSEmergencyInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSEmergencyInstructionsViewController.swift; sourceTree = "<group>"; };
-		C409873A20DED26400081069 /* PSSelectDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSelectDialogViewController.swift; sourceTree = "<group>"; };
+		C409873A20DED26400081069 /* PSShareReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSShareReportViewController.swift; sourceTree = "<group>"; };
 		C409873C20DED27D00081069 /* PSSendAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSendAlertViewController.swift; sourceTree = "<group>"; };
-		C409873E20DED2E200081069 /* PSReportActionPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReportActionPopupViewController.swift; sourceTree = "<group>"; };
-		C409874020DED30900081069 /* PSSummaryFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSummaryFeedViewController.swift; sourceTree = "<group>"; };
-		C409874220DED34700081069 /* PSCategorySelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSCategorySelectViewController.swift; sourceTree = "<group>"; };
-		C409874420DED38800081069 /* PSSummaryStatsHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSummaryStatsHomeViewController.swift; sourceTree = "<group>"; };
+		C409873E20DED2E200081069 /* PSReportActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReportActionsViewController.swift; sourceTree = "<group>"; };
+		C409874020DED30900081069 /* PSSummaryStatsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSummaryStatsFeedViewController.swift; sourceTree = "<group>"; };
+		C409874220DED34700081069 /* PSSummaryStatsReportTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSummaryStatsReportTypeViewController.swift; sourceTree = "<group>"; };
+		C409874420DED38800081069 /* PSSummaryStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSummaryStatsViewController.swift; sourceTree = "<group>"; };
 		C4B0775D20C4090E00CCD778 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication.storyboard; sourceTree = "<group>"; };
 		C4E5A56120AE55950060898B /* PSSelectCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSelectCategoryViewController.swift; sourceTree = "<group>"; };
-		C4E5A56320AE55E90060898B /* PSReportOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReportOverviewViewController.swift; sourceTree = "<group>"; };
+		C4E5A56320AE55E90060898B /* PSPostedReportOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSPostedReportOverviewViewController.swift; sourceTree = "<group>"; };
 		C4E5A56520AE56050060898B /* PSReportSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReportSummaryViewController.swift; sourceTree = "<group>"; };
-		C4E5A56720AE56200060898B /* PSReportDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReportDetailViewController.swift; sourceTree = "<group>"; };
-		C4E5A56A20AE5BD50060898B /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		C4E5A56720AE56200060898B /* PSPostedReportDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSPostedReportDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,18 +292,15 @@
 		182E5DD420DE3AEE00E3A851 /* Report */ = {
 			isa = PBXGroup;
 			children = (
-				A1FF177420DBCCFF00F06EAC /* PSEmergencyInstructionsViewController.swift */,
-				184EC78320DC078A0089348C /* PSNoConnectionViewController.swift */,
-				A1FF177020DBC3C700F06EAC /* PSPotentiallySeriousIncidentViewController.swift */,
-				A16142E120AC219B00421414 /* PSReportConfirmationViewController.swift */,
-				C4E5A56520AE56050060898B /* PSReportSummaryViewController.swift */,
-				C4E5A56120AE55950060898B /* PSSelectCategoryViewController.swift */,
-				18EFDA8A20FE57E8009F0B9F /* PSCategoryTableViewCell.swift */,
-				A16142DF20AC122700421414 /* PSSelectLocationViewController.swift */,
+				1866EC46212596AC00EF655D /* Emergency */,
 				A16142DB20AC11E600421414 /* PSSelectReportTypeViewController.swift */,
+				1866EC482125985D00EF655D /* Category */,
 				A1FF177220DBC62300F06EAC /* PSSelectSubCategoryViewController.swift */,
-				18BB7CDE20E00B7300E452AB /* PSEmergencyReportConfirmationViewController.swift */,
-				18C40C0E20E02BAC00F5B380 /* PSSortReportsDialogViewController.swift */,
+				A1FF177020DBC3C700F06EAC /* PSPotentiallySeriousIncidentViewController.swift */,
+				A16142DF20AC122700421414 /* PSSelectLocationViewController.swift */,
+				C4E5A56520AE56050060898B /* PSReportSummaryViewController.swift */,
+				A16142E120AC219B00421414 /* PSReportConfirmationViewController.swift */,
+				184EC78320DC078A0089348C /* PSNoConnectionViewController.swift */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -317,31 +308,81 @@
 		182E5DD520DE3B9300E3A851 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				A11DF69120D8F0FF0079D861 /* MenuViewController.swift */,
 				A11DF69320D8F1BE0079D861 /* MenuBottomCell.swift */,
 				A11DF69420D8F1BF0079D861 /* MenuTopCell.swift */,
-				A11DF69120D8F0FF0079D861 /* MenuViewController.swift */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		1866EC42212589FF00EF655D /* SummaryStats */ = {
+			isa = PBXGroup;
+			children = (
+				C409874220DED34700081069 /* PSSummaryStatsReportTypeViewController.swift */,
+				C409874020DED30900081069 /* PSSummaryStatsFeedViewController.swift */,
+				C409874420DED38800081069 /* PSSummaryStatsViewController.swift */,
+			);
+			path = SummaryStats;
+			sourceTree = "<group>";
+		};
+		1866EC4321258C2A00EF655D /* ReportActions */ = {
+			isa = PBXGroup;
+			children = (
+				C409873E20DED2E200081069 /* PSReportActionsViewController.swift */,
+				1866EC442125922B00EF655D /* ShareReport */,
+				C409873C20DED27D00081069 /* PSSendAlertViewController.swift */,
+				18AD08D720DF855D0096A910 /* PSCloseReportViewController.swift */,
+			);
+			path = ReportActions;
+			sourceTree = "<group>";
+		};
+		1866EC442125922B00EF655D /* ShareReport */ = {
+			isa = PBXGroup;
+			children = (
+				C409873A20DED26400081069 /* PSShareReportViewController.swift */,
+				18AD08D920DFB33E0096A910 /* PSShareReportTableViewCell.swift */,
+			);
+			path = ShareReport;
+			sourceTree = "<group>";
+		};
+		1866EC45212593D200EF655D /* PostedReport */ = {
+			isa = PBXGroup;
+			children = (
+				C4E5A56320AE55E90060898B /* PSPostedReportOverviewViewController.swift */,
+				C4E5A56720AE56200060898B /* PSPostedReportDetailViewController.swift */,
+				18AD08D520DF74B70096A910 /* PSPostedReportViewController.swift */,
+			);
+			path = PostedReport;
+			sourceTree = "<group>";
+		};
+		1866EC46212596AC00EF655D /* Emergency */ = {
+			isa = PBXGroup;
+			children = (
+				A1FF177420DBCCFF00F06EAC /* PSEmergencyInstructionsViewController.swift */,
+				18BB7CDE20E00B7300E452AB /* PSEmergencyReportConfirmationViewController.swift */,
+			);
+			path = Emergency;
+			sourceTree = "<group>";
+		};
+		1866EC482125985D00EF655D /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				C4E5A56120AE55950060898B /* PSSelectCategoryViewController.swift */,
+				18EFDA8A20FE57E8009F0B9F /* PSCategoryTableViewCell.swift */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		18BB7CDC20DFF01F00E452AB /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				A16142D920AC11CD00421414 /* PSFeedDetailViewController.swift */,
-				A16142D720AC11BD00421414 /* PSFeedViewController.swift */,
+				A16142D720AC11BD00421414 /* PSUserFeedViewController.swift */,
+				A16142D920AC11CD00421414 /* PSUserFeedDetailViewController.swift */,
 				18161A5620F10F5800C0C3BF /* PSFeedTableViewCell.swift */,
-				18623B9D211E1319000994B2 /* PSAttachmentViewController.swift */,
+				18623B9D211E1319000994B2 /* PSFeedAttachmentViewController.swift */,
+				18C40C0E20E02BAC00F5B380 /* PSFilterReportsViewController.swift */,
 			);
 			path = Feed;
-			sourceTree = "<group>";
-		};
-		18BB7CDD20DFF03C00E452AB /* Receive */ = {
-			isa = PBXGroup;
-			children = (
-				18AD08D120DF74020096A910 /* PSReceiveHomeViewController.swift */,
-				18AD08D320DF74410096A910 /* PSReceiveAlertsViewController.swift */,
-			);
-			path = Receive;
 			sourceTree = "<group>";
 		};
 		18C40C0A20E02A7600F5B380 /* IQDropDownTextField */ = {
@@ -418,7 +459,6 @@
 			children = (
 				A16142CD20AC108E00421414 /* PSLogInViewController.swift */,
 				A16142CF20AC10C400421414 /* PSCreatePasswordViewController.swift */,
-				A16142D120AC10D300421414 /* PSVerifyCodeViewController.swift */,
 				A16142D320AC10FC00421414 /* PSTermsOfUseViewController.swift */,
 			);
 			path = Authentication;
@@ -427,16 +467,10 @@
 		A15BECE020AEB9F50081BC25 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				C409873720DED18700081069 /* Admin */,
 				18FDED3E20B04F51009CBA0B /* CustomCamera */,
-				18BB7CDC20DFF01F00E452AB /* Feed */,
+				C409873720DED18700081069 /* GetInfo */,
 				A16142D520AC110A00421414 /* PSDashboardViewController.swift */,
 				18C8FC2720E16291000E15CE /* PSSettingsViewController.swift */,
-				A16142E320AC335500421414 /* PSPersonalInformationViewController.swift */,
-				C4E5A56320AE55E90060898B /* PSReportOverviewViewController.swift */,
-				C4E5A56720AE56200060898B /* PSReportDetailViewController.swift */,
-				18BB7CDD20DFF03C00E452AB /* Receive */,
-				18AD08D520DF74B70096A910 /* PSReportPostViewController.swift */,
 				182E5DD420DE3AEE00E3A851 /* Report */,
 			);
 			path = Dashboard;
@@ -534,25 +568,22 @@
 			path = PostSafetyUITests;
 			sourceTree = "<group>";
 		};
-		C409873720DED18700081069 /* Admin */ = {
+		C409873720DED18700081069 /* GetInfo */ = {
 			isa = PBXGroup;
 			children = (
-				C409874220DED34700081069 /* PSCategorySelectViewController.swift */,
-				C409873E20DED2E200081069 /* PSReportActionPopupViewController.swift */,
-				C409873A20DED26400081069 /* PSSelectDialogViewController.swift */,
-				18AD08D920DFB33E0096A910 /* PSSelectDialogTableViewCell.swift */,
-				C409873C20DED27D00081069 /* PSSendAlertViewController.swift */,
-				C409874020DED30900081069 /* PSSummaryFeedViewController.swift */,
-				C409874420DED38800081069 /* PSSummaryStatsHomeViewController.swift */,
-				18AD08D720DF855D0096A910 /* PSCloseReportViewController.swift */,
+				18AD08D120DF74020096A910 /* PSGetInfoViewController.swift */,
+				18AD08D320DF74410096A910 /* PSAlertsAnnouncementsViewController.swift */,
+				18BB7CDC20DFF01F00E452AB /* Feed */,
+				1866EC45212593D200EF655D /* PostedReport */,
+				1866EC42212589FF00EF655D /* SummaryStats */,
+				1866EC4321258C2A00EF655D /* ReportActions */,
 			);
-			path = Admin;
+			path = GetInfo;
 			sourceTree = "<group>";
 		};
 		C4E5A56920AE5BBC0060898B /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
-				C4E5A56A20AE5BD50060898B /* CategoryTableViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -760,7 +791,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				184EC78420DC078A0089348C /* PSNoConnectionViewController.swift in Sources */,
-				18C40C0F20E02BAC00F5B380 /* PSSortReportsDialogViewController.swift in Sources */,
+				18C40C0F20E02BAC00F5B380 /* PSFilterReportsViewController.swift in Sources */,
 				1812E69120B8A4C000E484C6 /* PSRouteUrls.swift in Sources */,
 				A16142D420AC10FC00421414 /* PSTermsOfUseViewController.swift in Sources */,
 				A16142D620AC110A00421414 /* PSDashboardViewController.swift in Sources */,
@@ -770,31 +801,29 @@
 				18FDED3C20B04F2A009CBA0B /* PreviewView.swift in Sources */,
 				1812E68D20B8A37600E484C6 /* PSAPIManager.swift in Sources */,
 				C4E5A56220AE55960060898B /* PSSelectCategoryViewController.swift in Sources */,
-				18AD08DA20DFB33E0096A910 /* PSSelectDialogTableViewCell.swift in Sources */,
+				18AD08DA20DFB33E0096A910 /* PSShareReportTableViewCell.swift in Sources */,
 				1812E68F20B8A3EB00E484C6 /* PSAPIManagerBase.swift in Sources */,
 				A16142DC20AC11E600421414 /* PSSelectReportTypeViewController.swift in Sources */,
-				A16142E420AC335500421414 /* PSPersonalInformationViewController.swift in Sources */,
-				A16142D220AC10D300421414 /* PSVerifyCodeViewController.swift in Sources */,
-				C409873F20DED2E200081069 /* PSReportActionPopupViewController.swift in Sources */,
+				C409873F20DED2E200081069 /* PSReportActionsViewController.swift in Sources */,
 				1811261920BDE52900ABA494 /* PSAPIManager+Checklist.swift in Sources */,
 				A11DF69220D8F0FF0079D861 /* MenuViewController.swift in Sources */,
 				18FDED3D20B04F2A009CBA0B /* SwiftyCamViewControllerDelegate.swift in Sources */,
-				18623B9E211E1319000994B2 /* PSAttachmentViewController.swift in Sources */,
+				18623B9E211E1319000994B2 /* PSFeedAttachmentViewController.swift in Sources */,
 				1812E69920B8A50C00E484C6 /* PSUser.swift in Sources */,
-				C409874120DED30900081069 /* PSSummaryFeedViewController.swift in Sources */,
+				C409874120DED30900081069 /* PSSummaryStatsFeedViewController.swift in Sources */,
 				A124938620C128C700B38DEF /* PSChecklist.swift in Sources */,
 				180D495820B9DA070023101D /* CEReachabilityManager.m in Sources */,
-				C4E5A56420AE55E90060898B /* PSReportOverviewViewController.swift in Sources */,
+				C4E5A56420AE55E90060898B /* PSPostedReportOverviewViewController.swift in Sources */,
 				18C40C0D20E02A7600F5B380 /* IQDropDownTextField.m in Sources */,
-				C4E5A56820AE56200060898B /* PSReportDetailViewController.swift in Sources */,
+				C4E5A56820AE56200060898B /* PSPostedReportDetailViewController.swift in Sources */,
 				A16142E020AC122700421414 /* PSSelectLocationViewController.swift in Sources */,
-				18AD08D220DF74020096A910 /* PSReceiveHomeViewController.swift in Sources */,
+				18AD08D220DF74020096A910 /* PSGetInfoViewController.swift in Sources */,
 				A11DF69620D8F1BF0079D861 /* MenuTopCell.swift in Sources */,
 				18EFDA8B20FE57E8009F0B9F /* PSCategoryTableViewCell.swift in Sources */,
-				C409873B20DED26400081069 /* PSSelectDialogViewController.swift in Sources */,
-				A16142DA20AC11CD00421414 /* PSFeedDetailViewController.swift in Sources */,
+				C409873B20DED26400081069 /* PSShareReportViewController.swift in Sources */,
+				A16142DA20AC11CD00421414 /* PSUserFeedDetailViewController.swift in Sources */,
 				A1F156A520AABFF50049DB21 /* AppDelegate.swift in Sources */,
-				18AD08D420DF74410096A910 /* PSReceiveAlertsViewController.swift in Sources */,
+				18AD08D420DF74410096A910 /* PSAlertsAnnouncementsViewController.swift in Sources */,
 				A16142D020AC10C400421414 /* PSCreatePasswordViewController.swift in Sources */,
 				1812E69720B8A4F800E484C6 /* PSDataManager.swift in Sources */,
 				A16142DE20AC121400421414 /* TakePhotoVideoViewController.swift in Sources */,
@@ -802,14 +831,14 @@
 				A16142E220AC219B00421414 /* PSReportConfirmationViewController.swift in Sources */,
 				A10749AB20EF4937003A6B35 /* PSReportAPIManager.swift in Sources */,
 				A11DF69520D8F1BF0079D861 /* MenuBottomCell.swift in Sources */,
-				C409874320DED34700081069 /* PSCategorySelectViewController.swift in Sources */,
+				C409874320DED34700081069 /* PSSummaryStatsReportTypeViewController.swift in Sources */,
 				A1FF177520DBCCFF00F06EAC /* PSEmergencyInstructionsViewController.swift in Sources */,
 				18FDED4420B05077009CBA0B /* SwiftyRecordButton.swift in Sources */,
 				A11DF69020D8F0860079D861 /* SWRevealViewController.m in Sources */,
 				1811261B20BDE60300ABA494 /* PSChecklistAPIManager.swift in Sources */,
-				18AD08D620DF74B70096A910 /* PSReportPostViewController.swift in Sources */,
-				A16142D820AC11BD00421414 /* PSFeedViewController.swift in Sources */,
-				C409874520DED38800081069 /* PSSummaryStatsHomeViewController.swift in Sources */,
+				18AD08D620DF74B70096A910 /* PSPostedReportViewController.swift in Sources */,
+				A16142D820AC11BD00421414 /* PSUserFeedViewController.swift in Sources */,
+				C409874520DED38800081069 /* PSSummaryStatsViewController.swift in Sources */,
 				1812E69520B8A4D800E484C6 /* PSConstants.swift in Sources */,
 				A16142CE20AC108E00421414 /* PSLogInViewController.swift in Sources */,
 				18FDED3B20B04F2A009CBA0B /* SwiftyCamButton.swift in Sources */,
@@ -818,7 +847,6 @@
 				C4E5A56620AE56050060898B /* PSReportSummaryViewController.swift in Sources */,
 				18AD08D820DF855D0096A910 /* PSCloseReportViewController.swift in Sources */,
 				18C8FC2820E16291000E15CE /* PSSettingsViewController.swift in Sources */,
-				C4E5A56B20AE5BD50060898B /* CategoryTableViewCell.swift in Sources */,
 				1812E69420B8A4D800E484C6 /* PSUserInterfaceManager.swift in Sources */,
 				C409873D20DED27D00081069 /* PSSendAlertViewController.swift in Sources */,
 				18FDED4220B04F82009CBA0B /* PhotoViewController.swift in Sources */,

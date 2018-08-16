@@ -1,5 +1,5 @@
 //
-//  PSSortReportsDialogViewController.swift
+//  PSFilterReportsViewController.swift
 //  PostSafety
 //
 //  Created by Rayyan on 25/06/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PSSortReportsDialogViewController: UIViewController,IQDropDownTextFieldDelegate,IQDropDownTextFieldDataSource
+class PSFilterReportsViewController: UIViewController,IQDropDownTextFieldDelegate,IQDropDownTextFieldDataSource
 {
     public var delegate:PSSortReportsDialogViewControllerDelegate!
     

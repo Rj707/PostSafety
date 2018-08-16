@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PSSummaryFeedViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate
+class PSSummaryStatsFeedViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate
 {
     @IBOutlet weak var menuButton:UIButton!
     @IBOutlet weak var summaryFeedTableView : UITableView!
@@ -76,7 +76,7 @@ class PSSummaryFeedViewController: UIViewController,UITableViewDataSource,UITabl
         
         PSDataManager.sharedInstance.reportId = dic["reportId"] as! Int
         let storyboard = UIStoryboard(name: "User", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PSReportPostViewController") as! PSReportPostViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSPostedReportViewController") as! PSPostedReportViewController
         vc.reportPostDict = self.summaryFeedArray[indexPath.row] as! NSDictionary
         vc.postTitle =  cell.titleLabel.text!
         navigationController?.pushViewController(vc,

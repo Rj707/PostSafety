@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PSSelectDialogTableViewCell: UITableViewCell
+class PSShareReportTableViewCell: UITableViewCell
 {
     @IBOutlet weak var selectionButton : UIButton!
     @IBOutlet weak var selectionNameLabel : UILabel!

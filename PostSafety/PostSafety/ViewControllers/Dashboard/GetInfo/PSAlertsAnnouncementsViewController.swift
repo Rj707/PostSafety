@@ -1,5 +1,5 @@
 //
-//  PSReceiveAlertsViewController.swift
+//  PSAlertsAnnouncementsViewController.swift
 //  PostSafety
 //
 //  Created by Rayyan on 24/06/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PSReceiveAlertsViewController: UIViewController
+class PSAlertsAnnouncementsViewController: UIViewController
 {
     @IBOutlet weak var view3: UIView!
     @IBOutlet weak var view2: UIView!
@@ -79,7 +79,7 @@ class PSReceiveAlertsViewController: UIViewController
     @IBAction func alertsGestureTapped(_ sender: Any)
     {
         let storyboard = UIStoryboard(name: "User", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedViewController") as! PSFeedViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSUserFeedViewController") as! PSUserFeedViewController
         vc.feedTitle = "Alerts"
         let resultPredicate = NSPredicate(format: "type = %@", "Alert")
         vc.feedArray = (self.alertsArray as NSArray).filtered(using: resultPredicate)
@@ -90,7 +90,7 @@ class PSReceiveAlertsViewController: UIViewController
     @IBAction func announcementsGestureTapped(_ sender: Any)
     {
         let storyboard = UIStoryboard(name: "User", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedViewController") as! PSFeedViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSUserFeedViewController") as! PSUserFeedViewController
         vc.feedTitle = "Announcements"
         let resultPredicate = NSPredicate(format: "type = %@", "Announcement")
         vc.feedArray = (self.alertsArray as NSArray).filtered(using: resultPredicate)
@@ -101,14 +101,14 @@ class PSReceiveAlertsViewController: UIViewController
     @IBAction func safetyUpdatesGestureTapped(_ sender: Any)
     {
 //        let storyboard = UIStoryboard(name: "User", bundle: nil)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedViewController") as! PSFeedViewController
+//        let vc = storyboard.instantiateViewController(withIdentifier: "PSUserFeedViewController") as! PSUserFeedViewController
 //        vc.feedTitle = "Safety Updates"
 //        navigationController?.pushViewController(vc,
 //                                                 animated: true)
         
         
         let storyboard = UIStoryboard(name: "User", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedViewController") as! PSFeedViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSUserFeedViewController") as! PSUserFeedViewController
         vc.feedTitle = "Safety Updates"
         vc.route = Route.SafetyUpdates.rawValue
         navigationController?.pushViewController(vc,

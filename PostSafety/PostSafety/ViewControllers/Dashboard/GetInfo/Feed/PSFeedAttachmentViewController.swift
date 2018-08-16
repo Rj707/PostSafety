@@ -1,5 +1,5 @@
 //
-//  PSAttachmentViewController.swift
+//  PSFeedAttachmentViewController.swift
 //  PostSafety
 //
 //  Created by Rayyan on 10/08/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PSAttachmentViewController: UIViewController,UIWebViewDelegate
+class PSFeedAttachmentViewController: UIViewController,UIWebViewDelegate
 {
 
     @IBOutlet weak var attachmentWebView : UIWebView?

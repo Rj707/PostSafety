@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PSFeedDetailViewController: UIViewController
+class PSUserFeedDetailViewController: UIViewController
 {
     @IBOutlet weak var menuButton:UIButton!
     @IBOutlet weak var feedDetailTitleLabel: UILabel!
@@ -118,13 +118,13 @@ class PSFeedDetailViewController: UIViewController
     @IBAction func attachmentButtonTouched(_ sender: UIButton)
     {
 //        let storyboard = UIStoryboard(name: "User", bundle: nil)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "PSAttachmentViewController") as! PSAttachmentViewController
+//        let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedAttachmentViewController") as! PSFeedAttachmentViewController
 //        vc.attachmentString = attachmentString
 //        vc.modalPresentationStyle = .popover
 //        vc.modalTransitionStyle = .coverVertical
 //        self.present(vc, animated: true, completion: nil)
         
-        let VC = storyboard?.instantiateViewController(withIdentifier: "PSAttachmentViewController") as? PSAttachmentViewController
+        let VC = storyboard?.instantiateViewController(withIdentifier: "PSFeedAttachmentViewController") as? PSFeedAttachmentViewController
         let transition = CATransition()
         transition.duration = 0.1
         transition.type = kCATransitionFade

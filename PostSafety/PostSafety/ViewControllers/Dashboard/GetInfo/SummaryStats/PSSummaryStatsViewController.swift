@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PSSummaryStatsHomeViewController: UIViewController
+class PSSummaryStatsViewController: UIViewController
 {
     @IBOutlet weak var menuButton:UIButton!
     @IBOutlet weak var yesterdayView: UIView!
@@ -126,7 +126,7 @@ class PSSummaryStatsHomeViewController: UIViewController
     @IBAction func yesterdayGestureTapped(_ sender: Any)
     {
         let storyboard = UIStoryboard(name: "Admin", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PSCategorySelectViewController") as! PSCategorySelectViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryStatsReportTypeViewController") as! PSSummaryStatsReportTypeViewController
         vc.summaryStatisticsTitle = "Yesterday's "
         vc.DateType = "Yesterday"
         vc.summaryStatisticsDict = self.summaryStatsArray[0] as! NSDictionary
@@ -136,7 +136,7 @@ class PSSummaryStatsHomeViewController: UIViewController
     @IBAction func thisMonthGestureTapped(_ sender: Any)
     {
         let storyboard = UIStoryboard(name: "Admin", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PSCategorySelectViewController") as! PSCategorySelectViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryStatsReportTypeViewController") as! PSSummaryStatsReportTypeViewController
         vc.summaryStatisticsTitle = "This Month's "
         vc.DateType = "Month"
         vc.summaryStatisticsDict = self.summaryStatsArray[1] as! NSDictionary
@@ -146,7 +146,7 @@ class PSSummaryStatsHomeViewController: UIViewController
     @IBAction func yearToDateGestureTapped(_ sender: Any)
     {
         let storyboard = UIStoryboard(name: "Admin", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PSCategorySelectViewController") as! PSCategorySelectViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryStatsReportTypeViewController") as! PSSummaryStatsReportTypeViewController
         vc.summaryStatisticsTitle = "Year To Date's "
         vc.DateType = "Year"
         vc.summaryStatisticsDict = self.summaryStatsArray[2] as! NSDictionary

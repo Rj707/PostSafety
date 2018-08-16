@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PSCategorySelectViewController: UIViewController
+class PSSummaryStatsReportTypeViewController: UIViewController
 {
 
     @IBOutlet weak var menuButton:UIButton!
@@ -65,7 +65,7 @@ class PSCategorySelectViewController: UIViewController
     @IBAction func hazardGestureTapped(_ sender: Any)
     {
         let storyboard = UIStoryboard(name: "Admin", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryFeedViewController") as! PSSummaryFeedViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryStatsFeedViewController") as! PSSummaryStatsFeedViewController
         summaryStatisticsTitle += "Hazards"
         vc.summaryFeedTitle += summaryStatisticsTitle
         vc.DateType = self.DateType
@@ -76,7 +76,7 @@ class PSCategorySelectViewController: UIViewController
     @IBAction func nearMissGestureTapped(_ sender: Any)
     {
         let storyboard = UIStoryboard(name: "Admin", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryFeedViewController") as! PSSummaryFeedViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryStatsFeedViewController") as! PSSummaryStatsFeedViewController
         summaryStatisticsTitle += "Near Misses"
         vc.summaryFeedTitle += summaryStatisticsTitle
         vc.DateType = self.DateType
@@ -87,7 +87,7 @@ class PSCategorySelectViewController: UIViewController
     @IBAction func incidentGestureTapped(_ sender: Any)
     {
         let storyboard = UIStoryboard(name: "Admin", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryFeedViewController") as! PSSummaryFeedViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryStatsFeedViewController") as! PSSummaryStatsFeedViewController
         summaryStatisticsTitle += "Incidents"
         vc.summaryFeedTitle += summaryStatisticsTitle
         vc.DateType = self.DateType
@@ -98,7 +98,7 @@ class PSCategorySelectViewController: UIViewController
     @IBAction func emergencyTapped(_ sender: Any)
     {
         let storyboard = UIStoryboard(name: "Admin", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryFeedViewController") as! PSSummaryFeedViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSSummaryStatsFeedViewController") as! PSSummaryStatsFeedViewController
         summaryStatisticsTitle += "Emergencies"
         vc.summaryFeedTitle += summaryStatisticsTitle
         vc.DateType = self.DateType

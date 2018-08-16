@@ -26,6 +26,7 @@ class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
         if(!(realm != nil))
         {
             realm = try! Realm()
@@ -34,8 +35,7 @@ class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         menuIdentifiers.append("userProfileCell")
         menuIdentifiers.append("paymentCell")
         
-//        menuIdentifiers.append("helpCell")
-//        menuIdentifiers.append("logoutCell")
+        self.menuTableView.alwaysBounceVertical = false
         
         self.menuTableView.separatorStyle = .none
     }

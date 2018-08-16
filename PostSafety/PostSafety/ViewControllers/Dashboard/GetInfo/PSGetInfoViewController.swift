@@ -1,5 +1,5 @@
 //
-//  PSReceiveHomeViewController.swift
+//  PSGetInfoViewController.swift
 //  PostSafety
 //
 //  Created by Rayyan on 24/06/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PSReceiveHomeViewController: UIViewController
+class PSGetInfoViewController: UIViewController
 {
 
     @IBOutlet weak var view5: UIView!
@@ -61,14 +61,14 @@ class PSReceiveHomeViewController: UIViewController
     @IBAction func alertsGestureTapped(_ sender: Any)
     {
         let storyboard = UIStoryboard(name: "User", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PSReceiveAlertsViewController") as! PSReceiveAlertsViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSAlertsAnnouncementsViewController") as! PSAlertsAnnouncementsViewController
         navigationController?.pushViewController(vc,
                                                  animated: true)
     }
     @IBAction func viewReportsGestureTapped(_ sender: Any)
     {
         let storyboard = UIStoryboard(name: "User", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedViewController") as! PSFeedViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSUserFeedViewController") as! PSUserFeedViewController
         vc.feedTitle = "Reports"
         vc.route = Route.AllReports.rawValue
         navigationController?.pushViewController(vc,
@@ -77,7 +77,7 @@ class PSReceiveHomeViewController: UIViewController
     @IBAction func trainingGestureTapped(_ sender: Any)
     {
         let storyboard = UIStoryboard(name: "User", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedViewController") as! PSFeedViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSUserFeedViewController") as! PSUserFeedViewController
         vc.feedTitle = "Training"
         vc.route = Route.Trainings.rawValue
         navigationController?.pushViewController(vc,
@@ -86,7 +86,7 @@ class PSReceiveHomeViewController: UIViewController
     @IBAction func policiesGestureTapped(_ sender: Any)
     {
         let storyboard = UIStoryboard(name: "User", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedViewController") as! PSFeedViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSUserFeedViewController") as! PSUserFeedViewController
         vc.feedTitle = "Policies/Procedures"
         vc.route = Route.PolicyProcedures.rawValue
         navigationController?.pushViewController(vc,
