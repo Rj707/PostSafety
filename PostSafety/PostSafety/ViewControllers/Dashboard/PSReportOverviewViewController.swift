@@ -26,6 +26,7 @@ class PSReportOverviewViewController: UIViewController,MFMessageComposeViewContr
     @IBOutlet weak var reporterPhoneNumberLable: UILabel!
     
     var alertController = UIAlertController()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -50,7 +51,6 @@ class PSReportOverviewViewController: UIViewController,MFMessageComposeViewContr
         
         self.timeLable.text = self.reportOverviewDict["time"] is NSNull ? "N/A" : self.reportOverviewDict["time"] as! String
         self.dateLable.text = self.reportOverviewDict["date"] is NSNull ? "N/A" : self.reportOverviewDict["date"] as! String
-//        self.isPSILable.text = self.reportOverviewDict["isPsi"] is NSNull ? "N/A" : self.reportOverviewDict["isPsi"] as! String
         self.reporterLable.text = self.reportOverviewDict["reportedBy"] is NSNull ? "N/A" : self.reportOverviewDict["reportedBy"] as! String
         self.locationLable.text = self.reportOverviewDict["location"] is NSNull ? "N/A" : self.reportOverviewDict["location"] as! String
         self.typeLable.text = self.reportOverviewDict["incidentType"] is NSNull ? "N/A" : self.reportOverviewDict["incidentType"] as! String
@@ -61,13 +61,22 @@ class PSReportOverviewViewController: UIViewController,MFMessageComposeViewContr
         
         self.timeLable.text = self.reportOverviewDict["time"] as! String == "" ? "N/A" : self.reportOverviewDict["time"] as! String
         self.dateLable.text = self.reportOverviewDict["date"] as! String == "" ? "N/A" : self.reportOverviewDict["date"] as! String
-//        self.isPSILable.text = self.reportOverviewDict["isPsi"] as! String == "" ? "N/A" : self.reportOverviewDict["isPsi"] as! String
         self.reporterLable.text = self.reportOverviewDict["reportedBy"] as! String == "" ? "N/A" : self.reportOverviewDict["reportedBy"] as! String
         self.locationLable.text = self.reportOverviewDict["location"] as! String == "" ? "N/A" : self.reportOverviewDict["location"] as! String
         self.typeLable.text = self.reportOverviewDict["incidentType"] as! String == "" ? "N/A" : self.reportOverviewDict["incidentType"] as! String
         self.subCategoryLable.text = self.reportOverviewDict["subCatagory"] as! String == "" ? "N/A" : self.reportOverviewDict["subCatagory"] as! String
         self.categoryLable.text = self.reportOverviewDict["catagory"] as! String == "" ? "N/A" : self.reportOverviewDict["catagory"] as! String
         self.reporterPhoneNumberLable.text = self.reportOverviewDict["reportedByNumber"] as! String == "" ? "N/A" : self.reportOverviewDict["reportedByNumber"] as! String
+        
+        
+        self.timeLable.text =  self.timeLable.text?.components(separatedBy: .newlines).joined()
+        self.dateLable.text =  self.dateLable.text?.components(separatedBy: .newlines).joined()
+        self.reporterLable.text =  self.reporterLable.text?.components(separatedBy: .newlines).joined()
+        self.locationLable.text =  self.locationLable.text?.components(separatedBy: .newlines).joined()
+        self.typeLable.text =  self.typeLable.text?.components(separatedBy: .newlines).joined()
+        self.subCategoryLable.text =  self.subCategoryLable.text?.components(separatedBy: .newlines).joined()
+        self.categoryLable.text =  self.categoryLable.text?.components(separatedBy: .newlines).joined()
+        self.reporterPhoneNumberLable.text =  self.reporterPhoneNumberLable.text?.components(separatedBy: .newlines).joined()
         
     }
 
