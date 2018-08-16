@@ -14,7 +14,7 @@ class PSCreatePasswordViewController: UIViewController
     @IBOutlet weak var confirmPasswordTextFieldContainer:UIView?
     @IBOutlet weak var passwordTextField:UITextField?
     @IBOutlet weak var confirmPasswordTextField:UITextField?
-
+    var loggedInUser : PSUser?
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -23,7 +23,6 @@ class PSCreatePasswordViewController: UIViewController
         self.passwordTextFieldContainer?.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.confirmPasswordTextFieldContainer?.layer.borderWidth = 2
         self.confirmPasswordTextFieldContainer?.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
-
     }
 
     override func didReceiveMemoryWarning()
@@ -41,17 +40,44 @@ class PSCreatePasswordViewController: UIViewController
     
     @IBAction func saveChangesButtonTouched(_ sender: UIButton)
     {
-        if CEReachabilityManager.isReachable()
+        if self.passwordTextField?.text == ""
         {
+            PSUserInterfaceManager.showAlert(title: "Create Password", message: FieldsErrorMessage.EmptyPassword)
+        }
+        else if self.confirmPasswordTextField?.text == ""
+        {
+            PSUserInterfaceManager.showAlert(title: "Create Password", message: FieldsErrorMessage.NewPassword)
+        }
+        else if self.confirmPasswordTextField?.text == PSDataManager.sharedInstance.loggedInUser?.password
+        {
+            PSUserInterfaceManager.showAlert(title: "Create Password", message: FieldsErrorMessage.NewOldPasswordMatch)
+        }
+        else if self.loggedInUser?.password != self.passwordTextField?.text
+        {
+            let alertController = UIAlertController(title: "Create Password", message: "The old password is incorrect", preferredStyle: .alert)
+            let alertActionCancel = UIAlertAction(title: "OK", style: .cancel)
+            { (action) in
+                
+            }
+            alertController.addAction(alertActionCancel)
+            self.present(alertController, animated: true, completion: nil)
+        }
+        else if CEReachabilityManager.isReachable()
+        {
+            let EmployeeID = (self.loggedInUser?.employeeId)!
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Creating Password")
-            PSAPIManager.sharedInstance.authenticationManagerAPI.UpdateEmployees(employeeID: (Global.USER?.employeeId.description)!, oldPassword: (passwordTextField?.text)!, NewPassword: (confirmPasswordTextField?.text)!,
+            PSAPIManager.sharedInstance.authenticationManagerAPI.UpdateEmployees(employeeID: String(EmployeeID), oldPassword: (passwordTextField?.text)!, NewPassword: (confirmPasswordTextField?.text)!,
                                                                                  success:
             { (dic) in
+                
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 var user : PSUser?
                 user = PSUser.init()
                 user = user?.initWithDictionary(dict: dic as NSDictionary)
                 PSDataManager.sharedInstance.loggedInUser = user
+                
+                self.performSegue(withIdentifier: "NavigateToDashboardFromResetPassword", sender: nil)
+                
             },
                                                                                  failure:
             { (error, statusCode) in
