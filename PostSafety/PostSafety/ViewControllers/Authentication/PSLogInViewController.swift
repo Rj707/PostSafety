@@ -16,7 +16,7 @@ class PSLogInViewController: UIViewController
     @IBOutlet weak var passowrdTextField : UITextField?
     @IBOutlet weak var termsLabel : UILabel?
     @IBOutlet weak var rememberMeSwitch : UISwitch?
-    
+    var loggedInUser : PSUser?
     var locationsArray = [Any]()
     
     override func viewDidLoad()
@@ -60,24 +60,23 @@ class PSLogInViewController: UIViewController
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Logging In")
             PSAPIManager.sharedInstance.authenticateUserWith(email: (self.phoneNumberTextField?.text)!, password: (self.passowrdTextField?.text)!, success:
             { (dic) in
-//                PSUserInterfaceManager.sharedInstance.hideLoader()
                 
                 var user : PSUser?
                 user = PSUser.init()
                 
                 user = user?.initWithDictionary(dict: dic as NSDictionary)
-                
+                self.loggedInUser = user
                 if (self.rememberMeSwitch?.isOn)!
                 {
                     PSDataManager.sharedInstance.isRememberMe = 1
                     print("isRememberMe ON")
-                    PSDataManager.sharedInstance.loggedInUser = user
+//                    PSDataManager.sharedInstance.loggedInUser = user
                 }
                 else
                 {
                     PSDataManager.sharedInstance.isRememberMe = 0
                     print("isRememberMe Off")
-                    PSDataManager.sharedInstance.loggedInUser = user
+//                    PSDataManager.sharedInstance.loggedInUser = user
                 }
                 
                 if user?.employeeType == "Reviewers"
@@ -121,8 +120,7 @@ class PSLogInViewController: UIViewController
         termsOfUseVC = self.storyboard?.instantiateViewController(withIdentifier: "PSTermsOfUseViewController") as! PSTermsOfUseViewController
         termsOfUseVC.view.backgroundColor = UIColor.clear
         termsOfUseVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-//        self.view.backgroundColor = UIColor.clear
-//        self.modalPresentationStyle = UIModalPresentationStyle.currentContext
+
         self.present(termsOfUseVC, animated: true)
         {
             
@@ -133,7 +131,7 @@ class PSLogInViewController: UIViewController
     {
         if CEReachabilityManager.isReachable()
         {
-            let companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
+            let companyId = (self.loggedInUser?.companyId)!
             PSAPIManager.sharedInstance.getLocationsFor(companyId: String(companyId) ,success:
             { (dic) in
                 
@@ -150,12 +148,13 @@ class PSLogInViewController: UIViewController
                 
                 PSDataManager.sharedInstance.companyLocationsArray = self.locationsArray
                 
-                if PSDataManager.sharedInstance.loggedInUser?.passwordChanged == 0
+                if self.loggedInUser?.passwordChanged == 0
                 {
                     self.performSegue(withIdentifier: "NavigateToCreatePassword", sender: Any?.self)
                 }
                 else
                 {
+                    PSDataManager.sharedInstance.loggedInUser = self.loggedInUser
                     self.performSegue(withIdentifier: "NavigateToDashboard", sender: Any?.self)
                 }
                     
@@ -187,14 +186,20 @@ class PSLogInViewController: UIViewController
         }
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if  segue.identifier == "NavigateToCreatePassword"
+        {
+            let vc = segue.destination as! PSCreatePasswordViewController
+            vc.loggedInUser = self.loggedInUser
+        }
     }
-    */
+ 
 
 }
