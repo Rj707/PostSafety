@@ -991,6 +991,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Iy0-hv-Dow"/>
                     </view>
+                    <connections>
+                        <outlet property="closeReportContainer" destination="40j-Lk-sI6" id="DJG-Hp-6zL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehw-I5-6kI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

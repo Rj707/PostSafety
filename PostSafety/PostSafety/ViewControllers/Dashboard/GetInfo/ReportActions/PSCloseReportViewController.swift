@@ -10,11 +10,15 @@ import UIKit
 
 class PSCloseReportViewController: UIViewController
 {
+    @IBOutlet weak var closeReportContainer: UIView!
+    
     var ReportId = 0
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        self.closeReportContainer.layer.borderWidth = 2
+        self.closeReportContainer.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         // Do any additional setup after loading the view.
     }
 
