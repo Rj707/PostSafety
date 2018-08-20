@@ -65,6 +65,7 @@ class PSGetInfoViewController: UIViewController
         navigationController?.pushViewController(vc,
                                                  animated: true)
     }
+    
     @IBAction func viewReportsGestureTapped(_ sender: Any)
     {
         let storyboard = UIStoryboard(name: "User", bundle: nil)
@@ -74,15 +75,25 @@ class PSGetInfoViewController: UIViewController
         navigationController?.pushViewController(vc,
                                                  animated: true)
     }
+    
     @IBAction func trainingGestureTapped(_ sender: Any)
     {
+//        let storyboard = UIStoryboard(name: "User", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "PSUserFeedViewController") as! PSUserFeedViewController
+//        vc.feedTitle = "Training"
+//        vc.route = Route.Trainings.rawValue
+//        navigationController?.pushViewController(vc,
+//                                                 animated: true)
+        
         let storyboard = UIStoryboard(name: "User", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PSUserFeedViewController") as! PSUserFeedViewController
-        vc.feedTitle = "Training"
-        vc.route = Route.Trainings.rawValue
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSTrainingViewController") as! PSTrainingViewController
         navigationController?.pushViewController(vc,
                                                  animated: true)
+        
+        
+        
     }
+    
     @IBAction func policiesGestureTapped(_ sender: Any)
     {
         let storyboard = UIStoryboard(name: "User", bundle: nil)
@@ -92,7 +103,6 @@ class PSGetInfoViewController: UIViewController
         navigationController?.pushViewController(vc,
                                                  animated: true)
     }
-    
     
     @IBAction func backButtonTouched(_ sender: UIButton)
     {

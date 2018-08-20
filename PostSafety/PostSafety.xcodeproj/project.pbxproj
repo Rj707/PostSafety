@@ -65,6 +65,8 @@
 		A16142DE20AC121400421414 /* TakePhotoVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142DD20AC121400421414 /* TakePhotoVideoViewController.swift */; };
 		A16142E020AC122700421414 /* PSSelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142DF20AC122700421414 /* PSSelectLocationViewController.swift */; };
 		A16142E220AC219B00421414 /* PSReportConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142E120AC219B00421414 /* PSReportConfirmationViewController.swift */; };
+		A1654240212AFA1000B1CB7D /* PSTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A165423F212AFA1000B1CB7D /* PSTrainingViewController.swift */; };
+		A1654242212AFBFA00B1CB7D /* PSDefinitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1654241212AFBFA00B1CB7D /* PSDefinitionViewController.swift */; };
 		A1F156A520AABFF50049DB21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F156A420AABFF50049DB21 /* AppDelegate.swift */; };
 		A1F156AC20AABFF60049DB21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1F156AB20AABFF60049DB21 /* Assets.xcassets */; };
 		A1F156AF20AABFF60049DB21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F156AD20AABFF60049DB21 /* LaunchScreen.storyboard */; };
@@ -168,6 +170,8 @@
 		A16142DD20AC121400421414 /* TakePhotoVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhotoVideoViewController.swift; sourceTree = "<group>"; };
 		A16142DF20AC122700421414 /* PSSelectLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSelectLocationViewController.swift; sourceTree = "<group>"; };
 		A16142E120AC219B00421414 /* PSReportConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReportConfirmationViewController.swift; sourceTree = "<group>"; };
+		A165423F212AFA1000B1CB7D /* PSTrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSTrainingViewController.swift; sourceTree = "<group>"; };
+		A1654241212AFBFA00B1CB7D /* PSDefinitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSDefinitionViewController.swift; sourceTree = "<group>"; };
 		A1F156A120AABFF50049DB21 /* PostSafety.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostSafety.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F156A420AABFF50049DB21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1F156AB20AABFF60049DB21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -573,6 +577,8 @@
 			children = (
 				18AD08D120DF74020096A910 /* PSGetInfoViewController.swift */,
 				18AD08D320DF74410096A910 /* PSAlertsAnnouncementsViewController.swift */,
+				A165423F212AFA1000B1CB7D /* PSTrainingViewController.swift */,
+				A1654241212AFBFA00B1CB7D /* PSDefinitionViewController.swift */,
 				18BB7CDC20DFF01F00E452AB /* Feed */,
 				1866EC45212593D200EF655D /* PostedReport */,
 				1866EC42212589FF00EF655D /* SummaryStats */,
@@ -804,6 +810,7 @@
 				18AD08DA20DFB33E0096A910 /* PSShareReportTableViewCell.swift in Sources */,
 				1812E68F20B8A3EB00E484C6 /* PSAPIManagerBase.swift in Sources */,
 				A16142DC20AC11E600421414 /* PSSelectReportTypeViewController.swift in Sources */,
+				A1654242212AFBFA00B1CB7D /* PSDefinitionViewController.swift in Sources */,
 				C409873F20DED2E200081069 /* PSReportActionsViewController.swift in Sources */,
 				1811261920BDE52900ABA494 /* PSAPIManager+Checklist.swift in Sources */,
 				A11DF69220D8F0FF0079D861 /* MenuViewController.swift in Sources */,
@@ -848,6 +855,7 @@
 				18AD08D820DF855D0096A910 /* PSCloseReportViewController.swift in Sources */,
 				18C8FC2820E16291000E15CE /* PSSettingsViewController.swift in Sources */,
 				1812E69420B8A4D800E484C6 /* PSUserInterfaceManager.swift in Sources */,
+				A1654240212AFA1000B1CB7D /* PSTrainingViewController.swift in Sources */,
 				C409873D20DED27D00081069 /* PSSendAlertViewController.swift in Sources */,
 				18FDED4220B04F82009CBA0B /* PhotoViewController.swift in Sources */,
 				1812E68B20B8A32100E484C6 /* PSAuthenticationAPIManager.swift in Sources */,
