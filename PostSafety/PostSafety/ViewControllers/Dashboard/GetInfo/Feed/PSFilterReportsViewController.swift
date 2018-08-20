@@ -124,14 +124,14 @@ class PSFilterReportsViewController: UIViewController,IQDropDownTextFieldDelegat
         {
             PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Select Post Sender")
         }
-        else if self.reportStartDateDDTextField.text == ""
-        {
-            PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Select Post Start Date")
-        }
-        else if self.reportEndDateDDTextField.text == ""
-        {
-            PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Select Post End Date")
-        }
+//        else if self.reportStartDateDDTextField.text == ""
+//        {
+//            PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Select Post Start Date")
+//        }
+//        else if self.reportEndDateDDTextField.text == ""
+//        {
+//            PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Select Post End Date")
+//        }
         else if date1 == date2
         {
             PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Start Date should be smaller than End Date")
@@ -147,24 +147,12 @@ class PSFilterReportsViewController: UIViewController,IQDropDownTextFieldDelegat
             print(self.reportStartDateDDTextField.text ?? "")
             print(self.reportEndDateDDTextField.text ?? "")
             
-            if reportTypeDDTextField.selectedItem == "All"
-            {
-                
-            }
-            if reportLocationDDTextField.selectedItem == "All"
-            {
-                
-            }
-            if reportSenderDDTextField.selectedItem == "All"
-            {
-                
-            }
-            
             filterDictionary["ReportType"] = self.reportTypeDDTextField.selectedItem
             filterDictionary.setValue(self.reportTypeDDTextField.selectedItem, forKey: "ReportType")
             filterDictionary.setValue(self.reportSenderDDTextField.selectedItem, forKey: "ReportedBy")
             filterDictionary.setValue(self.reportStartDateDDTextField.text, forKey: "startdate")
             filterDictionary.setValue(self.reportEndDateDDTextField.text, forKey: "enddate")
+            
             if self.reportStatusDDTextField.selectedItem == "Open Posts"
             {
                 filterDictionary.setValue(NSNumber.init(value: true), forKey: "Status")
