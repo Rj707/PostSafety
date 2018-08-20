@@ -15,6 +15,7 @@ class PSPostedReportOverviewViewController: UIViewController,MFMessageComposeVie
 
     var reportOverviewDict = NSDictionary.init()
     
+    @IBOutlet weak var postIDLable: UILabel!
     @IBOutlet weak var typeLable: UILabel!
     @IBOutlet weak var categoryLable: UILabel!
     @IBOutlet weak var subCategoryLable: UILabel!
@@ -49,6 +50,7 @@ class PSPostedReportOverviewViewController: UIViewController,MFMessageComposeVie
             }
         }
         
+        self.postIDLable.text = self.reportOverviewDict["reportId"] is NSNull ? "N/A" : String(self.reportOverviewDict["reportId"] as! Int)
         self.timeLable.text = self.reportOverviewDict["time"] is NSNull ? "N/A" : self.reportOverviewDict["time"] as! String
         self.dateLable.text = self.reportOverviewDict["date"] is NSNull ? "N/A" : self.reportOverviewDict["date"] as! String
         self.reporterLable.text = self.reportOverviewDict["reportedBy"] is NSNull ? "N/A" : self.reportOverviewDict["reportedBy"] as! String
@@ -68,7 +70,7 @@ class PSPostedReportOverviewViewController: UIViewController,MFMessageComposeVie
         self.categoryLable.text = self.reportOverviewDict["catagory"] as! String == "" ? "N/A" : self.reportOverviewDict["catagory"] as! String
         self.reporterPhoneNumberLable.text = self.reportOverviewDict["reportedByNumber"] as! String == "" ? "N/A" : self.reportOverviewDict["reportedByNumber"] as! String
         
-        
+        self.postIDLable.text =  self.postIDLable.text?.components(separatedBy: .newlines).joined()
         self.timeLable.text =  self.timeLable.text?.components(separatedBy: .newlines).joined()
         self.dateLable.text =  self.dateLable.text?.components(separatedBy: .newlines).joined()
         self.reporterLable.text =  self.reporterLable.text?.components(separatedBy: .newlines).joined()
