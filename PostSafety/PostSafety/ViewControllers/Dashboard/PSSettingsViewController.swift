@@ -23,6 +23,11 @@ class PSSettingsViewController: UIViewController
     {
         super.viewDidLoad()
 
+        self.configureAndInitialize()
+    }
+    
+    func configureAndInitialize()
+    {
         phoneNumberTextField?.text = PSDataManager.sharedInstance.loggedInUser?.phone
         self.passwordTextFieldContainer?.layer.borderWidth = 2
         self.passwordTextFieldContainer?.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
@@ -30,8 +35,6 @@ class PSSettingsViewController: UIViewController
         self.confirmPasswordTextFieldContainer?.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.phoneNumberTextFieldContainer?.layer.borderWidth = 2
         self.phoneNumberTextFieldContainer?.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
-        
-        // Do any additional setup after loading the view.
     }
 
     // MARK: - IBActions

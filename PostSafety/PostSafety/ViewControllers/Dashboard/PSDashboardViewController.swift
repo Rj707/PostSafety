@@ -32,6 +32,11 @@ class PSDashboardViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
+    func configureAndInitialize()
+    {
+        
+    }
+    
     // MARK: - IBActions
     
     @IBAction func backButtonTouched(_ sender: UIButton)

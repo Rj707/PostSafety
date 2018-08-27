@@ -23,6 +23,11 @@ class PSLogInViewController: UIViewController
     {
         super.viewDidLoad()
         
+        self.configureAndInitialize()
+    }
+    
+    func configureAndInitialize()
+    {
         self.phoneNumberTextField?.text = "4038709552"
         self.passowrdTextField?.text = "123456"
         
@@ -34,7 +39,6 @@ class PSLogInViewController: UIViewController
         
         text?.addAttribute(NSForegroundColorAttributeName, value: UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1), range: NSRange(location: 39, length: 12))
         termsLabel?.attributedText = text
-        
     }
 
     override func didReceiveMemoryWarning()

@@ -377,6 +377,10 @@
                             <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewp-7c-2bj">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Ycy-dQ-zZj" appends="YES" id="nYK-Cs-Or9"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eMX-KM-W5m" userLabel="Main Container">
                                 <rect key="frame" x="0.0" y="183.5" width="320" height="221.5"/>
@@ -446,7 +450,11 @@
                     <navigationItem key="navigationItem" id="aBp-bE-UWu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UfG-Kj-Ycg" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="dCu-xj-8Nj"/>
+                <tapGestureRecognizer id="Ycy-dQ-zZj">
+                    <connections>
+                        <action selector="backgroundViewGestureTouched:" destination="cFh-QJ-OHk" id="kXs-9F-sor"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3598" y="35"/>
         </scene>

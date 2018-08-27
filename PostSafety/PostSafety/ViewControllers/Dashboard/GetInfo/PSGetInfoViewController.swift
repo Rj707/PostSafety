@@ -29,6 +29,17 @@ class PSGetInfoViewController: UIViewController
         
         self.addMenuAction()
         
+        self.configureAndInitialize()
+    }
+
+    override func didReceiveMemoryWarning()
+    {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func configureAndInitialize()
+    {
         if PSDataManager.sharedInstance.loggedInUser?.employeeType == "Admin"
         {
             self.summaryStatisticsStackView.isHidden = false
@@ -48,12 +59,6 @@ class PSGetInfoViewController: UIViewController
         self.view2.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view3.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view4.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
-    }
-
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - IBActions

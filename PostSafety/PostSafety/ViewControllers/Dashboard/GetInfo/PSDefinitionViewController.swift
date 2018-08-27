@@ -13,6 +13,7 @@ class PSDefinitionViewController: UIViewController,UITableViewDelegate,UITableVi
 
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var definitionsTableView: UITableView!
+    
     var definitionsArray = [Any]()
     
     override func viewDidLoad()
@@ -21,16 +22,7 @@ class PSDefinitionViewController: UIViewController,UITableViewDelegate,UITableVi
         
         self.addMenuAction()
         
-        definitionsTableView.delegate = self
-        definitionsTableView.dataSource = self
-        definitionsTableView.alwaysBounceVertical = false
-        
-        definitionsArray.append("- The inputs should show which options should be selected. So this screen should show ‘Open’ for post status, ‘All’ for Type, Location and Sender, and nothing for the dates.")
-        definitionsArray.append("-I also noticed that the filters require the user to select a start and end date. Please disable that requirement.")
-        definitionsArray.append("- With the above changes in mind, please check that the sort posts functionality is working correctly.")
-        
-        
-        // Do any additional setup after loading the view.
+        self.configureAndInitialize()
     }
 
     override func didReceiveMemoryWarning()
@@ -39,6 +31,16 @@ class PSDefinitionViewController: UIViewController,UITableViewDelegate,UITableVi
         // Dispose of any resources that can be recreated.
     }
     
+    func configureAndInitialize()
+    {
+        definitionsTableView.delegate = self
+        definitionsTableView.dataSource = self
+        definitionsTableView.alwaysBounceVertical = false
+        
+        definitionsArray.append("- The inputs should show which options should be selected. So this screen should show ‘Open’ for post status, ‘All’ for Type, Location and Sender, and nothing for the dates.")
+        definitionsArray.append("-I also noticed that the filters require the user to select a start and end date. Please disable that requirement.")
+        definitionsArray.append("- With the above changes in mind, please check that the sort posts functionality is working correctly.")
+    }
 
     func addMenuAction()
     {

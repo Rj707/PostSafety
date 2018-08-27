@@ -8,17 +8,25 @@
 
 import UIKit
 
-class PSTermsOfUseViewController: UIViewController {
+class PSTermsOfUseViewController: UIViewController
+{
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func configureAndInitialize()
+    {
+        
     }
     
     // MARK: - IBActions
@@ -29,6 +37,14 @@ class PSTermsOfUseViewController: UIViewController {
     }
     
     @IBAction func agreeAndContinueButtonTouched(_ sender: UIButton)
+    {
+        self.dismiss(animated: true)
+        {
+            
+        }
+    }
+    
+    @IBAction func backgroundViewGestureTouched(_ sender: Any)
     {
         self.dismiss(animated: true)
         {

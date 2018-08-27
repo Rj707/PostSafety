@@ -13,60 +13,28 @@ class PSAlertsAnnouncementsViewController: UIViewController
     @IBOutlet weak var view3: UIView!
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view1: UIView!
-    
     @IBOutlet weak var menuButton:UIButton!
     
     var alertsArray = [Any]()
     var companyId = 0
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
+        self.configureAndInitialize()
+        
+        self.addMenuAction()
+    }
+    
+    func configureAndInitialize()
+    {
         self.view1.layer.borderWidth=1
         self.view2.layer.borderWidth=1
         self.view3.layer.borderWidth=1
         self.view1.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view2.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view3.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
-        
-        self.addMenuAction()
-        
-//        if CEReachabilityManager.isReachable()
-//        {
-//            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Notifications")
-//            companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
-//            PSAPIManager.sharedInstance.getNotificationsFor(companyId: String(companyId), success:
-//            { (dic) in
-//                PSUserInterfaceManager.sharedInstance.hideLoader()
-//                let tempArray = dic["array"] as! [Any]
-//                
-//                for checklistDict in tempArray
-//                {
-//                    if let tempDict = checklistDict as? [String: Any]
-//                    {
-//                        self.alertsArray.append(tempDict)
-//                    }
-//                }
-//                
-//                //                    self.configureReportTypes()
-//                print(self.alertsArray)
-//                
-//            }, failure:
-//            { (error:NSError,statusCode:Int) in
-//            
-//                PSUserInterfaceManager.sharedInstance.hideLoader()
-//                if(statusCode==404)
-//                {
-//                    
-//                    PSUserInterfaceManager.showAlert(title: "Fetching Notifications", message: ApiErrorMessage.ErrorOccured)
-//                }
-//                else
-//                {
-//                    
-//                }
-//                
-//            }, errorPopup: true)
-//        }
     }
     
     // MARK: - IBActions

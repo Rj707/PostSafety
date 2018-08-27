@@ -32,6 +32,24 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
     {
         super.viewDidLoad()
         
+        self.configureAndInitialize()
+    }
+    
+    
+    override var prefersStatusBarHidden: Bool
+    {
+        return true
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        captureButton.delegate = self
+        timeLabel.isHidden = true
+    }
+    
+    func configureAndInitialize()
+    {
         cameraDelegate = self
         maximumVideoDuration = 10.0
         shouldUseDeviceOrientation = true
@@ -52,21 +70,8 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         {
             
         }
+        
         self.createReport()
-    }
-    
-    
-    
-    override var prefersStatusBarHidden: Bool
-    {
-        return true
-    }
-    
-    override func viewDidAppear(_ animated: Bool)
-    {
-        super.viewDidAppear(animated)
-        captureButton.delegate = self
-        timeLabel.isHidden = true
     }
     
     // MARK: SwiftyCamViewController

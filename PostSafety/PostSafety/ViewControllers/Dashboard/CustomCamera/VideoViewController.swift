@@ -50,6 +50,12 @@ class VideoViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.configureAndInitialize()
+    }
+    
+    func configureAndInitialize()
+    {
         self.isPlayingVideo = false
         self.view.backgroundColor = UIColor.gray
         player = AVPlayer(url: videoURL)
@@ -93,7 +99,6 @@ class VideoViewController: UIViewController
             
         }
         print("ABC")
-        
     }
     
     override func viewDidAppear(_ animated: Bool)

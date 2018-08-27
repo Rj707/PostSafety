@@ -14,21 +14,28 @@ class PSCreatePasswordViewController: UIViewController
     @IBOutlet weak var confirmPasswordTextFieldContainer:UIView?
     @IBOutlet weak var passwordTextField:UITextField?
     @IBOutlet weak var confirmPasswordTextField:UITextField?
+    
     var loggedInUser : PSUser?
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
-        self.passwordTextFieldContainer?.layer.borderWidth = 2
-        self.passwordTextFieldContainer?.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
-        self.confirmPasswordTextFieldContainer?.layer.borderWidth = 2
-        self.confirmPasswordTextFieldContainer?.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        self.configureAndInitialize()
     }
 
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func configureAndInitialize()
+    {
+        self.passwordTextFieldContainer?.layer.borderWidth = 2
+        self.passwordTextFieldContainer?.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        self.confirmPasswordTextFieldContainer?.layer.borderWidth = 2
+        self.confirmPasswordTextFieldContainer?.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
     }
     
     // MARK: - IBActions
