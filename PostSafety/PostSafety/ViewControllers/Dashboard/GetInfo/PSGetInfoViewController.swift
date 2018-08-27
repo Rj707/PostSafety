@@ -17,8 +17,6 @@ class PSGetInfoViewController: UIViewController
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var menuButton: UIButton!
-    
-    
     @IBOutlet weak var summaryStatisticsStackView: UIStackView!
     
     var cheklistArray = [Any]()

@@ -10,13 +10,14 @@ import UIKit
 
 class PSSettingsViewController: UIViewController
 {
+    
     @IBOutlet weak var passwordTextFieldContainer:UIView?
     @IBOutlet weak var confirmPasswordTextFieldContainer:UIView?
     @IBOutlet weak var phoneNumberTextFieldContainer:UIView?
-    
     @IBOutlet weak var passwordTextField:UITextField?
     @IBOutlet weak var confirmPasswordTextField:UITextField?
     @IBOutlet weak var phoneNumberTextField:UITextField?
+    
     var EmployeeID = 0
     
     override func viewDidLoad()

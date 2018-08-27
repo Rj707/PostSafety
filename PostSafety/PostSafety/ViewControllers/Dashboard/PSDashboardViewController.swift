@@ -10,8 +10,8 @@ import UIKit
 
 class PSDashboardViewController: UIViewController
 {
-    @IBOutlet weak var menuButton:UIButton!
     
+    @IBOutlet weak var menuButton:UIButton!
     @IBOutlet weak var receiveContainer:UIView!
     @IBOutlet weak var reportContainer:UIView!
     

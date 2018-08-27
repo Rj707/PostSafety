@@ -10,6 +10,7 @@ import UIKit
 
 class PSAlertsAnnouncementsViewController: UIViewController
 {
+    
     @IBOutlet weak var view3: UIView!
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view1: UIView!

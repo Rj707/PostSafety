@@ -18,13 +18,9 @@ import UIKit
 class PhotoViewController: UIViewController
 {
 
-	override var prefersStatusBarHidden: Bool
-    {
-		return true
-	}
     public var delegate:PhotoViewControllerDelegate!
-	private var backgroundImage: UIImage
-
+    private var backgroundImage: UIImage
+    
 	init(image: UIImage)
     {
 		self.backgroundImage = image
@@ -42,6 +38,11 @@ class PhotoViewController: UIViewController
         
 		self.configureAndInitialize()
 	}
+    
+    override var prefersStatusBarHidden: Bool
+    {
+        return true
+    }
     
     func configureAndInitialize()
     {

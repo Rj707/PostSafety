@@ -20,11 +20,6 @@ import AVKit
 class VideoViewController: UIViewController
 {
     
-    override var prefersStatusBarHidden: Bool
-    {
-        return true
-    }
-    
     public var delegate:VideoViewControllerDelegate!
     private var videoURL: URL
     var player: AVPlayer?
@@ -52,6 +47,11 @@ class VideoViewController: UIViewController
         super.viewDidLoad()
         
         self.configureAndInitialize()
+    }
+    
+    override var prefersStatusBarHidden: Bool
+    {
+        return true
     }
     
     func configureAndInitialize()
