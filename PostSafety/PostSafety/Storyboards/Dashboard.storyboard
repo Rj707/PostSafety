@@ -1846,11 +1846,10 @@
                                 <rect key="frame" x="40" y="406" width="240" height="44"/>
                                 <color key="backgroundColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="G7y-0D-Zzc"/>
                                     <constraint firstAttribute="height" constant="44" id="cYs-6f-LCS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="21"/>
-                                <state key="normal" title="Take Video">
+                                <state key="normal" title="Start Video">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -1872,6 +1871,7 @@
                             <constraint firstItem="Pta-0I-Rfl" firstAttribute="top" secondItem="nuz-jX-Rdh" secondAttribute="bottom" constant="24" id="JnW-35-ftj"/>
                             <constraint firstItem="Pta-0I-Rfl" firstAttribute="top" secondItem="3q4-Mf-2ts" secondAttribute="bottom" constant="8" id="K1H-tJ-SWK"/>
                             <constraint firstItem="3q4-Mf-2ts" firstAttribute="centerY" secondItem="C9E-K1-C1A" secondAttribute="centerY" id="OiB-28-3ta"/>
+                            <constraint firstItem="Pta-0I-Rfl" firstAttribute="width" secondItem="C9E-K1-C1A" secondAttribute="width" multiplier="240/320" id="P1S-WZ-nhU"/>
                             <constraint firstItem="3q4-Mf-2ts" firstAttribute="leading" secondItem="C9E-K1-C1A" secondAttribute="leading" constant="16" id="Xdw-OG-CIC"/>
                             <constraint firstItem="HCc-tm-bzf" firstAttribute="top" secondItem="C9E-K1-C1A" secondAttribute="top" id="j9s-Zp-xQL"/>
                             <constraint firstItem="3q4-Mf-2ts" firstAttribute="centerX" secondItem="C9E-K1-C1A" secondAttribute="centerX" id="rrq-q2-uxS"/>
