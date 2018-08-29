@@ -28,9 +28,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="7Uc-Hk-UNP">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                             </imageView>
-                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gee-18-Vle">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gee-18-Vle">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <color key="backgroundColor" red="0.27450980392156865" green="0.27450980392156865" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tqj-i1-fgM" userLabel="Main Container">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
@@ -311,20 +311,20 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HzO-NW-nvW">
                                                                 <rect key="frame" x="49" y="49.5" width="240" height="240"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tick" translatesAutoresizingMaskIntoConstraints="NO" id="byr-3g-seN">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tick" translatesAutoresizingMaskIntoConstraints="NO" id="byr-3g-seN">
+                                                                        <rect key="frame" x="-6" y="-6" width="252" height="252"/>
                                                                     </imageView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="240" id="BoZ-4q-L1m"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="byr-3g-seN" secondAttribute="trailing" id="CK5-8H-EEf"/>
-                                                                    <constraint firstItem="byr-3g-seN" firstAttribute="top" secondItem="HzO-NW-nvW" secondAttribute="top" id="DNH-8g-oS5"/>
-                                                                    <constraint firstItem="byr-3g-seN" firstAttribute="leading" secondItem="HzO-NW-nvW" secondAttribute="leading" id="JjX-4V-ZM4"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="byr-3g-seN" secondAttribute="trailing" constant="-6" id="CK5-8H-EEf"/>
+                                                                    <constraint firstItem="byr-3g-seN" firstAttribute="top" secondItem="HzO-NW-nvW" secondAttribute="top" constant="-6" id="DNH-8g-oS5"/>
+                                                                    <constraint firstItem="byr-3g-seN" firstAttribute="leading" secondItem="HzO-NW-nvW" secondAttribute="leading" constant="-6" id="JjX-4V-ZM4"/>
                                                                     <constraint firstItem="byr-3g-seN" firstAttribute="centerY" secondItem="HzO-NW-nvW" secondAttribute="centerY" id="VZ4-KC-RdH"/>
                                                                     <constraint firstAttribute="width" secondItem="HzO-NW-nvW" secondAttribute="height" multiplier="1:1" id="Zhg-gC-Dp0"/>
                                                                     <constraint firstItem="byr-3g-seN" firstAttribute="centerX" secondItem="HzO-NW-nvW" secondAttribute="centerX" id="jDt-7p-lbD"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="byr-3g-seN" secondAttribute="bottom" id="lsg-PZ-U7U"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="byr-3g-seN" secondAttribute="bottom" constant="-6" id="lsg-PZ-U7U"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -368,7 +368,7 @@
                                             <constraint firstAttribute="height" constant="44" id="oy3-aw-R2r"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                        <state key="normal" title="Return to Send Post/Get Info">
+                                        <state key="normal" title="Return to Home">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -1940,20 +1940,30 @@
                                                                 <rect key="frame" x="39.5" y="0.0" width="240" height="240"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tick" translatesAutoresizingMaskIntoConstraints="NO" id="eVR-lF-hby">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
+                                                                        <rect key="frame" x="-6" y="-6" width="252" height="252"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                <integer key="value" value="120"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </imageView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="240" id="8VE-0j-8pN"/>
                                                                     <constraint firstItem="eVR-lF-hby" firstAttribute="centerY" secondItem="eIb-yo-46V" secondAttribute="centerY" id="Aa7-vj-ueR"/>
-                                                                    <constraint firstItem="eVR-lF-hby" firstAttribute="top" secondItem="eIb-yo-46V" secondAttribute="top" id="FDH-I9-WWV"/>
+                                                                    <constraint firstItem="eVR-lF-hby" firstAttribute="top" secondItem="eIb-yo-46V" secondAttribute="top" constant="-6" id="FDH-I9-WWV"/>
                                                                     <constraint firstItem="eVR-lF-hby" firstAttribute="centerX" secondItem="eIb-yo-46V" secondAttribute="centerX" id="HfB-2H-8fS"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="eVR-lF-hby" secondAttribute="bottom" id="Hfb-TN-oO5"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="eVR-lF-hby" secondAttribute="bottom" constant="-6" id="Hfb-TN-oO5"/>
                                                                     <constraint firstAttribute="width" secondItem="eIb-yo-46V" secondAttribute="height" multiplier="1:1" id="IhQ-9u-c7y"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="eVR-lF-hby" secondAttribute="trailing" id="SeP-ij-9YU"/>
-                                                                    <constraint firstItem="eVR-lF-hby" firstAttribute="leading" secondItem="eIb-yo-46V" secondAttribute="leading" id="ZVm-mM-Ifr"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="eVR-lF-hby" secondAttribute="trailing" constant="-6" id="SeP-ij-9YU"/>
+                                                                    <constraint firstItem="eVR-lF-hby" firstAttribute="leading" secondItem="eIb-yo-46V" secondAttribute="leading" constant="-6" id="ZVm-mM-Ifr"/>
                                                                 </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="120"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </view>
                                                         </subviews>
                                                         <constraints>
@@ -2021,7 +2031,7 @@
                                             <constraint firstAttribute="height" constant="44" id="jmD-cf-htB"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                        <state key="normal" title="Return to Send Post/Get Info">
+                                        <state key="normal" title="Return to Home">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -2510,20 +2520,19 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SFz-eG-Vhp">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-wifi" translatesAutoresizingMaskIntoConstraints="NO" id="GP2-ds-ufT">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-wifi" translatesAutoresizingMaskIntoConstraints="NO" id="GP2-ds-ufT">
+                                                <rect key="frame" x="-6" y="-6" width="252" height="252"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="GP2-ds-ufT" firstAttribute="centerY" secondItem="SFz-eG-Vhp" secondAttribute="centerY" id="AXV-st-TVF"/>
-                                            <constraint firstItem="GP2-ds-ufT" firstAttribute="top" secondItem="SFz-eG-Vhp" secondAttribute="top" id="AXX-dE-6aa"/>
-                                            <constraint firstAttribute="trailing" secondItem="GP2-ds-ufT" secondAttribute="trailing" id="KPl-Xt-DNT"/>
-                                            <constraint firstItem="GP2-ds-ufT" firstAttribute="centerX" secondItem="SFz-eG-Vhp" secondAttribute="centerX" id="XgH-ck-9Z8"/>
+                                            <constraint firstItem="GP2-ds-ufT" firstAttribute="leading" secondItem="SFz-eG-Vhp" secondAttribute="leading" constant="-6" id="3Xb-h8-qFE"/>
+                                            <constraint firstItem="GP2-ds-ufT" firstAttribute="centerY" secondItem="SFz-eG-Vhp" secondAttribute="centerY" id="60Q-XT-Nd9"/>
+                                            <constraint firstItem="GP2-ds-ufT" firstAttribute="centerX" secondItem="SFz-eG-Vhp" secondAttribute="centerX" id="buC-fJ-KQb"/>
                                             <constraint firstAttribute="width" secondItem="SFz-eG-Vhp" secondAttribute="height" multiplier="1:1" id="gMe-4O-su7"/>
-                                            <constraint firstAttribute="height" constant="240" id="j5s-ut-2vK"/>
-                                            <constraint firstItem="GP2-ds-ufT" firstAttribute="leading" secondItem="SFz-eG-Vhp" secondAttribute="leading" id="lz4-HA-flj"/>
-                                            <constraint firstAttribute="bottom" secondItem="GP2-ds-ufT" secondAttribute="bottom" id="yEH-4r-ytq"/>
+                                            <constraint firstAttribute="trailing" secondItem="GP2-ds-ufT" secondAttribute="trailing" constant="-6" id="n3a-XY-o84"/>
+                                            <constraint firstAttribute="bottom" secondItem="GP2-ds-ufT" secondAttribute="bottom" constant="-6" id="tVd-GQ-KLZ"/>
+                                            <constraint firstItem="GP2-ds-ufT" firstAttribute="top" secondItem="SFz-eG-Vhp" secondAttribute="top" constant="-6" id="uQf-dr-n52"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -2547,7 +2556,7 @@
                                             <constraint firstAttribute="height" constant="44" id="amA-Bh-ddn"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                        <state key="normal" title="Return to Send Post/Get Info">
+                                        <state key="normal" title="Return to Home">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
