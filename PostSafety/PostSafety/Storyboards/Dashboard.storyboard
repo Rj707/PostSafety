@@ -541,6 +541,7 @@
                         <outlet property="captureButton" destination="4sD-44-2QB" id="wIz-NC-ow8"/>
                         <outlet property="flashButton" destination="HEn-Tg-E18" id="jgh-RZ-pdM"/>
                         <outlet property="flipCameraButton" destination="3uG-BI-bgp" id="ffc-dg-1v3"/>
+                        <outlet property="photoVideoLabel" destination="hH6-ea-whc" id="eiz-Bh-JuQ"/>
                         <outlet property="progressView" destination="jUU-wb-sBC" id="MPo-yl-goA"/>
                         <outlet property="timeLabel" destination="sqI-mT-qOC" id="qLI-a0-6hh"/>
                     </connections>

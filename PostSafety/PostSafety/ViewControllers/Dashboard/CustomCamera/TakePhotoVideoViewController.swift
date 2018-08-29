@@ -17,6 +17,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
     @IBOutlet weak var flashButton: UIButton!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var photoVideoLabel: UILabel!
     
     var incidentTypeID = 0
     var employeeID = 0
@@ -50,6 +51,15 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
     
     func configureAndInitialize()
     {
+        if PSDataManager.sharedInstance.report?.reportType != "Emergency"
+        {
+            self.photoVideoLabel.text = "Tap for photo, hold down for video"
+        }
+        else
+        {
+            self.photoVideoLabel.text = "Hold down for video"
+        }
+        
         cameraDelegate = self
         maximumVideoDuration = 10.0
         shouldUseDeviceOrientation = true
@@ -78,9 +88,12 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage)
     {
-        let newVC = PhotoViewController(image: photo)
-        newVC.delegate = self
-        self.present(newVC, animated: true, completion: nil)
+        if PSDataManager.sharedInstance.report?.reportType != "Emergency"
+        {
+            let newVC = PhotoViewController(image: photo)
+            newVC.delegate = self
+            self.present(newVC, animated: true, completion: nil)
+        }
     }
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didBeginRecordingVideo camera: SwiftyCamViewController.CameraSelection)
