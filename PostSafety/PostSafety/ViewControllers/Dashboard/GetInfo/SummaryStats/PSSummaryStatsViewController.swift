@@ -10,6 +10,7 @@ import UIKit
 
 class PSSummaryStatsViewController: UIViewController
 {
+    
     @IBOutlet weak var menuButton:UIButton!
     @IBOutlet weak var yesterdayView: UIView!
     @IBOutlet weak var monthView: UIView!
@@ -29,8 +30,9 @@ class PSSummaryStatsViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-//        self.addMenuAction()
+
         self.getSummaryStatsCount()
+        
         self.yesterdayView.layer.borderWidth=2
         self.monthView.layer.borderWidth=2
         self.yearView.layer.borderWidth=2
@@ -39,9 +41,9 @@ class PSSummaryStatsViewController: UIViewController
         self.monthView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.yearView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         
-        self.view1.layer.borderWidth=2
-        self.view2.layer.borderWidth=2
-        self.view3.layer.borderWidth=2
+        self.view1.layer.borderWidth=1
+        self.view2.layer.borderWidth=1
+        self.view3.layer.borderWidth=1
         
         self.view1.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view2.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor

@@ -37,10 +37,10 @@ class PSSummaryStatsReportTypeViewController: UIViewController
         self.incidentLabel.text = String(format: "%@%@%@%@", "Incidents ","(", String(summaryStatisticsDict["numberOfIncidents"] as! Int),")")
         self.emergencyLabel.text = String(format: "%@%@%@%@", "Emergencies ","(", String(summaryStatisticsDict["numberOfEmergencies"] as! Int),")")
         
-        self.view1.layer.borderWidth=2
-        self.view2.layer.borderWidth=2
-        self.view3.layer.borderWidth=2
-        self.view4.layer.borderWidth=2
+        self.view1.layer.borderWidth=1
+        self.view2.layer.borderWidth=1
+        self.view3.layer.borderWidth=1
+        self.view4.layer.borderWidth=1
         
         self.view4.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view1.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
