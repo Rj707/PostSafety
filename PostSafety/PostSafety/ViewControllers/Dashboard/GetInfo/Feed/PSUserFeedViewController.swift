@@ -420,6 +420,12 @@ class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableVi
             cell.dateLabel.text = dic["createdDate"] as? String
             cell.timeLabel.text = dic["createdTime"] as? String
         }
+        else
+        {
+            cell.dateLabel.text = dic["createdDate"] as? String
+            cell.timeLabel.text = dic["createdTime"] as? String
+        }
+        
         cell.titleLabel.text =  cell.titleLabel.text?.components(separatedBy: .newlines).joined()
         return cell
     }
