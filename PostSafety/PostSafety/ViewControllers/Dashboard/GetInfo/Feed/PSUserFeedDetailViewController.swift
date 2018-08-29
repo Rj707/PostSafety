@@ -12,7 +12,7 @@ class PSUserFeedDetailViewController: UIViewController
 {
     @IBOutlet weak var menuButton:UIButton!
     @IBOutlet weak var feedDetailTitleLabel: UILabel!
-    @IBOutlet weak var feedDetailTextView: UITextView!
+    @IBOutlet weak var feedDetailTextView: UITextView?
     @IBOutlet weak var feedDetailAttachmentButton: UIButton!
     
     var feedDetailTitle: String = ""
@@ -26,12 +26,12 @@ class PSUserFeedDetailViewController: UIViewController
 
         self.addMenuAction()
         
-        self.feedDetailTextView.layer.borderWidth=1
-        self.feedDetailTextView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        self.feedDetailTextView?.layer.borderWidth=1
+        self.feedDetailTextView?.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         
         self.feedDetailTitleLabel.text = self.feedDict["title"] as? String
-        self.feedDetailTextView.text = self.feedDict["details"] is NSNull ? "No Data" : self.feedDict["details"] as! String
-        
+        self.feedDetailTextView?.text = self.feedDict["details"] is NSNull ? "No Data" : self.feedDict["details"] as! String
+        self.feedDetailTextView?.isEditable = false
         switch feedTitle
         {
             case "Alerts":

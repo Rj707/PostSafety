@@ -985,9 +985,9 @@
                                 </constraints>
                                 <state key="normal" image="menu"/>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KT6-qq-NiT">
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KT6-qq-NiT">
                                 <rect key="frame" x="24" y="158" width="327" height="361"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.92941176469999998" green="0.42352941179999998" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1021,14 +1021,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KBz-hF-eYX">
+                                <rect key="frame" x="24" y="158" width="327" height="361"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="KBz-hF-eYX" firstAttribute="bottom" secondItem="KT6-qq-NiT" secondAttribute="bottom" id="2RG-yy-396"/>
                             <constraint firstItem="lvS-19-pMc" firstAttribute="centerX" secondItem="A0g-id-Kqx" secondAttribute="centerX" id="5NB-B1-Ye4"/>
+                            <constraint firstItem="KBz-hF-eYX" firstAttribute="trailing" secondItem="KT6-qq-NiT" secondAttribute="trailing" id="6Gt-cP-V8g"/>
                             <constraint firstItem="xel-ee-F9U" firstAttribute="top" secondItem="KT6-qq-NiT" secondAttribute="bottom" constant="16" id="E5v-ot-6cc"/>
                             <constraint firstItem="vYW-9A-Rq8" firstAttribute="bottom" secondItem="XY3-Pg-ce3" secondAttribute="bottom" constant="48" id="ILi-vs-ZSu"/>
                             <constraint firstItem="KT6-qq-NiT" firstAttribute="top" secondItem="Rdr-tL-JFM" secondAttribute="bottom" constant="8" id="NZe-Ap-ClL"/>
                             <constraint firstItem="KT6-qq-NiT" firstAttribute="leading" secondItem="Rdr-tL-JFM" secondAttribute="leading" id="QFK-ue-Jtv"/>
+                            <constraint firstItem="KBz-hF-eYX" firstAttribute="leading" secondItem="KT6-qq-NiT" secondAttribute="leading" id="Qc7-vv-8RH"/>
                             <constraint firstItem="KT6-qq-NiT" firstAttribute="leading" secondItem="vYW-9A-Rq8" secondAttribute="leading" constant="24" id="TdR-ug-QiH"/>
                             <constraint firstItem="KT6-qq-NiT" firstAttribute="top" secondItem="lvS-19-pMc" secondAttribute="bottom" constant="40" id="VGx-qE-6LM"/>
                             <constraint firstItem="fFe-BE-qHO" firstAttribute="leading" secondItem="YIk-Ii-RNX" secondAttribute="leading" id="eVb-zV-KyU"/>
@@ -1042,13 +1052,14 @@
                             <constraint firstItem="vYW-9A-Rq8" firstAttribute="trailing" secondItem="xel-ee-F9U" secondAttribute="trailing" constant="24" id="uwX-fo-u2n"/>
                             <constraint firstItem="vYW-9A-Rq8" firstAttribute="trailing" secondItem="YIk-Ii-RNX" secondAttribute="trailing" id="vbz-VV-E6P"/>
                             <constraint firstItem="YIk-Ii-RNX" firstAttribute="top" secondItem="A0g-id-Kqx" secondAttribute="top" id="yDh-wC-rPv"/>
+                            <constraint firstItem="KBz-hF-eYX" firstAttribute="top" secondItem="KT6-qq-NiT" secondAttribute="top" id="z5e-kZ-AVM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vYW-9A-Rq8"/>
                     </view>
                     <navigationItem key="navigationItem" id="rYk-ab-U4x"/>
                     <connections>
                         <outlet property="feedDetailAttachmentButton" destination="xel-ee-F9U" id="FUu-zW-nWS"/>
-                        <outlet property="feedDetailTextView" destination="KT6-qq-NiT" id="ZDm-KF-9NT"/>
+                        <outlet property="feedDetailTextView" destination="KBz-hF-eYX" id="m22-VV-ZGV"/>
                         <outlet property="feedDetailTitleLabel" destination="lvS-19-pMc" id="ufv-Im-TPO"/>
                         <outlet property="menuButton" destination="fFe-BE-qHO" id="l4V-ZR-gqB"/>
                     </connections>
