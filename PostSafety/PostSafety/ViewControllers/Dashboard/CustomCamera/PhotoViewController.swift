@@ -51,11 +51,11 @@ class PhotoViewController: UIViewController
         backgroundImageView.contentMode = UIViewContentMode.scaleAspectFit
         backgroundImageView.image = backgroundImage
         view.addSubview(backgroundImageView)
-        let cancelButton = UIButton(frame: CGRect(x: 10.0, y: 40.0, width: 30.0, height: 30.0))
+        let cancelButton = UIButton(frame: CGRect(x: 10.0, y: 40.0, width: 40.0, height: 40.0))
         cancelButton.setImage(#imageLiteral(resourceName: "cross"), for: UIControlState())
         cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
         view.addSubview(cancelButton)
-        let sendButton = UIButton(frame: CGRect(x: self.view.frame.size.width-40, y: 40.0, width: 30.0, height: 30.0))
+        let sendButton = UIButton(frame: CGRect(x: self.view.frame.size.width-50, y: 40.0, width: 40.0, height: 40.0))
         sendButton.setImage(#imageLiteral(resourceName: "send"), for: UIControlState())
         sendButton.addTarget(self, action: #selector(send), for: .touchUpInside)
         view.addSubview(sendButton)
