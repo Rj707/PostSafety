@@ -32,47 +32,54 @@ class PSUserFeedDetailViewController: UIViewController
         self.feedDetailTitleLabel.text = self.feedDict["title"] as? String
         self.feedDetailTextView?.text = self.feedDict["details"] is NSNull ? "No Data" : self.feedDict["details"] as! String
         self.feedDetailTextView?.isEditable = false
-        switch feedTitle
+        if feedDict["isRead"] as! Int == 1
         {
-            case "Alerts":
-            
-                let ID = feedDict["notificationId"] as! NSNumber
-                let route = Route.NotificationIsRead.rawValue
-                self.archiveGetInfosFor(ID: ID.stringValue, route: route)
+            print("Read:No need to call API")
+        }
+        else
+        {
+            switch feedTitle
+            {
+                case "Alerts":
                 
-            break
-            
-            case "Announcements":
-                let ID = feedDict["notificationId"] as! NSNumber
-                let route = Route.NotificationIsRead.rawValue
-                self.archiveGetInfosFor(ID: ID.stringValue, route: route)
-            
-            break
-            
-            case "Training":
-                let ID = feedDict["traningId"] as! NSNumber
-                let route = Route.TrainingIsRead.rawValue
-                self.archiveGetInfosFor(ID: ID.stringValue , route: route)
-            
-            break
-            
-            case "Policies/Procedures":
-                let ID = feedDict["id"] as! NSNumber
+                    let ID = feedDict["notificationId"] as! NSNumber
+                    let route = Route.NotificationIsRead.rawValue
+                    self.archiveGetInfosFor(ID: ID.stringValue, route: route)
+                    
+                break
+                
+                case "Announcements":
+                    let ID = feedDict["notificationId"] as! NSNumber
+                    let route = Route.NotificationIsRead.rawValue
+                    self.archiveGetInfosFor(ID: ID.stringValue, route: route)
+                
+                break
+                
+                case "Training":
+                    let ID = feedDict["traningId"] as! NSNumber
+                    let route = Route.TrainingIsRead.rawValue
+                    self.archiveGetInfosFor(ID: ID.stringValue , route: route)
+                
+                break
+                
+                case "Policies/Procedures":
+                    let ID = feedDict["id"] as! NSNumber
 
-                let route = Route.ProcedurePolicyRead.rawValue
-                self.archiveGetInfosFor(ID: ID.stringValue, route: route)
-            
-            break
-            
-            case "Safety Updates":
-                let ID = feedDict["safetyId"] as! NSNumber
-                let route = Route.SafetyUpdatesRead.rawValue
-                self.archiveGetInfosFor(ID: ID.stringValue, route: route)
-            
-            break
-            
-            default:
-                print("")
+                    let route = Route.ProcedurePolicyRead.rawValue
+                    self.archiveGetInfosFor(ID: ID.stringValue, route: route)
+                
+                break
+                
+                case "Safety Updates":
+                    let ID = feedDict["safetyId"] as! NSNumber
+                    let route = Route.SafetyUpdatesRead.rawValue
+                    self.archiveGetInfosFor(ID: ID.stringValue, route: route)
+                
+                break
+                
+                default:
+                    print("")
+            }
         }
         
         
@@ -159,25 +166,6 @@ class PSUserFeedDetailViewController: UIViewController
             let EmployeeId = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
             PSAPIManager.sharedInstance.archiveGetInfoFor(EmployeeId : String(EmployeeId), ID: ID, route:route  ,success:
             { (dic) in
-                
-//                PSUserInterfaceManager.sharedInstance.hideLoader()
-                
-//                let tempArray = dic["array"] as! [Any]
-//
-//                for checklistDict in tempArray
-//                {
-//                    if let tempDict = checklistDict as? [String: Any]
-//                    {
-//                        if tempDict["isRead"] as! Int == 0
-//                        {
-//                            self.feedArray.append(tempDict)
-//                        }
-//                        else
-//                        {
-//                            print("Alread Read")
-//                        }
-//                    }
-//                }
                 
                     
             }, failure:
