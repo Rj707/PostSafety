@@ -23,6 +23,7 @@ class PSSummaryStatsReportTypeViewController: UIViewController
     @IBOutlet weak var emergencyLabel: UILabel!
     
     var summaryStatisticsTitle: String = ""
+    var summaryStatisticsTitleStatic: String = ""
     var DateType: String = ""
     
     
@@ -32,6 +33,7 @@ class PSSummaryStatsReportTypeViewController: UIViewController
     {
         super.viewDidLoad()
         self.addMenuAction()
+        self.summaryStatisticsTitleStatic = self.summaryStatisticsTitle
         self.hazardLabel.text =  String(format: "%@%@%@%@", "Hazards ","(", String(summaryStatisticsDict["numberOfHazards"] as! Int),")")
         self.nearMissLabel.text = String(format: "%@%@%@%@", "NearMisses  ","(", String(summaryStatisticsDict["numberOfNearMisses"] as! Int),")")
         self.incidentLabel.text = String(format: "%@%@%@%@", "Incidents ","(", String(summaryStatisticsDict["numberOfIncidents"] as! Int),")")
@@ -53,6 +55,12 @@ class PSSummaryStatsReportTypeViewController: UIViewController
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        self.summaryStatisticsTitle = self.summaryStatisticsTitleStatic
     }
     
     // MARK: - IBActions

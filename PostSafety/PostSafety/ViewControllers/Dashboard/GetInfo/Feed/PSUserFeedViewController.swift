@@ -145,6 +145,7 @@ class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableVi
             { (dic) in
                 
                 self.archivedArray = [Any] ()
+                self.feedArray = [Any] ()
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 var tempArray = dic["array"] as! [Any]
                 

@@ -1054,7 +1054,7 @@
                                     <action selector="attachmentButtonTouched:" destination="o0c-DC-IER" eventType="touchUpInside" id="wPo-Ro-uZJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XY3-Pg-ce3">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XY3-Pg-ce3">
                                 <rect key="frame" x="87.5" y="579" width="200" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1329,7 +1329,7 @@
                                     <outletCollection property="gestureRecognizers" destination="dQf-4e-4XI" appends="YES" id="EUJ-1C-SAc"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mv-QS-YEv">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mv-QS-YEv">
                                 <rect key="frame" x="107.5" y="619" width="160" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1447,10 +1447,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="GWQ-Tg-TEx">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oeG-GM-bQA">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oeG-GM-bQA">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TS1-ZN-0Gc" userLabel="Main Container">
@@ -1602,7 +1603,7 @@
                                         <state key="normal" image="menu"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.27450980390000002" green="0.27450980390000002" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Jno-nc-h2t" secondAttribute="trailing" id="0A8-CQ-5Po"/>
                                     <constraint firstItem="Jno-nc-h2t" firstAttribute="top" secondItem="Lw1-jg-9oz" secondAttribute="top" constant="20" id="20b-gl-ua1"/>
@@ -1620,21 +1621,17 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="oeG-GM-bQA" firstAttribute="top" secondItem="GWQ-Tg-TEx" secondAttribute="top" id="DDo-kf-inT"/>
+                            <constraint firstItem="GWQ-Tg-TEx" firstAttribute="top" secondItem="jJB-GR-bjf" secondAttribute="top" id="5RG-uP-wuM"/>
                             <constraint firstItem="xfy-MR-Ucr" firstAttribute="trailing" secondItem="Lw1-jg-9oz" secondAttribute="trailing" id="EzO-0Y-QMj"/>
+                            <constraint firstItem="GWQ-Tg-TEx" firstAttribute="leading" secondItem="xfy-MR-Ucr" secondAttribute="leading" id="FHu-Dl-NZN"/>
                             <constraint firstAttribute="bottom" secondItem="TS1-ZN-0Gc" secondAttribute="bottom" id="R4e-86-BqZ"/>
                             <constraint firstItem="Lw1-jg-9oz" firstAttribute="leading" secondItem="xfy-MR-Ucr" secondAttribute="leading" id="ReK-xc-dCa"/>
-                            <constraint firstItem="GWQ-Tg-TEx" firstAttribute="leading" secondItem="TS1-ZN-0Gc" secondAttribute="leading" id="V3e-Tr-aVq"/>
                             <constraint firstItem="Lw1-jg-9oz" firstAttribute="top" secondItem="jJB-GR-bjf" secondAttribute="top" id="X5o-sq-rk2"/>
-                            <constraint firstItem="GWQ-Tg-TEx" firstAttribute="top" secondItem="TS1-ZN-0Gc" secondAttribute="top" id="cws-yM-reJ"/>
-                            <constraint firstItem="oeG-GM-bQA" firstAttribute="leading" secondItem="GWQ-Tg-TEx" secondAttribute="leading" id="ekg-VG-L4U"/>
-                            <constraint firstItem="oeG-GM-bQA" firstAttribute="bottom" secondItem="GWQ-Tg-TEx" secondAttribute="bottom" id="ibS-Nq-smP"/>
                             <constraint firstItem="TS1-ZN-0Gc" firstAttribute="top" secondItem="Lw1-jg-9oz" secondAttribute="bottom" id="lHX-Fz-NF6"/>
                             <constraint firstItem="TS1-ZN-0Gc" firstAttribute="leading" secondItem="jJB-GR-bjf" secondAttribute="leading" id="n9z-C2-bIZ"/>
                             <constraint firstAttribute="trailing" secondItem="TS1-ZN-0Gc" secondAttribute="trailing" id="nfU-Lj-nwF"/>
-                            <constraint firstItem="GWQ-Tg-TEx" firstAttribute="bottom" secondItem="TS1-ZN-0Gc" secondAttribute="bottom" id="oFU-t1-a89"/>
-                            <constraint firstItem="oeG-GM-bQA" firstAttribute="trailing" secondItem="GWQ-Tg-TEx" secondAttribute="trailing" id="q76-si-etu"/>
-                            <constraint firstItem="GWQ-Tg-TEx" firstAttribute="trailing" secondItem="TS1-ZN-0Gc" secondAttribute="trailing" id="xZw-id-bWB"/>
+                            <constraint firstItem="GWQ-Tg-TEx" firstAttribute="trailing" secondItem="xfy-MR-Ucr" secondAttribute="trailing" id="sD5-Vx-x4V"/>
+                            <constraint firstAttribute="bottom" secondItem="GWQ-Tg-TEx" secondAttribute="bottom" id="z8K-o3-aHD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xfy-MR-Ucr"/>
                     </view>
