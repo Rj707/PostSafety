@@ -32,8 +32,8 @@ class PSFilterReportsViewController: UIViewController,IQDropDownTextFieldDelegat
     var reportLocationArray = [Any]()
     var reportLocationAddressArray = [Any]()
     var reportSenderArray = [String]()
-    var reportTypeArray = ["All","Hazard", "Near Miss", "Incident","Emergency"]
-    var reportStatusArray = ["Open Posts", "Closed Posts", "All Posts"]
+    var reportTypeArray = ["All", "Hazard", "Near Miss", "Incident", "Emergency"]
+    var reportStatusArray = ["All", "Open Posts", "Closed Posts"]
     var reportSenderDetailArray = [Any]()
     var date1 = Date()
     var date2 = Date()
