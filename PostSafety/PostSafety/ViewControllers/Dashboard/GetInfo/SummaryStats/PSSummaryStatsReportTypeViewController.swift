@@ -31,7 +31,7 @@ class PSSummaryStatsReportTypeViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-//        self.addMenuAction()juni
+        self.addMenuAction()
         self.hazardLabel.text =  String(format: "%@%@%@%@", "Hazards ","(", String(summaryStatisticsDict["numberOfHazards"] as! Int),")")
         self.nearMissLabel.text = String(format: "%@%@%@%@", "NearMisses  ","(", String(summaryStatisticsDict["numberOfNearMisses"] as! Int),")")
         self.incidentLabel.text = String(format: "%@%@%@%@", "Incidents ","(", String(summaryStatisticsDict["numberOfIncidents"] as! Int),")")
@@ -111,7 +111,7 @@ class PSSummaryStatsReportTypeViewController: UIViewController
     {
         if self.revealViewController() != nil
         {
-            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().revealToggle(_:)), for: .touchUpInside)
+            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().rightRevealToggle(_:)), for: .touchUpInside)
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
             let menuVC = revealViewController().rearViewController as? MenuViewController

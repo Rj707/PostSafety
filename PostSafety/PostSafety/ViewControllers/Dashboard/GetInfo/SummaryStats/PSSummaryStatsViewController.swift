@@ -30,7 +30,7 @@ class PSSummaryStatsViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        self.addMenuAction()
         self.getSummaryStatsCount()
         
         self.yesterdayView.layer.borderWidth=2
@@ -165,7 +165,7 @@ class PSSummaryStatsViewController: UIViewController
     {
         if self.revealViewController() != nil
         {
-            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().revealToggle(_:)), for: .touchUpInside)
+            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().rightRevealToggle(_:)), for: .touchUpInside)
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
             let menuVC = revealViewController().rearViewController as? MenuViewController

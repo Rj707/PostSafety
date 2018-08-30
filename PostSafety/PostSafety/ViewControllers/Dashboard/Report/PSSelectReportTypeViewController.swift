@@ -10,6 +10,7 @@ import UIKit
 
 class PSSelectReportTypeViewController: UIViewController
 {
+    @IBOutlet weak var menuButton:UIButton!
     @IBOutlet weak var view4: UIView!
     @IBOutlet weak var view3: UIView!
     @IBOutlet weak var view2: UIView!
@@ -25,7 +26,7 @@ class PSSelectReportTypeViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        self.addMenuAction()
         self.view1.layer.borderWidth=1
         self.view2.layer.borderWidth=1
         self.view3.layer.borderWidth=1
@@ -194,6 +195,19 @@ class PSSelectReportTypeViewController: UIViewController
         let vc = storyboard.instantiateViewController(withIdentifier: "PSEmergencyInstructionsViewController") as! PSEmergencyInstructionsViewController
         navigationController?.pushViewController(vc,
                                                  animated: true)
+    }
+    
+    func addMenuAction()
+    {
+        if self.revealViewController() != nil
+        {
+            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().rightRevealToggle(_:)), for: .touchUpInside)
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+            let menuVC = revealViewController().rearViewController as? MenuViewController
+            
+            menuVC?.dashboardNavViewController = self.navigationController
+        }
     }
    
     /*

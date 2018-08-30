@@ -246,6 +246,16 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="RxS-z3-egp" secondAttribute="height" id="m58-tF-Hhv"/>
                                         </constraints>
+                                        <state key="normal" image="back"/>
+                                        <connections>
+                                            <action selector="backButtonTouched:" destination="8ce-A6-TRK" eventType="touchUpInside" id="Ueg-Dp-MOh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJc-FI-tb0">
+                                        <rect key="frame" x="331" y="20" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="QJc-FI-tb0" secondAttribute="height" id="I6M-Vj-0zh"/>
+                                        </constraints>
                                         <state key="normal" image="menu"/>
                                     </button>
                                 </subviews>
@@ -253,10 +263,14 @@
                                 <constraints>
                                     <constraint firstItem="KF4-ay-wUr" firstAttribute="top" secondItem="d7I-O4-F5c" secondAttribute="top" constant="20" id="13f-iD-jf9"/>
                                     <constraint firstAttribute="height" constant="64" id="6dl-br-ViA"/>
+                                    <constraint firstItem="QJc-FI-tb0" firstAttribute="top" secondItem="d7I-O4-F5c" secondAttribute="top" constant="20" id="Cfq-Xm-rVO"/>
+                                    <constraint firstAttribute="bottom" secondItem="QJc-FI-tb0" secondAttribute="bottom" id="Iho-pa-Tuz"/>
                                     <constraint firstItem="RxS-z3-egp" firstAttribute="top" secondItem="d7I-O4-F5c" secondAttribute="top" constant="20" id="QcC-z7-poH"/>
+                                    <constraint firstItem="QJc-FI-tb0" firstAttribute="width" secondItem="QJc-FI-tb0" secondAttribute="height" id="WPY-gX-RQe"/>
                                     <constraint firstItem="RxS-z3-egp" firstAttribute="leading" secondItem="d7I-O4-F5c" secondAttribute="leading" id="diG-LV-8IW"/>
                                     <constraint firstAttribute="bottom" secondItem="RxS-z3-egp" secondAttribute="bottom" id="eeR-Jp-ujH"/>
                                     <constraint firstAttribute="bottom" secondItem="KF4-ay-wUr" secondAttribute="bottom" id="lI7-AY-AZC"/>
+                                    <constraint firstAttribute="trailing" secondItem="QJc-FI-tb0" secondAttribute="trailing" id="siq-e6-QTU"/>
                                     <constraint firstItem="KF4-ay-wUr" firstAttribute="centerX" secondItem="d7I-O4-F5c" secondAttribute="centerX" id="xmm-Ha-kqO"/>
                                 </constraints>
                             </view>
@@ -279,7 +293,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="b7x-kk-3cP"/>
                     <connections>
-                        <outlet property="menuButton" destination="RxS-z3-egp" id="aSm-9K-zlQ"/>
+                        <outlet property="menuButton" destination="QJc-FI-tb0" id="8VW-Bj-lHW"/>
                         <outlet property="summaryStatisticsStackView" destination="sjN-bY-Xdt" id="n75-sk-SBc"/>
                         <outlet property="view1" destination="BLp-RK-nb4" id="z9J-8x-uug"/>
                         <outlet property="view2" destination="rwr-MB-CQz" id="sLS-Zh-EZv"/>
@@ -488,6 +502,16 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="9Jh-bZ-4pK" secondAttribute="height" id="xZe-qb-Ogb"/>
                                         </constraints>
+                                        <state key="normal" image="back"/>
+                                        <connections>
+                                            <action selector="backButtonTouched:" destination="g5u-W6-rSJ" eventType="touchUpInside" id="9mb-W0-4fc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewP-5s-5xj">
+                                        <rect key="frame" x="331" y="20" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ewP-5s-5xj" secondAttribute="height" id="z4G-02-FfM"/>
+                                        </constraints>
                                         <state key="normal" image="menu"/>
                                     </button>
                                 </subviews>
@@ -495,11 +519,15 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="9Jh-bZ-4pK" secondAttribute="bottom" id="4Bt-6N-oJi"/>
                                     <constraint firstItem="9Jh-bZ-4pK" firstAttribute="top" secondItem="sPM-Gb-2vd" secondAttribute="top" constant="20" id="9k1-Ga-bC6"/>
+                                    <constraint firstItem="ewP-5s-5xj" firstAttribute="width" secondItem="ewP-5s-5xj" secondAttribute="height" id="FPg-xC-rBV"/>
                                     <constraint firstItem="9Jh-bZ-4pK" firstAttribute="leading" secondItem="sPM-Gb-2vd" secondAttribute="leading" id="FaQ-OM-m7n"/>
                                     <constraint firstAttribute="height" constant="64" id="NPV-YX-hjG"/>
+                                    <constraint firstItem="ewP-5s-5xj" firstAttribute="top" secondItem="sPM-Gb-2vd" secondAttribute="top" constant="20" id="OJr-ni-cOL"/>
                                     <constraint firstItem="gtG-sn-NFv" firstAttribute="top" secondItem="sPM-Gb-2vd" secondAttribute="top" constant="20" id="PSU-yY-be6"/>
                                     <constraint firstAttribute="bottom" secondItem="gtG-sn-NFv" secondAttribute="bottom" id="WwL-lj-9Jp"/>
+                                    <constraint firstAttribute="bottom" secondItem="ewP-5s-5xj" secondAttribute="bottom" id="Xrl-UK-qcs"/>
                                     <constraint firstItem="gtG-sn-NFv" firstAttribute="centerX" secondItem="sPM-Gb-2vd" secondAttribute="centerX" id="aRf-O2-Fdd"/>
+                                    <constraint firstAttribute="trailing" secondItem="ewP-5s-5xj" secondAttribute="trailing" id="ufS-rl-ZiJ"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -521,7 +549,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="o5h-bX-thG"/>
                     <connections>
-                        <outlet property="menuButton" destination="9Jh-bZ-4pK" id="HtE-lG-azP"/>
+                        <outlet property="menuButton" destination="ewP-5s-5xj" id="aWM-Ff-kC0"/>
                         <outlet property="view1" destination="dK3-fB-eZo" id="XZm-Md-Yxw"/>
                         <outlet property="view2" destination="L8Z-1S-t3l" id="JGe-1k-pJd"/>
                         <outlet property="view3" destination="1xw-tf-YFI" id="0EJ-33-YQD"/>
@@ -859,6 +887,17 @@
                                     <constraint firstAttribute="width" constant="44" id="3LN-qo-2SM"/>
                                     <constraint firstAttribute="width" secondItem="R4J-bU-eFb" secondAttribute="height" id="FcI-sx-Q1s"/>
                                 </constraints>
+                                <state key="normal" image="back"/>
+                                <connections>
+                                    <action selector="backButtonTouched:" destination="jZa-NO-yVz" eventType="touchUpInside" id="S1Y-Sm-SYm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJO-HU-JxS">
+                                <rect key="frame" x="331" y="20" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cJO-HU-JxS" secondAttribute="height" id="GSP-9k-Nl7"/>
+                                    <constraint firstAttribute="width" constant="44" id="LsR-LF-dn4"/>
+                                </constraints>
                                 <state key="normal" image="menu"/>
                             </button>
                         </subviews>
@@ -868,6 +907,7 @@
                             <constraint firstItem="hfs-Sa-Y1F" firstAttribute="trailing" secondItem="Plj-bK-E4M" secondAttribute="trailing" id="52X-Hl-TeX"/>
                             <constraint firstItem="hfs-Sa-Y1F" firstAttribute="leading" secondItem="Plj-bK-E4M" secondAttribute="leading" id="CBT-A2-cjh"/>
                             <constraint firstItem="Plj-bK-E4M" firstAttribute="trailing" secondItem="t9k-TU-lRL" secondAttribute="trailing" id="I37-0R-lnv"/>
+                            <constraint firstItem="cJO-HU-JxS" firstAttribute="trailing" secondItem="t9k-TU-lRL" secondAttribute="trailing" id="NJY-SJ-cW1"/>
                             <constraint firstAttribute="bottom" secondItem="zld-oA-Nm1" secondAttribute="bottom" id="QKt-Em-wGF"/>
                             <constraint firstItem="R4J-bU-eFb" firstAttribute="bottom" secondItem="t9k-TU-lRL" secondAttribute="bottom" id="SFo-eM-cho"/>
                             <constraint firstItem="Plj-bK-E4M" firstAttribute="trailing" secondItem="zld-oA-Nm1" secondAttribute="trailing" id="Tv3-7z-yAr"/>
@@ -875,7 +915,9 @@
                             <constraint firstItem="Qmw-8F-EmD" firstAttribute="top" secondItem="t9k-TU-lRL" secondAttribute="bottom" constant="24" id="dJQ-Ot-cN0"/>
                             <constraint firstItem="R4J-bU-eFb" firstAttribute="leading" secondItem="t9k-TU-lRL" secondAttribute="leading" id="dvn-TC-7DC"/>
                             <constraint firstItem="t9k-TU-lRL" firstAttribute="leading" secondItem="0ES-Ce-bGV" secondAttribute="leading" id="kMg-fJ-iDf"/>
+                            <constraint firstItem="cJO-HU-JxS" firstAttribute="width" secondItem="cJO-HU-JxS" secondAttribute="height" id="lih-Wv-PGg"/>
                             <constraint firstItem="Qmw-8F-EmD" firstAttribute="centerX" secondItem="0ES-Ce-bGV" secondAttribute="centerX" id="n5z-86-Ttp"/>
+                            <constraint firstItem="cJO-HU-JxS" firstAttribute="bottom" secondItem="t9k-TU-lRL" secondAttribute="bottom" id="qH8-8Q-XUR"/>
                             <constraint firstItem="hfs-Sa-Y1F" firstAttribute="top" secondItem="Qmw-8F-EmD" secondAttribute="bottom" constant="24" id="qp5-1s-ow2"/>
                             <constraint firstItem="t9k-TU-lRL" firstAttribute="top" secondItem="0ES-Ce-bGV" secondAttribute="top" id="uBe-8J-5oT"/>
                         </constraints>
@@ -889,7 +931,7 @@
                         <outlet property="archivedView" destination="Vku-TE-Mx0" id="YOj-Nb-EPg"/>
                         <outlet property="feedTitleLabel" destination="Qmw-8F-EmD" id="0aI-3c-TsA"/>
                         <outlet property="filterReportsView" destination="Gby-Nw-44X" id="yVu-hV-MNb"/>
-                        <outlet property="menuButton" destination="R4J-bU-eFb" id="daW-Nk-MbG"/>
+                        <outlet property="menuButton" destination="cJO-HU-JxS" id="FY5-UY-p5Z"/>
                         <outlet property="myReportsLabel" destination="6D7-V1-Rhd" id="kd7-Io-N6w"/>
                         <outlet property="myReportsView" destination="Ipu-wT-32n" id="b5R-oi-bAc"/>
                         <outlet property="reportsStackView" destination="LM7-8Y-Uql" id="xXg-9I-bZY"/>
@@ -983,6 +1025,17 @@
                                     <constraint firstAttribute="width" constant="44" id="a3D-xZ-jYd"/>
                                     <constraint firstAttribute="width" secondItem="fFe-BE-qHO" secondAttribute="height" id="zS9-JF-DFG"/>
                                 </constraints>
+                                <state key="normal" image="back"/>
+                                <connections>
+                                    <action selector="backButtonTouched:" destination="o0c-DC-IER" eventType="touchUpInside" id="A23-1P-U4n"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojN-FW-tLU">
+                                <rect key="frame" x="331" y="20" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="Jmb-as-ugc"/>
+                                    <constraint firstAttribute="width" secondItem="ojN-FW-tLU" secondAttribute="height" id="RZR-UO-JWs"/>
+                                </constraints>
                                 <state key="normal" image="menu"/>
                             </button>
                             <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KT6-qq-NiT">
@@ -1031,7 +1084,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ojN-FW-tLU" firstAttribute="width" secondItem="ojN-FW-tLU" secondAttribute="height" id="10g-KR-SVS"/>
                             <constraint firstItem="KBz-hF-eYX" firstAttribute="bottom" secondItem="KT6-qq-NiT" secondAttribute="bottom" id="2RG-yy-396"/>
+                            <constraint firstItem="ojN-FW-tLU" firstAttribute="bottom" secondItem="YIk-Ii-RNX" secondAttribute="bottom" id="3gS-6E-82k"/>
                             <constraint firstItem="lvS-19-pMc" firstAttribute="centerX" secondItem="A0g-id-Kqx" secondAttribute="centerX" id="5NB-B1-Ye4"/>
                             <constraint firstItem="KBz-hF-eYX" firstAttribute="trailing" secondItem="KT6-qq-NiT" secondAttribute="trailing" id="6Gt-cP-V8g"/>
                             <constraint firstItem="xel-ee-F9U" firstAttribute="top" secondItem="KT6-qq-NiT" secondAttribute="bottom" constant="16" id="E5v-ot-6cc"/>
@@ -1048,6 +1103,7 @@
                             <constraint firstItem="vYW-9A-Rq8" firstAttribute="trailing" secondItem="KT6-qq-NiT" secondAttribute="trailing" constant="24" id="mp0-dx-fNG"/>
                             <constraint firstItem="lvS-19-pMc" firstAttribute="top" secondItem="YIk-Ii-RNX" secondAttribute="bottom" constant="24" id="nXK-82-mVf"/>
                             <constraint firstItem="YIk-Ii-RNX" firstAttribute="leading" secondItem="A0g-id-Kqx" secondAttribute="leading" id="ndo-24-52j"/>
+                            <constraint firstItem="ojN-FW-tLU" firstAttribute="trailing" secondItem="YIk-Ii-RNX" secondAttribute="trailing" id="pIu-dH-5Ha"/>
                             <constraint firstItem="XY3-Pg-ce3" firstAttribute="centerX" secondItem="A0g-id-Kqx" secondAttribute="centerX" id="t7S-eN-XeE"/>
                             <constraint firstItem="vYW-9A-Rq8" firstAttribute="trailing" secondItem="xel-ee-F9U" secondAttribute="trailing" constant="24" id="uwX-fo-u2n"/>
                             <constraint firstItem="vYW-9A-Rq8" firstAttribute="trailing" secondItem="YIk-Ii-RNX" secondAttribute="trailing" id="vbz-VV-E6P"/>
@@ -1061,7 +1117,7 @@
                         <outlet property="feedDetailAttachmentButton" destination="xel-ee-F9U" id="FUu-zW-nWS"/>
                         <outlet property="feedDetailTextView" destination="KBz-hF-eYX" id="m22-VV-ZGV"/>
                         <outlet property="feedDetailTitleLabel" destination="lvS-19-pMc" id="ufv-Im-TPO"/>
-                        <outlet property="menuButton" destination="fFe-BE-qHO" id="l4V-ZR-gqB"/>
+                        <outlet property="menuButton" destination="ojN-FW-tLU" id="Tsu-3z-NWn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RK3-ii-7Xm" sceneMemberID="firstResponder"/>
@@ -1161,6 +1217,17 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="BIC-of-moV"/>
                                     <constraint firstAttribute="width" secondItem="LWD-HY-wCO" secondAttribute="height" id="J2V-hI-Vwd"/>
+                                </constraints>
+                                <state key="normal" image="back"/>
+                                <connections>
+                                    <action selector="backButtonTouched:" destination="KTp-hF-yJE" eventType="touchUpInside" id="ffO-W5-inG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGK-Wj-N9w">
+                                <rect key="frame" x="331" y="20" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="9mN-tN-6SJ"/>
+                                    <constraint firstAttribute="width" secondItem="UGK-Wj-N9w" secondAttribute="height" id="RwH-du-kDF"/>
                                 </constraints>
                                 <state key="normal" image="menu"/>
                             </button>
@@ -1310,17 +1377,20 @@
                             <constraint firstItem="0y7-gz-mdn" firstAttribute="centerY" secondItem="bcG-uu-FaT" secondAttribute="centerY" id="Q6p-QQ-45R"/>
                             <constraint firstItem="5Ns-4N-Cfp" firstAttribute="width" secondItem="aCm-LL-SKc" secondAttribute="width" id="QvF-p3-QSx"/>
                             <constraint firstItem="LWD-HY-wCO" firstAttribute="bottom" secondItem="p9K-s6-8yy" secondAttribute="bottom" id="Rbl-86-bLT"/>
+                            <constraint firstItem="UGK-Wj-N9w" firstAttribute="bottom" secondItem="p9K-s6-8yy" secondAttribute="bottom" id="XAz-aU-S2N"/>
                             <constraint firstItem="EPt-Bz-RfF" firstAttribute="top" secondItem="ovL-Fp-Urg" secondAttribute="bottom" constant="16" id="ad5-gd-YGa"/>
                             <constraint firstItem="Pmj-oE-dvv" firstAttribute="trailing" secondItem="FDZ-p1-1uA" secondAttribute="trailing" constant="24" id="cCz-jt-OfQ"/>
                             <constraint firstItem="FDZ-p1-1uA" firstAttribute="height" secondItem="jjx-7u-ijq" secondAttribute="height" multiplier="3/7" id="eWR-yn-K1k"/>
                             <constraint firstItem="FDZ-p1-1uA" firstAttribute="top" secondItem="zcP-HJ-bca" secondAttribute="bottom" constant="24" id="ekM-hS-YzV"/>
                             <constraint firstItem="EPt-Bz-RfF" firstAttribute="trailing" secondItem="ovL-Fp-Urg" secondAttribute="trailing" id="fWB-EU-Klt"/>
                             <constraint firstItem="ovL-Fp-Urg" firstAttribute="top" secondItem="UMx-XE-MvK" secondAttribute="bottom" constant="16" id="heQ-eE-Pl3"/>
+                            <constraint firstItem="UGK-Wj-N9w" firstAttribute="trailing" secondItem="p9K-s6-8yy" secondAttribute="trailing" id="j0T-gk-OXi"/>
                             <constraint firstItem="bcG-uu-FaT" firstAttribute="centerY" secondItem="FDZ-p1-1uA" secondAttribute="centerY" id="jxk-Nc-AdR"/>
                             <constraint firstItem="UMx-XE-MvK" firstAttribute="trailing" secondItem="FDZ-p1-1uA" secondAttribute="trailing" id="q5Z-Hq-BRT"/>
                             <constraint firstItem="Pmj-oE-dvv" firstAttribute="bottom" secondItem="1mv-QS-YEv" secondAttribute="bottom" constant="8" id="qMP-1N-06Y"/>
                             <constraint firstItem="ovL-Fp-Urg" firstAttribute="trailing" secondItem="UMx-XE-MvK" secondAttribute="trailing" id="qo4-Zh-Cb2"/>
                             <constraint firstItem="wUw-G4-ozg" firstAttribute="height" secondItem="aCm-LL-SKc" secondAttribute="height" id="qvt-Le-NyV"/>
+                            <constraint firstItem="UGK-Wj-N9w" firstAttribute="width" secondItem="UGK-Wj-N9w" secondAttribute="height" id="r84-eK-E3o"/>
                             <constraint firstItem="5Ns-4N-Cfp" firstAttribute="height" secondItem="aCm-LL-SKc" secondAttribute="height" id="rDM-Xa-byO"/>
                             <constraint firstItem="1mv-QS-YEv" firstAttribute="centerX" secondItem="jjx-7u-ijq" secondAttribute="centerX" id="rd4-eG-usR"/>
                             <constraint firstItem="aQP-0I-VpT" firstAttribute="leading" secondItem="FDZ-p1-1uA" secondAttribute="leading" id="sFI-Od-PPE"/>
@@ -1335,7 +1405,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Itg-rU-hBq"/>
                     <connections>
-                        <outlet property="menuButton" destination="LWD-HY-wCO" id="FYO-V9-Pns"/>
+                        <outlet property="menuButton" destination="UGK-Wj-N9w" id="vxr-3v-5cQ"/>
                         <outlet property="playVideoButton" destination="0y7-gz-mdn" id="A3d-aq-sRR"/>
                         <outlet property="playVideoContainer" destination="bcG-uu-FaT" id="SRJ-gO-LwB"/>
                         <outlet property="postTitleLabel" destination="zcP-HJ-bca" id="6Rf-LZ-NQl"/>
@@ -1519,12 +1589,26 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="AGm-Qs-9yM" secondAttribute="height" id="2GH-Cs-36W"/>
                                         </constraints>
+                                        <state key="normal" image="back"/>
+                                        <connections>
+                                            <action selector="backButtonTouched:" destination="PMQ-pi-xaI" eventType="touchUpInside" id="fas-YO-lg5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jno-nc-h2t">
+                                        <rect key="frame" x="331" y="20" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Jno-nc-h2t" secondAttribute="height" id="hfE-EQ-61F"/>
+                                        </constraints>
                                         <state key="normal" image="menu"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.27450980390000002" green="0.27450980390000002" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Jno-nc-h2t" secondAttribute="trailing" id="0A8-CQ-5Po"/>
+                                    <constraint firstItem="Jno-nc-h2t" firstAttribute="top" secondItem="Lw1-jg-9oz" secondAttribute="top" constant="20" id="20b-gl-ua1"/>
                                     <constraint firstAttribute="bottom" secondItem="Cth-ef-lfI" secondAttribute="bottom" id="FV1-yf-nDT"/>
+                                    <constraint firstItem="Jno-nc-h2t" firstAttribute="width" secondItem="Jno-nc-h2t" secondAttribute="height" id="HN7-KZ-Evf"/>
+                                    <constraint firstAttribute="bottom" secondItem="Jno-nc-h2t" secondAttribute="bottom" id="MJN-oG-uCx"/>
                                     <constraint firstItem="AGm-Qs-9yM" firstAttribute="leading" secondItem="Lw1-jg-9oz" secondAttribute="leading" id="QD3-yo-OYh"/>
                                     <constraint firstItem="Cth-ef-lfI" firstAttribute="centerX" secondItem="Lw1-jg-9oz" secondAttribute="centerX" id="XFf-Zv-HA6"/>
                                     <constraint firstAttribute="height" constant="64" id="ixw-k7-L56"/>
@@ -1556,7 +1640,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="trD-Sn-Gbr"/>
                     <connections>
-                        <outlet property="menuButton" destination="AGm-Qs-9yM" id="aVt-ox-h9h"/>
+                        <outlet property="menuButton" destination="Jno-nc-h2t" id="9cy-BL-V93"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LL4-9N-WAT" sceneMemberID="firstResponder"/>
@@ -1622,6 +1706,17 @@
                                     <constraint firstAttribute="width" secondItem="ZsI-X4-IHl" secondAttribute="height" id="MHc-Q6-88O"/>
                                     <constraint firstAttribute="width" constant="44" id="gOF-AX-qW1"/>
                                 </constraints>
+                                <state key="normal" image="back"/>
+                                <connections>
+                                    <action selector="backButtonTouched:" destination="QQE-m2-S2r" eventType="touchUpInside" id="KnN-hq-vC9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Gi-9F-gPc">
+                                <rect key="frame" x="331" y="20" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1Gi-9F-gPc" secondAttribute="height" id="55j-MY-kFO"/>
+                                    <constraint firstAttribute="width" constant="44" id="puZ-tJ-AUr"/>
+                                </constraints>
                                 <state key="normal" image="menu"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hn4-2n-8dj">
@@ -1686,7 +1781,10 @@
                             <constraint firstItem="KmM-Xs-ruJ" firstAttribute="leading" secondItem="jhB-bw-08y" secondAttribute="leading" id="JSI-T0-cA0"/>
                             <constraint firstItem="Hn4-2n-8dj" firstAttribute="top" secondItem="VnU-lA-Ix7" secondAttribute="bottom" constant="24" id="KEI-Xe-tIZ"/>
                             <constraint firstItem="ZsI-X4-IHl" firstAttribute="leading" secondItem="KmM-Xs-ruJ" secondAttribute="leading" id="OpW-PN-Pwe"/>
+                            <constraint firstItem="1Gi-9F-gPc" firstAttribute="width" secondItem="1Gi-9F-gPc" secondAttribute="height" id="cHy-Hp-Dck"/>
+                            <constraint firstItem="1Gi-9F-gPc" firstAttribute="trailing" secondItem="KmM-Xs-ruJ" secondAttribute="trailing" id="fTL-VB-x0c"/>
                             <constraint firstItem="VnU-lA-Ix7" firstAttribute="top" secondItem="KmM-Xs-ruJ" secondAttribute="bottom" constant="24" id="hEg-2p-PPJ"/>
+                            <constraint firstItem="1Gi-9F-gPc" firstAttribute="bottom" secondItem="KmM-Xs-ruJ" secondAttribute="bottom" id="l6v-uf-eWI"/>
                             <constraint firstItem="ZsI-X4-IHl" firstAttribute="bottom" secondItem="KmM-Xs-ruJ" secondAttribute="bottom" id="yWr-Rl-Tu9"/>
                             <constraint firstItem="VlG-52-GAK" firstAttribute="trailing" secondItem="KmM-Xs-ruJ" secondAttribute="trailing" id="zNP-1f-D5Z"/>
                             <constraint firstItem="KmM-Xs-ruJ" firstAttribute="top" secondItem="jhB-bw-08y" secondAttribute="top" id="znL-fC-A9X"/>
@@ -1696,7 +1794,7 @@
                     <navigationItem key="navigationItem" id="EgX-Lh-AyI"/>
                     <connections>
                         <outlet property="definitionsTableView" destination="Hn4-2n-8dj" id="4Rd-Xn-2Oy"/>
-                        <outlet property="menuButton" destination="ZsI-X4-IHl" id="uRL-aD-1wB"/>
+                        <outlet property="menuButton" destination="1Gi-9F-gPc" id="7n8-br-cql"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="42k-E7-dWz" sceneMemberID="firstResponder"/>
@@ -1706,6 +1804,7 @@
     </scenes>
     <resources>
         <image name="attachment" width="28" height="28"/>
+        <image name="back" width="40" height="40"/>
         <image name="bg" width="360" height="480"/>
         <image name="cross" width="43" height="43"/>
         <image name="drop-down-arrow" width="40" height="40"/>

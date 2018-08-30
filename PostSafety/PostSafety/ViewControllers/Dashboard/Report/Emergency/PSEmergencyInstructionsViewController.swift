@@ -10,11 +10,12 @@ import UIKit
 
 class PSEmergencyInstructionsViewController: UIViewController
 {
+    @IBOutlet weak var menuButton:UIButton!
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        self.addMenuAction()
         // Do any additional setup after loading the view.
     }
 
@@ -39,6 +40,19 @@ class PSEmergencyInstructionsViewController: UIViewController
     @IBAction func backButtonTouched(_ sender: UIButton)
     {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func addMenuAction()
+    {
+        if self.revealViewController() != nil
+        {
+            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().rightRevealToggle(_:)), for: .touchUpInside)
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+            let menuVC = revealViewController().rearViewController as? MenuViewController
+            
+            menuVC?.dashboardNavViewController = self.navigationController
+        }
     }
     
     /*

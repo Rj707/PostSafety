@@ -657,7 +657,7 @@ class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableVi
     {
         if self.revealViewController() != nil
         {
-            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().revealToggle(_:)), for: .touchUpInside)
+            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().rightRevealToggle(_:)), for: .touchUpInside)
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
             let menuVC = revealViewController().rearViewController as? MenuViewController

@@ -41,19 +41,6 @@ class PSDefinitionViewController: UIViewController,UITableViewDelegate,UITableVi
         definitionsArray.append("-I also noticed that the filters require the user to select a start and end date. Please disable that requirement.")
         definitionsArray.append("- With the above changes in mind, please check that the sort posts functionality is working correctly.")
     }
-
-    func addMenuAction()
-    {
-        if self.revealViewController() != nil
-        {
-            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().revealToggle(_:)), for: .touchUpInside)
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            
-            let menuVC = revealViewController().rearViewController as? MenuViewController
-            
-            menuVC?.dashboardNavViewController = self.navigationController
-        }
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -69,6 +56,27 @@ class PSDefinitionViewController: UIViewController,UITableViewDelegate,UITableVi
 //        cell.data = self.definitionsArray[indexPath.row] as! NSDictionary
         cell.titleLabel.text = self.definitionsArray[indexPath.row] as? String
         return cell
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction func backButtonTouched(_ sender: UIButton)
+    {
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+    
+    func addMenuAction()
+    {
+        if self.revealViewController() != nil
+        {
+            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().rightRevealToggle(_:)), for: .touchUpInside)
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+            let menuVC = revealViewController().rearViewController as? MenuViewController
+            
+            menuVC?.dashboardNavViewController = self.navigationController
+        }
     }
     
     /*
