@@ -1457,7 +1457,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TS1-ZN-0Gc" userLabel="Main Container">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y7M-W8-xKR" userLabel="Border">
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y7M-W8-xKR" userLabel="Border">
                                         <rect key="frame" x="0.0" y="300" width="375" height="2"/>
                                         <color key="backgroundColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -1638,6 +1638,8 @@
                     <navigationItem key="navigationItem" id="trD-Sn-Gbr"/>
                     <connections>
                         <outlet property="menuButton" destination="Jno-nc-h2t" id="9cy-BL-V93"/>
+                        <outlet property="view1" destination="7vw-SL-7IQ" id="WDC-Ee-pJr"/>
+                        <outlet property="view2" destination="ygl-5M-vd1" id="CY9-g1-6n1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LL4-9N-WAT" sceneMemberID="firstResponder"/>
