@@ -11,11 +11,14 @@ import UIKit
 class PSTrainingViewController: UIViewController
 {
 
+    @IBOutlet weak var view2: UIView!
+    @IBOutlet weak var view1: UIView!
     @IBOutlet weak var menuButton: UIButton!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.configureAndInitialize()
         self.addMenuAction()
         // Do any additional setup after loading the view.
     }
@@ -29,7 +32,10 @@ class PSTrainingViewController: UIViewController
     
     func configureAndInitialize()
     {
-        
+        self.view1.layer.borderWidth=1
+        self.view2.layer.borderWidth=1
+        self.view1.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        self.view2.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
     }
     
     // MARK: - IBActions
