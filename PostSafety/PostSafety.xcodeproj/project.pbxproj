@@ -1038,17 +1038,17 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 9C7SE2E79C;
+				DEVELOPMENT_TEAM = NM9CPHWN36;
 				INFOPLIST_FILE = PostSafety/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.distribution.postsafety;
+				PRODUCT_BUNDLE_IDENTIFIER = com.digitalentrigue.postsafety;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c9235357-a65f-4d92-bbf4-0898d20d03e9";
-				PROVISIONING_PROFILE_SPECIFIER = "iOS Development com.distribution.talkhomeapps";
+				PROVISIONING_PROFILE = "04e44be4-2bfc-4b8d-a18b-91f031d90927";
+				PROVISIONING_PROFILE_SPECIFIER = PostSafety_Development_PP;
 				SWIFT_OBJC_BRIDGING_HEADER = "PostSafety/PostSafety-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1064,17 +1064,17 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = THAAVDZLRL;
+				DEVELOPMENT_TEAM = NM9CPHWN36;
 				INFOPLIST_FILE = PostSafety/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.distribution.postsafety;
+				PRODUCT_BUNDLE_IDENTIFIER = com.digitalentrigue.postsafety;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9a28d74d-6387-4854-a6c2-e7d4eb2dd90e";
-				PROVISIONING_PROFILE_SPECIFIER = Post_Safety_Adhoc;
+				PROVISIONING_PROFILE = "11b3589c-c7d3-4893-9569-4c6b5ae1bb36";
+				PROVISIONING_PROFILE_SPECIFIER = PostSafety_AppStoreDistribution_PP;
 				SWIFT_OBJC_BRIDGING_HEADER = "PostSafety/PostSafety-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

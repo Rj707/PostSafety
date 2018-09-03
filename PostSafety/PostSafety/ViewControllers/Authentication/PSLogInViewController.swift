@@ -28,8 +28,8 @@ class PSLogInViewController: UIViewController
     
     func configureAndInitialize()
     {
-        self.phoneNumberTextField?.text = "4038709552"
-        self.passowrdTextField?.text = "123456"
+//        self.phoneNumberTextField?.text = "4038709552"
+//        self.passowrdTextField?.text = "123456"
         
         var text: NSMutableAttributedString? = nil
         if let aText = termsLabel?.attributedText
