@@ -37,9 +37,9 @@ class PSDefinitionViewController: UIViewController,UITableViewDelegate,UITableVi
         definitionsTableView.dataSource = self
         definitionsTableView.alwaysBounceVertical = false
         
-        definitionsArray.append("- The inputs should show which options should be selected. So this screen should show ‘Open’ for post status, ‘All’ for Type, Location and Sender, and nothing for the dates.")
-        definitionsArray.append("-I also noticed that the filters require the user to select a start and end date. Please disable that requirement.")
-        definitionsArray.append("- With the above changes in mind, please check that the sort posts functionality is working correctly.")
+        definitionsArray.append(String(format: "%@\r%@", "A hazard is the potential for harm or an adverse effect (for example, to people as health effects, to organizations as property or equipment losses, or to the environment). Workplace hazards can come from a wide range of sources.","General examples include any substance, material, process, practice, etc. that has the ability to cause harm or adverse health effect to a person or property."))
+        definitionsArray.append("A subset of incidents that could have resulted in injury, illness or property damage, if given a different set of circumstances, but didn't. Near misses are also known as 'close calls.' Perhaps the better term to consider is 'near hit.'")
+        definitionsArray.append("An unplanned, undesired event that hinders completion of a task and may cause injury, illness, or property damage or some combination of all three in varying degrees from minor to catastrophic. Unplanned and undesired do not mean unable to prevent. Unplanned and undesired also do not mean unable to prepare for Crisis planning is how we prepare for serious incidents that occur that require response for mitigation.")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -51,10 +51,19 @@ class PSDefinitionViewController: UIViewController,UITableViewDelegate,UITableVi
     {
         var cell:PSFeedTableViewCell
         cell = tableView.dequeueReusableCell(withIdentifier: "DefinitionsCell") as! PSFeedTableViewCell
-//        let dic = self.definitionsArray[indexPath.row] as! NSDictionary
-//        cell.categoryTitleLabel.text = dic["name"] as? String
-//        cell.data = self.definitionsArray[indexPath.row] as! NSDictionary
-        cell.titleLabel.text = self.definitionsArray[indexPath.row] as? String
+        switch indexPath.row
+        {
+            case 0:
+                cell.titleLabel.text = "Hazard"
+                break
+            case 1:
+                cell.titleLabel.text = "Near Miss"
+                break
+            default:
+                cell.titleLabel.text = "Incident"
+                break
+        }
+        cell.detailLabel.text = self.definitionsArray[indexPath.row] as? String
         return cell
     }
     
