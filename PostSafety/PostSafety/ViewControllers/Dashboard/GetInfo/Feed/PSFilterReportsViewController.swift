@@ -43,7 +43,7 @@ class PSFilterReportsViewController: UIViewController,IQDropDownTextFieldDelegat
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+
         self.getAllEmployees()
         
 //        self.getLocationsforReport()
@@ -124,24 +124,30 @@ class PSFilterReportsViewController: UIViewController,IQDropDownTextFieldDelegat
         {
             PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Select Post Sender")
         }
-//        else if self.reportStartDateDDTextField.text == ""
-//        {
-//            PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Select Post Start Date")
-//        }
-//        else if self.reportEndDateDDTextField.text == ""
-//        {
-//            PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Select Post End Date")
-//        }
-        else if date1 == date2
+        else if self.reportStartDateDDTextField.text != "" && self.reportEndDateDDTextField.text == ""
         {
-            PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Start Date should be smaller than End Date")
+            PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Select Post End Date")
         }
-        else if date1 > date2
+         else if self.reportEndDateDDTextField.text != "" && self.reportStartDateDDTextField.text == ""
         {
-            PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Start Date should be smaller than End Date")
+            PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Select Post Start Date")
         }
         else
         {
+            if self.reportStartDateDDTextField.text != "" && self.reportEndDateDDTextField.text != ""
+            {
+                if date1 == date2
+                {
+                    PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Start Date should be smaller than End Date")
+                    return
+                }
+                else if date1 > date2
+                {
+                    PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Start Date should be smaller than End Date")
+                    return
+                }
+            }
+            
             print(self.reportTypeDDTextField.selectedItem ?? "")
             print(self.reportSenderDDTextField.selectedItem ?? "")
             print(self.reportStartDateDDTextField.text ?? "")
