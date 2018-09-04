@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>73219470991-7lli1608u18n5gnqn7sroohu87u7ot0n.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.73219470991-7lli1608u18n5gnqn7sroohu87u7ot0n</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAmPX_jazPhrH8nI-CDmff7ini5Oz8Nqns</string>
+	<key>GCM_SENDER_ID</key>
+	<string>73219470991</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.digitalentrigue.postsafety</string>
+	<key>PROJECT_ID</key>
+	<string>postsafety-a2524</string>
+	<key>STORAGE_BUCKET</key>
+	<string>postsafety-a2524.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:73219470991:ios:b44ba74879a98099</string>
+	<key>DATABASE_URL</key>
+	<string>https://postsafety-a2524.firebaseio.com</string>
+</dict>
+</plist>
