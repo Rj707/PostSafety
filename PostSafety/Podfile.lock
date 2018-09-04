@@ -2,7 +2,40 @@ PODS:
   - ACProgressHUD-Swift (1.3)
   - Alamofire (4.2.0)
   - DZNEmptyDataSet (1.8.1)
+  - Firebase/Core (5.4.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 5.0.1)
+  - Firebase/CoreOnly (5.4.0):
+    - FirebaseCore (= 5.0.5)
+  - Firebase/Messaging (5.4.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (= 3.0.3)
+  - FirebaseAnalytics (5.0.1):
+    - FirebaseCore (~> 5.0)
+    - FirebaseInstanceID (~> 3.0)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - nanopb (~> 0.3)
+  - FirebaseCore (5.0.5):
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+  - FirebaseInstanceID (3.1.1):
+    - FirebaseCore (~> 5.0)
+  - FirebaseMessaging (3.0.3):
+    - FirebaseCore (~> 5.0)
+    - FirebaseInstanceID (~> 3.0)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - Protobuf (~> 3.1)
+  - GoogleToolboxForMac/Defines (2.1.4)
+  - GoogleToolboxForMac/Logger (2.1.4):
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+  - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
+    - GoogleToolboxForMac/Defines (= 2.1.4)
   - IQKeyboardManagerSwift (5.0.0)
+  - nanopb (0.3.8):
+    - nanopb/decode (= 0.3.8)
+    - nanopb/encode (= 0.3.8)
+  - nanopb/decode (0.3.8)
+  - nanopb/encode (0.3.8)
+  - Protobuf (3.6.0)
   - Reachability (3.2)
   - Realm (3.5.0):
     - Realm/Headers (= 3.5.0)
@@ -15,6 +48,8 @@ DEPENDENCIES:
   - ACProgressHUD-Swift (~> 1.3)
   - Alamofire (= 4.2.0)
   - DZNEmptyDataSet
+  - Firebase/Core
+  - Firebase/Messaging
   - IQKeyboardManagerSwift (= 5.0.0)
   - Reachability
   - RealmSwift
@@ -25,7 +60,15 @@ SPEC REPOS:
     - ACProgressHUD-Swift
     - Alamofire
     - DZNEmptyDataSet
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseInstanceID
+    - FirebaseMessaging
+    - GoogleToolboxForMac
     - IQKeyboardManagerSwift
+    - nanopb
+    - Protobuf
     - Reachability
     - Realm
     - RealmSwift
@@ -35,12 +78,20 @@ SPEC CHECKSUMS:
   ACProgressHUD-Swift: d973934a517312593015c78413f2de7bcc10c715
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  Firebase: d66f4f29c23f22d96808d9abc174d81d8eee968f
+  FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
+  FirebaseCore: 42b3267233bd21a5abd54117ccc38ca3dd0f8e83
+  FirebaseInstanceID: f3f0657372592ecdfdfe2cac604a5a75758376a6
+  FirebaseMessaging: f43eb0c0e1da096e659de6f713038e74862a62cd
+  GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   IQKeyboardManagerSwift: 3f340202ebe1a7076279b9b9b3c817243ddb3aab
+  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  Protobuf: 0fc0ad8bec688b2a3017a139953e01374fedbd5f
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
   RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
 
-PODFILE CHECKSUM: 0b3b890a96953caeae15d6d52407e8fad6fcacf5
+PODFILE CHECKSUM: 4d89f1aeb1cdbf938f96cb59788c47451da5216e
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

@@ -11,4 +11,9 @@ pod 'Reachability'
 pod 'RealmSwift'
 pod 'ACProgressHUD-Swift', '~> 1.3'
 pod 'DZNEmptyDataSet'
+# Pods for FirebaseNotificationDemo
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'
+
+
 end

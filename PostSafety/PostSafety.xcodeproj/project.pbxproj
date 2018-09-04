@@ -54,6 +54,7 @@
 		A11DF69520D8F1BF0079D861 /* MenuBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11DF69320D8F1BE0079D861 /* MenuBottomCell.swift */; };
 		A11DF69620D8F1BF0079D861 /* MenuTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11DF69420D8F1BF0079D861 /* MenuTopCell.swift */; };
 		A124938620C128C700B38DEF /* PSChecklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A124938520C128C700B38DEF /* PSChecklist.swift */; };
+		A14F7DCE213E650F00F8D918 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A14F7DCD213E650F00F8D918 /* GoogleService-Info.plist */; };
 		A15BECE520AEEB560081BC25 /* CameraOverLay.xib in Resources */ = {isa = PBXBuildFile; fileRef = A15BECE420AEEB550081BC25 /* CameraOverLay.xib */; };
 		A16142CE20AC108E00421414 /* PSLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142CD20AC108E00421414 /* PSLogInViewController.swift */; };
 		A16142D020AC10C400421414 /* PSCreatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142CF20AC10C400421414 /* PSCreatePasswordViewController.swift */; };
@@ -159,6 +160,8 @@
 		A11DF69320D8F1BE0079D861 /* MenuBottomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBottomCell.swift; sourceTree = "<group>"; };
 		A11DF69420D8F1BF0079D861 /* MenuTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTopCell.swift; sourceTree = "<group>"; };
 		A124938520C128C700B38DEF /* PSChecklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSChecklist.swift; sourceTree = "<group>"; };
+		A14F7DCD213E650F00F8D918 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A14F7DCF213E69F800F8D918 /* PostSafety.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PostSafety.entitlements; sourceTree = "<group>"; };
 		A15BECE420AEEB550081BC25 /* CameraOverLay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraOverLay.xib; sourceTree = "<group>"; };
 		A16142CD20AC108E00421414 /* PSLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSLogInViewController.swift; sourceTree = "<group>"; };
 		A16142CF20AC10C400421414 /* PSCreatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSCreatePasswordViewController.swift; sourceTree = "<group>"; };
@@ -534,6 +537,7 @@
 		A1F156A320AABFF50049DB21 /* PostSafety */ = {
 			isa = PBXGroup;
 			children = (
+				A14F7DCF213E69F800F8D918 /* PostSafety.entitlements */,
 				A1F156A420AABFF50049DB21 /* AppDelegate.swift */,
 				1809905920BAC6C5003C4B94 /* Constants */,
 				180F040520B943FF00AC17E5 /* Models */,
@@ -546,6 +550,7 @@
 				A1F156AB20AABFF60049DB21 /* Assets.xcassets */,
 				A1F156AD20AABFF60049DB21 /* LaunchScreen.storyboard */,
 				A1F156B020AABFF60049DB21 /* Info.plist */,
+				A14F7DCD213E650F00F8D918 /* GoogleService-Info.plist */,
 				180D495520B9DA060023101D /* PostSafety-Bridging-Header.h */,
 				181FA62A20FB4BF600F9F674 /* 480x480.jpg */,
 				180EACD7211F65DB005402FB /* default-thumb.jpg */,
@@ -673,6 +678,11 @@
 					A1F156A020AABFF50049DB21 = {
 						CreatedOnToolsVersion = 9.3.1;
 						LastSwiftMigration = 0930;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					A1F156B420AABFF60049DB21 = {
 						CreatedOnToolsVersion = 9.3.1;
@@ -717,6 +727,7 @@
 				A15BECE520AEEB560081BC25 /* CameraOverLay.xib in Resources */,
 				184EC78820DC1ED40089348C /* Admin.storyboard in Resources */,
 				180E43DC211CC6A50091A20C /* no-thumbnail.jpg in Resources */,
+				A14F7DCE213E650F00F8D918 /* GoogleService-Info.plist in Resources */,
 				180EACD8211F65DB005402FB /* default-thumb.jpg in Resources */,
 				184EC78620DC0FB70089348C /* User.storyboard in Resources */,
 			);
@@ -749,22 +760,28 @@
 				"${BUILT_PRODUCTS_DIR}/ACProgressHUD-Swift/ACProgressHUD_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ACProgressHUD_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1036,6 +1053,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = PostSafety/PostSafety.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = NM9CPHWN36;
@@ -1062,6 +1080,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = PostSafety/PostSafety.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = NM9CPHWN36;
