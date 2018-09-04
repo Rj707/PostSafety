@@ -136,12 +136,7 @@ class PSFilterReportsViewController: UIViewController,IQDropDownTextFieldDelegat
         {
             if self.reportStartDateDDTextField.text != "" && self.reportEndDateDDTextField.text != ""
             {
-                if date1 == date2
-                {
-                    PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Start Date should be smaller than End Date")
-                    return
-                }
-                else if date1 > date2
+                if date1 > date2
                 {
                     PSUserInterfaceManager.showAlert(title: "Apply Filters", message: "Start Date should be smaller than End Date")
                     return
@@ -154,7 +149,9 @@ class PSFilterReportsViewController: UIViewController,IQDropDownTextFieldDelegat
             print(self.reportEndDateDDTextField.text ?? "")
             
             filterDictionary["ReportType"] = self.reportTypeDDTextField.selectedItem
-            filterDictionary.setValue(self.reportTypeDDTextField.selectedItem, forKey: "ReportType")
+            
+            
+            filterDictionary.setValue(String(self.reportTypeIdForReportName(name: self.reportTypeDDTextField.selectedItem!)), forKey: "ReportType")
             filterDictionary.setValue(self.reportSenderDDTextField.selectedItem, forKey: "ReportedBy")
             filterDictionary.setValue(self.reportStartDateDDTextField.text, forKey: "startdate")
             filterDictionary.setValue(self.reportEndDateDDTextField.text, forKey: "enddate")
@@ -187,7 +184,7 @@ class PSFilterReportsViewController: UIViewController,IQDropDownTextFieldDelegat
             }
             else
             {
-                filterDictionary.setValue(String(self.branchIdForSelctedRow(row: self.reportLocationDDTextField.selectedRow)), forKey: "branchId")
+                filterDictionary.setValue(String(self.branchIdForSelctedRow(row: self.reportLocationDDTextField.selectedRow-1)), forKey: "branchId")
             }
         
             self.delegate.applyFilters(filterData: filterDictionary)
@@ -362,6 +359,27 @@ class PSFilterReportsViewController: UIViewController,IQDropDownTextFieldDelegat
     {
         var tempDict = self.reportLocationArray[row] as! [String:Any]
         return tempDict["branchId"] as! Int
+    }
+    
+    func reportTypeIdForReportName(name: String)-> Int
+    {
+        switch name
+        {
+        case "Emergency":
+            return 1
+            
+        case "Hazard":
+            return 2
+            
+        case "Incident":
+            return 3
+            
+            
+        default:
+            return 4
+            
+        }
+       
     }
 
     /*

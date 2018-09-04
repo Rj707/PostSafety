@@ -82,6 +82,7 @@ class PSSelectSubCategoryViewController: UIViewController,UITableViewDelegate,UI
         cell = tableView.cellForRow(at: indexPath) as! PSCategoryTableViewCell
         
         PSDataManager.sharedInstance.report?.reportSubcategory = cell.data["name"] as? String
+        PSDataManager.sharedInstance.report?.subCategoryID = (cell.data["subChecklistDetailsId"] as? Int)!
         
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PSPotentiallySeriousIncidentViewController") as! PSPotentiallySeriousIncidentViewController

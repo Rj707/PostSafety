@@ -103,7 +103,7 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
             var report = PSReport.init()
             report = PSDataManager.sharedInstance.report!
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Updating Report")
-            PSAPIManager.sharedInstance.updateReportFor(ReportId: String(report.reportID), LocationId: String(locationID), Title: "", Details: self.decriptionTextView.text, CatagoryId: String(report.categoryID), SubCatagory: "0", IsPSI: self.IsPSI as! Bool, success:
+            PSAPIManager.sharedInstance.updateReportFor(ReportId: String(report.reportID), LocationId: String(locationID), Title: "", Details: self.decriptionTextView.text, CatagoryId: String(report.categoryID), SubCatagory: String(report.subCategoryID), IsPSI: self.IsPSI as! Bool, success:
             { (dict) in
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 PSDataManager.sharedInstance.report = PSReport.init()
