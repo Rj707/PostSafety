@@ -64,11 +64,19 @@ class PSFilterReportsViewController: UIViewController,IQDropDownTextFieldDelegat
         reportStatusDDTextField.itemList = reportStatusArray
         
         self.reportLocationArray = PSDataManager.sharedInstance.companyLocationsArray
-        for i in 0...self.reportLocationArray.count-1
+        if self.reportLocationArray.count>0
         {
-            var tempDict = self.reportLocationArray[i] as? [String: Any]
-            self.reportLocationAddressArray.append(tempDict!["branchName"] ?? "No Branch Address")
+            for i in 0...self.reportLocationArray.count-1
+            {
+                var tempDict = self.reportLocationArray[i] as? [String: Any]
+                self.reportLocationAddressArray.append(tempDict!["branchName"] ?? "No Branch Address")
+            }
         }
+        else
+        {
+            self.getLocationsforReport()
+        }
+        
         
         self.reportLocationAddressArray.insert("All", at: 0)
         self.reportLocationDDTextField.itemList = self.reportLocationAddressArray as? [String]
