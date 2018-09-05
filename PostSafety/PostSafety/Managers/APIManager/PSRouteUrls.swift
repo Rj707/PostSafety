@@ -4,6 +4,7 @@ enum Route: String
     case Login              = "/api/EmployeesLogin"
     case UpdateEmployees    = "/api/UpdateEmployees"
     case ListEmployees      = "/api/Employees/"
+    case UpdateDeviceToken  = "/api/UpdateDeviceToken/"
     
     case IncidentCompany    = "/api/IncidentCompany/"
     case ChecklistDetails   = "/api/ChecklistDetails"
