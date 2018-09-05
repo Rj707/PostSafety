@@ -26,7 +26,16 @@ class PSSelectReportTypeViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
         self.addMenuAction()
+        
+        self.configureAndInitialize()
+        
+        self.getReportTypes()
+    }
+    
+    func configureAndInitialize()
+    {
         self.view1.layer.borderWidth=1
         self.view2.layer.borderWidth=1
         self.view3.layer.borderWidth=1
@@ -35,63 +44,101 @@ class PSSelectReportTypeViewController: UIViewController
         self.view2.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view3.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         self.view4.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
-        
-        if CEReachabilityManager.isReachable()
-        {
-            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Incident Types")
-            PSAPIManager.sharedInstance.getAllChecklists(success:
-            { (dic) in
-                PSUserInterfaceManager.sharedInstance.hideLoader()
-                let tempArray = dic["array"] as! [Any]
-
-                for checklistDict in tempArray
-                {
-                    if let tempDict = checklistDict as? [String: Any]
-                    {
-                        var checklist = PSChecklist()
-                        checklist = checklist.initChecklistWithDictionary(dict: tempDict as NSDictionary)
-                        self.cheklistArray.append(checklist)
-                    }
-                }
-
-                self.configureReportTypes()
-                print(self.cheklistArray)
-
-            }, failure:
-
-            {
-                (error:NSError,statusCode:Int) in
-                PSUserInterfaceManager.sharedInstance.hideLoader()
-                if(statusCode==404)
-                {
-                    PSUserInterfaceManager.showAlert(title: "Fetching Incident Types", message: ApiErrorMessage.ErrorOccured)
-                }
-                else
-                {
-                    PSUserInterfaceManager.showAlert(title: "Fetching Incident Types", message: error.localizedDescription)
-                }
-
-            }, errorPopup: true)
-        }
-        else
-        {
-            PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiErrorMessage.NoNetwork)
-        }
-        
     }
     
-
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - APIs
+    
+    func getReportTypes ()
+    {
+        if CEReachabilityManager.isReachable()
+        {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Incident Types")
+            PSAPIManager.sharedInstance.getAllChecklists(success:
+                { (dic) in
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    let tempArray = dic["array"] as! [Any]
+                    
+                    for checklistDict in tempArray
+                    {
+                        if let tempDict = checklistDict as? [String: Any]
+                        {
+                            var checklist = PSChecklist(incidentType: 0, typeName: "", checkList: 0, checklistDetails: NSDictionary())
+                            checklist = checklist.initChecklistWithDictionary(dict: tempDict as NSDictionary)
+                            self.cheklistArray.append(checklist)
+                        }
+                    }
+                    self.saveReportTypes()
+                    self.configureReportTypes()
+                    print(self.cheklistArray)
+                    
+            }, failure:
+                
+                {
+                    (error:NSError,statusCode:Int) in
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    if(statusCode==404)
+                    {
+                        PSUserInterfaceManager.showAlert(title: "Fetching Incident Types", message: ApiErrorMessage.ErrorOccured)
+                    }
+                    else
+                    {
+                        PSUserInterfaceManager.showAlert(title: "Fetching Incident Types", message: error.localizedDescription)
+                    }
+                    
+            }, errorPopup: true)
+        }
+        else
+        {
+            PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiErrorMessage.NoNetwork)
+            self.loadReportTypes()
+        }
+    }
+    
+    func saveReportTypes()
+    {
+        let placesData = NSKeyedArchiver.archivedData(withRootObject: self.cheklistArray)
+        UserDefaults.standard.set(placesData, forKey: "ReportTypes")
+        
+    }
+
+    func loadReportTypes()
+    {
+//        if let data = UserDefaults.standard.object(forKey: "ReportTypes") as? Data
+//        {
+//            let books = NSKeyedUnarchiver.unarchiveObject(with: data as Data)
+//            print(books ?? "")
+//        }
+        
+        let placesData = UserDefaults.standard.value(forKey: "ReportTypes") as? Data
+        
+        if let placesData = placesData
+        {
+            let placesArray = NSKeyedUnarchiver.unarchiveObject(with: placesData as Data) as! [PSChecklist]
+            
+            if placesArray != nil
+            {
+                // do something…
+                self.cheklistArray = placesArray as [Any]
+                self.configureReportTypes()
+            }
+            
+        }
+        
+    }
+    
+    // MARK: - Private
+    
     func configureReportTypes() -> Void
     {
         for i in 0...self.cheklistArray.count-1
         {
-            var item = PSChecklist.init()
+            var item = PSChecklist(incidentType: 0, typeName: "", checkList: 0, checklistDetails: NSDictionary())
             item = cheklistArray[i] as! PSChecklist
             
             switch item.incidentType
@@ -125,7 +172,7 @@ class PSSelectReportTypeViewController: UIViewController
     {
         for i in 1...self.cheklistArray.count-1
         {
-            var item = PSChecklist.init()
+            var item = PSChecklist(incidentType: 0, typeName: "", checkList: 0, checklistDetails: NSDictionary())
             item = cheklistArray[i] as! PSChecklist
             
             if item.incidentType == reportType
@@ -134,7 +181,7 @@ class PSSelectReportTypeViewController: UIViewController
             }
             
         }
-        return PSChecklist.init()
+        return PSChecklist(incidentType: 0, typeName: "", checkList: 0, checklistDetails: NSDictionary())
     }
     
     // MARK: - IBActions
