@@ -36,10 +36,27 @@ extension PSAPIManager
         authenticationManagerAPI.UpdateEmployees(employeeID: employeeID,oldPassword: oldPassword,NewPassword: NewPassword, success: success, failure: failure,errorPopup: errorPopup)
     }
     
-    func closeReportWith(ReportId: String,
-                         success:@escaping DefaultArrayResultAPISuccessClosure,
-                         failure:@escaping DefaultAPIFailureClosure, errorPopup: Bool)
+//    func closeReportWith(ReportId: String,
+//                         success:@escaping DefaultArrayResultAPISuccessClosure,
+//                         failure:@escaping DefaultAPIFailureClosure, errorPopup: Bool)
+//    {
+//        authenticationManagerAPI.closeReportWith(ReportId: ReportId, success: success, failure: failure, errorPopup: true)
+//    }
+    
+    func listAllEmployeesFor(companyId: String,
+                             success:@escaping DefaultArrayResultAPISuccessClosure,
+                             failure:@escaping DefaultAPIFailureClosure,
+                             errorPopup: Bool)
     {
-        authenticationManagerAPI.closeReportWith(ReportId: ReportId, success: success, failure: failure, errorPopup: true)
+        authenticationManagerAPI.listAllEmployeesFor(companyId: companyId, success: success, failure: failure, errorPopup: errorPopup)
+    }
+    
+    func updateDeviceTokenFor(EmployeeID: String,
+                              DeviceToken: String,
+                             success:@escaping DefaultArrayResultAPISuccessClosure,
+                             failure:@escaping DefaultAPIFailureClosure,
+                             errorPopup: Bool)
+    {
+        authenticationManagerAPI.updateDeviceTokenFor(EmployeeID: EmployeeID, DeviceToken: DeviceToken, success: success, failure: failure, errorPopup: errorPopup)
     }
 }

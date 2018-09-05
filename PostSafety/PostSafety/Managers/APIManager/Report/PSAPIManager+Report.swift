@@ -106,12 +106,11 @@ extension PSAPIManager
         reportManagerAPI.getSummaryStatisticsReportsWith(companyId: companyId,DateType: DateType,IncidentType: IncidentType, success: success, failure: failure, errorPopup: errorPopup)
     }
     
-    func listAllEmployeesFor(companyId: String,
-                             success:@escaping DefaultArrayResultAPISuccessClosure,
-                             failure:@escaping DefaultAPIFailureClosure,
-                             errorPopup: Bool)
+    func closeReportWith(ReportId: String,
+                         success:@escaping DefaultArrayResultAPISuccessClosure,
+                         failure:@escaping DefaultAPIFailureClosure, errorPopup: Bool)
     {
-        reportManagerAPI.listAllEmployeesFor(companyId: companyId, success: success, failure: failure, errorPopup: errorPopup)
+        reportManagerAPI.closeReportWith(ReportId: ReportId, success: success, failure: failure, errorPopup: true)
     }
     
     func getReportsFor(CompanyId: String,
