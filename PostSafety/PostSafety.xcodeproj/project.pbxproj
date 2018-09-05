@@ -286,12 +286,12 @@
 		1812E69A20B8B8D000E484C6 /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
+				1812E69020B8A4C000E484C6 /* PSRouteUrls.swift */,
 				1812E68C20B8A37600E484C6 /* PSAPIManager.swift */,
 				1812E68E20B8A3EB00E484C6 /* PSAPIManagerBase.swift */,
 				A10749A920EF4900003A6B35 /* Report */,
 				1811261520BDE40600ABA494 /* Checklist */,
 				180F040620B944D300AC17E5 /* Authentication */,
-				1812E69020B8A4C000E484C6 /* PSRouteUrls.swift */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";

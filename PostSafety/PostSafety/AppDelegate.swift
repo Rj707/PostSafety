@@ -108,9 +108,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String)
     {
         print("Firebase registration token: \(fcmToken)")
-        
+        let employeeId = PSDataManager.sharedInstance.loggedInUser?.employeeId as! Int
         let dataDict:[String: String] = ["token": fcmToken]
         NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+        PSAPIManager.sharedInstance.updateDeviceTokenFor(EmployeeID: String(employeeId), DeviceToken: fcmToken, success:
+        { (dict) in
+            
+            
+        }, failure:
+        { (error, statusCode) in
+            
+            
+        }, errorPopup: true)
+        
         // TODO: If necessary send token to application server.
         // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
