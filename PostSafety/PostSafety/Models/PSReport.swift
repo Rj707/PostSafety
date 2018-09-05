@@ -19,6 +19,7 @@ class PSReport: NSObject
     @objc dynamic var isReportPSI : String?
     @objc dynamic var categoryID = 0
     @objc dynamic var incidentType = 0
+    @objc dynamic var subCategoryID = 0
     
     override init()
     {
