@@ -22,7 +22,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
     var incidentTypeID = 0
     var employeeID = 0
     var reportID = 0
-    var checkList = PSChecklist()
+    var checkList = PSChecklist(incidentType: 0, typeName: "", checkList: 0, checklistDetails: NSDictionary())
     
     var counter = 0.0
     var timer = Timer()
