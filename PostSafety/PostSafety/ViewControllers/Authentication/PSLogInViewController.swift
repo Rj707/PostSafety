@@ -28,8 +28,8 @@ class PSLogInViewController: UIViewController
     
     func configureAndInitialize()
     {
-//        self.phoneNumberTextField?.text = "4038709552"
-//        self.passowrdTextField?.text = "123456"
+        self.phoneNumberTextField?.text = "4038709552"
+        self.passowrdTextField?.text = "123456"
         
         var text: NSMutableAttributedString? = nil
         if let aText = termsLabel?.attributedText
@@ -151,7 +151,7 @@ class PSLogInViewController: UIViewController
                 }
                 
                 PSDataManager.sharedInstance.companyLocationsArray = self.locationsArray
-                
+                self.saveCompanyLocations()
                 if self.loggedInUser?.passwordChanged == 0
                 {
                     self.performSegue(withIdentifier: "NavigateToCreatePassword", sender: Any?.self)
@@ -188,8 +188,18 @@ class PSLogInViewController: UIViewController
                     
             }, errorPopup: true)
         }
+        else
+        {
+            
+        }
     }
     
+    func saveCompanyLocations()
+    {
+        let companyLocationsData = NSKeyedArchiver.archivedData(withRootObject: self.locationsArray)
+        UserDefaults.standard.set(companyLocationsData, forKey: "CompanyLocations")
+        
+    }
     
     // MARK: - Navigation
 
