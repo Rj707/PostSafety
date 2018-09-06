@@ -123,7 +123,6 @@ class PSSelectReportTypeViewController: UIViewController
             }
             
         }
-        
     }
     
     // MARK: - Private
