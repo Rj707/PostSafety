@@ -150,7 +150,7 @@ class PSSelectCategoryViewController: UIViewController,UITableViewDelegate,UITab
             let vc =   nextViewController as! PSSelectSubCategoryViewController
             vc.CatagoryID = (cell.data["checklistDetailsId"] as? Int)!
         }
-        
+        PSDataManager.sharedInstance.offlinePostDictionary.setValue(cell.data["checklistDetailsId"] as? Int, forKey: "checklistDetailsId")
         PSDataManager.sharedInstance.report?.categoryID = (cell.data["checklistDetailsId"] as? Int)!
         navigationController?.pushViewController(nextViewController,
                                                  animated: true)

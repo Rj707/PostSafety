@@ -245,6 +245,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         else
         {
             PSUserInterfaceManager.showAlert(title: "Uploading Image", message: ApiErrorMessage.NoNetwork)
+            PSDataManager.sharedInstance.offlinePostDictionary.setValue("Video", forKey: "Type")
         }
         
     }
@@ -301,6 +302,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         else
         {
             PSUserInterfaceManager.showAlert(title: "Uploading Image", message: ApiErrorMessage.NoNetwork)
+            PSDataManager.sharedInstance.offlinePostDictionary.setValue("Image", forKey: "Type")
         }
     }
     
