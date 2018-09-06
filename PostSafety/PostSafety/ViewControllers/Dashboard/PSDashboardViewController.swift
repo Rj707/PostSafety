@@ -72,23 +72,46 @@ class PSDashboardViewController: UIViewController
                         self.locationsArray.append(tempDict)
                     }
                 }
+                self.saveCompanyLocations()
                 PSDataManager.sharedInstance.companyLocationsArray = self.locationsArray
                     
             }, failure:
                 
-                {
-                    (error:NSError,statusCode:Int) in
-//                    PSUserInterfaceManager.sharedInstance.hideLoader()
-//                    if(statusCode==404)
-//                    {
-//                        PSUserInterfaceManager.showAlert(title: "Locations", message: ApiErrorMessage.ErrorOccured)
-//                    }
-//                    else
-//                    {
-//                        PSUserInterfaceManager.showAlert(title: "Locations", message: error.localizedDescription)
-//                    }
+            {
+                (error:NSError,statusCode:Int) in
                     
             }, errorPopup: true)
+        }
+        else
+        {
+            self.loadCompanyLocations()
+        }
+    }
+    
+    func saveCompanyLocations()
+    {
+        let companyLocationsData = NSKeyedArchiver.archivedData(withRootObject: self.locationsArray)
+        UserDefaults.standard.set(companyLocationsData, forKey: "CompanyLocations")
+        
+    }
+    
+    func loadCompanyLocations()
+    {
+        let companyLocationsData = UserDefaults.standard.value(forKey: "CompanyLocations") as? Data
+        
+        if let companyLocationsData = companyLocationsData
+        {
+            let companyLocationsArray = NSKeyedUnarchiver.unarchiveObject(with: companyLocationsData as Data) as! [Any]
+            
+            if companyLocationsArray != nil
+            {
+                // do something…
+                self.locationsArray = companyLocationsArray as [Any]
+                PSDataManager.sharedInstance.companyLocationsArray = self.locationsArray
+                print(self.locationsArray)
+                print("locationsArray")
+            }
+            
         }
     }
     
