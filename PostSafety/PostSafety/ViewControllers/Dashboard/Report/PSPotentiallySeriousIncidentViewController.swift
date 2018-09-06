@@ -43,7 +43,7 @@ class PSPotentiallySeriousIncidentViewController: UIViewController
     @IBAction func yesGestureTapped(_ sender: Any)
     {
         PSDataManager.sharedInstance.report?.isReportPSI = "Yes"
-        
+        PSDataManager.sharedInstance.offlinePostDictionary.setValue(1, forKey: "isReportPSI")
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectLocationViewController") as! PSSelectLocationViewController
         navigationController?.pushViewController(vc,
@@ -53,7 +53,7 @@ class PSPotentiallySeriousIncidentViewController: UIViewController
     @IBAction func noGestureTapped(_ sender: Any)
     {
         PSDataManager.sharedInstance.report?.isReportPSI = "No"
-     
+        PSDataManager.sharedInstance.offlinePostDictionary.setValue(0, forKey: "isReportPSI")
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectLocationViewController") as! PSSelectLocationViewController
         navigationController?.pushViewController(vc,

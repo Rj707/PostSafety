@@ -120,6 +120,7 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
         else
         {
             self.performSegue(withIdentifier: "toNoInternetFromSummary", sender: (Any).self)
+            print(PSDataManager.sharedInstance.offlinePostDictionary)
         }
     }
     
