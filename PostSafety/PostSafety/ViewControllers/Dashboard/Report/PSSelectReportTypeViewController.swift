@@ -109,12 +109,6 @@ class PSSelectReportTypeViewController: UIViewController
 
     func loadReportTypes()
     {
-//        if let data = UserDefaults.standard.object(forKey: "ReportTypes") as? Data
-//        {
-//            let books = NSKeyedUnarchiver.unarchiveObject(with: data as Data)
-//            print(books ?? "")
-//        }
-        
         let placesData = UserDefaults.standard.value(forKey: "ReportTypes") as? Data
         
         if let placesData = placesData
