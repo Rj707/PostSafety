@@ -29,14 +29,10 @@ class PSChecklist: NSObject,NSCoding
     
     required convenience init?(coder aDecoder: NSCoder)
     {
-        _ = aDecoder.decodeObject(forKey: "incidentType")
         let typeName = aDecoder.decodeObject(forKey: "typeName") as! String
-        _ = aDecoder.decodeObject(forKey: "checkList")
         let checklistDetails = aDecoder.decodeObject(forKey: "checklistDetails") as! NSDictionary
         self.init(incidentType: aDecoder.decodeInteger(forKey: "incidentType"), typeName: typeName, checkList: aDecoder.decodeInteger(forKey: "checkList"), checklistDetails: checklistDetails)
     }
-    
-    
     
     func encode(with aCoder: NSCoder)
     {
