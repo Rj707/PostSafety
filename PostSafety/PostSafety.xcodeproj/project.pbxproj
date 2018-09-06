@@ -48,6 +48,8 @@
 		2C5F40C35FA6E8D5F17D9D1A /* Pods_PostSafety.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462E62552B0A0080C9267F99 /* Pods_PostSafety.framework */; };
 		A10749A820EF48F7003A6B35 /* PSAPIManager+Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10749A720EF48F7003A6B35 /* PSAPIManager+Report.swift */; };
 		A10749AB20EF4937003A6B35 /* PSReportAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10749AA20EF4937003A6B35 /* PSReportAPIManager.swift */; };
+		A118F3A52141198000F4BB74 /* PSLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118F3A42141198000F4BB74 /* PSLocation.swift */; };
+		A118F3AB214169A200F4BB74 /* PSPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118F3AA214169A200F4BB74 /* PSPost.swift */; };
 		A11DF68C20D8F0250079D861 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11DF68B20D8F0250079D861 /* Dashboard.storyboard */; };
 		A11DF69020D8F0860079D861 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A11DF68F20D8F0860079D861 /* SWRevealViewController.m */; };
 		A11DF69220D8F0FF0079D861 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11DF69120D8F0FF0079D861 /* MenuViewController.swift */; };
@@ -153,6 +155,8 @@
 		4A6654D11319022298AEDDCE /* Pods-PostSafety.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostSafety.release.xcconfig"; path = "Pods/Target Support Files/Pods-PostSafety/Pods-PostSafety.release.xcconfig"; sourceTree = "<group>"; };
 		A10749A720EF48F7003A6B35 /* PSAPIManager+Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PSAPIManager+Report.swift"; sourceTree = "<group>"; };
 		A10749AA20EF4937003A6B35 /* PSReportAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReportAPIManager.swift; sourceTree = "<group>"; };
+		A118F3A42141198000F4BB74 /* PSLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSLocation.swift; sourceTree = "<group>"; };
+		A118F3AA214169A200F4BB74 /* PSPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSPost.swift; sourceTree = "<group>"; };
 		A11DF68B20D8F0250079D861 /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		A11DF68E20D8F0860079D861 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		A11DF68F20D8F0860079D861 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -261,6 +265,8 @@
 				1812E69820B8A50C00E484C6 /* PSUser.swift */,
 				182E5DD220DE38DC00E3A851 /* PSReport.swift */,
 				A124938520C128C700B38DEF /* PSChecklist.swift */,
+				A118F3A42141198000F4BB74 /* PSLocation.swift */,
+				A118F3AA214169A200F4BB74 /* PSPost.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -868,6 +874,7 @@
 				18FDED3B20B04F2A009CBA0B /* SwiftyCamButton.swift in Sources */,
 				18161A5720F10F5800C0C3BF /* PSFeedTableViewCell.swift in Sources */,
 				182E5DD320DE38DC00E3A851 /* PSReport.swift in Sources */,
+				A118F3A52141198000F4BB74 /* PSLocation.swift in Sources */,
 				C4E5A56620AE56050060898B /* PSReportSummaryViewController.swift in Sources */,
 				18AD08D820DF855D0096A910 /* PSCloseReportViewController.swift in Sources */,
 				18C8FC2820E16291000E15CE /* PSSettingsViewController.swift in Sources */,
@@ -876,6 +883,7 @@
 				C409873D20DED27D00081069 /* PSSendAlertViewController.swift in Sources */,
 				18FDED4220B04F82009CBA0B /* PhotoViewController.swift in Sources */,
 				1812E68B20B8A32100E484C6 /* PSAuthenticationAPIManager.swift in Sources */,
+				A118F3AB214169A200F4BB74 /* PSPost.swift in Sources */,
 				A10749A820EF48F7003A6B35 /* PSAPIManager+Report.swift in Sources */,
 				A1FF177120DBC3C700F06EAC /* PSPotentiallySeriousIncidentViewController.swift in Sources */,
 				1812E68A20B8A32100E484C6 /* PSAPIManager+Authentication.swift in Sources */,
