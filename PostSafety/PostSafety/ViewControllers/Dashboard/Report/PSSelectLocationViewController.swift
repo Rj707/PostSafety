@@ -84,8 +84,37 @@ class PSSelectLocationViewController: UIViewController,UITableViewDelegate,UITab
                 
             }, errorPopup: true)
         }
+        else
+        {
+            self.loadCompanyLocations()
+        }
     }
     
+    func loadCompanyLocations()
+    {
+        let companyLocationsData = UserDefaults.standard.value(forKey: "CompanyLocations") as? Data
+        
+        if let companyLocationsData = companyLocationsData
+        {
+            let companyLocationsArray = NSKeyedUnarchiver.unarchiveObject(with: companyLocationsData as Data) as! [Any]
+            
+            if companyLocationsArray != nil
+            {
+                // do something…
+                self.locationsArray = companyLocationsArray as [Any]
+                PSDataManager.sharedInstance.companyLocationsArray = self.locationsArray
+                
+                self.locationTableView.dataSource = self
+                self.locationTableView.delegate = self
+                //                self.configureLocations()
+                print(self.locationsArray)
+                self.locationTableView.emptyDataSetSource = self as DZNEmptyDataSetSource
+                self.locationTableView.emptyDataSetDelegate = self as DZNEmptyDataSetDelegate
+                self.locationTableView.reloadData()
+            }
+            
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
