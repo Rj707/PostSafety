@@ -157,6 +157,21 @@ extension PSAPIManager
     }
     
     
-//    http://postsafety.anadeemus.ca/api/UpdateReport/?ReportId=10000&LocationId=10008&Title=CriticalIncident&Details=whywhere
+    func submitPostOfflineFor(EmployeeId: String,
+                              IncidentTypeID: String,
+                              LocationId: String,
+                              Details: String,
+                              CatagoryId: String,
+                              SubCatagory: String,
+                              IsPSI: Bool,
+                              FileType: String,
+                              data: Data,
+                              success:@escaping DefaultArrayResultAPISuccessClosure,
+                              failure:@escaping DefaultAPIFailureClosure,
+                              progress:@escaping DefaultAPIProgressClosure,
+                              errorPopup: Bool)
+    {
+        reportManagerAPI.submitPostOfflineFor(EmployeeId: EmployeeId, IncidentTypeID: IncidentTypeID,  LocationId: LocationId,  Details: Details,  CatagoryId: CatagoryId,  SubCatagory: SubCatagory, IsPSI: IsPSI, FileType: FileType, data:data, success: success, failure: failure,  progress: progress ,errorPopup: errorPopup)
+    }
     
 }

@@ -288,6 +288,39 @@ class PSReportAPIManager: PSAPIManagerBase
         self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
     }
     
+    func submitPostOfflineFor(EmployeeId: String,
+                              IncidentTypeID: String,
+                              LocationId: String,
+                              Details: String,
+                              CatagoryId: String,
+                              SubCatagory: String,
+                              IsPSI: Bool,
+                              FileType: String,
+                              data: Data,
+                              success:@escaping DefaultArrayResultAPISuccessClosure,
+                              failure:@escaping DefaultAPIFailureClosure,
+                              progress:@escaping DefaultAPIProgressClosure,
+                              errorPopup: Bool)
+    {
+        
+        let parameters: [String:Any] =
+            [
+                "EmployeeId":EmployeeId,
+                "IncidentTypeID":IncidentTypeID,
+                "LocationId":LocationId,
+                "Details":Details,
+                "CatagoryId":CatagoryId,
+                "SubCatagory":SubCatagory,
+                "FileType":FileType,
+                "IsPSI":IsPSI,
+            ]
+        
+        let route: URL = GETURLfor(route: Route.ReportSingleCall.rawValue, parameters: parameters )!
+        
+        self.requestWith(endUrl: route.absoluteString, imageData: data ,dataType: FileType, parameters: parameters, success: success, failure: failure,uploadProgress: progress ,errorPopup: errorPopup);
+        
+    }
+    
 }
 
 
