@@ -22,8 +22,13 @@ class PSDashboardViewController: UIViewController
         super.viewDidLoad()
         
         self.getLocationsforReport()
-        
+        print(PSDataManager.sharedInstance.offlinePostsArray)
+        var offlinePost : PSPost?
+        offlinePost = PSPost.init()
+        offlinePost  = PSDataManager.sharedInstance.offlinePost
+        let image = UIImage(data: (offlinePost?.fileData)!)
         self.addMenuAction()
+        
     }
 
     override func didReceiveMemoryWarning()
