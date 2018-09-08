@@ -66,17 +66,17 @@ class PSDataManager: NSObject
             print("\(loggedInUser?.emailId ?? "")")
         }
         
-        offlinePost = realm.objects(PSPost.self).first
-        
-        if(offlinePost == nil)
-        {
-            
-        }
-        else
-        {
-            print(offlinePost?.incidentTypeID ?? "")
-            self.offlinePostsArray = Array(realm.objects(PSPost.self))
-        }
+//        offlinePost = realm.objects(PSPost.self).first
+//        
+//        if(offlinePost == nil)
+//        {
+//            
+//        }
+//        else
+//        {
+//            print(offlinePost?.incidentTypeID ?? "")
+//            self.offlinePostsArray = Array(realm.objects(PSPost.self))
+//        }
         
     }
     
@@ -92,6 +92,26 @@ class PSDataManager: NSObject
             realm.delete(result!)
         }
         
+    }
+    
+    func isOfflinePostsExist() -> Bool
+    {
+        if(!(realm != nil))
+        {
+            realm = try! Realm()
+        }
+        
+        let results = realm.objects(PSPost.self)
+        
+        if(results.count>0)
+        {
+            self.offlinePostsArray = Array(realm.objects(PSPost.self))
+            return true
+        }
+        else
+        {
+            return false
+        }
     }
     
     func isUserLoggedIn() -> Bool
