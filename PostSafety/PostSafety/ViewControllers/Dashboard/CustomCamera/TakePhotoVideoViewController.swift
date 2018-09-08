@@ -247,7 +247,23 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         }
         else
         {
-            PSUserInterfaceManager.showAlert(title: "Uploading Image", message: ApiErrorMessage.NoNetwork)
+//            PSUserInterfaceManager.showAlert(title: "Uploading Image", message: ApiErrorMessage.NoNetwork)
+            if PSDataManager.sharedInstance.report?.reportType != "Emergency"
+            {
+                let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController
+                vc.checklistId = self.checkList.checkList
+                vc.cheklistDetailsArray = self.checkList.checklistDetails["checklistDetails"] as! [Any]
+                self.progressView.setProgress(Float(0), animated: true)
+                //                    self.timeLabel.text = "00:00:00"
+                self.timer.invalidate()
+                DispatchQueue.main.async
+                {
+                    print("This is run on the main queue, after the previous code in outer block")
+                    self.navigationController?.pushViewController(vc,
+                                                                  animated: true)
+                }
+            }
         }
         
     }
@@ -306,7 +322,23 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         }
         else
         {
-            PSUserInterfaceManager.showAlert(title: "Uploading Image", message: ApiErrorMessage.NoNetwork)
+//            PSUserInterfaceManager.showAlert(title: "Uploading Image", message: ApiErrorMessage.NoNetwork)
+            if PSDataManager.sharedInstance.report?.reportType != "Emergency"
+            {
+                let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController
+                vc.checklistId = self.checkList.checkList
+                vc.cheklistDetailsArray = self.checkList.checklistDetails["checklistDetails"] as! [Any]
+                self.progressView.setProgress(Float(0), animated: true)
+                //                    self.timeLabel.text = "00:00:00"
+                self.timer.invalidate()
+                DispatchQueue.main.async
+                {
+                    print("This is run on the main queue, after the previous code in outer block")
+                    self.navigationController?.pushViewController(vc,
+                                                                  animated: true)
+                }
+            }
         }
     }
     
