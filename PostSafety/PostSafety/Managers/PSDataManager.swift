@@ -8,22 +8,12 @@ class PSDataManager: NSObject
     var reportId = 0
     var isRememberMe = 0
     var companyLocationsArray = [Any]()
+    var offlinePostsArray = [PSPost]()
     var offlinePostDictionary = NSMutableDictionary.init()
     var loggedInUser: PSUser?
     {
-//        set(user)
-//        {
-//            self.loggedInUser = user
-//            Constants.USER_DEFAULTS.set(user, forKey: "User")
-//        }
-//        get
-//        {
-//            return self.loggedInUser
-//        }
         didSet
         {
-//            Constants.USER_DEFAULTS.set(loggedInUser, forKey: "User")
-            
             try!  self.realm.write()
             {
                 if self.isRememberMe == 0
@@ -46,7 +36,7 @@ class PSDataManager: NSObject
         {
             try!  self.realm.write()
             {
-                self.realm.add(self.offlinePost!, update: true)
+                self.realm.add(self.offlinePost!)
                 print(offlinePost?.incidentTypeID ?? "")
             }
         }
@@ -60,7 +50,7 @@ class PSDataManager: NSObject
         self.reportId = 0
         self.isRememberMe = 0
         self.companyLocationsArray = [Any]()
-        
+        self.offlinePostsArray = [PSPost]()
         if(!(realm != nil))
         {
             realm = try! Realm()
@@ -77,9 +67,10 @@ class PSDataManager: NSObject
         }
         
         offlinePost = realm.objects(PSPost.self).first
-        
+        self.offlinePostsArray = Array(realm.objects(PSPost.self))
         if(offlinePost == nil)
         {
+            
         }
         else
         {
