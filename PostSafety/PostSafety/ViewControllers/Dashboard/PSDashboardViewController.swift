@@ -16,19 +16,19 @@ class PSDashboardViewController: UIViewController
     @IBOutlet weak var reportContainer:UIView!
     
     var locationsArray = [Any]()
+    var offlinePost : PSPost?
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
         self.getLocationsforReport()
-        print(PSDataManager.sharedInstance.offlinePostsArray)
-        var offlinePost : PSPost?
-        offlinePost = PSPost.init()
-        offlinePost  = PSDataManager.sharedInstance.offlinePost
-        let image = UIImage(data: (offlinePost?.fileData)!)
+        
+//        print(PSDataManager.sharedInstance.offlinePostsArray)
+        
         self.addMenuAction()
         
+        self.submitOfflinePosts()
     }
 
     override func didReceiveMemoryWarning()
@@ -41,6 +41,71 @@ class PSDashboardViewController: UIViewController
     {
         
     }
+    
+    func submitOfflinePosts()
+    {
+        if CEReachabilityManager.isReachable()
+        {
+            if PSDataManager.sharedInstance.isOfflinePostsExist()
+            {
+                 print(PSDataManager.sharedInstance.offlinePostsArray)
+                offlinePost = PSPost.init()
+                offlinePost  = PSDataManager.sharedInstance.offlinePostsArray[0]
+                
+                let EmployeeId = offlinePost?.employeeID
+                let incidentTypeID = offlinePost?.incidentTypeID
+                let locationId = offlinePost?.locationId
+                let categoryID = offlinePost?.categoryID
+                var subCategoryID = 0
+                var isReportPSI = NSNumber.init(booleanLiteral: false)
+                if incidentTypeID == 4
+                {
+                    subCategoryID = (offlinePost?.subCategoryID)!
+                    if offlinePost?.isReportPSI == 0
+                    {
+                        isReportPSI = NSNumber.init(booleanLiteral: false)
+                    }
+                    else
+                    {
+                        isReportPSI = NSNumber.init(booleanLiteral: true)
+                    }
+                }
+                let type = offlinePost?.type
+                let fileData = offlinePost?.fileData
+                let details = offlinePost?.details
+                
+                DispatchQueue.global(qos: .background).async
+                {
+                    PSAPIManager.sharedInstance.submitPostOfflineFor(EmployeeId: EmployeeId!, IncidentTypeID: incidentTypeID!, LocationId: locationId!, Details: details!, CatagoryId: categoryID!, SubCatagory: subCategoryID, IsPSI: isReportPSI as! Bool, FileType: type!, data: fileData!, success:
+                    { (dic) in
+                        
+                        PSDataManager.sharedInstance.removeSubmittedPost()
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute:
+                        {
+                            self.submitOfflinePosts()
+                        })
+                        
+                    }, failure:
+                    { (error, statusCode) in
+                        
+                        
+                    }, progress:
+                    {
+                        (prog:Double) in
+                        
+                    }, errorPopup: true)
+                    
+                    
+                    print("This is run on the background queue")
+                }
+            }
+            else
+            {
+                
+            }
+        }
+    }
+    
     
     // MARK: - IBActions
     
@@ -113,8 +178,7 @@ class PSDashboardViewController: UIViewController
                 // do something…
                 self.locationsArray = companyLocationsArray as [Any]
                 PSDataManager.sharedInstance.companyLocationsArray = self.locationsArray
-                print(self.locationsArray)
-                print("locationsArray")
+                
             }
             
         }
