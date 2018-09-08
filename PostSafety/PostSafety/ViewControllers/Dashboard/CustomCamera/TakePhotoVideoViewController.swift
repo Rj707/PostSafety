@@ -198,6 +198,9 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
     
     func sendVideo(videoData:Data)
     {
+        // TODO: Offline Post Submisison
+        PSDataManager.sharedInstance.offlinePostDictionary.setValue("Video", forKey: "FileType")
+        PSDataManager.sharedInstance.offlinePostDictionary.setValue(videoData, forKey: "data")
         if CEReachabilityManager.isReachable()
         {
             
@@ -245,13 +248,15 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         else
         {
             PSUserInterfaceManager.showAlert(title: "Uploading Image", message: ApiErrorMessage.NoNetwork)
-            PSDataManager.sharedInstance.offlinePostDictionary.setValue("Video", forKey: "Type")
         }
         
     }
     
     func sendPhoto(imageData: Data)
     {
+        // TODO: Offline Post Submisison
+        PSDataManager.sharedInstance.offlinePostDictionary.setValue("Image", forKey: "FileType")
+        PSDataManager.sharedInstance.offlinePostDictionary.setValue(imageData, forKey: "data")
         if CEReachabilityManager.isReachable()
         {
             self.progressView.isHidden = false
@@ -302,7 +307,6 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         else
         {
             PSUserInterfaceManager.showAlert(title: "Uploading Image", message: ApiErrorMessage.NoNetwork)
-            PSDataManager.sharedInstance.offlinePostDictionary.setValue("Image", forKey: "Type")
         }
     }
     

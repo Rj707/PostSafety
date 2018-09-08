@@ -83,7 +83,10 @@ class PSSelectSubCategoryViewController: UIViewController,UITableViewDelegate,UI
         
         PSDataManager.sharedInstance.report?.reportSubcategory = cell.data["name"] as? String
         PSDataManager.sharedInstance.report?.subCategoryID = (cell.data["subChecklistDetailsId"] as? Int)!
-        PSDataManager.sharedInstance.offlinePostDictionary.setValue(cell.data["subChecklistDetailsId"] as? Int, forKey: "subChecklistDetailsId")
+        
+        // TODO: Offline Post Submisison
+        PSDataManager.sharedInstance.offlinePostDictionary.setValue(cell.data["subChecklistDetailsId"] as? Int, forKey: "SubCatagory")
+        
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PSPotentiallySeriousIncidentViewController") as! PSPotentiallySeriousIncidentViewController
         self.navigationController?.pushViewController(vc, animated: true)

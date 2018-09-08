@@ -121,7 +121,10 @@ class PSSelectLocationViewController: UIViewController,UITableViewDelegate,UITab
         var cell:PSCategoryTableViewCell
         cell = tableView.cellForRow(at: indexPath) as! PSCategoryTableViewCell
         PSDataManager.sharedInstance.report?.reportLocation = cell.data["branchName"] as? String ?? "No Address"
-        PSDataManager.sharedInstance.offlinePostDictionary.setValue(cell.data["branchId"], forKey: "branchId")
+        
+        // TODO: Offline Post Submisison
+        PSDataManager.sharedInstance.offlinePostDictionary.setValue(cell.data["branchId"], forKey: "LocationId")
+        
         self.performSegue(withIdentifier: "toReportSummaryFromLocation", sender: cell.data["branchId"])
     }
     

@@ -192,7 +192,10 @@ class PSSelectReportTypeViewController: UIViewController
         
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
-        PSDataManager.sharedInstance.offlinePostDictionary.setValue(self.label1.tag, forKey: "incidentTypeID")
+        
+        // TODO: Offline Post Submisison
+        PSDataManager.sharedInstance.offlinePostDictionary.setValue(self.label1.tag, forKey: "IncidentTypeID")
+        
         vc.incidentTypeID = self.label1.tag
         vc.employeeID = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
         vc.checkList = self.setCheckListForReporType(reportType: vc.incidentTypeID)
@@ -206,7 +209,10 @@ class PSSelectReportTypeViewController: UIViewController
         
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
-        PSDataManager.sharedInstance.offlinePostDictionary.setValue(self.label3.tag, forKey: "incidentTypeID")
+        
+        // TODO: Offline Post Submisison
+        PSDataManager.sharedInstance.offlinePostDictionary.setValue(self.label3.tag, forKey: "IncidentTypeID")
+        
         vc.incidentTypeID = self.label3.tag
         vc.employeeID = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
         vc.checkList = self.setCheckListForReporType(reportType: vc.incidentTypeID)
@@ -221,7 +227,10 @@ class PSSelectReportTypeViewController: UIViewController
         
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TakePhotoVideoViewController") as! TakePhotoVideoViewController
-        PSDataManager.sharedInstance.offlinePostDictionary.setValue(self.label2.tag, forKey: "incidentTypeID")
+        
+        // TODO: Offline Post Submisison
+        PSDataManager.sharedInstance.offlinePostDictionary.setValue(self.label2.tag, forKey: "IncidentTypeID")
+        
         vc.incidentTypeID = self.label2.tag
         vc.employeeID = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
         vc.checkList = self.setCheckListForReporType(reportType: vc.incidentTypeID)
@@ -233,7 +242,10 @@ class PSSelectReportTypeViewController: UIViewController
     {
         PSDataManager.sharedInstance.report?.incidentType = self.label4.tag
         PSDataManager.sharedInstance.report?.reportType = "Emergency"
-        PSDataManager.sharedInstance.offlinePostDictionary.setValue(self.label4.tag, forKey: "incidentTypeID")
+        
+        // TODO: Offline Post Submisison
+        PSDataManager.sharedInstance.offlinePostDictionary.setValue(self.label4.tag, forKey: "IncidentTypeID")
+        
         print(PSDataManager.sharedInstance.report?.reportType ?? "No Type Found")
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PSEmergencyInstructionsViewController") as! PSEmergencyInstructionsViewController
