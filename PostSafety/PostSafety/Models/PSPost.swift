@@ -30,9 +30,12 @@ class PSPost: Object
         post.incidentTypeID = dict["IncidentTypeID"] as! Int
         post.type = dict["FileType"] as? String
         post.categoryID = dict["CatagoryId"] as! Int
-        post.subCategoryID = dict["SubCatagory"] as! Int
+        if post.incidentTypeID == 4
+        {
+            post.subCategoryID = dict["SubCatagory"] as! Int
+            post.isReportPSI = dict["IsPSI"] as! Int
+        }
         post.locationId = dict["LocationId"] as! Int
-        post.isReportPSI = dict["IsPSI"] as! Int
         post.details = dict["Details"] as? String
         post.fileData = (dict["data"] as? Data)!
         return post
