@@ -67,7 +67,7 @@ class PSDataManager: NSObject
         }
         
         offlinePost = realm.objects(PSPost.self).first
-        self.offlinePostsArray = Array(realm.objects(PSPost.self))
+        
         if(offlinePost == nil)
         {
             
@@ -75,6 +75,21 @@ class PSDataManager: NSObject
         else
         {
             print(offlinePost?.incidentTypeID ?? "")
+            self.offlinePostsArray = Array(realm.objects(PSPost.self))
+        }
+        
+    }
+    
+    func removeSubmittedPost()
+    {
+        if(!(realm != nil))
+        {
+            realm = try! Realm()
+        }
+        let result = realm.objects(PSPost.self).first
+        try! realm.write
+        {
+            realm.delete(result!)
         }
         
     }
