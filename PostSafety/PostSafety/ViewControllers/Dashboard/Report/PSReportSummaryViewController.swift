@@ -121,14 +121,18 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
             
             // TODO: Offline Post Submisison
             PSDataManager.sharedInstance.offlinePostDictionary.setValue(self.decriptionTextView.text, forKey: "Details")
-            print(PSDataManager.sharedInstance.offlinePostDictionary)
+//            print(PSDataManager.sharedInstance.offlinePostDictionary)
             var post : PSPost?
             post = PSPost.init()
             post = post?.initWithDictionary(dict: PSDataManager.sharedInstance.offlinePostDictionary as NSDictionary)
             PSDataManager.sharedInstance.offlinePost = post
         }
     }
-    
+//    DispatchQueue.global(qos: .background).async
+    //    {}
+//    DispatchQueue.main.async {
+//    print("This is run on the main queue, after the previous code in outer block")
+//    }
     // MARK: - UITextViewDelegate
     
     public func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
