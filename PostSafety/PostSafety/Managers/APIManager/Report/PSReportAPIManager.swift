@@ -288,12 +288,12 @@ class PSReportAPIManager: PSAPIManagerBase
         self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
     }
     
-    func submitPostOfflineFor(EmployeeId: String,
-                              IncidentTypeID: String,
-                              LocationId: String,
+    func submitPostOfflineFor(EmployeeId: Int,
+                              IncidentTypeID: Int,
+                              LocationId: Int,
                               Details: String,
-                              CatagoryId: String,
-                              SubCatagory: String,
+                              CatagoryId: Int,
+                              SubCatagory: Int,
                               IsPSI: Bool,
                               FileType: String,
                               data: Data,
