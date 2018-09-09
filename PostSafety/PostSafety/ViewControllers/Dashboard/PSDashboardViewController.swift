@@ -54,8 +54,10 @@ class PSDashboardViewController: UIViewController
                 
                 let EmployeeId = offlinePost?.employeeID
                 let incidentTypeID = offlinePost?.incidentTypeID
-                let locationId = offlinePost?.locationId
-                let categoryID = offlinePost?.categoryID
+                
+                var locationId = 0
+                var categoryID = 0
+                var details = ""
                 var subCategoryID = 0
                 var isReportPSI = NSNumber.init(booleanLiteral: false)
                 if incidentTypeID == 4
@@ -70,13 +72,19 @@ class PSDashboardViewController: UIViewController
                         isReportPSI = NSNumber.init(booleanLiteral: true)
                     }
                 }
+                if incidentTypeID != 1
+                {
+                    locationId = (offlinePost?.locationId)!
+                    categoryID = (offlinePost?.categoryID)!
+                    details = (offlinePost?.details)!
+                }
                 let type = offlinePost?.type
                 let fileData = offlinePost?.fileData
-                let details = offlinePost?.details
+                
                 
                 DispatchQueue.global(qos: .background).async
                 {
-                    PSAPIManager.sharedInstance.submitPostOfflineFor(EmployeeId: EmployeeId!, IncidentTypeID: incidentTypeID!, LocationId: locationId!, Details: details!, CatagoryId: categoryID!, SubCatagory: subCategoryID, IsPSI: isReportPSI as! Bool, FileType: type!, data: fileData!, success:
+                    PSAPIManager.sharedInstance.submitPostOfflineFor(EmployeeId: EmployeeId!, IncidentTypeID: incidentTypeID!, LocationId: locationId, Details: details, CatagoryId: categoryID, SubCatagory: subCategoryID, IsPSI: isReportPSI as! Bool, FileType: type!, data: fileData!, success:
                     { (dic) in
                         
                         PSDataManager.sharedInstance.removeSubmittedPost()

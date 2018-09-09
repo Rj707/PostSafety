@@ -264,6 +264,21 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
                                                                   animated: true)
                 }
             }
+            else
+            {
+                let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "PSNoConnectionViewController") as! PSNoConnectionViewController
+                self.navigationController?.pushViewController(vc,
+                                                              animated: true)
+                
+                // TODO: Offline Post Submisison
+//                print(PSDataManager.sharedInstance.offlinePostDictionary)
+                PSDataManager.sharedInstance.offlinePostDictionary.setValue("N/A", forKey: "Details")
+                var post : PSPost?
+                post = PSPost.init()
+                post = post?.initWithDictionary(dict: PSDataManager.sharedInstance.offlinePostDictionary as NSDictionary)
+                PSDataManager.sharedInstance.offlinePost = post
+            }
         }
         
     }
@@ -339,6 +354,21 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
                                                                   animated: true)
                 }
             }
+            else
+            {
+                let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "PSNoConnectionViewController") as! PSNoConnectionViewController
+                self.navigationController?.pushViewController(vc,
+                                                              animated: true)
+                
+                // TODO: Offline Post Submisison
+//                print(PSDataManager.sharedInstance.offlinePostDictionary)
+                PSDataManager.sharedInstance.offlinePostDictionary.setValue("N/A", forKey: "Details")
+                var post : PSPost?
+                post = PSPost.init()
+                post = post?.initWithDictionary(dict: PSDataManager.sharedInstance.offlinePostDictionary as NSDictionary)
+                PSDataManager.sharedInstance.offlinePost = post
+            }
         }
     }
     
@@ -386,12 +416,18 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         }
         else
         {
-            
             let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PSNoConnectionViewController") as! PSNoConnectionViewController
             self.navigationController?.pushViewController(vc,
                                                           animated: true)
-//            self.performSegue(withIdentifier: "toNoInternetFromSummary", sender: (Any).self)
+            
+            // TODO: Offline Post Submisison
+//            print(PSDataManager.sharedInstance.offlinePostDictionary)
+            PSDataManager.sharedInstance.offlinePostDictionary.setValue("N/A", forKey: "Details")
+            var post : PSPost?
+            post = PSPost.init()
+            post = post?.initWithDictionary(dict: PSDataManager.sharedInstance.offlinePostDictionary as NSDictionary)
+            PSDataManager.sharedInstance.offlinePost = post
         }
     }
     
