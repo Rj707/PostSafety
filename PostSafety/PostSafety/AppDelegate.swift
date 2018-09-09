@@ -171,10 +171,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         {
             print("Message ID: \(messageID)")
         }
+
+        if let userInfo = userInfo as NSDictionary? as! [String:Any]?
+        {
+            print(userInfo["aps"] ?? "")
+            if let userInfo = userInfo["aps"] as! NSDictionary? as! [String:Any]?
+            {
+                print(userInfo["Type"] ?? "")
+            }
+        }
         
-        // Print full message.
-//        print(userInfo)
-//        print(application.applicationState.rawValue)
         if application.applicationState == .inactive
         {
             PSDataManager.sharedInstance.isPushNotificationNavigation = 1
