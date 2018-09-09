@@ -157,7 +157,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
-                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void)
+    {
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
         // TODO: Handle data of notification
@@ -166,12 +167,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         
         // Print message ID.
-        if let messageID = userInfo["gcmMessageIDKey"] {
+        if let messageID = userInfo["gcmMessageIDKey"]
+        {
             print("Message ID: \(messageID)")
         }
         
         // Print full message.
-        print(userInfo)
+//        print(userInfo)
+//        print(application.applicationState.rawValue)
+        if application.applicationState == .inactive
+        {
+            PSDataManager.sharedInstance.isPushNotificationNavigation = 1
+            PSUserInterfaceManager.sharedInstance.loadHomePage()
+        }
         
         completionHandler(UIBackgroundFetchResult.newData)
     }
