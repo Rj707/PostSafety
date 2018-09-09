@@ -25,10 +25,38 @@ class PSGetInfoViewController: UIViewController
     {
         super.viewDidLoad()
         
+        
         self.addMenuAction()
         
         self.configureAndInitialize()
     }
+    
+//    override func viewWillAppear(_ animated: Bool)
+//    {
+//        super.viewWillAppear(animated)
+//        if PSDataManager.sharedInstance.isPushNotificationNavigation == 1
+//        {
+//            self.alertsGestureTapped((Any).self)
+//        }
+//        else
+//        {
+//            
+//        }
+//    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        if PSDataManager.sharedInstance.isPushNotificationNavigation == 1
+        {
+            self.alertsGestureTapped((Any).self)
+        }
+        else
+        {
+            
+        }
+    }
+    
 
     override func didReceiveMemoryWarning()
     {

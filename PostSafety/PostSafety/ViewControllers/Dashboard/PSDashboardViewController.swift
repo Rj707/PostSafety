@@ -21,9 +21,29 @@ class PSDashboardViewController: UIViewController
     {
         super.viewDidLoad()
         
-        self.getLocationsforReport()
+        if PSDataManager.sharedInstance.isPushNotificationNavigation == 1
+        {
+            self.performSegue(withIdentifier: "toGetInfo", sender: self)
+        }
+        else
+        {
+           self.getLocationsforReport()
+        }
         
         self.addMenuAction()
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        if PSDataManager.sharedInstance.isPushNotificationNavigation == 1
+        {
+            
+        }
+        else
+        {
+            
+        }
     }
 
     override func didReceiveMemoryWarning()

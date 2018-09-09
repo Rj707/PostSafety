@@ -28,6 +28,20 @@ class PSAlertsAnnouncementsViewController: UIViewController
         self.addMenuAction()
     }
     
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        if PSDataManager.sharedInstance.isPushNotificationNavigation == 1
+        {
+            PSDataManager.sharedInstance.isPushNotificationNavigation = 0
+            self.alertsGestureTapped((Any).self)
+        }
+        else
+        {
+            
+        }
+    }
+    
     func configureAndInitialize()
     {
         self.view1.layer.borderWidth=1
