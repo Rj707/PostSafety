@@ -61,6 +61,7 @@ class PSGetInfoViewController: UIViewController
                     self.alertsGestureTapped((Any).self)
                     break
                 case PushNotificatinType.PushNotificatinTypePost.rawValue:
+                    PSDataManager.sharedInstance.isPushNotificationNavigation = 5
                     self.viewReportsGestureTapped((Any).self)
                     break
                 case PushNotificatinType.PushNotificatinTypeTraining.rawValue:

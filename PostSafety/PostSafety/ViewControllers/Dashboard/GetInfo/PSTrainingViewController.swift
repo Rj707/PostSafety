@@ -29,6 +29,15 @@ class PSTrainingViewController: UIViewController
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        if PSDataManager.sharedInstance.isPushNotificationNavigation != 5
+        {
+            PSDataManager.sharedInstance.isPushNotificationNavigation = 5
+            self.trainingInboxGestureTapped((Any).self)
+        }
+    }
     
     func configureAndInitialize()
     {
