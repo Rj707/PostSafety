@@ -34,7 +34,7 @@ class PSGetInfoViewController: UIViewController
 //    override func viewWillAppear(_ animated: Bool)
 //    {
 //        super.viewWillAppear(animated)
-//        if PSDataManager.sharedInstance.isPushNotificationNavigation == 1
+//        if PSDataManager.sharedInstance.isPushNotificationNavigation != 5
 //        {
 //            self.alertsGestureTapped((Any).self)
 //        }
@@ -47,9 +47,29 @@ class PSGetInfoViewController: UIViewController
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
-        if PSDataManager.sharedInstance.isPushNotificationNavigation == 1
+        if PSDataManager.sharedInstance.isPushNotificationNavigation != 5
         {
-            self.alertsGestureTapped((Any).self)
+            switch PSDataManager.sharedInstance.notificatinType?.rawValue
+            {
+                case PushNotificatinType.PushNotificatinTypeAlert.rawValue:
+                    self.alertsGestureTapped((Any).self)
+                    break
+                case PushNotificatinType.PushNotificatinTypeAnnouncement.rawValue:
+                    self.alertsGestureTapped((Any).self)
+                    break
+                case PushNotificatinType.PushNotificatinTypeSafety.rawValue:
+                    self.alertsGestureTapped((Any).self)
+                    break
+                case PushNotificatinType.PushNotificatinTypePost.rawValue:
+                    self.viewReportsGestureTapped((Any).self)
+                    break
+                case PushNotificatinType.PushNotificatinTypeTraining.rawValue:
+                    self.trainingGestureTapped((Any).self)
+                    break
+                default:
+                    break
+            }
+        
         }
         else
         {

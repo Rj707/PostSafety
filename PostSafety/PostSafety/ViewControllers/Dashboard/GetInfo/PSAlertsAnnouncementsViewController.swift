@@ -31,10 +31,24 @@ class PSAlertsAnnouncementsViewController: UIViewController
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
-        if PSDataManager.sharedInstance.isPushNotificationNavigation == 1
+        if PSDataManager.sharedInstance.isPushNotificationNavigation != 5
         {
-            PSDataManager.sharedInstance.isPushNotificationNavigation = 0
-            self.alertsGestureTapped((Any).self)
+            PSDataManager.sharedInstance.isPushNotificationNavigation = 5
+            switch PSDataManager.sharedInstance.notificatinType?.rawValue
+            {
+            case PushNotificatinType.PushNotificatinTypeAlert.rawValue:
+                self.alertsGestureTapped((Any).self)
+                break
+            case PushNotificatinType.PushNotificatinTypeAnnouncement.rawValue:
+                self.announcementsGestureTapped((Any).self)
+                break
+            case PushNotificatinType.PushNotificatinTypeSafety.rawValue:
+                self.safetyUpdatesGestureTapped((Any).self)
+                break
+            default:
+                break
+            }
+            
         }
         else
         {

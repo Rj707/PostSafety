@@ -177,13 +177,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             print(userInfo["aps"] ?? "")
             if let userInfo = userInfo["aps"] as! NSDictionary? as! [String:Any]?
             {
-                print(userInfo["Type"] ?? "")
+                switch userInfo["alert"] as! String
+                {
+                    case "Alert":
+                        PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 0)
+                        PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
+                   
+                        break
+                    case "Announcement":
+                        PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 1)
+                        PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
+               
+                        break
+                    case "SafetyUpdate":
+                        PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 2)
+                        PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
+               
+                        break
+                    case "Post":
+                        PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 3)
+                        PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
+               
+                        break
+                    case "Training":
+                        PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 4)
+                        PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
+                      
+                        break
+                    default:
+                        break
+                }
             }
         }
         
         if application.applicationState == .inactive
         {
-            PSDataManager.sharedInstance.isPushNotificationNavigation = 1
             PSUserInterfaceManager.sharedInstance.loadHomePage()
         }
         

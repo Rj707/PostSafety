@@ -1,29 +1,37 @@
 import UIKit
 import RealmSwift
+
+enum PushNotificatinType :Int
+{
+    case PushNotificatinTypeAlert
+    case PushNotificatinTypeAnnouncement
+    case PushNotificatinTypeSafety
+    case PushNotificatinTypePost
+    case PushNotificatinTypeTraining
+    case PushNotificatinTypeUndefined
+}
+
+
 class PSDataManager: NSObject
 {
     static let sharedInstance = PSDataManager()
     var realm: Realm!
     var report: PSReport?
     var reportId = 0
-    var isPushNotificationNavigation = 0
     var isRememberMe = 0
     var companyLocationsArray = [Any]()
-    var loggedInUser: PSUser?
+    var isPushNotificationNavigation = 0
+    var notificatinType : PushNotificatinType?
     {
-//        set(user)
-//        {
-//            self.loggedInUser = user
-//            Constants.USER_DEFAULTS.set(user, forKey: "User")
-//        }
-//        get
-//        {
-//            return self.loggedInUser
-//        }
         didSet
         {
-//            Constants.USER_DEFAULTS.set(loggedInUser, forKey: "User")
-            
+            self.isPushNotificationNavigation = (self.notificatinType?.rawValue)!
+        }
+    }
+    var loggedInUser: PSUser?
+    {
+        didSet
+        {
             try!  self.realm.write()
             {
                 if self.isRememberMe == 0
@@ -38,7 +46,6 @@ class PSDataManager: NSObject
             }
             
         }
-
     }
     
     override init()
@@ -50,7 +57,8 @@ class PSDataManager: NSObject
         self.report = PSReport.init()
         self.reportId = 0
         self.isRememberMe = 0
-//        self.isPushNotificationNavigation = 1
+        self.notificatinType = PushNotificatinType(rawValue: 5)
+        self.isPushNotificationNavigation = (self.notificatinType?.rawValue)!
         self.companyLocationsArray = [Any]()
         if(!(realm != nil))
         {
