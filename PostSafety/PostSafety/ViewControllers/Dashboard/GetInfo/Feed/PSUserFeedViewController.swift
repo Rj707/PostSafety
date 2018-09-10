@@ -54,6 +54,7 @@ class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableVi
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.updatesAnnouncementsTableView.alwaysBounceVertical = false
         self.addMenuAction()
         self.updatesAnnouncementsTableView.tableFooterView = UIView.init()
         

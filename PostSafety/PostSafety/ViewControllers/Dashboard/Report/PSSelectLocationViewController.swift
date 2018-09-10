@@ -22,7 +22,7 @@ class PSSelectLocationViewController: UIViewController,UITableViewDelegate,UITab
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+        self.locationTableView.alwaysBounceVertical = false
         self.getLocationsforReport()
         self.backgroundView.layer.borderWidth=1
         self.backgroundView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor

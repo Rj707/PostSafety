@@ -28,7 +28,7 @@ class PSSelectSubCategoryViewController: UIViewController,UITableViewDelegate,UI
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        self.subCategoryTableView.alwaysBounceVertical = false
         
          if PSDataManager.sharedInstance.report?.reportType == "NearMiss"
         {

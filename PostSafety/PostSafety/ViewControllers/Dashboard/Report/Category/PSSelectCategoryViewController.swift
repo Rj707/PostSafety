@@ -22,7 +22,7 @@ class PSSelectCategoryViewController: UIViewController,UITableViewDelegate,UITab
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+        self.categoryTableView.alwaysBounceVertical = false
         if PSDataManager.sharedInstance.report?.reportType == "Hazard" || PSDataManager.sharedInstance.report?.reportType == "Incident"
         {
             pageControl.numberOfPages = 2
