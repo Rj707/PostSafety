@@ -54,7 +54,14 @@ class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableVi
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        if PSDataManager.sharedInstance.isPushNotificationNavigation != 7
+        {
+            PSDataManager.sharedInstance.isPushNotificationNavigation = 7
+        }
+        
         self.addMenuAction()
+        
         self.updatesAnnouncementsTableView.tableFooterView = UIView.init()
         
         self.type = FeedType.init(rawValue: 0)
@@ -68,15 +75,22 @@ class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableVi
             self.feedTitleLabel.text = "Posts"
         }
         
-        
         if PSDataManager.sharedInstance.loggedInUser?.userTypeByRole == UserType.UserTypeAdmin.rawValue && feedTitle == "Reports"
         {
             // User is Admin and Section is Reports/Posts
             self.filterReportsView.isHidden = false
             self.reportsStackView.isHidden = false
             
-            self.reportType = "SharedReports"
-            self.getSharedReports()
+            if PSDataManager.sharedInstance.notificatinType == PushNotificatinType.PushNotificatinTypePost
+            {
+                self.allReportsViewTouched(self.allReportsView.gestureRecognizers?.first as! UITapGestureRecognizer)
+            }
+            else
+            {
+                self.reportType = "SharedReports"
+                self.getSharedReports()
+            }
+            
         }
         else
         {

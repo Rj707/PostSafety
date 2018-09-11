@@ -32,9 +32,9 @@ class PSTrainingViewController: UIViewController
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
-        if PSDataManager.sharedInstance.isPushNotificationNavigation != 5
+        if PSDataManager.sharedInstance.isPushNotificationNavigation != 7
         {
-            PSDataManager.sharedInstance.isPushNotificationNavigation = 5
+            PSDataManager.sharedInstance.isPushNotificationNavigation = 7
             self.trainingInboxGestureTapped((Any).self)
         }
     }

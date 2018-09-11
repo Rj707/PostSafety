@@ -21,7 +21,7 @@ class PSDashboardViewController: UIViewController
     {
         super.viewDidLoad()
         
-        if PSDataManager.sharedInstance.isPushNotificationNavigation != 5
+        if PSDataManager.sharedInstance.isPushNotificationNavigation != 7
         {
             self.performSegue(withIdentifier: "toGetInfo", sender: self)
         }

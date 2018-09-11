@@ -8,6 +8,8 @@ enum PushNotificatinType :Int
     case PushNotificatinTypeSafety
     case PushNotificatinTypePost
     case PushNotificatinTypeTraining
+    case PushNotificatinTypePolicies
+    case PushNotificatinTypeSharedPost
     case PushNotificatinTypeUndefined
 }
 
@@ -20,12 +22,16 @@ class PSDataManager: NSObject
     var reportId = 0
     var isRememberMe = 0
     var companyLocationsArray = [Any]()
-    var isPushNotificationNavigation = 0
     var notificatinType : PushNotificatinType?
+    var isPushNotificationNavigation = 0
     {
         didSet
         {
-            self.isPushNotificationNavigation = (self.notificatinType?.rawValue)!
+            if self.isPushNotificationNavigation == 7
+            {
+                self.notificatinType = PushNotificatinType.PushNotificatinTypeUndefined
+            }
+            
         }
     }
     var loggedInUser: PSUser?
@@ -57,7 +63,7 @@ class PSDataManager: NSObject
         self.report = PSReport.init()
         self.reportId = 0
         self.isRememberMe = 0
-        self.notificatinType = PushNotificatinType(rawValue: 5)
+        self.notificatinType = PushNotificatinType(rawValue: 7)
         self.isPushNotificationNavigation = (self.notificatinType?.rawValue)!
         self.companyLocationsArray = [Any]()
         if(!(realm != nil))
