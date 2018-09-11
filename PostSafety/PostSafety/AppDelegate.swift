@@ -177,77 +177,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             print(userInfo["Type"] ?? "")
             switch userInfo["Type"] as! String
             {
-            case "Alert":
-                PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 0)
-                PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
-                
-                break
-            case "Announcement":
-                PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 1)
-                PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
-                
-                break
-            case "SafetyUpdate":
-                PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 2)
-                PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
-                
-                break
-            case "Post":
-                PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 3)
-                PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
-                
-                break
-            case "Training":
-                PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 4)
-                PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
-                
-                break
-            case "ProcedureAndPolicy":
-                PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 5)
-                PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
-                
-                break
-            case "SharedPost":
-                PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 6)
-                PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
-                
-                break
-            default:
-                break
+                case "Alert":
+                    PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 0)
+                    PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
+                    
+                    break
+                case "Announcement":
+                    PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 1)
+                    PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
+                    
+                    break
+                case "SafetyUpdate":
+                    PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 2)
+                    PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
+                    
+                    break
+                case "Post":
+                    PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 3)
+                    PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
+                    
+                    break
+                case "Training":
+                    PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 4)
+                    PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
+                    
+                    break
+                case "ProcedureAndPolicy":
+                    PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 5)
+                    PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
+                    
+                    break
+                case "SharedPost":
+                    PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 6)
+                    PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
+                    
+                    break
+                default:
+                    break
             }
-//            if let userInfo = userInfo["aps"] as! NSDictionary? as! [String:Any]?
-//            {
-//                switch userInfo["alert"] as! String
-//                {
-//                    case "Alert":
-//                        PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 0)
-//                        PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
-//
-//                        break
-//                    case "Announcement":
-//                        PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 1)
-//                        PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
-//
-//                        break
-//                    case "SafetyUpdate":
-//                        PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 2)
-//                        PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
-//
-//                        break
-//                    case "Post":
-//                        PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 3)
-//                        PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
-//
-//                        break
-//                    case "Training":
-//                        PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 4)
-//                        PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
-//
-//                        break
-//                    default:
-//                        break
-//                }
-//            }
         }
         
         if application.applicationState == .inactive
