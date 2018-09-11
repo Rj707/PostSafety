@@ -15,5 +15,5 @@ pod 'DZNEmptyDataSet'
 pod 'Firebase/Core'
 pod 'Firebase/Messaging'
 
-
+pod 'DGElasticPullToRefresh'
 end
