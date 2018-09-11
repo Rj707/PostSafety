@@ -466,7 +466,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         }
         else
         {
-            PSUserInterfaceManager.showAlert(title: "Login", message: ApiErrorMessage.NoNetwork)
+//            PSUserInterfaceManager.showAlert(title: "Login", message: ApiErrorMessage.NoNetwork)
         }
     }
     

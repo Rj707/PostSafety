@@ -95,7 +95,7 @@ class PSSelectReportTypeViewController: UIViewController
         }
         else
         {
-            PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiErrorMessage.NoNetwork)
+//            PSUserInterfaceManager.showAlert(title: "Checklist", message: ApiErrorMessage.NoNetwork)
             self.loadReportTypes()
         }
     }

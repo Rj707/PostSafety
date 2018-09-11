@@ -19,7 +19,7 @@ class PSSelectSubCategoryViewController: UIViewController,UITableViewDelegate,UI
     @IBOutlet weak var view4: UIView!
     
     @IBOutlet weak var pageControl : UIPageControl!
-    
+    @IBOutlet weak var forwardButton: UIButton!
     @IBOutlet weak var subCategoryTableView: UITableView!
     
     var subCategoriesArray = [Any]()
@@ -28,8 +28,9 @@ class PSSelectSubCategoryViewController: UIViewController,UITableViewDelegate,UI
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.subCategoryTableView.alwaysBounceVertical = false
         
+        self.subCategoryTableView.alwaysBounceVertical = false
+        self.forwardButton.imageView?.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi));
          if PSDataManager.sharedInstance.report?.reportType == "NearMiss"
         {
             pageControl.numberOfPages = 3
@@ -57,12 +58,35 @@ class PSSelectSubCategoryViewController: UIViewController,UITableViewDelegate,UI
     {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func forwardButtonTouched(_ sender: UIButton)
+    {
+        PSDataManager.sharedInstance.report?.reportSubcategory = "N/A"
+        PSDataManager.sharedInstance.report?.subCategoryID = 0
         
+        // TODO: Offline Post Submisison
+        PSDataManager.sharedInstance.offlinePostDictionary.setValue(0, forKey: "SubCatagory")
+
+        let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PSPotentiallySeriousIncidentViewController") as! PSPotentiallySeriousIncidentViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return self.subCategoriesArray.count
+        if self.subCategoriesArray.count>0
+        {
+            self.forwardButton.isHidden =  true
+            return self.subCategoriesArray.count
+        }
+        else
+        {
+            self.forwardButton.isHidden =  false
+            return 0;
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
