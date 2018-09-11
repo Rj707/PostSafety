@@ -55,57 +55,11 @@ class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableVi
     {
         super.viewDidLoad()
         
-        if PSDataManager.sharedInstance.isPushNotificationNavigation != 7
-        {
-            PSDataManager.sharedInstance.isPushNotificationNavigation = 7
-        }
+        self.configureAndInitialize()
         
-        self.addMenuAction()
+        self.loadDataForUserType()
         
-        self.updatesAnnouncementsTableView.tableFooterView = UIView.init()
-        
-        self.type = FeedType.init(rawValue: 0)
-        self.updatesAnnouncementsTableView.dataSource = self
-        self.updatesAnnouncementsTableView.delegate = self
-        
-        self.feedTitleLabel.text = self.feedTitle
-        
-        if  feedTitle == "Reports"
-        {
-            self.feedTitleLabel.text = "Posts"
-        }
-        
-        if PSDataManager.sharedInstance.loggedInUser?.userTypeByRole == UserType.UserTypeAdmin.rawValue && feedTitle == "Reports"
-        {
-            // User is Admin and Section is Reports/Posts
-            self.filterReportsView.isHidden = false
-            self.reportsStackView.isHidden = false
-            
-            if PSDataManager.sharedInstance.notificatinType == PushNotificatinType.PushNotificatinTypePost
-            {
-                self.allReportsViewTouched(self.allReportsView.gestureRecognizers?.first as! UITapGestureRecognizer)
-            }
-            else
-            {
-                self.reportType = "SharedReports"
-                self.getSharedReports()
-            }
-            
-        }
-        else
-        {
-            // Either User is not Admin or Section is not Reports/Posts
-            self.filterReportsView.isHidden = true
-            self.reportsStackView.isHidden = true
-            
-            if feedTitle == "Reports"
-            {
-                self.reportType = "SharedReports"
-                self.getSharedReports()
-            }
-        }
-        
-        if feedTitle == "Alerts" || feedTitle == "Announcements"
+        if feedTitle == "Alerts" || feedTitle == "Announcements" || feedTitle == "Training" || feedTitle == "Policies/Procedures" || feedTitle == "Safety Updates"
         {
             unOpenedLabel.text = "New & Unopened"
             archivedLabel.text = "Archived"
@@ -114,14 +68,15 @@ class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableVi
         {
             unOpenedLabel.text = "Shared Posts"
             archivedLabel.text = "My Posts"
-            
-            if feedTitle == "Training" || feedTitle == "Policies/Procedures" || feedTitle == "Safety Updates"
+            if  feedTitle == "Reports"
             {
-                unOpenedLabel.text = "New & Unopened"
-                archivedLabel.text = "Archived"
-//               self.getInfoFor()
+                self.feedTitleLabel.text = "Posts"
             }
-            
+        }
+        
+        if PSDataManager.sharedInstance.isPushNotificationNavigation != 7
+        {
+            PSDataManager.sharedInstance.isPushNotificationNavigation = 7
         }
     }
     
@@ -138,6 +93,53 @@ class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableVi
         else if feedTitle == "Announcements" || feedTitle == "Alerts"
         {
             self.getAlerts()
+        }
+    }
+    
+    func configureAndInitialize()
+    {
+        self.addMenuAction()
+        
+        self.updatesAnnouncementsTableView.tableFooterView = UIView.init()
+        self.updatesAnnouncementsTableView.dataSource = self
+        self.updatesAnnouncementsTableView.delegate = self
+        
+        self.type = FeedType.init(rawValue: 0)
+        
+        self.feedTitleLabel.text = self.feedTitle
+    }
+    
+    func loadDataForUserType()
+    {
+        if PSDataManager.sharedInstance.loggedInUser?.userTypeByRole == UserType.UserTypeAdmin.rawValue && feedTitle == "Reports"
+        {
+            // User is Admin and Section is Reports/Posts
+            
+            self.filterReportsView.isHidden = false
+            self.reportsStackView.isHidden = false
+            
+            if PSDataManager.sharedInstance.notificatinType == PushNotificatinType.PushNotificatinTypePost
+            {
+                self.allReportsViewTouched(self.allReportsView.gestureRecognizers?.first as! UITapGestureRecognizer)
+            }
+            else
+            {
+                self.reportType = "SharedReports"
+                self.getSharedReports()
+            }
+        }
+        else
+        {
+            // Either User is not Admin or Section is not Reports/Posts
+            
+            self.filterReportsView.isHidden = true
+            self.reportsStackView.isHidden = true
+            
+            if feedTitle == "Reports"
+            {
+                self.reportType = "SharedReports"
+                self.getSharedReports()
+            }
         }
     }
 
