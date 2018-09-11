@@ -13,7 +13,7 @@ enum FeedType :Int
 }
 
 import UIKit
-
+import DGElasticPullToRefresh
 
 
 class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,PSSortReportsDialogViewControllerDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate
@@ -49,7 +49,9 @@ class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableVi
     var route: String = ""
     var companyId = 0
     var EmployeeID = 0
+    var isPullToRefresh = 0
     
+    // MARK: - Implementation
     
     override func viewDidLoad()
     {
@@ -330,10 +332,21 @@ class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableVi
             {
                 typeOfFetch = "My Posts"
             }
-            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: String(format: "%@%@", "Fetching ", typeOfFetch))
+            
+            if isPullToRefresh == 0
+            {
+                PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: String(format: "%@%@", "Fetching ", typeOfFetch))
+            }
+            else
+            {
+                isPullToRefresh = 0
+            }
+            
             EmployeeID = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
             PSAPIManager.sharedInstance.getSharedReportsFor(EmployeeID: String(EmployeeID), Type: reportType ,success:
             { (dic) in
+                
+                self.updatesAnnouncementsTableView.dg_stopLoading()
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 let tempArray = dic["array"] as! [Any]
                 
@@ -354,6 +367,7 @@ class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableVi
                                                    failure:
                 { (error:NSError,statusCode:Int) in
                     
+                    self.updatesAnnouncementsTableView.dg_stopLoading()
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     if(statusCode==404)
                     {
@@ -595,6 +609,7 @@ class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableVi
     
     @IBAction func sharedReportsViewTouched(_ sender: UITapGestureRecognizer)
     {
+        self.updatesAnnouncementsTableView.dg_removePullToRefresh()
         self.sharedReportsView.backgroundColor=UIColor.init(red: 255/255.0, green: 75/255.0, blue: 1/255.0, alpha: 1.0)
         self.myReportsView.backgroundColor=UIColor.white
         self.allReportsView.backgroundColor=UIColor.white
@@ -610,6 +625,23 @@ class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableVi
     
     @IBAction func myReportsViewTouched(_ sender: UITapGestureRecognizer)
     {
+        self.updatesAnnouncementsTableView.dg_removePullToRefresh()
+        
+        // Initialize tableView
+        let loadingView = DGElasticPullToRefreshLoadingViewCircle()
+        loadingView.tintColor = UIColor(red: 78/255.0, green: 221/255.0, blue: 200/255.0, alpha: 1.0)
+        self.updatesAnnouncementsTableView.dg_addPullToRefreshWithActionHandler(
+            { [weak self] () -> Void in
+                
+            // Add your logic here
+            // Do not forget to call dg_stopLoading() at the end
+            self?.isPullToRefresh = 1
+            self?.getSharedReports()
+            
+            }, loadingView: loadingView)
+        self.updatesAnnouncementsTableView.dg_setPullToRefreshFillColor(UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1))
+        self.updatesAnnouncementsTableView.dg_setPullToRefreshBackgroundColor(updatesAnnouncementsTableView.backgroundColor!)
+        
         self.myReportsView.backgroundColor=UIColor.init(red: 255/255.0, green: 75/255.0, blue: 1/255.0, alpha: 1.0)
         self.sharedReportsView.backgroundColor=UIColor.white
         self.allReportsView.backgroundColor=UIColor.white
@@ -625,6 +657,7 @@ class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableVi
     
     @IBAction func allReportsViewTouched(_ sender: UITapGestureRecognizer)
     {
+        self.updatesAnnouncementsTableView.dg_removePullToRefresh()
         self.allReportsView.backgroundColor=UIColor.init(red: 255/255.0, green: 75/255.0, blue: 1/255.0, alpha: 1.0)
         self.sharedReportsView.backgroundColor=UIColor.white
         self.myReportsView.backgroundColor=UIColor.white
