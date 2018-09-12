@@ -600,7 +600,7 @@
                                     <outletCollection property="gestureRecognizers" destination="Yxf-Ue-zbE" appends="YES" id="1rw-5z-wV5"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder=" Subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UJ7-ft-zY6">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder=" Subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UJ7-ft-zY6">
                                 <rect key="frame" x="38" y="171" width="300" height="45"/>
                                 <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -610,20 +610,27 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="  Message" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KJs-6E-jad">
-                                <rect key="frame" x="38" y="231" width="300" height="150"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzI-tq-uZF">
+                                <rect key="frame" x="38" y="223" width="300" height="166"/>
                                 <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Message" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KJs-6E-jad">
+                                <rect key="frame" x="46" y="231" width="284" height="150"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="lfe-1O-2QU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
-                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="hkK-24-y2X" id="hrt-cf-51m"/>
+                                </connections>
                             </textView>
                             <button hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6F-qp-Li0">
-                                <rect key="frame" x="82.5" y="431" width="210.5" height="40"/>
+                                <rect key="frame" x="88.5" y="431" width="199" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Cvr-yJ-sLY"/>
@@ -641,8 +648,9 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHk-Yo-kOO">
-                                <rect key="frame" x="82.5" y="493" width="210.5" height="40"/>
+                                <rect key="frame" x="88.5" y="493" width="199" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Send ">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -673,15 +681,21 @@
                             <constraint firstItem="UHk-Yo-kOO" firstAttribute="width" secondItem="M6F-qp-Li0" secondAttribute="width" id="B9w-q7-GdS"/>
                             <constraint firstItem="M6F-qp-Li0" firstAttribute="width" secondItem="KJs-6E-jad" secondAttribute="width" multiplier="0.7" id="IIR-Rf-cGZ"/>
                             <constraint firstItem="moF-fg-dda" firstAttribute="centerY" secondItem="VpO-sF-yLF" secondAttribute="centerY" id="IaJ-Qi-Eix"/>
+                            <constraint firstItem="gzI-tq-uZF" firstAttribute="bottom" secondItem="KJs-6E-jad" secondAttribute="bottom" constant="8" id="KXg-yA-U3H"/>
                             <constraint firstItem="kc0-i6-iLV" firstAttribute="trailing" secondItem="441-Ye-CT9" secondAttribute="trailing" id="KY7-aw-zux"/>
+                            <constraint firstItem="gzI-tq-uZF" firstAttribute="leading" secondItem="UJ7-ft-zY6" secondAttribute="leading" id="Kq2-sg-EGn"/>
                             <constraint firstItem="UJ7-ft-zY6" firstAttribute="width" secondItem="1pt-dZ-gpJ" secondAttribute="width" id="MCY-cH-Xoe"/>
+                            <constraint firstItem="gzI-tq-uZF" firstAttribute="trailing" secondItem="UJ7-ft-zY6" secondAttribute="trailing" id="NDA-7n-4eZ"/>
                             <constraint firstItem="VpO-sF-yLF" firstAttribute="leading" secondItem="441-Ye-CT9" secondAttribute="leading" id="Nss-Sd-SJY"/>
                             <constraint firstItem="8sT-lG-LNd" firstAttribute="leading" secondItem="kc0-i6-iLV" secondAttribute="leading" id="PHg-Qx-HQ8"/>
                             <constraint firstItem="1pt-dZ-gpJ" firstAttribute="top" secondItem="VpO-sF-yLF" secondAttribute="bottom" id="PaB-q4-S4C"/>
                             <constraint firstItem="UHk-Yo-kOO" firstAttribute="top" secondItem="M6F-qp-Li0" secondAttribute="bottom" constant="22" id="QRp-Mt-sb4"/>
+                            <constraint firstItem="gzI-tq-uZF" firstAttribute="leading" secondItem="KJs-6E-jad" secondAttribute="leading" constant="-8" id="Sqc-dj-6Cs"/>
                             <constraint firstItem="441-Ye-CT9" firstAttribute="trailing" secondItem="VpO-sF-yLF" secondAttribute="trailing" id="UAl-L9-z2v"/>
                             <constraint firstItem="8sT-lG-LNd" firstAttribute="bottom" secondItem="kc0-i6-iLV" secondAttribute="bottom" id="VNH-Oa-2Ns"/>
                             <constraint firstItem="UJ7-ft-zY6" firstAttribute="top" secondItem="1pt-dZ-gpJ" secondAttribute="bottom" constant="10" id="VxF-Nd-Ua7"/>
+                            <constraint firstItem="gzI-tq-uZF" firstAttribute="trailing" secondItem="KJs-6E-jad" secondAttribute="trailing" constant="8" id="YKn-VP-86D"/>
+                            <constraint firstItem="gzI-tq-uZF" firstAttribute="top" secondItem="KJs-6E-jad" secondAttribute="top" constant="-8" id="ZGq-35-hO1"/>
                             <constraint firstItem="moF-fg-dda" firstAttribute="centerX" secondItem="441-Ye-CT9" secondAttribute="centerX" id="aFY-Hu-rH3"/>
                             <constraint firstItem="1pt-dZ-gpJ" firstAttribute="centerX" secondItem="441-Ye-CT9" secondAttribute="centerX" id="bNM-JC-Sqo"/>
                             <constraint firstItem="UJ7-ft-zY6" firstAttribute="height" secondItem="1pt-dZ-gpJ" secondAttribute="height" id="dzl-Ac-LOe"/>
@@ -693,7 +707,6 @@
                             <constraint firstItem="VpO-sF-yLF" firstAttribute="top" secondItem="kc0-i6-iLV" secondAttribute="bottom" id="obt-6e-oK7"/>
                             <constraint firstItem="UHk-Yo-kOO" firstAttribute="centerX" secondItem="M6F-qp-Li0" secondAttribute="centerX" id="rML-QC-oca"/>
                             <constraint firstItem="kc0-i6-iLV" firstAttribute="leading" secondItem="441-Ye-CT9" secondAttribute="leading" id="tbB-5B-YvI"/>
-                            <constraint firstItem="KJs-6E-jad" firstAttribute="width" secondItem="UJ7-ft-zY6" secondAttribute="width" id="u6m-lw-a2L"/>
                             <constraint firstItem="M6F-qp-Li0" firstAttribute="centerX" secondItem="KJs-6E-jad" secondAttribute="centerX" id="vq3-YZ-BVf"/>
                             <constraint firstItem="KJs-6E-jad" firstAttribute="centerX" secondItem="UJ7-ft-zY6" secondAttribute="centerX" id="yw8-ta-wos"/>
                         </constraints>
@@ -701,7 +714,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="hC2-p8-9q6"/>
                     <connections>
+                        <outlet property="messageTextView" destination="KJs-6E-jad" id="Ozr-ud-zbo"/>
                         <outlet property="sendButton" destination="UHk-Yo-kOO" id="wKj-Na-kLa"/>
+                        <outlet property="subjectTextField" destination="UJ7-ft-zY6" id="78p-EW-EMb"/>
                         <outlet property="toTextField" destination="1pt-dZ-gpJ" id="N3G-dV-071"/>
                     </connections>
                 </viewController>

@@ -8,20 +8,23 @@
 
 import UIKit
 
-class PSSendAlertViewController: UIViewController,PSSelectDialogViewControllerDelegate
+class PSSendAlertViewController: UIViewController,PSSelectDialogViewControllerDelegate,UITextViewDelegate
 {
     
     @IBOutlet weak var toTextField:UITextField!
+    @IBOutlet weak var subjectTextField:UITextField!
+    @IBOutlet weak var messageTextView:UITextView!
     @IBOutlet weak var menuButton:UIButton!
     @IBOutlet weak var sendButton:UIButton!
     var reportSenderArray = [NSMutableDictionary]()
-    var EmployeeID = 0
+    var EmployeeID = ""
     var ReportID = 0
     
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.messageTextView.delegate = self
         self.addMenuAction()
         // Do any additional setup after loading the view.
     }
@@ -41,7 +44,7 @@ class PSSendAlertViewController: UIViewController,PSSelectDialogViewControllerDe
     
     @IBAction func sendButtonTouched(_ sender: UIButton)
     {
-        self.sendReport()
+        self.createAlert()
     }
     
     @IBAction func toTextFieldTouched(_ sender: UITapGestureRecognizer)
@@ -53,8 +56,7 @@ class PSSendAlertViewController: UIViewController,PSSelectDialogViewControllerDe
         selectDialogVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         selectDialogVC.delegate = self
         selectDialogVC.shareReport = 0
-        //        self.view.backgroundColor = UIColor.clear
-        //        self.modalPresentationStyle = UIModalPresentationStyle.currentContext
+
         self.present(selectDialogVC, animated: true)
         {
             
@@ -74,24 +76,32 @@ class PSSendAlertViewController: UIViewController,PSSelectDialogViewControllerDe
         }
     }
     
-    func sendReport()
+    func createAlert()
     {
-        if CEReachabilityManager.isReachable()
+        if self.subjectTextField.text == ""
         {
-            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Sending Reports")
-//            EmployeeID = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
+            PSUserInterfaceManager.showAlert(title: "Creating Alert", message: "Please enter alert subject")
+        }
+        else if self.messageTextView.text == ""
+        {
+            PSUserInterfaceManager.showAlert(title: "Creating Alert", message: "Please enter alert message")
+        }
+        else if CEReachabilityManager.isReachable()
+        {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Creating Alert")
+            let employeeId = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
             ReportID = (PSDataManager.sharedInstance.reportId)
-            PSAPIManager.sharedInstance.sendReportsWith(ReportID: String(ReportID), EmployeeID: String(EmployeeID), success:
+            PSAPIManager.sharedInstance.createAlertWith(EmployeeId: String(employeeId), Title: self.subjectTextField.text!, Body: self.messageTextView.text, Employees: self.EmployeeID, success:
             { (dic) in
                 
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 
-                if dic["SUCCESS"] as! String == "Done"
+                if dic["ReportID"] as! Int != 0
                 {
                     
                 }
                 
-                let alertController = UIAlertController(title: "Sending Report", message: "You have successfully Sent the report", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Creating Alert", message: "You have successfully created the Alert", preferredStyle: .alert)
                 let alertActionCancel = UIAlertAction(title: "OK", style: .cancel)
                 { (action) in
                     
@@ -112,15 +122,36 @@ class PSSendAlertViewController: UIViewController,PSSelectDialogViewControllerDe
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 if(statusCode==404)
                 {
-                    PSUserInterfaceManager.showAlert(title: "Sending Reports", message: ApiErrorMessage.ErrorOccured)
+                    PSUserInterfaceManager.showAlert(title: "Creating Alert", message: ApiErrorMessage.ErrorOccured)
                 }
                 else
                 {
-                    PSUserInterfaceManager.showAlert(title: "Sending Reports", message: error.localizedDescription)
+                    PSUserInterfaceManager.showAlert(title: "Creating Alert", message: error.localizedDescription)
                 }
                     
             }, errorPopup: true)
         }
+        else
+        {
+            PSUserInterfaceManager.showAlert(title: "Creating Alert", message: ApiErrorMessage.NoNetwork)
+        }
+    }
+    
+    // MARK: - UITextViewDelegate
+    
+    public func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
+    {
+        textView.text = ""
+        return true
+    }
+    
+    public func textViewShouldEndEditing(_ textView: UITextView) -> Bool
+    {
+        if textView.text == ""
+        {
+            textView.text = "Message"
+        }
+        return true
     }
     
     //MARK: - PSSelectDialogViewControllerDelegate
@@ -135,15 +166,29 @@ class PSSendAlertViewController: UIViewController,PSSelectDialogViewControllerDe
     
     func configureSenders()
     {
+        var temp = ""
         for i in 0...self.reportSenderArray.count-1
         {
             var reporterDict = NSMutableDictionary.init()
             reporterDict = reportSenderArray[i]
             
-            toTextField.text = toTextField.text! + String(format: "%@%@", reporterDict["employeeFullName"] as! String, ",")
-            EmployeeID = reporterDict["employeeId"] as! Int
+            if i != self.reportSenderArray.count-1
+            {
+                toTextField.text = toTextField.text! + String(format: "%@%@", reporterDict["employeeFullName"] as! String, ", ")
+            }
+            else
+            {
+                toTextField.text = toTextField.text! + String(format: "%@", reporterDict["employeeFullName"] as! String)
+            }
+            
+            temp = temp + String(self.reportSenderArray[i].value(forKey: "employeeId") as! Int)
+            if i != self.reportSenderArray.count-1
+            {
+                temp =  temp + ";"
+            }
         }
         
+        EmployeeID = temp
     }
     
     /*
