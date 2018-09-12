@@ -17,6 +17,7 @@ class PSShareReportViewController: UIViewController,UITableViewDelegate,UITableV
     @IBOutlet weak var doneButton:UIButton!
     @IBOutlet weak var searchBar:UISearchBar!
     @IBOutlet weak var selectionLabel:UILabel!
+    @IBOutlet weak var selecctAllGestureView:UIView!
     
     var reportSenderArrayNew = [NSMutableDictionary]()
     var reportSenderArray = [String]()
@@ -240,6 +241,18 @@ class PSShareReportViewController: UIViewController,UITableViewDelegate,UITableV
             selectedPeopleArray[indexPath.row] = reportSenderArray[indexPath.row]
         }
         
+        if selectedPeopleArray == reportSenderArray
+        {
+            self.selectionLabel.text = "Unselect All"
+            self.selectionButton.setImage(UIImage.init(named: "selected"), for: UIControlState.normal)
+        }
+        else
+        {
+            self.selectionLabel.text = "Select All"
+            self.selectionButton.setImage(UIImage.init(named: "unselected"), for: UIControlState.normal)
+        }
+        
+        
         tableView.reloadData()
     }
     
@@ -372,6 +385,14 @@ class PSShareReportViewController: UIViewController,UITableViewDelegate,UITableV
     }
     */
 
+}
+
+extension Array where Element: Comparable
+{
+    func containsSameElements(as other: [Element]) -> Bool
+    {
+        return self.count == other.count && self.sorted() == other.sorted()
+    }
 }
 
 protocol PSSelectDialogViewControllerDelegate

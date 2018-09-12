@@ -776,7 +776,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NNL-e4-COR">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NNL-e4-COR" userLabel="Select All Gesture">
                                 <rect key="frame" x="14.5" y="135" width="113.5" height="38"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -913,6 +913,7 @@
                     <connections>
                         <outlet property="doneButton" destination="w9X-UA-ASg" id="zGj-vG-oUM"/>
                         <outlet property="searchBar" destination="piJ-42-use" id="aSy-dH-98i"/>
+                        <outlet property="selecctAllGestureView" destination="NNL-e4-COR" id="c5h-VZ-lhI"/>
                         <outlet property="selectDialogTableView" destination="vPs-2f-QXx" id="1Zp-ux-1nB"/>
                         <outlet property="selectionButton" destination="Scc-kB-yP7" id="8rb-rf-MI7"/>
                         <outlet property="selectionLabel" destination="2EG-gD-UbT" id="hCX-gj-d7v"/>
