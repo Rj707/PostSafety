@@ -42,77 +42,7 @@ class PSDashboardViewController: UIViewController
         
     }
     
-    func submitOfflinePosts()
-    {
-        if CEReachabilityManager.isReachable()
-        {
-            if PSDataManager.sharedInstance.isOfflinePostsExist()
-            {
-                 print(PSDataManager.sharedInstance.offlinePostsArray)
-                offlinePost = PSPost.init()
-                offlinePost  = PSDataManager.sharedInstance.offlinePostsArray[0]
-                
-                let EmployeeId = offlinePost?.employeeID
-                let incidentTypeID = offlinePost?.incidentTypeID
-                
-                var locationId = 0
-                var categoryID = 0
-                var details = ""
-                var subCategoryID = 0
-                var isReportPSI = NSNumber.init(booleanLiteral: false)
-                if incidentTypeID == 4
-                {
-                    subCategoryID = (offlinePost?.subCategoryID)!
-                    if offlinePost?.isReportPSI == 0
-                    {
-                        isReportPSI = NSNumber.init(booleanLiteral: false)
-                    }
-                    else
-                    {
-                        isReportPSI = NSNumber.init(booleanLiteral: true)
-                    }
-                }
-                if incidentTypeID != 1
-                {
-                    locationId = (offlinePost?.locationId)!
-                    categoryID = (offlinePost?.categoryID)!
-                    details = (offlinePost?.details)!
-                }
-                let type = offlinePost?.type
-                let fileData = offlinePost?.fileData
-                
-                
-                DispatchQueue.global(qos: .background).async
-                {
-                    PSAPIManager.sharedInstance.submitPostOfflineFor(EmployeeId: EmployeeId!, IncidentTypeID: incidentTypeID!, LocationId: locationId, Details: details, CatagoryId: categoryID, SubCatagory: subCategoryID, IsPSI: isReportPSI as! Bool, FileType: type!, data: fileData!, success:
-                    { (dic) in
-                        
-                        PSDataManager.sharedInstance.removeSubmittedPost()
-                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute:
-                        {
-                            self.submitOfflinePosts()
-                        })
-                        
-                    }, failure:
-                    { (error, statusCode) in
-                        
-                        
-                    }, progress:
-                    {
-                        (prog:Double) in
-                        
-                    }, errorPopup: true)
-                    
-                    
-                    print("This is run on the background queue")
-                }
-            }
-            else
-            {
-                
-            }
-        }
-    }
+   
     
     
     // MARK: - IBActions
@@ -120,6 +50,19 @@ class PSDashboardViewController: UIViewController
     @IBAction func backButtonTouched(_ sender: UIButton)
     {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func addMenuAction()
+    {
+        if self.revealViewController() != nil
+        {
+            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().rightRevealToggle(_:)), for: .touchUpInside)
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+            let menuVC = revealViewController().rightViewController as? MenuViewController
+            
+            menuVC?.dashboardNavViewController = self.navigationController
+        }
     }
     
     /*
@@ -131,6 +74,8 @@ class PSDashboardViewController: UIViewController
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: - APIs
     
     func getLocationsforReport() -> Void
     {
@@ -192,16 +137,75 @@ class PSDashboardViewController: UIViewController
         }
     }
     
-    func addMenuAction()
+    func submitOfflinePosts()
     {
-        if self.revealViewController() != nil
+        if CEReachabilityManager.isReachable()
         {
-            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().rightRevealToggle(_:)), for: .touchUpInside)
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            
-            let menuVC = revealViewController().rightViewController as? MenuViewController
-           
-            menuVC?.dashboardNavViewController = self.navigationController
+            if PSDataManager.sharedInstance.isOfflinePostsExist()
+            {
+                print(PSDataManager.sharedInstance.offlinePostsArray)
+                offlinePost = PSPost.init()
+                offlinePost  = PSDataManager.sharedInstance.offlinePostsArray[0]
+                
+                let EmployeeId = offlinePost?.employeeID
+                let incidentTypeID = offlinePost?.incidentTypeID
+                
+                var locationId = 0
+                var categoryID = 0
+                var details = ""
+                var subCategoryID = 0
+                var isReportPSI = NSNumber.init(booleanLiteral: false)
+                if incidentTypeID == 4
+                {
+                    subCategoryID = (offlinePost?.subCategoryID)!
+                    if offlinePost?.isReportPSI == 0
+                    {
+                        isReportPSI = NSNumber.init(booleanLiteral: false)
+                    }
+                    else
+                    {
+                        isReportPSI = NSNumber.init(booleanLiteral: true)
+                    }
+                }
+                if incidentTypeID != 1
+                {
+                    locationId = (offlinePost?.locationId)!
+                    categoryID = (offlinePost?.categoryID)!
+                    details = (offlinePost?.details)!
+                }
+                let type = offlinePost?.type
+                let fileData = offlinePost?.fileData
+                
+                
+                DispatchQueue.global(qos: .background).async
+                    {
+                        PSAPIManager.sharedInstance.submitPostOfflineFor(EmployeeId: EmployeeId!, IncidentTypeID: incidentTypeID!, LocationId: locationId, Details: details, CatagoryId: categoryID, SubCatagory: subCategoryID, IsPSI: isReportPSI as! Bool, FileType: type!, data: fileData!, success:
+                            { (dic) in
+                                
+                                PSDataManager.sharedInstance.removeSubmittedPost()
+                                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute:
+                                    {
+                                        self.submitOfflinePosts()
+                                })
+                                
+                        }, failure:
+                            { (error, statusCode) in
+                                
+                                
+                        }, progress:
+                            {
+                                (prog:Double) in
+                                
+                        }, errorPopup: true)
+                        
+                        
+                        print("This is run on the background queue")
+                }
+            }
+            else
+            {
+                
+            }
         }
     }
 
