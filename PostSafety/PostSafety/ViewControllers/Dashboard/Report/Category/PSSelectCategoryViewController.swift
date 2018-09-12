@@ -155,6 +155,21 @@ class PSSelectCategoryViewController: UIViewController,UITableViewDelegate,UITab
         PSDataManager.sharedInstance.offlinePostDictionary.setValue(cell.data["checklistDetailsId"] as? Int, forKey: "CatagoryId")
         
         PSDataManager.sharedInstance.report?.categoryID = (cell.data["checklistDetailsId"] as? Int)!
+        
+        if PSDataManager.sharedInstance.report?.reportType == "NearMiss" && !CEReachabilityManager.isReachable()
+        {
+            PSDataManager.sharedInstance.report?.reportSubcategory = "N/A"
+            PSDataManager.sharedInstance.report?.subCategoryID = 0
+            
+            // TODO: Offline Post Submisison
+            PSDataManager.sharedInstance.offlinePostDictionary.setValue(0, forKey: "SubCatagory")
+            
+            let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "PSPotentiallySeriousIncidentViewController") as! PSPotentiallySeriousIncidentViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
+        
         navigationController?.pushViewController(nextViewController,
                                                  animated: true)
     }
