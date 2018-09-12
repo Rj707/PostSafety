@@ -135,6 +135,17 @@ extension PSAPIManager
         reportManagerAPI.sendReportsWith(ReportID: ReportID,EmployeeID: EmployeeID,success: success, failure: failure,errorPopup: errorPopup)
     }
     
+    func createAlertWith(EmployeeId: String,
+                         Title: String,
+                         Body: String,
+                         Employees: String,
+                         success:@escaping DefaultArrayResultAPISuccessClosure,
+                         failure:@escaping DefaultAPIFailureClosure,
+                         errorPopup: Bool)
+    {
+        reportManagerAPI.createAlertWith(EmployeeId: EmployeeId,Title: Title, Body: Body, Employees: Employees, success: success, failure: failure,errorPopup: errorPopup)
+    }
+    
     func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ())
     {
         URLSession.shared.dataTask(with: url)

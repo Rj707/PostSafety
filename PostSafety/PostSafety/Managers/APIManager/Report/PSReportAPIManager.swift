@@ -260,10 +260,32 @@ class PSReportAPIManager: PSAPIManagerBase
         let parameters: [String:Any] =
             [
                 "ReportID":ReportID,
-                "EmployeeID":EmployeeID,
+                "Employees":EmployeeID,
             ]
         
         let route: URL = GETURLfor(route: Route.SendReports.rawValue, parameters: parameters )!
+        
+        self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
+    }
+    
+    func createAlertWith(EmployeeId: String,
+                         Title: String,
+                         Body: String,
+                         Employees: String,
+                         success:@escaping DefaultArrayResultAPISuccessClosure,
+                         failure:@escaping DefaultAPIFailureClosure,
+                         errorPopup: Bool)
+    {
+        
+        let parameters: [String:Any] =
+            [
+                "EmployeeId":EmployeeId,
+                "Title":Title,
+                "Body":Body,
+                "Employees":Employees,
+            ]
+        
+        let route: URL = GETURLfor(route: Route.CreateAlert.rawValue, parameters: parameters )!
         
         self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
     }
