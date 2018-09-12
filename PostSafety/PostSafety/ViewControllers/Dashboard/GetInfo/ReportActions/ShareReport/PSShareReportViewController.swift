@@ -23,7 +23,7 @@ class PSShareReportViewController: UIViewController,UITableViewDelegate,UITableV
     var reportSenderDetailArray = [Any]()
     var selectedPeopleArray = [String]()
     var companyId = 0
-    var EmployeeID = 0
+    var EmployeeID = ""
     var ReportID = 0
     
     var shareReport = 0
@@ -168,9 +168,20 @@ class PSShareReportViewController: UIViewController,UITableViewDelegate,UITableV
                     
                 }
                 let alertActionYes = UIAlertAction(title: "Yes", style: .default)
-                { (action) in
-                    
-                    self.EmployeeID = self.reportSenderArrayNew[0].value(forKey: "employeeId") as! Int
+                {
+                    (action) in
+                    var temp = ""
+                    for i in 0...self.reportSenderArrayNew.count-1
+                    {
+                        temp = temp + String(self.reportSenderArrayNew[i].value(forKey: "employeeId") as! Int)
+                        if i != self.reportSenderArrayNew.count-1
+                        {
+                           temp =  temp + ";"
+                        }
+//                        self.EmployeeID = self.reportSenderArrayNew[i].value(forKey: "employeeId") as! Int
+                    }
+                    self.EmployeeID = temp
+
                     self.sendReport()
                 }
                 alertController.addAction(alertActionNo)
@@ -310,7 +321,7 @@ class PSShareReportViewController: UIViewController,UITableViewDelegate,UITableV
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Sending Reports")
             //            EmployeeID = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
             ReportID = (PSDataManager.sharedInstance.reportId)
-            PSAPIManager.sharedInstance.sendReportsWith(ReportID: String(ReportID), EmployeeID: String(EmployeeID), success:
+            PSAPIManager.sharedInstance.sendReportsWith(ReportID: String(ReportID), EmployeeID: EmployeeID, success:
             { (dic) in
                 
                 PSUserInterfaceManager.sharedInstance.hideLoader()
