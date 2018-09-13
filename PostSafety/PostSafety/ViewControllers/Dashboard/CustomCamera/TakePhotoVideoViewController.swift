@@ -268,6 +268,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
             {
                 let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "PSNoConnectionViewController") as! PSNoConnectionViewController
+                vc.delegate = self
                 self.navigationController?.pushViewController(vc,
                                                               animated: true)
                 
@@ -288,6 +289,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         // TODO: Offline Post Submisison
         PSDataManager.sharedInstance.offlinePostDictionary.setValue("Image", forKey: "FileType")
         PSDataManager.sharedInstance.offlinePostDictionary.setValue(imageData, forKey: "data")
+        
         if CEReachabilityManager.isReachable()
         {
             self.progressView.isHidden = false
@@ -358,11 +360,11 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
             {
                 let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "PSNoConnectionViewController") as! PSNoConnectionViewController
+                vc.delegate = self
                 self.navigationController?.pushViewController(vc,
                                                               animated: true)
                 
                 // TODO: Offline Post Submisison
-//                print(PSDataManager.sharedInstance.offlinePostDictionary)
                 PSDataManager.sharedInstance.offlinePostDictionary.setValue("N/A", forKey: "Details")
                 var post : PSPost?
                 post = PSPost.init()
@@ -372,6 +374,8 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         }
     }
     
+    // MARK: PSEmergencyReportConfirmationViewControllerDelegate
+    
     func takeAnotherVideoForEmergency()
     {
         if self.incidentTypeID == 0
@@ -380,6 +384,13 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         }
         
         self.createReport()
+    }
+    
+    func takeAnotherOfflineVideoForEmergency()
+    {
+        PSDataManager.sharedInstance.offlinePostDictionary.setValue("", forKey: "data")
+        print(PSDataManager.sharedInstance.offlinePostDictionary)
+        
     }
     
     // MARK: APIs
@@ -418,6 +429,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         {
             let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PSNoConnectionViewController") as! PSNoConnectionViewController
+            vc.delegate = self
             self.navigationController?.pushViewController(vc,
                                                           animated: true)
             

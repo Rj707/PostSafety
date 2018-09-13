@@ -23,17 +23,17 @@ class PSNoConnectionViewController: UIViewController
 
         self.noConnectionContainer.layer.borderWidth=2
         self.noConnectionContainer.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
-        
+//        print(PSDataManager.sharedInstance.report?.reportType ?? "Nothing")
         if PSDataManager.sharedInstance.report?.reportType != "Emergency"
         {
-            self.call911Button.isHidden =  false
-            self.takeAnotherVideoButton.isHidden =  false
+            self.call911Button.isHidden =  true
+            self.takeAnotherVideoButton.isHidden =  true
             
         }
         else
         {
-            self.call911Button.isHidden =  true
-            self.takeAnotherVideoButton.isHidden =  true
+            self.call911Button.isHidden =  false
+            self.takeAnotherVideoButton.isHidden =  false
         }
     }
 
@@ -52,6 +52,7 @@ class PSNoConnectionViewController: UIViewController
                 // some process
                 if viewController is PSDashboardViewController
                 {
+                    PSDataManager.sharedInstance.offlinePostDictionary = NSMutableDictionary.init()
                     self.navigationController?.popToViewController(viewController, animated: true)
                     break
                 }
@@ -93,7 +94,7 @@ class PSNoConnectionViewController: UIViewController
                 // some process
                 if viewController is TakePhotoVideoViewController
                 {
-                    self.delegate.takeAnotherVideoForEmergency()
+                    self.delegate.takeAnotherOfflineVideoForEmergency()
                     self.navigationController?.popToViewController(viewController, animated: true)
                     return
                 }

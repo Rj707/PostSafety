@@ -108,4 +108,5 @@ class PSEmergencyReportConfirmationViewController: UIViewController
 protocol PSEmergencyReportConfirmationViewControllerDelegate
 {
     func takeAnotherVideoForEmergency()
+    func takeAnotherOfflineVideoForEmergency()
 }

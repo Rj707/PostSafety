@@ -28,6 +28,12 @@ class PSDashboardViewController: UIViewController
         
         self.addMenuAction()
         
+//        self.submitOfflinePosts()
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
         self.submitOfflinePosts()
     }
 
@@ -41,9 +47,6 @@ class PSDashboardViewController: UIViewController
     {
         
     }
-    
-   
-    
     
     // MARK: - IBActions
     

@@ -2456,7 +2456,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="call911ButtonTouched:" destination="yhc-Sn-UEc" eventType="touchUpInside" id="HUU-28-TxI"/>
+                                            <action selector="call911ButtonTouched:" destination="AQV-KC-Oif" eventType="touchUpInside" id="ulc-SV-Dvx"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gdm-7e-vOQ">
@@ -2471,7 +2471,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="takeAnotherVideoButtonTouched:" destination="yhc-Sn-UEc" eventType="touchUpInside" id="EY2-GK-iu2"/>
+                                            <action selector="takeAnotherVideoButtonTouched:" destination="AQV-KC-Oif" eventType="touchUpInside" id="uMw-24-j16"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sco-Dc-2xP">
