@@ -8,7 +8,8 @@
 
 import UIKit
 
-class PSEmergencyReportConfirmationViewController: UIViewController {
+class PSEmergencyReportConfirmationViewController: UIViewController
+{
 
     @IBOutlet weak var confirmationContainer:UIView!
     public var delegate:PSEmergencyReportConfirmationViewControllerDelegate!

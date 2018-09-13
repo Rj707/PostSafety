@@ -1889,7 +1889,7 @@
                                             <constraint firstItem="3rZ-1i-Od0" firstAttribute="leading" secondItem="3O8-gA-sLa" secondAttribute="leading" id="wcm-FS-iOg"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAC-Ga-ZYc" userLabel="\/\">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAC-Ga-ZYc">
                                         <rect key="frame" x="40" y="336" width="240" height="44"/>
                                         <color key="backgroundColor" red="0.76078431372549016" green="0.019607843137254902" blue="0.047058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -1904,7 +1904,7 @@
                                             <action selector="call911ButtonTouched:" destination="yhc-Sn-UEc" eventType="touchUpInside" id="aEc-nd-PmH"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYc-FH-FL6" userLabel="\/\">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYc-FH-FL6">
                                         <rect key="frame" x="40" y="396" width="240" height="44"/>
                                         <color key="backgroundColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -1919,7 +1919,7 @@
                                             <action selector="takeAnotherVideoButtonTouched:" destination="yhc-Sn-UEc" eventType="touchUpInside" id="m7S-Sx-13i"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UwN-PK-Ped" userLabel="\/\">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UwN-PK-Ped">
                                         <rect key="frame" x="40" y="456" width="240" height="44"/>
                                         <color key="backgroundColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -2411,7 +2411,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="RIZ-b7-MGB">
-                                <rect key="frame" x="40" y="75.5" width="240" height="417.5"/>
+                                <rect key="frame" x="40" y="15.5" width="240" height="537.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SFz-eG-Vhp">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
@@ -2444,8 +2444,38 @@
                                         <color key="textColor" red="0.92941176469999998" green="0.42352941179999998" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sco-Dc-2xP">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8J-Ip-7rm">
                                         <rect key="frame" x="0.0" y="373.5" width="240" height="44"/>
+                                        <color key="backgroundColor" red="0.76078431369999999" green="0.019607843140000001" blue="0.047058823530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="SFn-Df-4QZ"/>
+                                            <constraint firstAttribute="width" constant="240" id="x5q-so-x7B"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                        <state key="normal" title="Call 911">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="call911ButtonTouched:" destination="yhc-Sn-UEc" eventType="touchUpInside" id="HUU-28-TxI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gdm-7e-vOQ">
+                                        <rect key="frame" x="0.0" y="433.5" width="240" height="44"/>
+                                        <color key="backgroundColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="HZy-ak-cdu"/>
+                                            <constraint firstAttribute="width" constant="240" id="dcO-VL-M2k"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                        <state key="normal" title="Take Another Video">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="takeAnotherVideoButtonTouched:" destination="yhc-Sn-UEc" eventType="touchUpInside" id="EY2-GK-iu2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sco-Dc-2xP">
+                                        <rect key="frame" x="0.0" y="493.5" width="240" height="44"/>
                                         <color key="backgroundColor" red="1" green="0.29411764709999999" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="YgZ-FB-QQ5"/>
@@ -2507,7 +2537,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="dDh-aS-wEc"/>
                     <connections>
+                        <outlet property="call911Button" destination="P8J-Ip-7rm" id="cYj-Dg-DV7"/>
                         <outlet property="noConnectionContainer" destination="SFz-eG-Vhp" id="fhh-52-91f"/>
+                        <outlet property="takeAnotherVideoButton" destination="Gdm-7e-vOQ" id="Pib-VR-rJc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NTq-E3-xt7" sceneMemberID="firstResponder"/>
