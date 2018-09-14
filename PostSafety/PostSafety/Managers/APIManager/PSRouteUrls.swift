@@ -22,6 +22,7 @@ enum Route: String
     case CreateAlert        = "/api/CreateAlert/"
     
     case UploadImage        = "/api/UploadImage/"
+    case ReportSingleCall   = "/api/ReportSingleCall/"
     
     case LocationsList      = "/api/LocationsList/"
     case SubCategory        = "/api/SubChecklistDetails/"

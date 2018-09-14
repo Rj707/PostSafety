@@ -37,10 +37,15 @@ class PSDataManager: NSObject
             
         }
     }
+    
+
+    var offlinePostsArray = [PSPost]()
+            
     var loggedInUser: PSUser?
     {
         didSet
         {
+
             try!  self.realm.write()
             {
                 if self.isRememberMe == 0
@@ -56,13 +61,14 @@ class PSDataManager: NSObject
             
         }
     }
+
     var offlinePost: PSPost?
     {
         didSet
         {
             try!  self.realm.write()
             {
-                self.realm.add(self.offlinePost!, update: true)
+                self.realm.add(self.offlinePost!)
                 print(offlinePost?.incidentTypeID ?? "")
             }
         }
@@ -78,7 +84,9 @@ class PSDataManager: NSObject
         self.notificatinType = PushNotificatinType(rawValue: 7)
         self.isPushNotificationNavigation = (self.notificatinType?.rawValue)!
         self.companyLocationsArray = [Any]()
-        
+
+        self.offlinePostsArray = [PSPost]()
+
         if(!(realm != nil))
         {
             realm = try! Realm()
@@ -94,6 +102,7 @@ class PSDataManager: NSObject
             print("\(loggedInUser?.emailId ?? "")")
         }
         
+
         offlinePost = realm.objects(PSPost.self).first
         
         if(offlinePost == nil)
@@ -104,6 +113,54 @@ class PSDataManager: NSObject
             print(offlinePost?.incidentTypeID ?? "")
         }
         
+
+//        offlinePost = realm.objects(PSPost.self).first
+//        
+//        if(offlinePost == nil)
+//        {
+//            
+//        }
+//        else
+//        {
+//            print(offlinePost?.incidentTypeID ?? "")
+//            self.offlinePostsArray = Array(realm.objects(PSPost.self))
+//        }
+        
+    }
+    
+    func removeSubmittedPost()
+    {
+        if(!(realm != nil))
+        {
+            realm = try! Realm()
+        }
+        let result = realm.objects(PSPost.self).first
+        try! realm.write
+        {
+            realm.delete(result!)
+        }
+        
+    }
+    
+    func isOfflinePostsExist() -> Bool
+    {
+        if(!(realm != nil))
+        {
+            realm = try! Realm()
+        }
+        
+        let results = realm.objects(PSPost.self)
+        
+        if(results.count>0)
+        {
+            self.offlinePostsArray = Array(realm.objects(PSPost.self))
+            return true
+        }
+        else
+        {
+            return false
+        }
+
     }
     
     func isUserLoggedIn() -> Bool

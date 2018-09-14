@@ -22,7 +22,7 @@ class PSSelectCategoryViewController: UIViewController,UITableViewDelegate,UITab
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+        self.categoryTableView.alwaysBounceVertical = false
         if PSDataManager.sharedInstance.report?.reportType == "Hazard" || PSDataManager.sharedInstance.report?.reportType == "Incident"
         {
             pageControl.numberOfPages = 2
@@ -150,8 +150,28 @@ class PSSelectCategoryViewController: UIViewController,UITableViewDelegate,UITab
             let vc =   nextViewController as! PSSelectSubCategoryViewController
             vc.CatagoryID = (cell.data["checklistDetailsId"] as? Int)!
         }
+
         PSDataManager.sharedInstance.offlinePostDictionary.setValue(cell.data["checklistDetailsId"] as? Int, forKey: "checklistDetailsId")
+
+        // TODO: Offline Post Submisison
+        PSDataManager.sharedInstance.offlinePostDictionary.setValue(cell.data["checklistDetailsId"] as? Int, forKey: "CatagoryId")
+
         PSDataManager.sharedInstance.report?.categoryID = (cell.data["checklistDetailsId"] as? Int)!
+        
+        if PSDataManager.sharedInstance.report?.reportType == "NearMiss" && !CEReachabilityManager.isReachable()
+        {
+            PSDataManager.sharedInstance.report?.reportSubcategory = "N/A"
+            PSDataManager.sharedInstance.report?.subCategoryID = 0
+            
+            // TODO: Offline Post Submisison
+            PSDataManager.sharedInstance.offlinePostDictionary.setValue(0, forKey: "SubCatagory")
+            
+            let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "PSPotentiallySeriousIncidentViewController") as! PSPotentiallySeriousIncidentViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
+        
         navigationController?.pushViewController(nextViewController,
                                                  animated: true)
     }

@@ -16,8 +16,11 @@ class PSLogInViewController: UIViewController
     @IBOutlet weak var passowrdTextField : UITextField?
     @IBOutlet weak var termsLabel : UILabel?
     @IBOutlet weak var rememberMeSwitch : UISwitch?
+    
     var loggedInUser : PSUser?
     var locationsArray = [Any]()
+    
+    var cheklistArray = [Any]()
     
     override func viewDidLoad()
     {
@@ -51,70 +54,7 @@ class PSLogInViewController: UIViewController
     
     @IBAction func loginButtonTouched()
     {
-        if (self.phoneNumberTextField?.text?.isEmpty)!
-        {
-            PSUserInterfaceManager.showAlert(title: "Login", message: FieldsErrorMessage.EmptyPhoneNumber)
-        }
-        else if (self.passowrdTextField?.text?.isEmpty)!
-        {
-            PSUserInterfaceManager.showAlert(title: "Login", message: FieldsErrorMessage.EmptyPassword)
-        }
-        else if CEReachabilityManager.isReachable()
-        {
-            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Logging In")
-            PSAPIManager.sharedInstance.authenticateUserWith(email: (self.phoneNumberTextField?.text)!, password: (self.passowrdTextField?.text)!, success:
-            { (dic) in
-                
-                var user : PSUser?
-                user = PSUser.init()
-                
-                user = user?.initWithDictionary(dict: dic as NSDictionary)
-                self.loggedInUser = user
-                if (self.rememberMeSwitch?.isOn)!
-                {
-                    PSDataManager.sharedInstance.isRememberMe = 1
-                    print("isRememberMe ON")
-//                    PSDataManager.sharedInstance.loggedInUser = user
-                }
-                else
-                {
-                    PSDataManager.sharedInstance.isRememberMe = 0
-                    print("isRememberMe Off")
-//                    PSDataManager.sharedInstance.loggedInUser = user
-                }
-                
-                if user?.employeeType == "Reviewers"
-                {
-                    Global.USERTYPE? = UserType(rawValue: 1)!
-                }
-                else
-                {
-                    Global.USERTYPE? = UserType(rawValue: 0)!
-                }
-                
-                self.getLocationsforReport()
-                
-            } , failure:
-                
-            {
-                (error:NSError,statusCode:Int) in
-                PSUserInterfaceManager.sharedInstance.hideLoader()
-                if(statusCode==404)
-                {
-                    PSUserInterfaceManager.showAlert(title: "Login Failure", message: ApiResultFailureMessage.InvalidEmailPassword)
-                }
-                else
-                {
-                    PSUserInterfaceManager.showAlert(title: "Login Failure", message: error.localizedDescription)
-                }
-                    
-            }, errorPopup: true)
-        }
-        else
-        {
-            PSUserInterfaceManager.showAlert(title: "Login", message: ApiErrorMessage.NoNetwork)
-        }
-        
+        self.loginUser()
     }
     
     @IBAction func termsOfUseButtonTouched(sender: UITapGestureRecognizer)
@@ -128,6 +68,75 @@ class PSLogInViewController: UIViewController
         self.present(termsOfUseVC, animated: true)
         {
             
+        }
+    }
+    
+    // MARK: - APIs
+    
+    func loginUser() -> Void
+    {
+        if (self.phoneNumberTextField?.text?.isEmpty)!
+        {
+            PSUserInterfaceManager.showAlert(title: "Login", message: FieldsErrorMessage.EmptyPhoneNumber)
+        }
+        else if (self.passowrdTextField?.text?.isEmpty)!
+        {
+            PSUserInterfaceManager.showAlert(title: "Login", message: FieldsErrorMessage.EmptyPassword)
+        }
+        else if CEReachabilityManager.isReachable()
+        {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Logging In")
+            PSAPIManager.sharedInstance.authenticateUserWith(email: (self.phoneNumberTextField?.text)!, password: (self.passowrdTextField?.text)!, success:
+                { (dic) in
+                    
+                    var user : PSUser?
+                    user = PSUser.init()
+                    
+                    user = user?.initWithDictionary(dict: dic as NSDictionary)
+                    self.loggedInUser = user
+                    if (self.rememberMeSwitch?.isOn)!
+                    {
+                        PSDataManager.sharedInstance.isRememberMe = 1
+                        print("isRememberMe ON")
+                        //                    PSDataManager.sharedInstance.loggedInUser = user
+                    }
+                    else
+                    {
+                        PSDataManager.sharedInstance.isRememberMe = 0
+                        print("isRememberMe Off")
+                        //                    PSDataManager.sharedInstance.loggedInUser = user
+                    }
+                    
+                    if user?.employeeType == "Reviewers"
+                    {
+                        Global.USERTYPE? = UserType(rawValue: 1)!
+                    }
+                    else
+                    {
+                        Global.USERTYPE? = UserType(rawValue: 0)!
+                    }
+                    
+                    self.getReportTypes()
+                    
+            } , failure:
+                
+                {
+                    (error:NSError,statusCode:Int) in
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    if(statusCode==404)
+                    {
+                        PSUserInterfaceManager.showAlert(title: "Login Failure", message: ApiResultFailureMessage.InvalidEmailPassword)
+                    }
+                    else
+                    {
+                        PSUserInterfaceManager.showAlert(title: "Login Failure", message: error.localizedDescription)
+                    }
+                    
+            }, errorPopup: true)
+        }
+        else
+        {
+            PSUserInterfaceManager.showAlert(title: "Login", message: ApiErrorMessage.NoNetwork)
         }
     }
     
@@ -199,6 +208,63 @@ class PSLogInViewController: UIViewController
         let companyLocationsData = NSKeyedArchiver.archivedData(withRootObject: self.locationsArray)
         UserDefaults.standard.set(companyLocationsData, forKey: "CompanyLocations")
         
+    }
+    
+    func getReportTypes ()
+    {
+        if CEReachabilityManager.isReachable()
+        {
+            PSAPIManager.sharedInstance.getAllChecklists(success:
+                { (dic) in
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    let tempArray = dic["array"] as! [Any]
+                    
+                    for checklistDict in tempArray
+                    {
+                        if let tempDict = checklistDict as? [String: Any]
+                        {
+                            var checklist = PSChecklist(incidentType: 0, typeName: "", checkList: 0, checklistDetails: NSDictionary())
+                            checklist = checklist.initChecklistWithDictionary(dict: tempDict as NSDictionary)
+                            self.cheklistArray.append(checklist)
+                        }
+                    }
+                    self.saveReportTypes()
+                    self.getLocationsforReport()
+                    print(self.cheklistArray)
+                    
+            }, failure:
+                
+                {
+                    (error:NSError,statusCode:Int) in
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    if(statusCode==404)
+                    {
+                        PSUserInterfaceManager.showAlert(title: "Fetching Incident Types", message: ApiErrorMessage.ErrorOccured)
+                    }
+                    else
+                    {
+                        
+                    }
+                    
+            }, errorPopup: true)
+        }
+        else
+        {
+            
+        }
+    }
+    
+//    func saveCompanyLocations()
+//    {
+//        let companyLocationsData = NSKeyedArchiver.archivedData(withRootObject: self.locationsArray)
+//        UserDefaults.standard.set(companyLocationsData, forKey: "CompanyLocations")
+//        
+//    }
+    
+    func saveReportTypes()
+    {
+        let placesData = NSKeyedArchiver.archivedData(withRootObject: self.cheklistArray)
+        UserDefaults.standard.set(placesData, forKey: "ReportTypes")
     }
     
     // MARK: - Navigation

@@ -16,6 +16,7 @@ class PSDashboardViewController: UIViewController
     @IBOutlet weak var reportContainer:UIView!
     
     var locationsArray = [Any]()
+    var offlinePost : PSPost?
     
     override func viewDidLoad()
     {
@@ -30,7 +31,17 @@ class PSDashboardViewController: UIViewController
            self.getLocationsforReport()
         }
         
+//        print(PSDataManager.sharedInstance.offlinePostsArray)
+        
         self.addMenuAction()
+        
+//        self.submitOfflinePosts()
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        self.submitOfflinePosts()
     }
     
     override func viewDidAppear(_ animated: Bool)
@@ -64,6 +75,19 @@ class PSDashboardViewController: UIViewController
         self.navigationController?.popViewController(animated: true)
     }
     
+    func addMenuAction()
+    {
+        if self.revealViewController() != nil
+        {
+            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().rightRevealToggle(_:)), for: .touchUpInside)
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+            let menuVC = revealViewController().rightViewController as? MenuViewController
+            
+            menuVC?.dashboardNavViewController = self.navigationController
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -73,6 +97,8 @@ class PSDashboardViewController: UIViewController
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: - APIs
     
     func getLocationsforReport() -> Void
     {
@@ -106,7 +132,36 @@ class PSDashboardViewController: UIViewController
         {
             self.loadCompanyLocations()
         }
+
     }
+    
+//    func saveCompanyLocations()
+//    {
+//        let companyLocationsData = NSKeyedArchiver.archivedData(withRootObject: self.locationsArray)
+//        UserDefaults.standard.set(companyLocationsData, forKey: "CompanyLocations")
+//
+//    }
+    
+//    func loadCompanyLocations()
+//    {
+//        let companyLocationsData = UserDefaults.standard.value(forKey: "CompanyLocations") as? Data
+//        
+//        if let companyLocationsData = companyLocationsData
+//        {
+//            let companyLocationsArray = NSKeyedUnarchiver.unarchiveObject(with: companyLocationsData as Data) as! [Any]
+//            
+//            if companyLocationsArray != nil
+//            {
+//                // do something…
+//                self.locationsArray = companyLocationsArray as [Any]
+//                PSDataManager.sharedInstance.companyLocationsArray = self.locationsArray
+//                print(self.locationsArray)
+//                print("locationsArray")
+//            }
+//            
+//        }
+//
+//    }
     
     func saveCompanyLocations()
     {
@@ -128,23 +183,81 @@ class PSDashboardViewController: UIViewController
                 // do something…
                 self.locationsArray = companyLocationsArray as [Any]
                 PSDataManager.sharedInstance.companyLocationsArray = self.locationsArray
-                print(self.locationsArray)
-                print("locationsArray")
+                
             }
             
         }
     }
     
-    func addMenuAction()
+    func submitOfflinePosts()
     {
-        if self.revealViewController() != nil
+        if CEReachabilityManager.isReachable()
         {
-            menuButton.addTarget(self.revealViewController(), action: #selector(self.revealViewController().rightRevealToggle(_:)), for: .touchUpInside)
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            
-            let menuVC = revealViewController().rightViewController as? MenuViewController
-           
-            menuVC?.dashboardNavViewController = self.navigationController
+            if PSDataManager.sharedInstance.isOfflinePostsExist()
+            {
+                print(PSDataManager.sharedInstance.offlinePostsArray)
+                offlinePost = PSPost.init()
+                offlinePost  = PSDataManager.sharedInstance.offlinePostsArray[0]
+                
+                let EmployeeId = offlinePost?.employeeID
+                let incidentTypeID = offlinePost?.incidentTypeID
+                
+                var locationId = 0
+                var categoryID = 0
+                var details = ""
+                var subCategoryID = 0
+                var isReportPSI = NSNumber.init(booleanLiteral: false)
+                if incidentTypeID == 4
+                {
+                    subCategoryID = (offlinePost?.subCategoryID)!
+                    if offlinePost?.isReportPSI == 0
+                    {
+                        isReportPSI = NSNumber.init(booleanLiteral: false)
+                    }
+                    else
+                    {
+                        isReportPSI = NSNumber.init(booleanLiteral: true)
+                    }
+                }
+                if incidentTypeID != 1
+                {
+                    locationId = (offlinePost?.locationId)!
+                    categoryID = (offlinePost?.categoryID)!
+                    details = (offlinePost?.details)!
+                }
+                let type = offlinePost?.type
+                let fileData = offlinePost?.fileData
+                
+                
+                DispatchQueue.global(qos: .background).async
+                    {
+                        PSAPIManager.sharedInstance.submitPostOfflineFor(EmployeeId: EmployeeId!, IncidentTypeID: incidentTypeID!, LocationId: locationId, Details: details, CatagoryId: categoryID, SubCatagory: subCategoryID, IsPSI: isReportPSI as! Bool, FileType: type!, data: fileData!, success:
+                            { (dic) in
+                                
+                                PSDataManager.sharedInstance.removeSubmittedPost()
+                                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute:
+                                    {
+                                        self.submitOfflinePosts()
+                                })
+                                
+                        }, failure:
+                            { (error, statusCode) in
+                                
+                                
+                        }, progress:
+                            {
+                                (prog:Double) in
+                                
+                        }, errorPopup: true)
+                        
+                        
+                        print("This is run on the background queue")
+                }
+            }
+            else
+            {
+                
+            }
         }
     }
 

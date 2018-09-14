@@ -14,7 +14,7 @@ class PSPost: Object
 {
     @objc dynamic var employeeID = 0
     @objc dynamic var incidentTypeID = 0
-//    @objc dynamic var fileData : Data
+    @objc dynamic var fileData = Data()
     @objc dynamic var type : String?
     @objc dynamic var categoryID = 0
     @objc dynamic var subCategoryID = 0
@@ -25,16 +25,26 @@ class PSPost: Object
     public func initWithDictionary(dict:NSDictionary)-> PSPost
     {
         let post = PSPost.init()
+
+        let EmployeeId = PSDataManager.sharedInstance.loggedInUser?.employeeId
+        post.employeeID = EmployeeId!
+        post.incidentTypeID = dict["IncidentTypeID"] as! Int
+        post.type = dict["FileType"] as? String
         
-        post.employeeID = dict["employeeID"] as! Int
-        post.incidentTypeID = dict["incidentTypeID"] as! Int
-        post.type = dict["employeeFullName"] as? String
-        post.categoryID = dict["categoryID"] as! Int
-        post.subCategoryID = dict["subCategoryID"] as! Int
-        post.locationId = dict["locationId"] as! Int
-        post.isReportPSI = dict["isReportPSI"] as! Int
-        post.details = dict["details"] as? String
-//        post.data = dict["data"] as? Data
+        if post.incidentTypeID == 4
+        {
+            post.subCategoryID = dict["SubCatagory"] as! Int
+            post.isReportPSI = dict["IsPSI"] as! Int
+        }
+        if post.incidentTypeID != 1
+        {
+            post.categoryID = dict["CatagoryId"] as! Int
+            post.locationId = dict["LocationId"] as! Int
+            post.details = dict["Details"] as? String
+        }
+        
+        post.fileData = (dict["data"] as? Data)!
         return post
     }
 }
+

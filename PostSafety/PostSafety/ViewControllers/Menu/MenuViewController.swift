@@ -116,6 +116,11 @@ class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             }
         }
         
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
+        UserDefaults.standard.synchronize()
+        print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
+        
         var rootVC : UIViewController?
         rootVC = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "PSLogInNavigationController")
         

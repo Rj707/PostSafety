@@ -33,8 +33,6 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
         print(PSDataManager.sharedInstance.report?.reportCategory ?? "Category")
         print(PSDataManager.sharedInstance.report?.reportSubcategory ?? "Subcategory")
         
-//        print(String((PSDataManager.sharedInstance.report?.reportType?.filter { !"\n\t\r".contains($0) })!))
-        
         reportTypleLabel.text = String(format: "Post Type: %@", (PSDataManager.sharedInstance.report?.reportType)!)
         locationNameLabel.text = String(format: "Post Location: %@", (PSDataManager.sharedInstance.report?.reportLocation)!)
         categoryNameLabel.text = String(format: "Category: %@", (PSDataManager.sharedInstance.report?.reportCategory)!)
@@ -121,9 +119,23 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
         {
             self.performSegue(withIdentifier: "toNoInternetFromSummary", sender: (Any).self)
             print(PSDataManager.sharedInstance.offlinePostDictionary)
+
+            
+            // TODO: Offline Post Submisison
+            PSDataManager.sharedInstance.offlinePostDictionary.setValue(self.decriptionTextView.text, forKey: "Details")
+//            print(PSDataManager.sharedInstance.offlinePostDictionary)
+            var post : PSPost?
+            post = PSPost.init()
+            post = post?.initWithDictionary(dict: PSDataManager.sharedInstance.offlinePostDictionary as NSDictionary)
+            PSDataManager.sharedInstance.offlinePost = post
+
         }
     }
-    
+//    DispatchQueue.global(qos: .background).async
+    //    {}
+//    DispatchQueue.main.async {
+//    print("This is run on the main queue, after the previous code in outer block")
+//    }
     // MARK: - UITextViewDelegate
     
     public func textViewShouldBeginEditing(_ textView: UITextView) -> Bool

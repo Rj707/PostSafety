@@ -198,6 +198,9 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
     
     func sendVideo(videoData:Data)
     {
+        // TODO: Offline Post Submisison
+        PSDataManager.sharedInstance.offlinePostDictionary.setValue("Video", forKey: "FileType")
+        PSDataManager.sharedInstance.offlinePostDictionary.setValue(videoData, forKey: "data")
         if CEReachabilityManager.isReachable()
         {
             
@@ -244,14 +247,54 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         }
         else
         {
+
             PSUserInterfaceManager.showAlert(title: "Uploading Image", message: ApiErrorMessage.NoNetwork)
             PSDataManager.sharedInstance.offlinePostDictionary.setValue("Video", forKey: "Type")
+
+//            PSUserInterfaceManager.showAlert(title: "Uploading Image", message: ApiErrorMessage.NoNetwork)
+            if PSDataManager.sharedInstance.report?.reportType != "Emergency"
+            {
+                let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController
+                vc.checklistId = self.checkList.checkList
+                vc.cheklistDetailsArray = self.checkList.checklistDetails["checklistDetails"] as! [Any]
+                self.progressView.setProgress(Float(0), animated: true)
+                //                    self.timeLabel.text = "00:00:00"
+                self.timer.invalidate()
+                DispatchQueue.main.async
+                {
+                    print("This is run on the main queue, after the previous code in outer block")
+                    self.navigationController?.pushViewController(vc,
+                                                                  animated: true)
+                }
+            }
+            else
+            {
+                let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "PSNoConnectionViewController") as! PSNoConnectionViewController
+                vc.delegate = self
+                self.navigationController?.pushViewController(vc,
+                                                              animated: true)
+                
+                // TODO: Offline Post Submisison
+//                print(PSDataManager.sharedInstance.offlinePostDictionary)
+                PSDataManager.sharedInstance.offlinePostDictionary.setValue("N/A", forKey: "Details")
+                var post : PSPost?
+                post = PSPost.init()
+                post = post?.initWithDictionary(dict: PSDataManager.sharedInstance.offlinePostDictionary as NSDictionary)
+                PSDataManager.sharedInstance.offlinePost = post
+            }
+
         }
         
     }
     
     func sendPhoto(imageData: Data)
     {
+        // TODO: Offline Post Submisison
+        PSDataManager.sharedInstance.offlinePostDictionary.setValue("Image", forKey: "FileType")
+        PSDataManager.sharedInstance.offlinePostDictionary.setValue(imageData, forKey: "data")
+        
         if CEReachabilityManager.isReachable()
         {
             self.progressView.isHidden = false
@@ -301,10 +344,47 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         }
         else
         {
+
             PSUserInterfaceManager.showAlert(title: "Uploading Image", message: ApiErrorMessage.NoNetwork)
             PSDataManager.sharedInstance.offlinePostDictionary.setValue("Image", forKey: "Type")
+
+//            PSUserInterfaceManager.showAlert(title: "Uploading Image", message: ApiErrorMessage.NoNetwork)
+            if PSDataManager.sharedInstance.report?.reportType != "Emergency"
+            {
+                let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "PSSelectCategoryViewController") as! PSSelectCategoryViewController
+                vc.checklistId = self.checkList.checkList
+                vc.cheklistDetailsArray = self.checkList.checklistDetails["checklistDetails"] as! [Any]
+                self.progressView.setProgress(Float(0), animated: true)
+                //                    self.timeLabel.text = "00:00:00"
+                self.timer.invalidate()
+                DispatchQueue.main.async
+                {
+                    print("This is run on the main queue, after the previous code in outer block")
+                    self.navigationController?.pushViewController(vc,
+                                                                  animated: true)
+                }
+            }
+            else
+            {
+                let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "PSNoConnectionViewController") as! PSNoConnectionViewController
+                vc.delegate = self
+                self.navigationController?.pushViewController(vc,
+                                                              animated: true)
+                
+                // TODO: Offline Post Submisison
+                PSDataManager.sharedInstance.offlinePostDictionary.setValue("N/A", forKey: "Details")
+                var post : PSPost?
+                post = PSPost.init()
+                post = post?.initWithDictionary(dict: PSDataManager.sharedInstance.offlinePostDictionary as NSDictionary)
+                PSDataManager.sharedInstance.offlinePost = post
+            }
+
         }
     }
+    
+    // MARK: PSEmergencyReportConfirmationViewControllerDelegate
     
     func takeAnotherVideoForEmergency()
     {
@@ -314,6 +394,13 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         }
         
         self.createReport()
+    }
+    
+    func takeAnotherOfflineVideoForEmergency()
+    {
+        PSDataManager.sharedInstance.offlinePostDictionary.setValue("", forKey: "data")
+        print(PSDataManager.sharedInstance.offlinePostDictionary)
+        
     }
     
     // MARK: APIs
@@ -350,12 +437,19 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         }
         else
         {
-            
             let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PSNoConnectionViewController") as! PSNoConnectionViewController
+            vc.delegate = self
             self.navigationController?.pushViewController(vc,
                                                           animated: true)
-//            self.performSegue(withIdentifier: "toNoInternetFromSummary", sender: (Any).self)
+            
+            // TODO: Offline Post Submisison
+//            print(PSDataManager.sharedInstance.offlinePostDictionary)
+            PSDataManager.sharedInstance.offlinePostDictionary.setValue("N/A", forKey: "Details")
+            var post : PSPost?
+            post = PSPost.init()
+            post = post?.initWithDictionary(dict: PSDataManager.sharedInstance.offlinePostDictionary as NSDictionary)
+            PSDataManager.sharedInstance.offlinePost = post
         }
     }
     
@@ -394,7 +488,7 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         }
         else
         {
-            PSUserInterfaceManager.showAlert(title: "Login", message: ApiErrorMessage.NoNetwork)
+//            PSUserInterfaceManager.showAlert(title: "Login", message: ApiErrorMessage.NoNetwork)
         }
     }
     

@@ -22,7 +22,7 @@ class PSSelectLocationViewController: UIViewController,UITableViewDelegate,UITab
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+        self.locationTableView.alwaysBounceVertical = false
         self.getLocationsforReport()
         self.backgroundView.layer.borderWidth=1
         self.backgroundView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
@@ -84,8 +84,37 @@ class PSSelectLocationViewController: UIViewController,UITableViewDelegate,UITab
                 
             }, errorPopup: true)
         }
+        else
+        {
+            self.loadCompanyLocations()
+        }
     }
     
+    func loadCompanyLocations()
+    {
+        let companyLocationsData = UserDefaults.standard.value(forKey: "CompanyLocations") as? Data
+        
+        if let companyLocationsData = companyLocationsData
+        {
+            let companyLocationsArray = NSKeyedUnarchiver.unarchiveObject(with: companyLocationsData as Data) as! [Any]
+            
+            if companyLocationsArray != nil
+            {
+                // do something…
+                self.locationsArray = companyLocationsArray as [Any]
+                PSDataManager.sharedInstance.companyLocationsArray = self.locationsArray
+                
+                self.locationTableView.dataSource = self
+                self.locationTableView.delegate = self
+                //                self.configureLocations()
+                print(self.locationsArray)
+                self.locationTableView.emptyDataSetSource = self as DZNEmptyDataSetSource
+                self.locationTableView.emptyDataSetDelegate = self as DZNEmptyDataSetDelegate
+                self.locationTableView.reloadData()
+            }
+            
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -121,7 +150,13 @@ class PSSelectLocationViewController: UIViewController,UITableViewDelegate,UITab
         var cell:PSCategoryTableViewCell
         cell = tableView.cellForRow(at: indexPath) as! PSCategoryTableViewCell
         PSDataManager.sharedInstance.report?.reportLocation = cell.data["branchName"] as? String ?? "No Address"
+
         PSDataManager.sharedInstance.offlinePostDictionary.setValue(cell.data["branchId"], forKey: "branchId")
+        
+        // TODO: Offline Post Submisison
+        PSDataManager.sharedInstance.offlinePostDictionary.setValue(cell.data["branchId"], forKey: "LocationId")
+        
+
         self.performSegue(withIdentifier: "toReportSummaryFromLocation", sender: cell.data["branchId"])
     }
     

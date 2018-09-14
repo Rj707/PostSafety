@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,20 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="rGg-mY-YTr">
-                                <rect key="frame" x="24" y="170" width="327" height="327"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-with-big-P.png" translatesAutoresizingMaskIntoConstraints="NO" id="rGg-mY-YTr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="rGg-mY-YTr" secondAttribute="height" id="Ukw-pQ-E3z"/>
-                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="rGg-mY-YTr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="AuT-TA-T0Y"/>
-                            <constraint firstItem="rGg-mY-YTr" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="24" id="Vmw-XL-eZB"/>
-                            <constraint firstItem="rGg-mY-YTr" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="bT8-Bt-sZe"/>
-                            <constraint firstAttribute="trailing" secondItem="rGg-mY-YTr" secondAttribute="trailing" constant="24" id="no8-e7-r0t"/>
+                            <constraint firstAttribute="trailing" secondItem="rGg-mY-YTr" secondAttribute="trailing" id="Bg5-4S-mvr"/>
+                            <constraint firstItem="rGg-mY-YTr" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="L15-NK-V23"/>
+                            <constraint firstItem="rGg-mY-YTr" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="RXo-1A-Y3N"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rGg-mY-YTr" secondAttribute="bottom" id="jBx-UW-AO1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -43,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="512" height="512"/>
+        <image name="splash-with-big-P.png" width="1125" height="2001"/>
     </resources>
 </document>

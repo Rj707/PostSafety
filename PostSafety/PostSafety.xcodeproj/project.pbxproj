@@ -12,6 +12,8 @@
 		180EACD8211F65DB005402FB /* default-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 180EACD7211F65DB005402FB /* default-thumb.jpg */; };
 		1811261920BDE52900ABA494 /* PSAPIManager+Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1811261820BDE52900ABA494 /* PSAPIManager+Checklist.swift */; };
 		1811261B20BDE60300ABA494 /* PSChecklistAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1811261A20BDE60300ABA494 /* PSChecklistAPIManager.swift */; };
+		181192282142E1F40017D2EA /* splash-with-small-P.png in Resources */ = {isa = PBXBuildFile; fileRef = 181192262142E1F40017D2EA /* splash-with-small-P.png */; };
+		181192292142E1F40017D2EA /* splash-with-big-P.png in Resources */ = {isa = PBXBuildFile; fileRef = 181192272142E1F40017D2EA /* splash-with-big-P.png */; };
 		1812E68A20B8A32100E484C6 /* PSAPIManager+Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68820B8A32100E484C6 /* PSAPIManager+Authentication.swift */; };
 		1812E68B20B8A32100E484C6 /* PSAuthenticationAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68920B8A32100E484C6 /* PSAuthenticationAPIManager.swift */; };
 		1812E68D20B8A37600E484C6 /* PSAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1812E68C20B8A37600E484C6 /* PSAPIManager.swift */; };
@@ -116,6 +118,8 @@
 		180EACD7211F65DB005402FB /* default-thumb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "default-thumb.jpg"; sourceTree = "<group>"; };
 		1811261820BDE52900ABA494 /* PSAPIManager+Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PSAPIManager+Checklist.swift"; sourceTree = "<group>"; };
 		1811261A20BDE60300ABA494 /* PSChecklistAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSChecklistAPIManager.swift; sourceTree = "<group>"; };
+		181192262142E1F40017D2EA /* splash-with-small-P.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-with-small-P.png"; sourceTree = "<group>"; };
+		181192272142E1F40017D2EA /* splash-with-big-P.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-with-big-P.png"; sourceTree = "<group>"; };
 		1812E68820B8A32100E484C6 /* PSAPIManager+Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PSAPIManager+Authentication.swift"; sourceTree = "<group>"; };
 		1812E68920B8A32100E484C6 /* PSAuthenticationAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSAuthenticationAPIManager.swift; sourceTree = "<group>"; };
 		1812E68C20B8A37600E484C6 /* PSAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSAPIManager.swift; sourceTree = "<group>"; };
@@ -126,7 +130,7 @@
 		1812E69620B8A4F700E484C6 /* PSDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSDataManager.swift; sourceTree = "<group>"; };
 		1812E69820B8A50C00E484C6 /* PSUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSUser.swift; sourceTree = "<group>"; };
 		18161A5620F10F5800C0C3BF /* PSFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSFeedTableViewCell.swift; sourceTree = "<group>"; };
-		181FA62A20FB4BF600F9F674 /* 480x480.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 480x480.jpg; path = Assets.xcassets/launch.imageset/480x480.jpg; sourceTree = "<group>"; };
+		181FA62A20FB4BF600F9F674 /* 480x480.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 480x480.jpg; sourceTree = "<group>"; };
 		182E5DD220DE38DC00E3A851 /* PSReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReport.swift; sourceTree = "<group>"; };
 		184EC78320DC078A0089348C /* PSNoConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSNoConnectionViewController.swift; sourceTree = "<group>"; };
 		184EC78520DC0FB70089348C /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
@@ -287,6 +291,18 @@
 				1811261A20BDE60300ABA494 /* PSChecklistAPIManager.swift */,
 			);
 			path = Checklist;
+			sourceTree = "<group>";
+		};
+		1811922A2142E2E50017D2EA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				181FA62A20FB4BF600F9F674 /* 480x480.jpg */,
+				181192272142E1F40017D2EA /* splash-with-big-P.png */,
+				181192262142E1F40017D2EA /* splash-with-small-P.png */,
+				180EACD7211F65DB005402FB /* default-thumb.jpg */,
+				180E43DB211CC6A50091A20C /* no-thumbnail.jpg */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		1812E69A20B8B8D000E484C6 /* APIManager */ = {
@@ -558,9 +574,7 @@
 				A1F156B020AABFF60049DB21 /* Info.plist */,
 				A14F7DCD213E650F00F8D918 /* GoogleService-Info.plist */,
 				180D495520B9DA060023101D /* PostSafety-Bridging-Header.h */,
-				181FA62A20FB4BF600F9F674 /* 480x480.jpg */,
-				180EACD7211F65DB005402FB /* default-thumb.jpg */,
-				180E43DB211CC6A50091A20C /* no-thumbnail.jpg */,
+				1811922A2142E2E50017D2EA /* Images */,
 			);
 			path = PostSafety;
 			sourceTree = "<group>";
@@ -725,6 +739,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				181192282142E1F40017D2EA /* splash-with-small-P.png in Resources */,
 				A1F156AF20AABFF60049DB21 /* LaunchScreen.storyboard in Resources */,
 				C4B0775E20C4090E00CCD778 /* Authentication.storyboard in Resources */,
 				181FA62B20FB4BF600F9F674 /* 480x480.jpg in Resources */,
@@ -732,6 +747,7 @@
 				A11DF68C20D8F0250079D861 /* Dashboard.storyboard in Resources */,
 				A15BECE520AEEB560081BC25 /* CameraOverLay.xib in Resources */,
 				184EC78820DC1ED40089348C /* Admin.storyboard in Resources */,
+				181192292142E1F40017D2EA /* splash-with-big-P.png in Resources */,
 				180E43DC211CC6A50091A20C /* no-thumbnail.jpg in Resources */,
 				A14F7DCE213E650F00F8D918 /* GoogleService-Info.plist in Resources */,
 				180EACD8211F65DB005402FB /* default-thumb.jpg in Resources */,
@@ -765,6 +781,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-PostSafety/Pods-PostSafety-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ACProgressHUD-Swift/ACProgressHUD_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/DGElasticPullToRefresh/DGElasticPullToRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
@@ -779,6 +796,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ACProgressHUD_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DGElasticPullToRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
