@@ -99,6 +99,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+
+
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
+    {
+        var token = ""
+        for i in 0..<deviceToken.count
+        {
+            token = token + String(format: "%02.2hhx", arguments: [deviceToken[i]])
+        }
+        
+        print(token)
+    }
+    
+
     // The callback to handle data message received via FCM for devices running iOS 10 or above.
     func applicationReceivedRemoteMessage(_ remoteMessage: MessagingRemoteMessage)
     {
@@ -127,7 +141,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
     
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any])
+    {
+
+
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
         // TODO: Handle data of notification
@@ -145,7 +163,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
-                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void)
+    {
+        
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
         // TODO: Handle data of notification
@@ -154,12 +174,69 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         
         // Print message ID.
+
         if let messageID = userInfo["gcmMessageIDKey"] {
             print("Message ID: \(messageID)")
         }
         
         // Print full message.
         print(userInfo)
+
+        if let messageID = userInfo["gcmMessageIDKey"]
+        {
+            print("Message ID: \(messageID)")
+        }
+
+        if let userInfo = userInfo as NSDictionary? as! [String:Any]?
+        {
+            print(userInfo["Type"] ?? "")
+            switch userInfo["Type"] as! String
+            {
+                case "Alert":
+                    PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 0)
+                    PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
+                    
+                    break
+                case "Announcement":
+                    PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 1)
+                    PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
+                    
+                    break
+                case "SafetyUpdate":
+                    PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 2)
+                    PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
+                    
+                    break
+                case "Post":
+                    PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 3)
+                    PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
+                    
+                    break
+                case "Training":
+                    PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 4)
+                    PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
+                    
+                    break
+                case "ProcedureAndPolicy":
+                    PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 5)
+                    PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
+                    
+                    break
+                case "SharedPost":
+                    PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 6)
+                    PSDataManager.sharedInstance.isPushNotificationNavigation = PSDataManager.sharedInstance.notificatinType!.rawValue
+                    
+                    break
+                default:
+                    break
+            }
+        }
+        
+        if application.applicationState == .inactive
+        {
+            PSUserInterfaceManager.sharedInstance.loadHomePage()
+        }
+
         
         completionHandler(UIBackgroundFetchResult.newData)
     }

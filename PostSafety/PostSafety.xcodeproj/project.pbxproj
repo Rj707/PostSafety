@@ -1100,8 +1100,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.digitalentrigue.postsafety;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "11b3589c-c7d3-4893-9569-4c6b5ae1bb36";
-				PROVISIONING_PROFILE_SPECIFIER = PostSafety_AppStoreDistribution_PP;
+				PROVISIONING_PROFILE = "66815dca-429a-4e53-aece-f602459520a7";
+				PROVISIONING_PROFILE_SPECIFIER = PostSafety_Adhoc_PP;
 				SWIFT_OBJC_BRIDGING_HEADER = "PostSafety/PostSafety-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

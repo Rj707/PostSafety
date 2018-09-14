@@ -1,5 +1,19 @@
 import UIKit
 import RealmSwift
+
+enum PushNotificatinType :Int
+{
+    case PushNotificatinTypeAlert
+    case PushNotificatinTypeAnnouncement
+    case PushNotificatinTypeSafety
+    case PushNotificatinTypePost
+    case PushNotificatinTypeTraining
+    case PushNotificatinTypePolicies
+    case PushNotificatinTypeSharedPost
+    case PushNotificatinTypeUndefined
+}
+
+
 class PSDataManager: NSObject
 {
     static let sharedInstance = PSDataManager()
@@ -8,22 +22,25 @@ class PSDataManager: NSObject
     var reportId = 0
     var isRememberMe = 0
     var companyLocationsArray = [Any]()
+
     var offlinePostDictionary = NSMutableDictionary.init()
-    var loggedInUser: PSUser?
+    var notificatinType : PushNotificatinType?
+    var isPushNotificationNavigation = 0
+
     {
-//        set(user)
-//        {
-//            self.loggedInUser = user
-//            Constants.USER_DEFAULTS.set(user, forKey: "User")
-//        }
-//        get
-//        {
-//            return self.loggedInUser
-//        }
         didSet
         {
-//            Constants.USER_DEFAULTS.set(loggedInUser, forKey: "User")
+            if self.isPushNotificationNavigation == 7
+            {
+                self.notificatinType = PushNotificatinType.PushNotificatinTypeUndefined
+            }
             
+        }
+    }
+    var loggedInUser: PSUser?
+    {
+        didSet
+        {
             try!  self.realm.write()
             {
                 if self.isRememberMe == 0
@@ -38,7 +55,6 @@ class PSDataManager: NSObject
             }
             
         }
-
     }
     var offlinePost: PSPost?
     {
@@ -59,6 +75,8 @@ class PSDataManager: NSObject
         self.report = PSReport.init()
         self.reportId = 0
         self.isRememberMe = 0
+        self.notificatinType = PushNotificatinType(rawValue: 7)
+        self.isPushNotificationNavigation = (self.notificatinType?.rawValue)!
         self.companyLocationsArray = [Any]()
         
         if(!(realm != nil))

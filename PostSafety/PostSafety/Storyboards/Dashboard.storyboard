@@ -275,7 +275,7 @@
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="qsx-y4-Sgx">
                     <connections>
-                        <segue destination="gJj-5f-b3w" kind="push" id="Qw0-Fc-yIq"/>
+                        <segue destination="gJj-5f-b3w" kind="push" identifier="toGetInfo" id="Qw0-Fc-yIq"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
