@@ -57,53 +57,7 @@ class PSShareReportViewController: UIViewController,UITableViewDelegate,UITableV
         // Dispose of any resources that can be recreated.
     }
     
-    func getAllEmployees()
-    {
-        if CEReachabilityManager.isReachable()
-        {
-            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Senders")
-            companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
-            PSAPIManager.sharedInstance.listAllEmployeesFor(companyId: String(companyId), success:
-                { (dic) in
-                    PSUserInterfaceManager.sharedInstance.hideLoader()
-                    let tempArray = dic["array"] as! [Any]
-                    
-                    for checklistDict in tempArray
-                    {
-                        if let tempDict = checklistDict as? [String: Any]
-                        {
-                            self.reportSenderDetailArray.append(tempDict)
-                        }
-                    }
-                    
-                    for i in 0...self.reportSenderDetailArray.count-1
-                    {
-                        var item = NSDictionary()
-                        item = self.reportSenderDetailArray[i] as! NSDictionary
-                        let employeeId = item["employeeId"] as! Int
-                        self.reportSenderArray.append(String(employeeId))
-                        self.selectedPeopleArray.append("")
-                    }
-                    
-                    self.selectDialogTableView.reloadData()
-                    print(self.reportSenderDetailArray)
-                    
-            }, failure:
-                { (error:NSError,statusCode:Int) in
-                    
-                    PSUserInterfaceManager.sharedInstance.hideLoader()
-                    if(statusCode==404)
-                    {
-                        PSUserInterfaceManager.showAlert(title: "Fetching Senders", message: ApiErrorMessage.ErrorOccured)
-                    }
-                    else
-                    {
-                        PSUserInterfaceManager.showAlert(title: "Fetching Senders", message: error.localizedDescription)
-                    }
-                    
-            }, errorPopup: true)
-        }
-    }
+    
     
     // MARK: - IBActions
     
@@ -326,6 +280,54 @@ class PSShareReportViewController: UIViewController,UITableViewDelegate,UITableV
     }
     
     // MARK: - APIs
+    
+    func getAllEmployees()
+    {
+        if CEReachabilityManager.isReachable()
+        {
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Senders")
+            companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
+            PSAPIManager.sharedInstance.listAllEmployeesFor(companyId: String(companyId), success:
+                { (dic) in
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    let tempArray = dic["array"] as! [Any]
+                    
+                    for checklistDict in tempArray
+                    {
+                        if let tempDict = checklistDict as? [String: Any]
+                        {
+                            self.reportSenderDetailArray.append(tempDict)
+                        }
+                    }
+                    
+                    for i in 0...self.reportSenderDetailArray.count-1
+                    {
+                        var item = NSDictionary()
+                        item = self.reportSenderDetailArray[i] as! NSDictionary
+                        let employeeId = item["employeeId"] as! Int
+                        self.reportSenderArray.append(String(employeeId))
+                        self.selectedPeopleArray.append("")
+                    }
+                    
+                    self.selectDialogTableView.reloadData()
+                    print(self.reportSenderDetailArray)
+                    
+            }, failure:
+                { (error:NSError,statusCode:Int) in
+                    
+                    PSUserInterfaceManager.sharedInstance.hideLoader()
+                    if(statusCode==404)
+                    {
+                        PSUserInterfaceManager.showAlert(title: "Fetching Senders", message: ApiErrorMessage.ErrorOccured)
+                    }
+                    else
+                    {
+                        PSUserInterfaceManager.showAlert(title: "Fetching Senders", message: error.localizedDescription)
+                    }
+                    
+            }, errorPopup: true)
+        }
+    }
     
     func sendReport()
     {
