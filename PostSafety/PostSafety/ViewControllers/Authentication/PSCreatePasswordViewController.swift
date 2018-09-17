@@ -55,25 +55,26 @@ class PSCreatePasswordViewController: UIViewController
         {
             PSUserInterfaceManager.showAlert(title: "Create Password", message: FieldsErrorMessage.NewPassword)
         }
-        else if self.confirmPasswordTextField?.text == PSDataManager.sharedInstance.loggedInUser?.password
+//        else if self.confirmPasswordTextField?.text == PSDataManager.sharedInstance.loggedInUser?.password
+//        {
+//            PSUserInterfaceManager.showAlert(title: "Create Password", message: FieldsErrorMessage.NewOldPasswordMatch)
+//        }
+        else if self.passwordTextField?.text != self.confirmPasswordTextField?.text
         {
-            PSUserInterfaceManager.showAlert(title: "Create Password", message: FieldsErrorMessage.NewOldPasswordMatch)
-        }
-        else if self.loggedInUser?.password != self.passwordTextField?.text
-        {
-            let alertController = UIAlertController(title: "Create Password", message: "The old password is incorrect", preferredStyle: .alert)
-            let alertActionCancel = UIAlertAction(title: "OK", style: .cancel)
-            { (action) in
-                
-            }
-            alertController.addAction(alertActionCancel)
-            self.present(alertController, animated: true, completion: nil)
+            PSUserInterfaceManager.showAlert(title: "Create Password", message: FieldsErrorMessage.PasswordMisMatch)
+//            let alertController = UIAlertController(title: "Create Password", message: "The old password is incorrect", preferredStyle: .alert)
+//            let alertActionCancel = UIAlertAction(title: "OK", style: .cancel)
+//            { (action) in
+//
+//            }
+//            alertController.addAction(alertActionCancel)
+//            self.present(alertController, animated: true, completion: nil)
         }
         else if CEReachabilityManager.isReachable()
         {
             let EmployeeID = (self.loggedInUser?.employeeId)!
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Creating Password")
-            PSAPIManager.sharedInstance.authenticationManagerAPI.UpdateEmployees(employeeID: String(EmployeeID), oldPassword: (passwordTextField?.text)!, NewPassword: (confirmPasswordTextField?.text)!,
+            PSAPIManager.sharedInstance.UpdateEmployees(employeeID: String(EmployeeID), oldPassword: (passwordTextField?.text)!, NewPassword: (confirmPasswordTextField?.text)!,
                                                                                  success:
             { (dic) in
                 
