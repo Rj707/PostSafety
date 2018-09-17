@@ -93,7 +93,8 @@ class PSGetInfoViewController: UIViewController
     
     func configureAndInitialize()
     {
-        if PSDataManager.sharedInstance.loggedInUser?.employeeType == "Admin"
+        print(PSDataManager.sharedInstance.loggedInUser ?? "")
+        if PSDataManager.sharedInstance.loggedInUser?.employeeType == "Admin" || PSDataManager.sharedInstance.loggedInUser?.employeeType == "Reviewer"
         {
             self.summaryStatisticsStackView.isHidden = false
         }

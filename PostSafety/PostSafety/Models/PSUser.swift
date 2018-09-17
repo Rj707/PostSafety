@@ -47,7 +47,7 @@ class PSUser : Object
         user.branch = dict["branch"] as? String
         user.incident = dict["incident"] as? String
         user.employeeType = dict["employeeType"] as? String
-        if user.employeeType == "Admin"
+        if user.employeeType == "Admin" || user.employeeType == "Reviewer"
         {
             user.userType = UserType(rawValue: UserType.UserTypeAdmin.rawValue)
             user.userTypeByRole = 1
