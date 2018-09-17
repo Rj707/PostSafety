@@ -150,12 +150,10 @@ class PSSelectCategoryViewController: UIViewController,UITableViewDelegate,UITab
             let vc =   nextViewController as! PSSelectSubCategoryViewController
             vc.CatagoryID = (cell.data["checklistDetailsId"] as? Int)!
         }
-
-        PSDataManager.sharedInstance.offlinePostDictionary.setValue(cell.data["checklistDetailsId"] as? Int, forKey: "checklistDetailsId")
-
+        
         // TODO: Offline Post Submisison
         PSDataManager.sharedInstance.offlinePostDictionary.setValue(cell.data["checklistDetailsId"] as? Int, forKey: "CatagoryId")
-
+        
         PSDataManager.sharedInstance.report?.categoryID = (cell.data["checklistDetailsId"] as? Int)!
         
         if PSDataManager.sharedInstance.report?.reportType == "NearMiss" && !CEReachabilityManager.isReachable()

@@ -247,10 +247,6 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         }
         else
         {
-
-            PSUserInterfaceManager.showAlert(title: "Uploading Image", message: ApiErrorMessage.NoNetwork)
-            PSDataManager.sharedInstance.offlinePostDictionary.setValue("Video", forKey: "Type")
-
 //            PSUserInterfaceManager.showAlert(title: "Uploading Image", message: ApiErrorMessage.NoNetwork)
             if PSDataManager.sharedInstance.report?.reportType != "Emergency"
             {
@@ -284,7 +280,6 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
                 post = post?.initWithDictionary(dict: PSDataManager.sharedInstance.offlinePostDictionary as NSDictionary)
                 PSDataManager.sharedInstance.offlinePost = post
             }
-
         }
         
     }
@@ -344,10 +339,6 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
         }
         else
         {
-
-            PSUserInterfaceManager.showAlert(title: "Uploading Image", message: ApiErrorMessage.NoNetwork)
-            PSDataManager.sharedInstance.offlinePostDictionary.setValue("Image", forKey: "Type")
-
 //            PSUserInterfaceManager.showAlert(title: "Uploading Image", message: ApiErrorMessage.NoNetwork)
             if PSDataManager.sharedInstance.report?.reportType != "Emergency"
             {
@@ -380,7 +371,6 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
                 post = post?.initWithDictionary(dict: PSDataManager.sharedInstance.offlinePostDictionary as NSDictionary)
                 PSDataManager.sharedInstance.offlinePost = post
             }
-
         }
     }
     
