@@ -134,7 +134,7 @@ class PSDataManager: NSObject
         {
             realm = try! Realm()
         }
-        let result = realm.objects(PSPost.self).first
+        let result = realm.objects(PSPost.self).last
         try! realm.write
         {
             realm.delete(result!)

@@ -197,7 +197,7 @@ class PSDashboardViewController: UIViewController
             {
                 print(PSDataManager.sharedInstance.offlinePostsArray)
                 offlinePost = PSPost.init()
-                offlinePost  = PSDataManager.sharedInstance.offlinePostsArray[0]
+                offlinePost  = PSDataManager.sharedInstance.offlinePostsArray[PSDataManager.sharedInstance.offlinePostsArray.count-1]
                 
                 let EmployeeId = offlinePost?.employeeID
                 let incidentTypeID = offlinePost?.incidentTypeID
@@ -235,7 +235,7 @@ class PSDashboardViewController: UIViewController
                             { (dic) in
                                 
                                 PSDataManager.sharedInstance.removeSubmittedPost()
-                                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute:
+                                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0, execute:
                                     {
                                         self.submitOfflinePosts()
                                 })
