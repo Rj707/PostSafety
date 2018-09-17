@@ -4,11 +4,12 @@ import SwiftyJSON
 
 extension PSAPIManager
 {
-    func getAllChecklists(success:@escaping DefaultArrayResultAPISuccessClosure,
-                          failure:@escaping DefaultAPIFailureClosure,
-                       errorPopup: Bool)
+    func getAllChecklistsForCompanyID(CompanyID:String,
+                                            success:@escaping DefaultArrayResultAPISuccessClosure,
+                                            failure:@escaping DefaultAPIFailureClosure,
+                                            errorPopup: Bool)
     {
-        checklistManagerAPI.getAllChecklists(success: success, failure: failure,errorPopup: errorPopup)
+        checklistManagerAPI.getAllChecklistsForCompanyID(CompanyID:CompanyID, success: success, failure: failure,errorPopup: errorPopup)
     }
     
     func getChecklistDetailsWith(checkListID:String,

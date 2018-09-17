@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseInstanceID
 
 class PSLogInViewController: UIViewController
 {
@@ -89,6 +90,7 @@ class PSLogInViewController: UIViewController
             PSAPIManager.sharedInstance.authenticateUserWith(email: (self.phoneNumberTextField?.text)!, password: (self.passowrdTextField?.text)!, success:
                 { (dic) in
                     
+                    self.getDeviceToken()
                     var user : PSUser?
                     user = PSUser.init()
                     
@@ -107,14 +109,14 @@ class PSLogInViewController: UIViewController
                         //                    PSDataManager.sharedInstance.loggedInUser = user
                     }
                     
-                    if user?.employeeType == "Reviewers"
-                    {
-                        Global.USERTYPE? = UserType(rawValue: 1)!
-                    }
-                    else
-                    {
-                        Global.USERTYPE? = UserType(rawValue: 0)!
-                    }
+//                    if user?.employeeType == "Reviewers"
+//                    {
+//                        PSDataManager.sharedInstance.loggedInUser?.userType = UserType(rawValue: 1)!
+//                    }
+//                    else
+//                    {
+//                        PSDataManager.sharedInstance.loggedInUser?.userType = UserType(rawValue: 0)!
+//                    }
                     
                     self.getReportTypes()
                     
@@ -214,9 +216,10 @@ class PSLogInViewController: UIViewController
     {
         if CEReachabilityManager.isReachable()
         {
-            PSAPIManager.sharedInstance.getAllChecklists(success:
+            let companyId = self.loggedInUser?.companyId as! Int
+            PSAPIManager.sharedInstance.getAllChecklistsForCompanyID(CompanyID: String(companyId), success:
                 { (dic) in
-                    PSUserInterfaceManager.sharedInstance.hideLoader()
+//                    PSUserInterfaceManager.sharedInstance.hideLoader()
                     let tempArray = dic["array"] as! [Any]
                     
                     for checklistDict in tempArray
@@ -254,12 +257,42 @@ class PSLogInViewController: UIViewController
         }
     }
     
-//    func saveCompanyLocations()
-//    {
-//        let companyLocationsData = NSKeyedArchiver.archivedData(withRootObject: self.locationsArray)
-//        UserDefaults.standard.set(companyLocationsData, forKey: "CompanyLocations")
-//        
-//    }
+    func getDeviceToken()
+    {
+        // You can retrieve the token directly using instanceIDWithHandler:. This callback provides an InstanceIDResult, which contains the token. A non null error is provided if the InstanceID retrieval failed in any way
+        
+        InstanceID.instanceID().instanceID
+        { (result, error) in
+        
+            if let error = error
+            {
+                print("Error fetching remote instange ID: \(error)")
+            }
+            else if let result = result
+            {
+                print("Remote instance ID token: \(result.token)")
+                
+                DispatchQueue.global(qos: .background).async
+                {
+                    if let employeeId = self.loggedInUser?.employeeId
+                    {
+                        
+                        PSAPIManager.sharedInstance.updateDeviceTokenFor(EmployeeID: String(employeeId), DeviceToken: result.token, success:
+                        { (dict) in
+                            
+                            
+                        }, failure:
+                            
+                        { (error, statusCode) in
+                            
+                            
+                        }, errorPopup: true)
+                    }
+                }
+            }
+        }
+        
+    }
     
     func saveReportTypes()
     {

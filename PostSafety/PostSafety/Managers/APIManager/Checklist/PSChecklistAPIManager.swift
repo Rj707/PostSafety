@@ -4,13 +4,15 @@ import SwiftyJSON
 
 class PSChecklistAPIManager: PSAPIManagerBase
 {
-    func getAllChecklists(success:@escaping DefaultArrayResultAPISuccessClosure,
-                          failure:@escaping DefaultAPIFailureClosure, errorPopup: Bool)
+    func getAllChecklistsForCompanyID(CompanyID:String,
+                                      success:@escaping DefaultArrayResultAPISuccessClosure,
+                                      failure:@escaping DefaultAPIFailureClosure,
+                                      errorPopup: Bool)
     {
-        let CompanyID = PSDataManager.sharedInstance.loggedInUser?.companyId
+//        let CompanyID = PSDataManager.sharedInstance.loggedInUser?.companyId
         let parameters: [String:Any] =
         [
-            "CompanyID":CompanyID ?? ""
+            "CompanyID":CompanyID
         ]
         
         let route: URL = GETURLfor(route: Route.IncidentCompany.rawValue, parameters: parameters )!

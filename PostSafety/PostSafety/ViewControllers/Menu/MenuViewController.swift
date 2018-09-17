@@ -108,24 +108,49 @@ class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     
     @IBAction func logoutGestureTapped(_ sender: UITapGestureRecognizer)
     {
-        if PSDataManager.sharedInstance.isUserLoggedIn()
+        let employeeId = PSDataManager.sharedInstance.loggedInUser?.employeeId
+        DispatchQueue.global(qos: .background).async
         {
-            try! realm.write
+            if let employeeId = employeeId
             {
-                realm.delete(Global.DATA_MANAGER.loggedInUser!)
+                
+                PSAPIManager.sharedInstance.updateDeviceTokenFor(EmployeeID: String(employeeId), DeviceToken: "0", success:
+                    { (dict) in
+                        
+                        
+                }, failure:
+                    
+                    { (error, statusCode) in
+                        
+                        
+                }, errorPopup: true)
             }
         }
         
-        let domain = Bundle.main.bundleIdentifier!
-        UserDefaults.standard.removePersistentDomain(forName: domain)
-        UserDefaults.standard.synchronize()
-        print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
         
-        var rootVC : UIViewController?
-        rootVC = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "PSLogInNavigationController")
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = rootVC
+        DispatchQueue.main.async
+        {
+            if PSDataManager.sharedInstance.isUserLoggedIn()
+            {
+                try! self.realm.write
+                {
+                    self.realm.delete(PSDataManager.sharedInstance.loggedInUser!)
+                }
+            }
+            
+            let domain = Bundle.main.bundleIdentifier!
+            UserDefaults.standard.removePersistentDomain(forName: domain)
+            UserDefaults.standard.synchronize()
+            print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
+            
+            var rootVC : UIViewController?
+            rootVC = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "PSLogInNavigationController")
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.window?.rootViewController = rootVC
+        }
+        
     }
     
     

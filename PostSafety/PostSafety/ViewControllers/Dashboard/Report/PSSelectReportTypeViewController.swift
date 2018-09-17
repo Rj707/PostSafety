@@ -59,7 +59,8 @@ class PSSelectReportTypeViewController: UIViewController
         if CEReachabilityManager.isReachable()
         {
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Incident Types")
-            PSAPIManager.sharedInstance.getAllChecklists(success:
+            let companyId = PSDataManager.sharedInstance.loggedInUser?.companyId as! Int
+            PSAPIManager.sharedInstance.getAllChecklistsForCompanyID(CompanyID: String(companyId), success:
                 { (dic) in
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     let tempArray = dic["array"] as! [Any]
