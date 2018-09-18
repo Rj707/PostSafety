@@ -297,8 +297,6 @@ class PSShareReportViewController: UIViewController,UITableViewDelegate,UITableV
                         
                         if let tempDict = checklistDict as? [String: Any]
                         {
-//                            
-//                            var dic = tempDict
                             if tempDict["employeeId"] as! Int == employeeID
                             {
                                 

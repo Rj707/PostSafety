@@ -55,10 +55,6 @@ class PSCreatePasswordViewController: UIViewController
         {
             PSUserInterfaceManager.showAlert(title: "Create Password", message: FieldsErrorMessage.NewPassword)
         }
-//        else if self.confirmPasswordTextField?.text == PSDataManager.sharedInstance.loggedInUser?.password
-//        {
-//            PSUserInterfaceManager.showAlert(title: "Create Password", message: FieldsErrorMessage.NewOldPasswordMatch)
-//        }
         else if self.passwordTextField?.text != self.confirmPasswordTextField?.text
         {
             PSUserInterfaceManager.showAlert(title: "Create Password", message: FieldsErrorMessage.PasswordMisMatch)
@@ -74,7 +70,7 @@ class PSCreatePasswordViewController: UIViewController
         {
             let EmployeeID = (self.loggedInUser?.employeeId)!
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Creating Password")
-            PSAPIManager.sharedInstance.UpdateEmployees(employeeID: String(EmployeeID), oldPassword: (passwordTextField?.text)!, NewPassword: (confirmPasswordTextField?.text)!,
+            PSAPIManager.sharedInstance.UpdateEmployees(employeeID: String(EmployeeID), oldPassword: (self.loggedInUser?.password)!, NewPassword: (confirmPasswordTextField?.text)!,
                                                                                  success:
             { (dic) in
                 

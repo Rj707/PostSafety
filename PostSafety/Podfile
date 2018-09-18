@@ -18,5 +18,5 @@ pod 'Firebase/Messaging'
 
 pod 'DGElasticPullToRefresh'
 
-
+pod 'Crashlytics', '~> 3.10.7'
 end
