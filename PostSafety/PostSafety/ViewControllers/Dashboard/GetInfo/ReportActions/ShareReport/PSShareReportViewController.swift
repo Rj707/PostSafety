@@ -291,12 +291,22 @@ class PSShareReportViewController: UIViewController,UITableViewDelegate,UITableV
                 { (dic) in
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     let tempArray = dic["array"] as! [Any]
-                    
+                    var employeeID = PSDataManager.sharedInstance.loggedInUser?.employeeId
                     for checklistDict in tempArray
                     {
+                        
                         if let tempDict = checklistDict as? [String: Any]
                         {
-                            self.reportSenderDetailArray.append(tempDict)
+//                            
+//                            var dic = tempDict
+                            if tempDict["employeeId"] as! Int == employeeID
+                            {
+                                
+                            }
+                            else
+                            {
+                              self.reportSenderDetailArray.append(tempDict)
+                            }
                         }
                     }
                     
