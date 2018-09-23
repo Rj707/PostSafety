@@ -101,7 +101,7 @@ class PSSendAlertViewController: UIViewController,PSSelectDialogViewControllerDe
                     
                 }
                 
-                let alertController = UIAlertController(title: "Creating Alert", message: "You have successfully created the Alert", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Sending Alert", message: "You have successfully sent the alert", preferredStyle: .alert)
                 let alertActionCancel = UIAlertAction(title: "OK", style: .cancel)
                 { (action) in
                     
@@ -122,18 +122,18 @@ class PSSendAlertViewController: UIViewController,PSSelectDialogViewControllerDe
                 PSUserInterfaceManager.sharedInstance.hideLoader()
                 if(statusCode==404)
                 {
-                    PSUserInterfaceManager.showAlert(title: "Creating Alert", message: ApiErrorMessage.ErrorOccured)
+                    PSUserInterfaceManager.showAlert(title: "Sending Alert", message: ApiErrorMessage.ErrorOccured)
                 }
                 else
                 {
-                    PSUserInterfaceManager.showAlert(title: "Creating Alert", message: error.localizedDescription)
+                    PSUserInterfaceManager.showAlert(title: "Sending Alert", message: error.localizedDescription)
                 }
                     
             }, errorPopup: true)
         }
         else
         {
-            PSUserInterfaceManager.showAlert(title: "Creating Alert", message: ApiErrorMessage.NoNetwork)
+            PSUserInterfaceManager.showAlert(title: "Sending Alert", message: ApiErrorMessage.NoNetwork)
         }
     }
     

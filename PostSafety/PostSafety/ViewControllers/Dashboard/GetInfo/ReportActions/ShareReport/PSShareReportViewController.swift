@@ -116,7 +116,7 @@ class PSShareReportViewController: UIViewController,UITableViewDelegate,UITableV
         {
             if self.reportSenderArrayNew.count>0
             {
-                let alertController = UIAlertController(title: "Share Report", message: "Are you sure you want to share report with the Selected Contact", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Share Post", message: "Are you sure you want to share post with the selected contact", preferredStyle: .alert)
                 
                 let alertActionNo = UIAlertAction(title: "No", style: .cancel)
                 { (action) in
@@ -145,7 +145,7 @@ class PSShareReportViewController: UIViewController,UITableViewDelegate,UITableV
             }
             else
             {
-                let alertController = UIAlertController(title: "Share Report", message: "Please first select any contact from the list", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Share Post", message: "Please first select any contact from the list", preferredStyle: .alert)
                 
                 let alertActionNo = UIAlertAction(title: "Ok", style: .cancel)
                 { (action) in
@@ -341,7 +341,7 @@ class PSShareReportViewController: UIViewController,UITableViewDelegate,UITableV
     {
         if CEReachabilityManager.isReachable()
         {
-            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Sending Reports")
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Sending Post")
             //            EmployeeID = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
             ReportID = (PSDataManager.sharedInstance.reportId)
             PSAPIManager.sharedInstance.sendReportsWith(ReportID: String(ReportID), EmployeeID: EmployeeID, success:
@@ -354,7 +354,7 @@ class PSShareReportViewController: UIViewController,UITableViewDelegate,UITableV
                     
                 }
                 
-                let alertController = UIAlertController(title: "Sharing Report", message: "You have successfully Shared the report", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Sharing Post", message: "You have successfully shared the post", preferredStyle: .alert)
                 let alertActionCancel = UIAlertAction(title: "OK", style: .cancel)
                 { (action) in
                     
@@ -374,7 +374,7 @@ class PSShareReportViewController: UIViewController,UITableViewDelegate,UITableV
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     if(statusCode==404)
                     {
-                        PSUserInterfaceManager.showAlert(title: "Sharing Reports", message: ApiErrorMessage.ErrorOccured)
+                        PSUserInterfaceManager.showAlert(title: "Sharing Post", message: ApiErrorMessage.ErrorOccured)
                     }
                     else
                     {
