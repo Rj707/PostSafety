@@ -154,7 +154,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         
         // Print message ID.
-        if let messageID = userInfo["gcmMessageIDKey"] {
+        if let messageID = userInfo["gcmMessageIDKey"]
+        {
             print("Message ID: \(messageID)")
         }
         
@@ -175,7 +176,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
         // Print message ID.
 
-        if let messageID = userInfo["gcmMessageIDKey"] {
+        if let messageID = userInfo["gcmMessageIDKey"]
+        {
             print("Message ID: \(messageID)")
         }
         
@@ -186,10 +188,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         {
             print("Message ID: \(messageID)")
         }
-
+        var alertDic = userInfo["aps"] as! NSDictionary? as! [String:Any]?
+        var aps = alertDic!["alert"] as! NSDictionary? as! [String:Any]?
         if let userInfo = userInfo as NSDictionary? as! [String:Any]?
         {
-            print(userInfo["Type"] ?? "")
+            print(userInfo["aps"] ?? "")
             switch userInfo["Type"] as! String
             {
                 case "Alert":
@@ -236,6 +239,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         {
             PSUserInterfaceManager.sharedInstance.loadHomePage()
         }
+        else
+        {
+            PSUserInterfaceManager.sharedInstance.showBannerForPusNotificationWhenInForegroundWithTitle(title: aps!["title"] as! String, andBody: aps!["body"] as! String)
+        }
+//        PSUserInterfaceManager.sharedInstance.
 
         
         completionHandler(UIBackgroundFetchResult.newData)

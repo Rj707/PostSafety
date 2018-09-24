@@ -301,6 +301,23 @@ class PSUserInterfaceManager:NSObject
         return ""
     }
     
+    func showBannerForPusNotificationWhenInForegroundWithTitle(title:String, andBody body:String)
+    {
+        let color = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1)
+        let image : UIImage
+        image = #imageLiteral(resourceName: "logo")
+        let title = title
+        let subtitle = body
+        let banner = Banner(title: title, subtitle: subtitle, image: image, backgroundColor: color)
+        banner.springiness = .slight
+        banner.position = .top
+        banner.didTapBlock =
+        {
+            self.loadHomePage()
+        }
+        
+        banner.show(duration: 3.0)
+    }
     
 //    static func markNotificationRead(notificationId: String)
 //    {
