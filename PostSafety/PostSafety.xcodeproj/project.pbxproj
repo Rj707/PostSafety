@@ -72,6 +72,7 @@
 		A16142E220AC219B00421414 /* PSReportConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16142E120AC219B00421414 /* PSReportConfirmationViewController.swift */; };
 		A1654240212AFA1000B1CB7D /* PSTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A165423F212AFA1000B1CB7D /* PSTrainingViewController.swift */; };
 		A1654242212AFBFA00B1CB7D /* PSDefinitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1654241212AFBFA00B1CB7D /* PSDefinitionViewController.swift */; };
+		A16ACBC42158BD84005F6982 /* PSPostedReportAttachmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16ACBC32158BD84005F6982 /* PSPostedReportAttachmentViewController.swift */; };
 		A1F156A520AABFF50049DB21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F156A420AABFF50049DB21 /* AppDelegate.swift */; };
 		A1F156AC20AABFF60049DB21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1F156AB20AABFF60049DB21 /* Assets.xcassets */; };
 		A1F156AF20AABFF60049DB21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F156AD20AABFF60049DB21 /* LaunchScreen.storyboard */; };
@@ -183,6 +184,7 @@
 		A16142E120AC219B00421414 /* PSReportConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSReportConfirmationViewController.swift; sourceTree = "<group>"; };
 		A165423F212AFA1000B1CB7D /* PSTrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSTrainingViewController.swift; sourceTree = "<group>"; };
 		A1654241212AFBFA00B1CB7D /* PSDefinitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSDefinitionViewController.swift; sourceTree = "<group>"; };
+		A16ACBC32158BD84005F6982 /* PSPostedReportAttachmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSPostedReportAttachmentViewController.swift; sourceTree = "<group>"; };
 		A1F156A120AABFF50049DB21 /* PostSafety.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostSafety.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F156A420AABFF50049DB21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1F156AB20AABFF60049DB21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 				C4E5A56320AE55E90060898B /* PSPostedReportOverviewViewController.swift */,
 				C4E5A56720AE56200060898B /* PSPostedReportDetailViewController.swift */,
 				18AD08D520DF74B70096A910 /* PSPostedReportViewController.swift */,
+				A16ACBC32158BD84005F6982 /* PSPostedReportAttachmentViewController.swift */,
 			);
 			path = PostedReport;
 			sourceTree = "<group>";
@@ -876,6 +879,7 @@
 				1812E69720B8A4F800E484C6 /* PSDataManager.swift in Sources */,
 				A16142DE20AC121400421414 /* TakePhotoVideoViewController.swift in Sources */,
 				18BB7CDF20E00B7300E452AB /* PSEmergencyReportConfirmationViewController.swift in Sources */,
+				A16ACBC42158BD84005F6982 /* PSPostedReportAttachmentViewController.swift in Sources */,
 				A16142E220AC219B00421414 /* PSReportConfirmationViewController.swift in Sources */,
 				A10749AB20EF4937003A6B35 /* PSReportAPIManager.swift in Sources */,
 				A11DF69520D8F1BF0079D861 /* MenuBottomCell.swift in Sources */,
@@ -1118,8 +1122,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.digitalentrigue.postsafety;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "66815dca-429a-4e53-aece-f602459520a7";
-				PROVISIONING_PROFILE_SPECIFIER = PostSafety_Adhoc_PP;
+				PROVISIONING_PROFILE = "11b3589c-c7d3-4893-9569-4c6b5ae1bb36";
+				PROVISIONING_PROFILE_SPECIFIER = PostSafety_AppStoreDistribution_PP;
 				SWIFT_OBJC_BRIDGING_HEADER = "PostSafety/PostSafety-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

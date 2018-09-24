@@ -59,7 +59,6 @@ class PSPostedReportViewController: UIViewController
         }
         
     }
-    
 
     override func didReceiveMemoryWarning()
     {
@@ -173,6 +172,21 @@ class PSPostedReportViewController: UIViewController
     
     
     // MARK: - IBActions
+    
+    @IBAction func enlargeAttachmentGestureTapped(_ sender: Any)
+    {
+        let VC = storyboard?.instantiateViewController(withIdentifier: "PSPostedReportAttachmentViewController") as? PSPostedReportAttachmentViewController
+        let transition = CATransition()
+        transition.duration = 0.1
+        transition.type = kCATransitionFade
+        transition.subtype = kCATransitionFromBottom
+        VC?.attachmentImage = self.reportImageView.image!
+        navigationController?.view.layer.add(transition, forKey: kCATransition)
+        if let aVC = VC
+        {
+            navigationController?.pushViewController(aVC, animated: false)
+        }
+    }
     
     @IBAction func playVideoGestureTapped(_ sender: Any)
     {
