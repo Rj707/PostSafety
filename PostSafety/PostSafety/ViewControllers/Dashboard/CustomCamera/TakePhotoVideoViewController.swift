@@ -406,7 +406,6 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
             { (dict) in
                 
                 PSUserInterfaceManager.sharedInstance.hideLoader()
-                //                http://postsafety.anadeemus.ca/api/UpdateReport/?SubCatagory=0&Details=&CatagoryId=0&Title=&IsPSI=0&ReportId=10411&LocationId=0
                 
                 let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "PSEmergencyReportConfirmationViewController") as! PSEmergencyReportConfirmationViewController

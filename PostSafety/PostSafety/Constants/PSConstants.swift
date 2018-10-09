@@ -15,8 +15,8 @@ struct Constants
     static var CURRENCY_STRING                                  = NSLocalizedString("AED", comment: "")
     static let kUserSessionKey                                  = "userSessionKey"
     
-    static let BaseURLLive                                      = "http://postsafety.anadeemus.ca"             // Live
-    static let BaseURL                                          = "http://postsafety.anadeemus.ca"             // Local
+    static let BaseURLLive                                      = "https://postsafety.app"             // Live
+    static let BaseURL                                          = "https://postsafety.app"             // Local
     
     static let APP_COLOR                                        = UIColor(red: 246/255, green: 97/255, blue: 59/255, alpha: 1.0)
     

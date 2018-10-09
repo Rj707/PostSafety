@@ -19,7 +19,7 @@ class PSFeedAttachmentViewController: UIViewController,UIWebViewDelegate
         
         attachmentWebView?.delegate = self
         
-        self.attachmentWebView?.loadRequest(URLRequest.init(url: URL.init(string: String(format: "http://postsafety.anadeemus.ca/NotificationImages/%@", attachmentString))!))
+        self.attachmentWebView?.loadRequest(URLRequest.init(url: URL.init(string: String(format: "https://postsafety.app/NotificationImages/%@", attachmentString))!))
         
         // Do any additional setup after loading the view.
     }

@@ -71,7 +71,7 @@ class PSPostedReportViewController: UIViewController
     func downloadReportImage()
     {
         PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Loading Image")
-        PSAPIManager.sharedInstance.getDataFromUrl(url: URL.init(string: String(format: "http://postsafety.anadeemus.ca/UploadImages/%@", reportPostDict["fileName"] as! String))!)
+        PSAPIManager.sharedInstance.getDataFromUrl(url: URL.init(string: String(format: "https://postsafety.app/UploadImages/%@", reportPostDict["fileName"] as! String))!)
         { (data, response, error) in
             
             PSUserInterfaceManager.sharedInstance.hideLoader()
