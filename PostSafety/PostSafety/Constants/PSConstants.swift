@@ -40,7 +40,7 @@ struct ApiErrorMessage
 
 struct ApiResultFailureMessage
 {
-    static let InvalidEmailPassword         = NSLocalizedString("Invalid email or password.", comment: "")
+    static let InvalidEmailPassword         = NSLocalizedString("Invalid phone number or password.", comment: "")
     static let WrongEmailInForgotPassword   = NSLocalizedString("User with entered email doesn’t exist.", comment: "")
 }
 
