@@ -9,6 +9,8 @@
 import UIKit
 import IQKeyboardManagerSwift
 
+import Crashlytics
+import Fabric
 import UserNotifications
 import Firebase
 import FirebaseInstanceID
@@ -47,10 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         application.registerForRemoteNotifications()
         
         FirebaseApp.configure()
-        
+        Fabric.sharedSDK().debug = true
         IQKeyboardManager.sharedManager().enable = true
         if PSDataManager.sharedInstance.isUserLoggedIn()
         {
+//            Crashlytics.sharedInstance().setUserIdentifier(PSDataManager.sharedInstance.loggedInUser?.emailId)
             PSUserInterfaceManager.sharedInstance.loadHomePage()
         }
         else
@@ -58,16 +61,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             print("Not a logged in User")
         }
         
-        // You can retrieve the token directly using instanceIDWithHandler:. This callback provides an InstanceIDResult, which contains the token. A non null error is provided if the InstanceID retrieval failed in any way
-        
-//        InstanceID.instanceID().instanceID { (result, error) in
-//            if let error = error {
-//                print("Error fetching remote instange ID: \(error)")
-//            } else if let result = result {
-//                print("Remote instance ID token: \(result.token)")
-//                self.instanceIDTokenMessage.text  = "Remote InstanceID token: \(result.token)"
-//            }
-//        }
+        if Bundle.main.bundleIdentifier == "com.digitalentrigue.postsafety"
+        {
+            Crashlytics.sharedInstance().delegate = self as? CrashlyticsDelegate
+//            Fabric.with([Crashlytics.self])
+        }
         
         return true
     }

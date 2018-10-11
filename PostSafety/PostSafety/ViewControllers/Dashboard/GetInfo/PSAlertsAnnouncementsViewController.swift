@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Crashlytics
 class PSAlertsAnnouncementsViewController: UIViewController
 {
     

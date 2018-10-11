@@ -1086,6 +1086,7 @@
 				CODE_SIGN_ENTITLEMENTS = PostSafety/PostSafety.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = NM9CPHWN36;
 				INFOPLIST_FILE = PostSafety/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1113,6 +1114,7 @@
 				CODE_SIGN_ENTITLEMENTS = PostSafety/PostSafety.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = NM9CPHWN36;
 				INFOPLIST_FILE = PostSafety/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
