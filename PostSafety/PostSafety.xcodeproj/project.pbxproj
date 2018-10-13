@@ -40,6 +40,7 @@
 		18C40C0F20E02BAC00F5B380 /* PSFilterReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C40C0E20E02BAC00F5B380 /* PSFilterReportsViewController.swift */; };
 		18C8FC2820E16291000E15CE /* PSSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8FC2720E16291000E15CE /* PSSettingsViewController.swift */; };
 		18EFDA8B20FE57E8009F0B9F /* PSCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EFDA8A20FE57E8009F0B9F /* PSCategoryTableViewCell.swift */; };
+		18FA2BB72157970E00334DFD /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FA2BB62157970E00334DFD /* Banner.swift */; };
 		18FDED3A20B04F2A009CBA0B /* SwiftyCamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3620B04F2A009CBA0B /* SwiftyCamViewController.swift */; };
 		18FDED3B20B04F2A009CBA0B /* SwiftyCamButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3720B04F2A009CBA0B /* SwiftyCamButton.swift */; };
 		18FDED3C20B04F2A009CBA0B /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3820B04F2A009CBA0B /* PreviewView.swift */; };
@@ -149,6 +150,7 @@
 		18C40C0E20E02BAC00F5B380 /* PSFilterReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSFilterReportsViewController.swift; sourceTree = "<group>"; };
 		18C8FC2720E16291000E15CE /* PSSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSettingsViewController.swift; sourceTree = "<group>"; };
 		18EFDA8A20FE57E8009F0B9F /* PSCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		18FA2BB62157970E00334DFD /* Banner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		18FDED3620B04F2A009CBA0B /* SwiftyCamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamViewController.swift; sourceTree = "<group>"; };
 		18FDED3720B04F2A009CBA0B /* SwiftyCamButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamButton.swift; sourceTree = "<group>"; };
 		18FDED3820B04F2A009CBA0B /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 		18FDED3420B04EE0009CBA0B /* ThirdPartyLibs */ = {
 			isa = PBXGroup;
 			children = (
+				18FA2BB62157970E00334DFD /* Banner.swift */,
 				18C40C0A20E02A7600F5B380 /* IQDropDownTextField */,
 				A11DF68D20D8F0860079D861 /* SWRevealViewController */,
 				180D495920B9EAAB0023101D /* Reachibility */,
@@ -894,6 +897,7 @@
 				18AD08D620DF74B70096A910 /* PSPostedReportViewController.swift in Sources */,
 				A16142D820AC11BD00421414 /* PSUserFeedViewController.swift in Sources */,
 				C409874520DED38800081069 /* PSSummaryStatsViewController.swift in Sources */,
+				18FA2BB72157970E00334DFD /* Banner.swift in Sources */,
 				1812E69520B8A4D800E484C6 /* PSConstants.swift in Sources */,
 				A16142CE20AC108E00421414 /* PSLogInViewController.swift in Sources */,
 				18FDED3B20B04F2A009CBA0B /* SwiftyCamButton.swift in Sources */,

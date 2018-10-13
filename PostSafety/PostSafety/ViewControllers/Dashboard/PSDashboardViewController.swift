@@ -31,11 +31,7 @@ class PSDashboardViewController: UIViewController
            self.getLocationsforReport()
         }
         
-//        print(PSDataManager.sharedInstance.offlinePostsArray)
-        
         self.addMenuAction()
-        
-//        self.submitOfflinePosts()
     }
     
     override func viewWillAppear(_ animated: Bool)
