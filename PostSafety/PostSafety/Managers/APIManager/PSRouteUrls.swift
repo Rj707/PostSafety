@@ -5,7 +5,7 @@ enum Route: String
     case UpdateEmployees    = "/api/UpdateEmployees"
     case ListEmployees      = "/api/Employees/"
     case UpdateDeviceToken  = "/api/UpdateDeviceToken/"
-    
+    case ResetPassword      = "/api/ResetPassword/"
     case IncidentCompany    = "/api/IncidentCompany/"
     case ChecklistDetails   = "/api/ChecklistDetails"
     case SingleChecklist    = "/api/Checklists"

@@ -59,4 +59,12 @@ extension PSAPIManager
     {
         authenticationManagerAPI.updateDeviceTokenFor(EmployeeID: EmployeeID, DeviceToken: DeviceToken, success: success, failure: failure, errorPopup: errorPopup)
     }
+    
+    func ResetPasswordFor(Number: String,
+                              success:@escaping DefaultArrayResultAPISuccessClosure,
+                              failure:@escaping DefaultAPIFailureClosure,
+                              errorPopup: Bool)
+    {
+        authenticationManagerAPI.ResetPasswordFor(Number: Number, success: success, failure: failure, errorPopup: errorPopup)
+    }
 }

@@ -47,6 +47,7 @@
 		18FDED4120B04F82009CBA0B /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED3F20B04F82009CBA0B /* VideoViewController.swift */; };
 		18FDED4220B04F82009CBA0B /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED4020B04F82009CBA0B /* PhotoViewController.swift */; };
 		18FDED4420B05077009CBA0B /* SwiftyRecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDED4320B05077009CBA0B /* SwiftyRecordButton.swift */; };
+		18FF9FA521727F1C0045FDEC /* PSResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9FA421727F1C0045FDEC /* PSResetPasswordViewController.swift */; };
 		2C5F40C35FA6E8D5F17D9D1A /* Pods_PostSafety.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462E62552B0A0080C9267F99 /* Pods_PostSafety.framework */; };
 		A10749A820EF48F7003A6B35 /* PSAPIManager+Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10749A720EF48F7003A6B35 /* PSAPIManager+Report.swift */; };
 		A10749AB20EF4937003A6B35 /* PSReportAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10749AA20EF4937003A6B35 /* PSReportAPIManager.swift */; };
@@ -155,6 +156,7 @@
 		18FDED3F20B04F82009CBA0B /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		18FDED4020B04F82009CBA0B /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		18FDED4320B05077009CBA0B /* SwiftyRecordButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyRecordButton.swift; sourceTree = "<group>"; };
+		18FF9FA421727F1C0045FDEC /* PSResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSResetPasswordViewController.swift; sourceTree = "<group>"; };
 		1A842FAE2CD79A6058C5732A /* Pods-PostSafety.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostSafety.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PostSafety/Pods-PostSafety.debug.xcconfig"; sourceTree = "<group>"; };
 		462E62552B0A0080C9267F99 /* Pods_PostSafety.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PostSafety.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6654D11319022298AEDDCE /* Pods-PostSafety.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostSafety.release.xcconfig"; path = "Pods/Target Support Files/Pods-PostSafety/Pods-PostSafety.release.xcconfig"; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 				A16142CD20AC108E00421414 /* PSLogInViewController.swift */,
 				A16142CF20AC10C400421414 /* PSCreatePasswordViewController.swift */,
 				A16142D320AC10FC00421414 /* PSTermsOfUseViewController.swift */,
+				18FF9FA421727F1C0045FDEC /* PSResetPasswordViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -894,6 +897,7 @@
 				1812E69520B8A4D800E484C6 /* PSConstants.swift in Sources */,
 				A16142CE20AC108E00421414 /* PSLogInViewController.swift in Sources */,
 				18FDED3B20B04F2A009CBA0B /* SwiftyCamButton.swift in Sources */,
+				18FF9FA521727F1C0045FDEC /* PSResetPasswordViewController.swift in Sources */,
 				18161A5720F10F5800C0C3BF /* PSFeedTableViewCell.swift in Sources */,
 				182E5DD320DE38DC00E3A851 /* PSReport.swift in Sources */,
 				A118F3A52141198000F4BB74 /* PSLocation.swift in Sources */,
