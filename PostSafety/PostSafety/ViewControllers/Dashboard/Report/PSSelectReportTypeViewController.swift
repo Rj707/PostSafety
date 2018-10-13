@@ -36,6 +36,14 @@ class PSSelectReportTypeViewController: UIViewController
     
     func configureAndInitialize()
     {
+        if PSDataManager.sharedInstance.loggedInUser?.planType == "LevelTwo"
+        {
+            self.view4.isHidden = false
+        }
+        else
+        {
+            self.view4.isHidden = true
+        }
         self.view1.layer.borderWidth=1
         self.view2.layer.borderWidth=1
         self.view3.layer.borderWidth=1

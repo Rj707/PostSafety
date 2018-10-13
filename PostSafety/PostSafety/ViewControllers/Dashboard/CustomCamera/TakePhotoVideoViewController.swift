@@ -51,13 +51,20 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
     
     func configureAndInitialize()
     {
-        if PSDataManager.sharedInstance.report?.reportType != "Emergency"
+        if PSDataManager.sharedInstance.loggedInUser?.planType == "LevelTwo"
         {
-            self.photoVideoLabel.text = "Tap for photo, hold down for video"
+            if PSDataManager.sharedInstance.report?.reportType != "Emergency"
+            {
+                self.photoVideoLabel.text = "Tap for photo, hold down for video"
+            }
+            else
+            {
+                self.photoVideoLabel.text = "Hold down for video"
+            }
         }
         else
         {
-            self.photoVideoLabel.text = "Hold down for video"
+            self.photoVideoLabel.text = "Tap for photo"
         }
         
         cameraDelegate = self
@@ -98,36 +105,45 @@ class TakePhotoVideoViewController: SwiftyCamViewController, SwiftyCamViewContro
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didBeginRecordingVideo camera: SwiftyCamViewController.CameraSelection)
     {
-        self.counter = 0.0
-        timeLabel.text = "00:00:00"
-        timeLabel.isHidden = false
-        self.startTimer()
-        print("Did Begin Recording")
-        captureButton.growButton()
-        UIView.animate(withDuration: 0.25, animations:
+        if PSDataManager.sharedInstance.loggedInUser?.planType == "LevelTwo"
         {
-            self.flashButton.alpha = 0.0
-            self.flipCameraButton.alpha = 0.0
-        })
+            self.counter = 0.0
+            timeLabel.text = "00:00:00"
+            timeLabel.isHidden = false
+            self.startTimer()
+            print("Did Begin Recording")
+            captureButton.growButton()
+            UIView.animate(withDuration: 0.25, animations:
+            {
+                self.flashButton.alpha = 0.0
+                self.flipCameraButton.alpha = 0.0
+            })
+        }
     }
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFinishRecordingVideo camera: SwiftyCamViewController.CameraSelection)
     {
-        timeLabel.isHidden = true
-        print("Did finish Recording")
-        captureButton.shrinkButton()
-        UIView.animate(withDuration: 0.25, animations:
+        if PSDataManager.sharedInstance.loggedInUser?.planType == "LevelTwo"
         {
-            self.flashButton.alpha = 1.0
-            self.flipCameraButton.alpha = 1.0
-        })
+            timeLabel.isHidden = true
+            print("Did finish Recording")
+            captureButton.shrinkButton()
+            UIView.animate(withDuration: 0.25, animations:
+            {
+                self.flashButton.alpha = 1.0
+                self.flipCameraButton.alpha = 1.0
+            })
+        }
     }
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFinishProcessVideoAt url: URL)
     {
-        let newVC = VideoViewController(videoURL: url)
-        newVC.delegate = self
-        self.present(newVC, animated: true, completion: nil)
+        if PSDataManager.sharedInstance.loggedInUser?.planType == "LevelTwo"
+        {
+            let newVC = VideoViewController(videoURL: url)
+            newVC.delegate = self
+            self.present(newVC, animated: true, completion: nil)
+        }
     }
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFocusAtPoint point: CGPoint)
