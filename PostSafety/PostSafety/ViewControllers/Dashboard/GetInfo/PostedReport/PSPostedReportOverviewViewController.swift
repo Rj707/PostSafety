@@ -132,7 +132,7 @@ class PSPostedReportOverviewViewController: UIViewController,MFMessageComposeVie
             if (MFMessageComposeViewController.canSendText())
             {
                 let controller = MFMessageComposeViewController()
-                controller.body = "Message Body"
+                controller.body = ""
                 controller.recipients = [self.reporterPhoneNumberLable.text] as? [String]
                 controller.messageComposeDelegate = self
                 DispatchQueue.main.async
