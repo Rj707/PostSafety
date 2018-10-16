@@ -15,7 +15,7 @@ class PSSelectReportTypeViewController: UIViewController
     @IBOutlet weak var view3: UIView!
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view1: UIView!
-    
+    @IBOutlet weak var emergencyStackView: UIStackView!
     @IBOutlet weak var label4: UILabel!
     @IBOutlet weak var label3: UILabel!
     @IBOutlet weak var label2: UILabel!
@@ -36,13 +36,14 @@ class PSSelectReportTypeViewController: UIViewController
     
     func configureAndInitialize()
     {
+        print(PSDataManager.sharedInstance.loggedInUser?.planType)
         if PSDataManager.sharedInstance.loggedInUser?.planType == "LevelTwo"
         {
-            self.view4.isHidden = false
+            self.emergencyStackView.isHidden = false
         }
         else
         {
-            self.view4.isHidden = true
+            self.emergencyStackView.isHidden = true
         }
         self.view1.layer.borderWidth=1
         self.view2.layer.borderWidth=1
