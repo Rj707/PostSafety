@@ -48,7 +48,7 @@ class PSCloseReportViewController: UIViewController
     {
         if CEReachabilityManager.isReachable()
         {
-            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Closing Report")
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Closing Post")
             ReportId = (PSDataManager.sharedInstance.reportId)
             PSAPIManager.sharedInstance.closeReportWith(ReportId:String(ReportId), success:
             { (dic) in
@@ -58,7 +58,7 @@ class PSCloseReportViewController: UIViewController
                 if dic["SUCCESS"] as! String == "Done"
                 {
                     
-                    let alertController = UIAlertController(title: "Closing Report", message: "You have successfully closed the report", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Closing Post", message: "You have successfully closed the post", preferredStyle: .alert)
                     let alertActionCancel = UIAlertAction(title: "OK", style: .cancel)
                     { (action) in
                         
@@ -82,18 +82,18 @@ class PSCloseReportViewController: UIViewController
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     if(statusCode==404)
                     {
-                        PSUserInterfaceManager.showAlert(title: "Closing Report", message: ApiErrorMessage.ErrorOccured)
+                        PSUserInterfaceManager.showAlert(title: "Closing Post", message: ApiErrorMessage.ErrorOccured)
                     }
                     else
                     {
-                        PSUserInterfaceManager.showAlert(title: "Closing Report", message: error.localizedDescription)
+                        PSUserInterfaceManager.showAlert(title: "Closing Post", message: error.localizedDescription)
                     }
                     
             }, errorPopup: true)
         }
         else
         {
-            PSUserInterfaceManager.showAlert(title: "Closing Report", message: ApiErrorMessage.NoNetwork)
+            PSUserInterfaceManager.showAlert(title: "Closing Post", message: ApiErrorMessage.NoNetwork)
         }
     }
     
