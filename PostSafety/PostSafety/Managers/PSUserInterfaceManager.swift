@@ -301,8 +301,10 @@ class PSUserInterfaceManager:NSObject
         return ""
     }
     
-    func showBannerForPusNotificationWhenInForegroundWithTitle(title:String, andBody body:String)
+    func showBannerForPusNotificationWhenInForegroundWithTitle(title:String, Body body:String, PushType pushType:Int, andNavigation navigation:Int)
     {
+        PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: 7)
+        PSDataManager.sharedInstance.isPushNotificationNavigation = (PSDataManager.sharedInstance.notificatinType?.rawValue)!
         let color = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1)
         let image : UIImage
         image = #imageLiteral(resourceName: "logo")
@@ -313,6 +315,8 @@ class PSUserInterfaceManager:NSObject
         banner.position = .top
         banner.didTapBlock =
         {
+            PSDataManager.sharedInstance.notificatinType = PushNotificatinType(rawValue: pushType)
+            PSDataManager.sharedInstance.isPushNotificationNavigation = (PSDataManager.sharedInstance.notificatinType?.rawValue)!
             self.loadHomePage()
         }
         

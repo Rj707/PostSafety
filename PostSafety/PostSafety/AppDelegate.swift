@@ -89,6 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
 
     func applicationDidBecomeActive(_ application: UIApplication)
     {
+        application.applicationIconBadgeNumber = 0
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
@@ -239,11 +240,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         }
         else
         {
-            PSUserInterfaceManager.sharedInstance.showBannerForPusNotificationWhenInForegroundWithTitle(title: aps!["title"] as! String, andBody: aps!["body"] as! String)
+            PSUserInterfaceManager.sharedInstance.showBannerForPusNotificationWhenInForegroundWithTitle(title: aps!["title"] as! String, Body: aps!["body"] as! String, PushType: (PSDataManager.sharedInstance.notificatinType?.rawValue)!, andNavigation: PSDataManager.sharedInstance.isPushNotificationNavigation)
         }
-//        PSUserInterfaceManager.sharedInstance.
 
-        
         completionHandler(UIBackgroundFetchResult.newData)
     }
 }
