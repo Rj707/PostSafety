@@ -13,13 +13,14 @@ class PSFeedAttachmentViewController: UIViewController,UIWebViewDelegate
 
     @IBOutlet weak var attachmentWebView : UIWebView?
     var attachmentString = "0anadeemus.jpg"
+    var baseURLForAttachment = ""
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
         attachmentWebView?.delegate = self
-        
-        self.attachmentWebView?.loadRequest(URLRequest.init(url: URL.init(string: String(format: "https://postsafety.app/NotificationImages/%@", attachmentString))!))
+        let url = String(format: "%@%@", baseURLForAttachment,attachmentString)
+        self.attachmentWebView?.loadRequest(URLRequest.init(url: URL.init(string: url)!))
         
         // Do any additional setup after loading the view.
     }

@@ -19,6 +19,7 @@ class PSUserFeedDetailViewController: UIViewController
     var feedTitle: String = ""
     var feedDict = NSDictionary.init()
     var attachmentString : String = ""
+    var baseURLForAttachment : String = ""
     
     override func viewDidLoad()
     {
@@ -94,6 +95,7 @@ class PSUserFeedDetailViewController: UIViewController
                 self.feedDetailAttachmentButton.isHidden = false
                 self.feedDetailAttachmentButton.setTitle(self.feedDict["pictureUrl"] as? String, for: UIControlState.normal)
                 attachmentString = (self.feedDict["pictureUrl"] as? String)!
+                baseURLForAttachment = (self.feedDict["url"] as? String)!
             }
         }
         else if self.feedDict["pictureUrl"] is NSNull
@@ -105,6 +107,7 @@ class PSUserFeedDetailViewController: UIViewController
             self.feedDetailAttachmentButton.isHidden = false
             self.feedDetailAttachmentButton.setTitle(self.feedDict["fileName"] as? String, for: UIControlState.normal)
             attachmentString = (self.feedDict["fileName"] as? String)!
+            baseURLForAttachment = (self.feedDict["url"] as? String)!
         }
         
     }
@@ -124,19 +127,13 @@ class PSUserFeedDetailViewController: UIViewController
     
     @IBAction func attachmentButtonTouched(_ sender: UIButton)
     {
-//        let storyboard = UIStoryboard(name: "User", bundle: nil)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "PSFeedAttachmentViewController") as! PSFeedAttachmentViewController
-//        vc.attachmentString = attachmentString
-//        vc.modalPresentationStyle = .popover
-//        vc.modalTransitionStyle = .coverVertical
-//        self.present(vc, animated: true, completion: nil)
-        
         let VC = storyboard?.instantiateViewController(withIdentifier: "PSFeedAttachmentViewController") as? PSFeedAttachmentViewController
         let transition = CATransition()
         transition.duration = 0.1
         transition.type = kCATransitionFade
         transition.subtype = kCATransitionFromBottom
         VC?.attachmentString = attachmentString
+        VC?.baseURLForAttachment = baseURLForAttachment
         navigationController?.view.layer.add(transition, forKey: kCATransition)
         if let aVC = VC
         {
