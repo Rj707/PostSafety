@@ -314,7 +314,7 @@ class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableVi
             }
             
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: String(format: "%@%@", "Fetching ", typeOfFetch))
-            companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
+            companyId = (PSDataManager.sharedInstance.loggedInUser?.employeeId)!
             PSAPIManager.sharedInstance.getAllReportsFor(companyId: String(companyId), success:
                 { (dic) in
                     PSUserInterfaceManager.sharedInstance.hideLoader()
