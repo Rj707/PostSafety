@@ -19,8 +19,12 @@ class PSFeedAttachmentViewController: UIViewController,UIWebViewDelegate
         super.viewDidLoad()
         
         attachmentWebView?.delegate = self
-        let url = String(format: "%@%@", baseURLForAttachment,attachmentString)
-        self.attachmentWebView?.loadRequest(URLRequest.init(url: URL.init(string: url)!))
+        
+
+        let attachURL = String(format: "%@%@", baseURLForAttachment,attachmentString)
+        let urlString = attachURL.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+
+        self.attachmentWebView?.loadRequest(URLRequest.init(url: URL.init(string: urlString!)!))
         
         // Do any additional setup after loading the view.
     }
