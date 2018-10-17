@@ -232,22 +232,27 @@ class PSReportAPIManager: PSAPIManagerBase
                        startdate: String,
                        enddate: String,
                        Location: String,
+                       DummyStatus: String,
                        success:@escaping DefaultArrayResultAPISuccessClosure,
                        failure:@escaping DefaultAPIFailureClosure,
                        errorPopup: Bool)
     {
         let employeeID = PSDataManager.sharedInstance.loggedInUser?.employeeId
-        let parameters: [String:Any] =
+
+        var parameters: [String:Any] =
             [
                 "CompanyId":employeeID ?? "",
                 "ReportType":ReportType,
                 "ReportedBy":ReportedBy,
-                "Status":Status,
+                "Status":Status.description,
                 "startdate":startdate,
                 "enddate":enddate,
                 "Location":Location
             ]
-        
+        if DummyStatus == "0"
+        {
+            parameters["Status"] = ""
+        }
         let route: URL = GETURLfor(route: Route.Reports.rawValue, parameters: parameters )!
         
         self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
@@ -343,6 +348,22 @@ class PSReportAPIManager: PSAPIManagerBase
         
         self.requestWith(endUrl: route.absoluteString, imageData: data ,dataType: FileType, parameters: parameters, success: success, failure: failure,uploadProgress: progress ,errorPopup: errorPopup);
         
+    }
+    
+    func NotifyPostFor(reportID: String,
+                         success:@escaping DefaultArrayResultAPISuccessClosure,
+                         failure:@escaping DefaultAPIFailureClosure,
+                         errorPopup: Bool)
+    {
+        
+        let parameters: [String:Any] =
+            [
+                "id":reportID,
+            ]
+        
+        let route: URL = GETURLfor(route: Route.NotifyPost.rawValue, parameters: parameters )!
+        
+        self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
     }
     
 }
