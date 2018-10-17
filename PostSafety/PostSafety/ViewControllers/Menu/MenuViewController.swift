@@ -9,8 +9,8 @@
 import UIKit
 import RealmSwift
 
-@available(iOS 10.0, *)
-@available(iOS 10.0, *)
+@available(iOS 9.0, *)
+@available(iOS 9.0, *)
 class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataSource
 {
 
