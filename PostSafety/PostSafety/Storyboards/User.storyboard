@@ -829,13 +829,37 @@
                                                         <constraint firstAttribute="height" constant="2" id="1xg-oK-3D7"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkF-LM-BsC">
+                                                    <rect key="frame" x="8" y="11" width="34" height="15.666666666666664"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PK-mb-BEH">
+                                                    <rect key="frame" x="190" y="11" width="34" height="15.666666666666664"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cZ-iO-m7q">
+                                                    <rect key="frame" x="372" y="11" width="34" height="15.666666666666664"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
+                                                <constraint firstItem="gkF-LM-BsC" firstAttribute="top" secondItem="eKJ-CT-Ije" secondAttribute="top" constant="11" id="5An-2J-ZtQ"/>
+                                                <constraint firstItem="8PK-mb-BEH" firstAttribute="centerX" secondItem="eKJ-CT-Ije" secondAttribute="centerX" id="9k9-Za-TRI"/>
+                                                <constraint firstItem="2cZ-iO-m7q" firstAttribute="baseline" secondItem="8PK-mb-BEH" secondAttribute="baseline" id="FHL-I4-K3I"/>
+                                                <constraint firstItem="8PK-mb-BEH" firstAttribute="baseline" secondItem="gkF-LM-BsC" secondAttribute="baseline" id="Gjg-fd-4dF"/>
                                                 <constraint firstAttribute="trailing" secondItem="0BZ-gO-STX" secondAttribute="trailing" constant="8" id="WJh-vC-tJD"/>
                                                 <constraint firstItem="0BZ-gO-STX" firstAttribute="centerY" secondItem="eKJ-CT-Ije" secondAttribute="centerY" id="WYY-d6-d5a"/>
                                                 <constraint firstItem="Hx0-Eq-f6T" firstAttribute="centerY" secondItem="eKJ-CT-Ije" secondAttribute="centerY" id="Wxb-MQ-q8W"/>
+                                                <constraint firstAttribute="trailing" secondItem="2cZ-iO-m7q" secondAttribute="trailing" constant="8" id="bXT-R7-NfC"/>
                                                 <constraint firstItem="0BZ-gO-STX" firstAttribute="leading" secondItem="Hx0-Eq-f6T" secondAttribute="trailing" constant="8" id="ckx-DX-PLB"/>
+                                                <constraint firstItem="gkF-LM-BsC" firstAttribute="leading" secondItem="eKJ-CT-Ije" secondAttribute="leading" constant="8" id="fX0-Vd-Vst"/>
                                                 <constraint firstItem="Hx0-Eq-f6T" firstAttribute="leading" secondItem="eKJ-CT-Ije" secondAttribute="leading" constant="8" id="fbM-zy-Dso"/>
                                                 <constraint firstItem="ZmN-bf-0YC" firstAttribute="leading" secondItem="0BZ-gO-STX" secondAttribute="leading" id="k1e-Ds-0wh"/>
                                                 <constraint firstAttribute="bottom" secondItem="bvb-E7-yq2" secondAttribute="bottom" id="ljx-RV-hRI"/>
@@ -846,6 +870,9 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dateLabel" destination="ZmN-bf-0YC" id="Uu4-rV-hhD"/>
+                                            <outlet property="locationLabel" destination="8PK-mb-BEH" id="XmM-6F-5Me"/>
+                                            <outlet property="senderLabel" destination="2cZ-iO-m7q" id="487-hi-gzI"/>
+                                            <outlet property="statusLabel" destination="gkF-LM-BsC" id="B7i-er-h3j"/>
                                             <outlet property="timeLabel" destination="Hx0-Eq-f6T" id="0Rt-qZ-UWr"/>
                                             <outlet property="titleLabel" destination="0BZ-gO-STX" id="wl4-05-c6F"/>
                                         </connections>
@@ -1158,7 +1185,7 @@
                         <viewLayoutGuide key="safeArea" id="qaQ-fA-1cV"/>
                     </view>
                     <connections>
-                        <outlet property="attachmentWebView" destination="ahZ-t1-uqX" id="cWf-OE-MfW"/>
+                        <outlet property="attachmentWebView" destination="ahZ-t1-uqX" id="u2H-cc-NnI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UP1-xI-K0a" userLabel="First Responder" sceneMemberID="firstResponder"/>

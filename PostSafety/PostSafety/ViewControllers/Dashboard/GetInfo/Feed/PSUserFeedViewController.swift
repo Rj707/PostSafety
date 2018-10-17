@@ -51,6 +51,8 @@ class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableVi
     var EmployeeID = 0
     var isPullToRefresh = 0
     
+    var isOpenPosts : NSNumber = 0
+    
     // MARK: - Implementation
     
     override func viewDidLoad()
@@ -430,6 +432,23 @@ class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableVi
         
         if self.feedTitle == "Reports"
         {
+            cell.statusLabel.isHidden =  false
+            cell.locationLabel.isHidden =  false
+            cell.senderLabel.isHidden =  false
+            if dic["status"] as! Bool == true
+            {
+                cell.statusLabel.text = "Open"
+                cell.statusLabel.textColor = UIColor.black
+            }
+            else
+            {
+                cell.statusLabel.text = "Closed"
+                cell.statusLabel.textColor = UIColor.init(red: 255/255.0, green: 75/255.0, blue: 1/255.0, alpha: 1.0)
+            }
+            
+            cell.locationLabel.text = dic["location"] as? String
+            cell.senderLabel.text = dic["reportedBy"] as? String
+            
             if dic["incidentType"] as? String == "Emergency"
             {
                 cell.titleLabel.textColor = UIColor.init(red: 255/255.0, green: 75/255.0, blue: 1/255.0, alpha: 1.0)
@@ -443,6 +462,9 @@ class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableVi
         }
         else
         {
+            cell.statusLabel.isHidden =  true
+            cell.locationLabel.isHidden =  true
+            cell.senderLabel.isHidden =  true
             cell.titleLabel.text = dic["title"] as? String
         }
         
@@ -741,7 +763,18 @@ class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableVi
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: String(format: "%@%@", "Fetching ", self.feedTitle))
             companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
             
-            PSAPIManager.sharedInstance.getReportsFor(CompanyId: String(companyId), ReportType: filterData.value(forKey: "ReportType") as! String, ReportedBy: filterData.value(forKey: "ReportedBy") as! String, Status: (filterData.value(forKey: "Status") != nil), startdate: filterData.value(forKey: "startdate") as! String, enddate: filterData.value(forKey: "enddate") as! String, Location: filterData.value(forKey: "branchId") as! String, success:
+            let ReportedBy = filterData.value(forKey: "ReportedBy") as! Int
+            var ReporterID = ""
+            if ReportedBy == -1
+            {
+                ReporterID = ""
+            }
+            else
+            {
+                ReporterID = String(ReportedBy)
+            }
+            
+            PSAPIManager.sharedInstance.getReportsFor(CompanyId: String(companyId), ReportType: filterData.value(forKey: "ReportType") as! String, ReportedBy:ReporterID , Status: (filterData.value(forKey: "Status") as? Bool )!, startdate: filterData.value(forKey: "startdate") as! String, enddate: filterData.value(forKey: "enddate") as! String, Location: filterData.value(forKey: "branchId") as! String, DummyStatus: filterData.value(forKey: "DummyStatus")  as! String, success:
             { (dic) in
                 
                 self.feedArray = [Any]()
