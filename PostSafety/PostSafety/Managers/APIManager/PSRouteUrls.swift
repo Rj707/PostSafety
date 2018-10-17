@@ -42,6 +42,7 @@ enum Route: String
     case ProcedurePolicyRead = "/api/ProcedureNPolicyIsRead/"
     
     case RestoreBadge       = "/api/RestoreBadge/"
+    case NotifyPost       = "/api/NotifyPost/"
     
     
     func url() -> String

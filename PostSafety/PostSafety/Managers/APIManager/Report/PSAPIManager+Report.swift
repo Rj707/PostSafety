@@ -120,11 +120,12 @@ extension PSAPIManager
                        startdate: String,
                        enddate: String,
                        Location: String,
+                       DummyStatus: String,
                        success:@escaping DefaultArrayResultAPISuccessClosure,
                        failure:@escaping DefaultAPIFailureClosure,
                        errorPopup: Bool)
     {
-        reportManagerAPI.getReportsFor(CompanyId: CompanyId,ReportType: ReportType,ReportedBy: ReportedBy, Status:Status, startdate: startdate,enddate: enddate, Location:Location, success: success, failure: failure,errorPopup: errorPopup)
+        reportManagerAPI.getReportsFor(CompanyId: CompanyId,ReportType: ReportType,ReportedBy: ReportedBy, Status:Status, startdate: startdate,enddate: enddate, Location:Location, DummyStatus:DummyStatus, success: success, failure: failure,errorPopup: errorPopup)
     }
     
     func sendReportsWith(ReportID: String,
@@ -183,6 +184,14 @@ extension PSAPIManager
                               errorPopup: Bool)
     {
         reportManagerAPI.submitPostOfflineFor(EmployeeId: EmployeeId, IncidentTypeID: IncidentTypeID,  LocationId: LocationId,  Details: Details,  CatagoryId: CatagoryId,  SubCatagory: SubCatagory, IsPSI: IsPSI, FileType: FileType, data:data, success: success, failure: failure,  progress: progress ,errorPopup: errorPopup)
+    }
+    
+    func NotifyPostFor(reportID: String,
+                       success:@escaping DefaultArrayResultAPISuccessClosure,
+                       failure:@escaping DefaultAPIFailureClosure,
+                       errorPopup: Bool)
+    {
+        reportManagerAPI.NotifyPostFor(reportID: reportID, success: success, failure: failure, errorPopup: errorPopup)
     }
     
 }

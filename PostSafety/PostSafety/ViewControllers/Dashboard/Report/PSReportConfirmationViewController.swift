@@ -21,6 +21,16 @@ class PSReportConfirmationViewController: UIViewController
         
         self.confirmationContainer.layer.borderWidth = 2
         self.confirmationContainer.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        
+        
+        DispatchQueue.global(qos: .background).async
+        {
+            self.notifyPost()
+        }
+//        DispatchQueue.main.async
+//        {
+//            print("This is run on the main queue, after the previous code in outer block")
+//        }
     }
 
     override func didReceiveMemoryWarning()
@@ -61,6 +71,29 @@ class PSReportConfirmationViewController: UIViewController
                     break
                 }
             }
+        }
+    }
+    
+    func notifyPost ()
+    {
+        if CEReachabilityManager.isReachable()
+        {
+            let reportID = PSDataManager.sharedInstance.report?.reportID as! Int
+            PSAPIManager.sharedInstance.NotifyPostFor(reportID: String(reportID), success:
+            { (dict) in
+                
+                PSDataManager.sharedInstance.report = PSReport.init()
+            },
+                                                      failure:
+            { (error, stausCode) in
+                    
+            }, errorPopup: true)
+            
+            
+        }
+        else
+        {
+            
         }
     }
     
