@@ -89,7 +89,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
 
     func applicationDidBecomeActive(_ application: UIApplication)
     {
-        application.applicationIconBadgeNumber = 0
+        
+        
+        if let employeeId = PSDataManager.sharedInstance.loggedInUser?.employeeId
+        {
+            PSAPIManager.sharedInstance.RestoreBadgeFor(EmployeeId: String(employeeId), success:
+            { (dict) in
+                    
+                 application.applicationIconBadgeNumber = 0
+                
+            }, failure:
+            { (error, statusCode) in
+                    
+                    
+            }, errorPopup: true)
+        }
+        
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 

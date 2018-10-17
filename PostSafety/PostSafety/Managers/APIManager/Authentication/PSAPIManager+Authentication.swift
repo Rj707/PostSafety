@@ -67,4 +67,12 @@ extension PSAPIManager
     {
         authenticationManagerAPI.ResetPasswordFor(Number: Number, success: success, failure: failure, errorPopup: errorPopup)
     }
+    
+    func RestoreBadgeFor(EmployeeId: String,
+                          success:@escaping DefaultArrayResultAPISuccessClosure,
+                          failure:@escaping DefaultAPIFailureClosure,
+                          errorPopup: Bool)
+    {
+        authenticationManagerAPI.RestoreBadgeFor(EmployeeId: EmployeeId, success: success, failure: failure, errorPopup: errorPopup)
+    }
 }

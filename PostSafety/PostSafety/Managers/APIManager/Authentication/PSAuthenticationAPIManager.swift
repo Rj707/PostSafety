@@ -117,4 +117,19 @@ class PSAuthenticationAPIManager: PSAPIManagerBase
         self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
     }
 
+    func RestoreBadgeFor(EmployeeId: String,
+                         success:@escaping DefaultArrayResultAPISuccessClosure,
+                         failure:@escaping DefaultAPIFailureClosure,
+                         errorPopup: Bool)
+    {
+        let parameters: [String:Any] =
+            [
+                "EmployeeId":EmployeeId,
+            ]
+        
+        let route: URL = GETURLfor(route: Route.RestoreBadge.rawValue, parameters: parameters )!
+        
+        self.getRequestWith(route: route, parameters: [String](), success: success, failure: failure, errorPopup: errorPopup)
+    }
+    
 }
