@@ -741,7 +741,7 @@ class PSUserFeedViewController: UIViewController,UITableViewDataSource,UITableVi
             PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: String(format: "%@%@", "Fetching ", self.feedTitle))
             companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
             
-            PSAPIManager.sharedInstance.getReportsFor(CompanyId: String(companyId), ReportType: filterData.value(forKey: "ReportType") as! String, ReportedBy: filterData.value(forKey: "ReportedBy") as! String, Status: (filterData.value(forKey: "Status") != nil), startdate: filterData.value(forKey: "startdate") as! String, enddate: filterData.value(forKey: "enddate") as! String, success:
+            PSAPIManager.sharedInstance.getReportsFor(CompanyId: String(companyId), ReportType: filterData.value(forKey: "ReportType") as! String, ReportedBy: filterData.value(forKey: "ReportedBy") as! String, Status: (filterData.value(forKey: "Status") != nil), startdate: filterData.value(forKey: "startdate") as! String, enddate: filterData.value(forKey: "enddate") as! String, Location: filterData.value(forKey: "branchId") as! String, success:
             { (dic) in
                 
                 self.feedArray = [Any]()

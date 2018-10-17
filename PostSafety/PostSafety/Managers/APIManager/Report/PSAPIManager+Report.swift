@@ -114,16 +114,17 @@ extension PSAPIManager
     }
     
     func getReportsFor(CompanyId: String,
-                      ReportType: String,
-                      ReportedBy: String,
-                          Status:Bool,
+                       ReportType: String,
+                       ReportedBy: String,
+                       Status:Bool,
                        startdate: String,
-                         enddate: String,
-                         success:@escaping DefaultArrayResultAPISuccessClosure,
-                         failure:@escaping DefaultAPIFailureClosure,
-                      errorPopup: Bool)
+                       enddate: String,
+                       Location: String,
+                       success:@escaping DefaultArrayResultAPISuccessClosure,
+                       failure:@escaping DefaultAPIFailureClosure,
+                       errorPopup: Bool)
     {
-        reportManagerAPI.getReportsFor(CompanyId: CompanyId,ReportType: ReportType,ReportedBy: ReportedBy, Status:Status, startdate: startdate,enddate: enddate,success: success, failure: failure,errorPopup: errorPopup)
+        reportManagerAPI.getReportsFor(CompanyId: CompanyId,ReportType: ReportType,ReportedBy: ReportedBy, Status:Status, startdate: startdate,enddate: enddate, Location:Location, success: success, failure: failure,errorPopup: errorPopup)
     }
     
     func sendReportsWith(ReportID: String,

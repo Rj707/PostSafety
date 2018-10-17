@@ -231,18 +231,21 @@ class PSReportAPIManager: PSAPIManagerBase
                        Status:Bool,
                        startdate: String,
                        enddate: String,
+                       Location: String,
                        success:@escaping DefaultArrayResultAPISuccessClosure,
                        failure:@escaping DefaultAPIFailureClosure,
                        errorPopup: Bool)
     {
+        let employeeID = PSDataManager.sharedInstance.loggedInUser?.employeeId
         let parameters: [String:Any] =
             [
-                "CompanyId":CompanyId,
+                "CompanyId":employeeID ?? "",
                 "ReportType":ReportType,
                 "ReportedBy":ReportedBy,
                 "Status":Status,
                 "startdate":startdate,
                 "enddate":enddate,
+                "Location":Location
             ]
         
         let route: URL = GETURLfor(route: Route.Reports.rawValue, parameters: parameters )!
