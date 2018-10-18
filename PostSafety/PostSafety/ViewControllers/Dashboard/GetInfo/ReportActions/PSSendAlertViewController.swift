@@ -167,6 +167,8 @@ class PSSendAlertViewController: UIViewController,PSSelectDialogViewControllerDe
     func configureSenders()
     {
         var temp = ""
+        temp = String(PSDataManager.sharedInstance.loggedInUser?.employeeId as! Int)
+        temp =  temp + ";"
         for i in 0...self.reportSenderArray.count-1
         {
             var reporterDict = NSMutableDictionary.init()

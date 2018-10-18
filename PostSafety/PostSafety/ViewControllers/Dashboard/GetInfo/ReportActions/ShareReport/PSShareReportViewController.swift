@@ -126,6 +126,8 @@ class PSShareReportViewController: UIViewController,UITableViewDelegate,UITableV
                 {
                     (action) in
                     var temp = ""
+                    temp = String(PSDataManager.sharedInstance.loggedInUser?.employeeId as! Int)
+                    temp =  temp + ";"
                     for i in 0...self.reportSenderArrayNew.count-1
                     {
                         temp = temp + String(self.reportSenderArrayNew[i].value(forKey: "employeeId") as! Int)
@@ -133,7 +135,6 @@ class PSShareReportViewController: UIViewController,UITableViewDelegate,UITableV
                         {
                            temp =  temp + ";"
                         }
-//                        self.EmployeeID = self.reportSenderArrayNew[i].value(forKey: "employeeId") as! Int
                     }
                     self.EmployeeID = temp
 
@@ -291,21 +292,21 @@ class PSShareReportViewController: UIViewController,UITableViewDelegate,UITableV
                 { (dic) in
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     let tempArray = dic["array"] as! [Any]
-                    _ = PSDataManager.sharedInstance.loggedInUser?.employeeId
+                    let employeeID = PSDataManager.sharedInstance.loggedInUser?.employeeId
                     for checklistDict in tempArray
                     {
                         
                         if let tempDict = checklistDict as? [String: Any]
                         {
-//                            if tempDict["employeeId"] as? Int == employeeID
-//                            {
-//
-//                            }
-//                            else
-//                            {
-//                              self.reportSenderDetailArray.append(tempDict)
-//                            }
-                            self.reportSenderDetailArray.append(tempDict)
+                            if tempDict["employeeId"] as? Int == employeeID
+                            {
+
+                            }
+                            else
+                            {
+                              self.reportSenderDetailArray.append(tempDict)
+                            }
+//                            self.reportSenderDetailArray.append(tempDict)
                         }
                     }
                     
