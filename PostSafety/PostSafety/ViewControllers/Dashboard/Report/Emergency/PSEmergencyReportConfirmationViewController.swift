@@ -22,6 +22,10 @@ class PSEmergencyReportConfirmationViewController: UIViewController
         
         self.confirmationContainer.layer.borderWidth=2
         self.confirmationContainer.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
+        DispatchQueue.global(qos: .background).async
+        {
+            self.notifyPost()
+        }
         
     }
     
@@ -92,6 +96,30 @@ class PSEmergencyReportConfirmationViewController: UIViewController
         }
     }
     
+    func notifyPost ()
+    {
+        if CEReachabilityManager.isReachable()
+        {
+//            var report = PSReport.init()
+//            report = PSDataManager.sharedInstance.report!
+            let reportID = PSDataManager.sharedInstance.report?.reportID as! Int
+            PSAPIManager.sharedInstance.NotifyPostFor(reportID: String(reportID), success:
+            { (dict) in
+                
+                
+            },
+                                                      failure:
+                { (error, stausCode) in
+                    
+            }, errorPopup: true)
+            
+            
+        }
+        else
+        {
+            
+        }
+    }
 
     /*
     // MARK: - Navigation

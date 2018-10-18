@@ -72,8 +72,6 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
         isPSILabel.text = isPSILabel.text?.components(separatedBy: .newlines).joined()
         subCategoryNameLabel.text = subCategoryNameLabel.text?.components(separatedBy: .newlines).joined()
         
-        
-        
         self.backgroundView.layer.borderWidth=1
         self.backgroundView.layer.borderColor = UIColor(red:255/255, green:75/255, blue:1/255, alpha: 1).cgColor
         
@@ -104,7 +102,8 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
             PSAPIManager.sharedInstance.updateReportFor(ReportId: String(report.reportID), LocationId: String(locationID), Title: "", Details: self.decriptionTextView.text, CatagoryId: String(report.categoryID), SubCatagory: String(report.subCategoryID), IsPSI: self.IsPSI as! Bool, success:
             { (dict) in
                 PSUserInterfaceManager.sharedInstance.hideLoader()
-                PSDataManager.sharedInstance.report = PSReport.init()
+                /*** Moved that below line to NotifiPost API ***/
+                //                PSDataManager.sharedInstance.report = PSReport.init()
                 self.performSegue(withIdentifier: "toReportConfirmFromSummary", sender: (Any).self)
                 
             },
@@ -131,16 +130,12 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
 
         }
     }
-//    DispatchQueue.global(qos: .background).async
-    //    {}
-//    DispatchQueue.main.async {
-//    print("This is run on the main queue, after the previous code in outer block")
-//    }
+    
+    
     // MARK: - UITextViewDelegate
     
     public func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
     {
-        
         return true
     }
     
@@ -158,24 +153,5 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
         // Pass the selected object to the new view controller.
     }
     */
-    
-    func setDateTimeForReport()
-    {
-        //        let date = Date()
-        //        let formatter = DateFormatter()
-        ////        Give the format you want to the formatter:
-        //
-        //        formatter.dateFormat = "dd.MM.yyyy"
-        ////        Get the result string:
-        //
-        //        var result = formatter.string(from: date)
-        ////        Set your label:
-        //
-        //        self.dateTextField.text = result
-        //
-        //        formatter.dateFormat = "hh:mm a"
-        //        result = formatter.string(from: date)
-        //        self.timeTextField.text = result
-    }
 
 }

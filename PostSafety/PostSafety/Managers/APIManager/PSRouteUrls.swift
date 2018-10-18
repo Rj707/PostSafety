@@ -41,6 +41,10 @@ enum Route: String
     case NotificationIsRead = "/api/NotificationIsRead/"
     case ProcedurePolicyRead = "/api/ProcedureNPolicyIsRead/"
     
+    case RestoreBadge       = "/api/RestoreBadge/"
+    case NotifyPost       = "/api/NotifyPost/"
+    
+    
     func url() -> String
     {
         return Constants.BaseURL + self.rawValue

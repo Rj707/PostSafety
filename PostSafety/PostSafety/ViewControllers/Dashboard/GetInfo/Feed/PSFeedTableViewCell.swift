@@ -15,6 +15,10 @@ class PSFeedTableViewCell: UITableViewCell
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
+    
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var senderLabel: UILabel!
    
     override func awakeFromNib()
     {

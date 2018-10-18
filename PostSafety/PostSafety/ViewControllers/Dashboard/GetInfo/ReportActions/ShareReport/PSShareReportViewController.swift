@@ -291,20 +291,21 @@ class PSShareReportViewController: UIViewController,UITableViewDelegate,UITableV
                 { (dic) in
                     PSUserInterfaceManager.sharedInstance.hideLoader()
                     let tempArray = dic["array"] as! [Any]
-                    var employeeID = PSDataManager.sharedInstance.loggedInUser?.employeeId
+                    _ = PSDataManager.sharedInstance.loggedInUser?.employeeId
                     for checklistDict in tempArray
                     {
                         
                         if let tempDict = checklistDict as? [String: Any]
                         {
-                            if tempDict["employeeId"] as! Int == employeeID
-                            {
-                                
-                            }
-                            else
-                            {
-                              self.reportSenderDetailArray.append(tempDict)
-                            }
+//                            if tempDict["employeeId"] as? Int == employeeID
+//                            {
+//
+//                            }
+//                            else
+//                            {
+//                              self.reportSenderDetailArray.append(tempDict)
+//                            }
+                            self.reportSenderDetailArray.append(tempDict)
                         }
                     }
                     
@@ -321,17 +322,17 @@ class PSShareReportViewController: UIViewController,UITableViewDelegate,UITableV
                     print(self.reportSenderDetailArray)
                     
             }, failure:
-                { (error:NSError,statusCode:Int) in
+            { (error:NSError,statusCode:Int) in
                     
-                    PSUserInterfaceManager.sharedInstance.hideLoader()
-                    if(statusCode==404)
-                    {
-                        PSUserInterfaceManager.showAlert(title: "Fetching Senders", message: ApiErrorMessage.ErrorOccured)
-                    }
-                    else
-                    {
-                        PSUserInterfaceManager.showAlert(title: "Fetching Senders", message: error.localizedDescription)
-                    }
+                PSUserInterfaceManager.sharedInstance.hideLoader()
+                if(statusCode==404)
+                {
+                    PSUserInterfaceManager.showAlert(title: "Fetching Senders", message: ApiErrorMessage.ErrorOccured)
+                }
+                else
+                {
+                    PSUserInterfaceManager.showAlert(title: "Fetching Senders", message: error.localizedDescription)
+                }
                     
             }, errorPopup: true)
         }

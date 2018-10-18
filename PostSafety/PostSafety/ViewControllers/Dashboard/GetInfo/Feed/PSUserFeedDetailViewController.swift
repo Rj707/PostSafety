@@ -102,6 +102,10 @@ class PSUserFeedDetailViewController: UIViewController
         {
             self.feedDetailAttachmentButton.isHidden = true
         }
+        else if self.feedDict["fileName"] is NSNull
+        {
+            self.feedDetailAttachmentButton.isHidden = true
+        }
         else
         {
             self.feedDetailAttachmentButton.isHidden = false

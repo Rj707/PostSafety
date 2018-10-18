@@ -158,23 +158,25 @@ class PSFilterReportsViewController: UIViewController,IQDropDownTextFieldDelegat
             
             filterDictionary["ReportType"] = self.reportTypeDDTextField.selectedItem
             
-            
             filterDictionary.setValue(String(self.reportTypeIdForReportName(name: self.reportTypeDDTextField.selectedItem!)), forKey: "ReportType")
-            filterDictionary.setValue(self.reportSenderDDTextField.selectedItem, forKey: "ReportedBy")
+            
             filterDictionary.setValue(self.reportStartDateDDTextField.text, forKey: "startdate")
             filterDictionary.setValue(self.reportEndDateDDTextField.text, forKey: "enddate")
             
             if self.reportStatusDDTextField.selectedItem == "Open Posts"
             {
-                filterDictionary.setValue(NSNumber.init(value: true), forKey: "Status")
+                filterDictionary.setValue(NSNumber.init(booleanLiteral: true), forKey: "Status")
+                filterDictionary.setValue("1", forKey: "DummyStatus")
             }
             else if self.reportStatusDDTextField.selectedItem == "Closed Posts"
             {
-                filterDictionary.setValue(NSNumber.init(value: false), forKey: "Status")
+                filterDictionary.setValue(NSNumber.init(booleanLiteral: false), forKey: "Status")
+                filterDictionary.setValue("2", forKey: "DummyStatus")
             }
             else
             {
-                filterDictionary.setValue("", forKey: "Status")
+                filterDictionary.setValue(NSNumber.init(booleanLiteral: true), forKey: "Status")
+                filterDictionary.setValue("0", forKey: "DummyStatus")
             }
             
             if reportTypeDDTextField.selectedItem == "All"
@@ -183,7 +185,13 @@ class PSFilterReportsViewController: UIViewController,IQDropDownTextFieldDelegat
             }
             if reportSenderDDTextField.selectedItem == "All"
             {
-                filterDictionary.setValue("", forKey: "ReportedBy")
+                filterDictionary.setValue(-1, forKey: "ReportedBy")
+            }
+            else
+            {
+                var item = NSDictionary()
+                item = self.reportSenderDetailArray[self.reportSenderDDTextField.selectedRow-1] as! NSDictionary
+                filterDictionary.setValue(item["employeeId"], forKey: "ReportedBy")
             }
             
             if reportLocationDDTextField.selectedItem == "All"
@@ -274,7 +282,7 @@ class PSFilterReportsViewController: UIViewController,IQDropDownTextFieldDelegat
     {
         if CEReachabilityManager.isReachable()
         {
-//            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Senders")
+            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Configuring Filters")
             companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
             PSAPIManager.sharedInstance.listAllEmployeesFor(companyId: String(companyId), success:
                 { (dic) in
@@ -321,7 +329,7 @@ class PSFilterReportsViewController: UIViewController,IQDropDownTextFieldDelegat
     {
         if CEReachabilityManager.isReachable()
         {
-//            PSUserInterfaceManager.sharedInstance.showLoaderWithText(text: "Fetching Locations")
+
             companyId = (PSDataManager.sharedInstance.loggedInUser?.companyId)!
             PSAPIManager.sharedInstance.getLocationsFor(companyId: String(companyId) ,success:
             { (dic) in
