@@ -136,12 +136,18 @@ class PSReportSummaryViewController: UIViewController,UITextViewDelegate
     
     public func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
     {
+        
         return true
     }
     
     public func textViewShouldEndEditing(_ textView: UITextView) -> Bool
     {
         return true
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
+    {
+        return textView.text.characters.count + (text.characters.count - range.length) <= 200
     }
     
     /*
